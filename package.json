@@ -34,9 +34,9 @@
     "*.css": "stylelint"
   },
   "bugs": {
-    "url": "https://github.com/sebastian-software/edgestack/issues"
+    "url": "https://github.com/sebastian-software/edgebabel/issues"
   },
-  "homepage": "https://github.com/sebastian-software/edgestack#readme",
+  "homepage": "https://github.com/sebastian-software/edgebabel#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sebastian-software/edgebabel.git"
