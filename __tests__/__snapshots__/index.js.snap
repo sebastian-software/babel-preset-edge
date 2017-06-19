@@ -1,17 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ES2015: Classes 1`] = `
-"\\"use strict\\";
-
-var _classCallCheck2 = require(\\"babel-runtime/helpers/classCallCheck\\");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+"import _classCallCheck from \\"babel-runtime/helpers/classCallCheck\\";
 
 var Component = function () {
   function Component() {
-    (0, _classCallCheck3.default)(this, Component);
+    _classCallCheck(this, Component);
   }
 
   Component.prototype.main = function main() {};
@@ -20,21 +14,10 @@ var Component = function () {
 }();"
 `;
 
-exports[`ES2015: Set 1`] = `
-"\\"use strict\\";
-
-new Set([1, 2, 3]);"
-`;
+exports[`ES2015: Set 1`] = `"new Set([1, 2, 3]);"`;
 
 exports[`ESNext: Async/Await 1`] = `
-"\\"use strict\\";
-
-var _nodentRuntime = require(\\"nodent-runtime\\");
-
-var _nodentRuntime2 = _interopRequireDefault(_nodentRuntime);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+"import _default from \\"nodent-runtime\\";
 function hello() {
   return new Promise(function ($return, $error) {
     return $return();
@@ -43,43 +26,24 @@ function hello() {
 `;
 
 exports[`ESNext: Class Properties 1`] = `
-"\\"use strict\\";
-
-var _classCallCheck2 = require(\\"babel-runtime/helpers/classCallCheck\\");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+"import _classCallCheck from \\"babel-runtime/helpers/classCallCheck\\";
 
 var Component = function Component() {
-  (0, _classCallCheck3.default)(this, Component);
+  _classCallCheck(this, Component);
 
   this.onClick = function () {};
 };"
 `;
 
-exports[`ESNext: Object Spread 1`] = `
-"\\"use strict\\";
-
-var original = { bar: 10 };var variant = Object.assign({ foo: 1 }, original);"
-`;
+exports[`ESNext: Object Spread 1`] = `"var original = { bar: 10 };var variant = Object.assign({ foo: 1 }, original);"`;
 
 exports[`Lodash 1`] = `
-"\\"use strict\\";
-
-var _camelCase2 = require(\\"lodash/camelCase\\");
-
-var _camelCase3 = _interopRequireDefault(_camelCase2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(0, _camelCase3.default)(\\"hello world\\");"
+"import _camelCase from \\"lodash/camelCase\\";
+_camelCase(\\"hello world\\");"
 `;
 
 exports[`React: JSX 1`] = `
-"\\"use strict\\";
-
-function render() {
+"function render() {
   return React.createElement(
     \\"h1\\",
     null,
