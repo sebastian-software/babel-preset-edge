@@ -26,15 +26,30 @@ export default function buildPreset(context, opts = {})
 
   const looseMode = true
 
+  const defaults = {
+    modules: false
+  }
+  const options = { ...defaults, ...opts }
+
   const envValue = process.env.BABEL_ENV || process.env.NODE_ENV || "development"
   const isProduction = envValue === "production"
 
   presets.push([ envPreset, {
     // Setting this to false will not transform modules.
-    // "modules": false,
+    modules: options.modules,
+
+    // Prefer built-ins which also prefers global polyfills which is the right thing to do
+    // for most scenarios like SPAs and NodeJS environments.
     useBuiltIns: true,
+
     loose: looseMode,
+
+    // We prefer the transpilation of the "fast-async" plugin over the
+    // slower and more complex Babel internal implementation.
     exclude: [ "transform-regenerator", "transform-async-to-generator" ],
+
+    // Differ between development and production for our scope.
+    // NodeJS is generally fine in development to match the runtime version which is currently installed.
     targets: {
       browsers: [ "last 2 versions" ],
       node: "current"
