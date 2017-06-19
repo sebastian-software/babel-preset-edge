@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should transpile ES2015 1`] = `
+exports[`ES2015: Classes 1`] = `
 "class Component {
   main() {}
 }"
 `;
+
+exports[`ESNext: Async/Await 1`] = `"async function hello() {}"`;
