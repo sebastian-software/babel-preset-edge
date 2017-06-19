@@ -27,6 +27,14 @@ test("ESNext: Async/Await", () => {
   expect(transform(`async function hello() { }`, options).code).toMatchSnapshot()
 })
 
-test("Lodash", () => {
+test("Lodash: Lodash", () => {
   expect(transform(`import { camelCase } from "lodash"; camelCase("hello world")`, options).code).toMatchSnapshot()
+})
+
+test("Lodash: Recompose", () => {
+  expect(transform(`import { compose } from "recompose"; compose([])`, options).code).toMatchSnapshot()
+})
+
+test("Lodash: Async", () => {
+  expect(transform(`import { parallel } from "async"; parallel([])`, options).code).toMatchSnapshot()
 })

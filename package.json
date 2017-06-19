@@ -59,8 +59,12 @@
     "babel-preset-react": "^6.24.1"
   },
   "devDependencies": {
+    "async": "^2.4.1",
     "jest-cli": "^20.0.4",
+    "lodash": "^4.17.4",
     "prepublish": "^0.16.3",
-    "readable-code": "^3.0.0"
+    "rambda": "^0.7.0",
+    "readable-code": "^3.0.0",
+    "recompose": "^0.23.5"
   }
 }

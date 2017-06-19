@@ -37,9 +37,19 @@ var Component = function Component() {
 
 exports[`ESNext: Object Spread 1`] = `"var original = { bar: 10 };var variant = Object.assign({ foo: 1 }, original);"`;
 
-exports[`Lodash 1`] = `
+exports[`Lodash: Async 1`] = `
+"import _parallel from \\"async/parallel\\";
+_parallel([]);"
+`;
+
+exports[`Lodash: Lodash 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
 _camelCase(\\"hello world\\");"
+`;
+
+exports[`Lodash: Recompose 1`] = `
+"import _compose from \\"recompose/compose\\";
+_compose([]);"
 `;
 
 exports[`React: JSX 1`] = `
