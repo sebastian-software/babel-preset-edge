@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ES2015: Class Properties: Bound methods 1`] = `
+"\\"use strict\\";
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\\"Cannot call a class as a function\\"); } }
+
+var Component = function Component() {
+  _classCallCheck(this, Component);
+
+  this.onClick = function () {};
+};"
+`;
+
 exports[`ES2015: Classes 1`] = `
 "\\"use strict\\";
 
