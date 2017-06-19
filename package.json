@@ -17,5 +17,9 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1"
+  },
+  "devDependencies": {
+    "jest-cli": "^20.0.4",
+    "readable-code": "^3.0.0"
   }
 }
