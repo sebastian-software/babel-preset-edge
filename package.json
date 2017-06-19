@@ -1,14 +1,42 @@
 {
   "name": "edgebabel",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "EdgeBabel is a collection of carefully chosen and configured Babel presets and plugins for modern React development.",
+  "main": "lib/node.commonjs.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "prepublish": "prepublish",
+    "release": "release-it --github.release --npm.publish --non-interactive",
+    "release:minor": "release-it --github.release --npm.publish --non-interactive --increment minor",
+    "release:major": "release-it --github.release --npm.publish --non-interactive --increment major"
   },
-  "keywords": [],
+  "engines": {
+    "node": ">=6.0.0",
+    "yarn": ">=0.21.3",
+    "npm": ">=4.0.0"
+  },
+  "keywords": ["babel","preset","babel-preset","react","webpack"],
   "author": "",
   "license": "ISC",
+  "pre-commit": "lint-staged",
+  "lint-staged": {
+    "*.js": "eslint",
+    "*.css": "stylelint"
+  },
+  "author": {
+    "name": "Sebastian Software",
+    "email": "s.werner@sebastian-software.de",
+    "url": "sebastian-software.de"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sebastian-software/edgestack/issues"
+  },
+  "homepage": "https://github.com/sebastian-software/edgestack#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastian-software/edgebabel.git"
+  },
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
