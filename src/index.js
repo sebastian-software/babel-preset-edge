@@ -68,7 +68,9 @@ export default function buildPreset(context, opts = {})
 
     loose: looseMode,
     spec: specMode,
-    debug: true,
+
+    // Debug output of features, plugins and presets which are enabled.
+    // debug: true,
 
     // We prefer the transpilation of the "fast-async" plugin over the
     // slower and more complex Babel internal implementation.
