@@ -1,4 +1,7 @@
 /* eslint-disable filenames/match-exported */
+import { get as getAppRoot } from "app-root-dir"
+import { resolve as resolvePath } from "path"
+
 import envPreset from "babel-preset-env"
 import reactPreset from "babel-preset-react"
 import flowPreset from "babel-preset-flow"
@@ -33,7 +36,7 @@ export default function buildPreset(context, opts = {})
 
   // Supports loading files in source folder without relative folders
   plugins.push([ moduleResolverPlugin, {
-    root: [ "src" ]
+    root: [ resolvePath(getAppRoot(), "src") ]
   }])
 
   // Alternative to Babel Regenerator
