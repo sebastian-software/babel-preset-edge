@@ -1,6 +1,7 @@
 /* eslint-disable filenames/match-exported */
 import { get as getAppRoot } from "app-root-dir"
 import { resolve as resolvePath } from "path"
+import browserslist from "browserslist"
 
 import envPreset from "babel-preset-env"
 import reactPreset from "babel-preset-react"
@@ -25,14 +26,37 @@ export default function buildPreset(context, opts = {})
   const plugins = []
 
   const looseMode = true
+  const specMode = false
 
   const defaults = {
-    modules: "commonjs"
+    modules: "commonjs",
+    target: "nodejs"
   }
   const options = { ...defaults, ...opts }
 
+  // There is also a BROWSERSLIST_ENV
   const envValue = process.env.BABEL_ENV || process.env.NODE_ENV || "development"
   const isProduction = envValue === "production"
+
+  let envTargets = {}
+  if (options.target === "nodejs") {
+    // Last stable NodeJS (LTS)
+    envTargets.node = "6.0"
+  } else if (options.target === "script" || options.target === "test") {
+    // Scripts which are directly used like tests can be transpiled for the current NodeJS version
+    envTargets.node = "current"
+  } else if (options.target === "browser") {
+    // Until this issue is fixed we can't use auto config detection for browserslist in babel-preset-env
+    // https://github.com/babel/babel-preset-env/issues/149
+    // What we do here is actually pretty clever/ytupid as we just pass over the already normalized
+    // browser list to browserslist again.
+    const autoBrowsers = browserslist(null, { env: isProduction ? "production" : "development" })
+
+    // For the abstract browsers config we let browserslist find the config file
+    envTargets.browsers = autoBrowsers
+  } else if (typeof options.target === "object") {
+    envTargets = options.target
+  }
 
   presets.push([ envPreset, {
     // Setting this to false will not transform modules.
@@ -43,6 +67,8 @@ export default function buildPreset(context, opts = {})
     useBuiltIns: true,
 
     loose: looseMode,
+    spec: specMode,
+    debug: true,
 
     // We prefer the transpilation of the "fast-async" plugin over the
     // slower and more complex Babel internal implementation.
@@ -50,10 +76,7 @@ export default function buildPreset(context, opts = {})
 
     // Differ between development and production for our scope.
     // NodeJS is generally fine in development to match the runtime version which is currently installed.
-    targets: {
-      browsers: [ "last 2 versions" ],
-      node: "current"
-    }
+    targets: envTargets
   }])
 
   presets.push(reactPreset)
