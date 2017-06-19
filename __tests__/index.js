@@ -1,4 +1,4 @@
-import { transform } from 'babel-core';
+import { transform } from "babel-core"
 import buildPreset from "../src"
 
 const options = buildPreset()
