@@ -1,7 +1,11 @@
+import env from "babel-preset-env"
+import react from "babel-preset-react"
+import flow from "babel-preset-flow"
+
 const presets = []
 const plugins = []
 
-presets.push([ "env", {
+presets.push([ env, {
   // Setting this to false will not transform modules.
   // "modules": false,
   "useBuiltIns": true,
@@ -12,8 +16,8 @@ presets.push([ "env", {
   }
 }])
 
-presets.push("react")
-presets.push("flow")
+presets.push(react)
+presets.push(flow)
 
 // Support for new @import() syntax
 plugins.push("syntax-dynamic-import")
