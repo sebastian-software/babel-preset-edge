@@ -11,6 +11,10 @@ test("ES2015: Set", () => {
   expect(transform(`new Set([1,2,3])`, options).code).toMatchSnapshot()
 })
 
+test("ES2015: Generator", () => {
+  expect(transform(`function* idMaker() { var index = 0; while(true) yield index++ }`, options).code).toMatchSnapshot()
+})
+
 test("React: JSX", () => {
   expect(transform(`function render() { return <h1>Hello</h1> }`, options).code).toMatchSnapshot()
 })

@@ -14,6 +14,14 @@ var Component = function () {
 }();"
 `;
 
+exports[`ES2015: Generator 1`] = `
+"function* idMaker() {
+  var index = 0;while (true) {
+    yield index++;
+  }
+}"
+`;
+
 exports[`ES2015: Set 1`] = `"new Set([1, 2, 3]);"`;
 
 exports[`ESNext: Async/Await 1`] = `
