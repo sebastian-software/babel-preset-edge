@@ -15,20 +15,24 @@
     "yarn": ">=0.21.3",
     "npm": ">=4.0.0"
   },
-  "keywords": ["babel","preset","babel-preset","react","webpack"],
-  "author": "",
-  "license": "ISC",
-  "pre-commit": "lint-staged",
-  "lint-staged": {
-    "*.js": "eslint",
-    "*.css": "stylelint"
-  },
+  "keywords": [
+    "babel",
+    "preset",
+    "babel-preset",
+    "react",
+    "webpack"
+  ],
   "author": {
     "name": "Sebastian Software",
     "email": "s.werner@sebastian-software.de",
     "url": "sebastian-software.de"
   },
   "license": "Apache-2.0",
+  "pre-commit": "lint-staged",
+  "lint-staged": {
+    "*.js": "eslint",
+    "*.css": "stylelint"
+  },
   "bugs": {
     "url": "https://github.com/sebastian-software/edgestack/issues"
   },
@@ -48,6 +52,7 @@
   },
   "devDependencies": {
     "jest-cli": "^20.0.4",
+    "prepublish": "^0.16.3",
     "readable-code": "^3.0.0"
   }
 }
