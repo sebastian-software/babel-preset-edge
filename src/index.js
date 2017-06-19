@@ -3,6 +3,12 @@ import envPreset from "babel-preset-env"
 import reactPreset from "babel-preset-react"
 import flowPreset from "babel-preset-flow"
 
+import dynamicImportPlugin from "babel-plugin-syntax-dynamic-import"
+import moduleResolverPlugin from "babel-plugin-module-resolver"
+import fastAsyncPlugin from "babel-plugin-fast-async"
+import classPropertiesPlugin from "babel-plugin-transform-class-properties"
+import objectRestSpreadPlugin from "babel-plugin-transform-object-rest-spread"
+
 export default function buildPreset(context, opts = {})
 {
   const presets = []
@@ -23,22 +29,22 @@ export default function buildPreset(context, opts = {})
   presets.push(flowPreset)
 
   // Support for new @import() syntax
-  plugins.push("babel-plugin-syntax-dynamic-import")
+  plugins.push(dynamicImportPlugin)
 
   // Supports loading files in source folder without relative folders
-  plugins.push([ "babel-plugin-module-resolver", {
+  plugins.push([ moduleResolverPlugin, {
     root: [ "src" ]
   }])
 
   // Alternative to Babel Regenerator
   // Implements the ES7 keywords async and await using syntax transformation at compile-time, rather than generators.
-  plugins.push("babel-plugin-fast-async")
+  plugins.push(fastAsyncPlugin)
 
   // Support for ES7 Class Properties (currently stage-2)
-  plugins.push("babel-plugin-transform-class-properties")
+  plugins.push(classPropertiesPlugin)
 
   // Support for Object Rest Spread `...` operator in objects.
-  plugins.push([ "babel-plugin-transform-object-rest-spread", { "useBuiltIns": true }])
+  plugins.push([ objectRestSpreadPlugin, { useBuiltIns: true }])
 
   // Assemble final config
   return {
