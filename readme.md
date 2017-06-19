@@ -18,15 +18,15 @@ EdgeBabel is a collection of carefully chosen and configured Babel presets and p
 
 ## Features
 
-### ES2015/2016/2017
-
-#### [babel-preset-env](https://github.com/babel/babel-preset-env)
-
-Environment specific Babel transpilation.
-
-TODO
-
-
+- React and Flowtype Support baked-in for transpiling JSX and removing non-standard Flowtype definitions.
+- Optimizations for React during development (richer debug capabilities) and production (less code).
+- Automatic environment specific ES2015/2016/2017 support using [Preset Env](https://github.com/babel/babel-preset-env)
+- High performance async/await transpilation using [Fast Async](https://github.com/MatAtBread/fast-async) and [nodeent](https://github.com/MatAtBread/nodent#performance)
+- Support for new dynamic `import()` statement which is used for dynamic chunk creation in Webpack since version 2.
+- Local module support for easily referencing sources inside the `src` folder of the project using the [module resolver plugin](https://github.com/tleunen/babel-plugin-module-resolver).
+- Support for converting often times used upcoming ES standards like class properties and object rest spread.
+- Prefers external polyfills and helpers instead of baked-in code which is especially beneficial for caching and code splitting.
+- [Lodash Plugin](https://github.com/lodash/babel-plugin-lodash) to allow cherry-picking of more tranditionally exported libraries.
 
 
 
