@@ -5,12 +5,16 @@ test("ES2015: Classes", () => {
   expect(transform(`class Component{ main() { } }`, options).code).toMatchSnapshot()
 })
 
-test("ES2015: Class Properties: Bound methods", () => {
-  expect(transform(`class Component{ onClick = () => { } }`, options).code).toMatchSnapshot()
-})
-
 test("React: JSX", () => {
   expect(transform(`function render() { return <h1>Hello</h1> }`, options).code).toMatchSnapshot()
+})
+
+test("ESNext: Object Spread", () => {
+  expect(transform(`let original = { bar : 10 }; let variant = { foo: 1, ...original }`, options).code).toMatchSnapshot()
+})
+
+test("ESNext: Class Properties", () => {
+  expect(transform(`class Component{ onClick = () => { } }`, options).code).toMatchSnapshot()
 })
 
 test("ESNext: Async/Await", () => {

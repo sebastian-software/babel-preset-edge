@@ -340,6 +340,24 @@ Function.prototype.$asyncbind = function $asyncbind(self, catcher) {
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\\"next\\", value); }, function (err) { step(\\"throw\\", err); }); } } return step(\\"next\\"); }); }; }"
 `;
 
+exports[`ESNext: Class Properties 1`] = `
+"\\"use strict\\";
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\\"Cannot call a class as a function\\"); } }
+
+var Component = function Component() {
+  _classCallCheck(this, Component);
+
+  this.onClick = function () {};
+};"
+`;
+
+exports[`ESNext: Object Spread 1`] = `
+"\\"use strict\\";
+
+var original = { bar: 10 };var variant = Object.assign({ foo: 1 }, original);"
+`;
+
 exports[`React: JSX 1`] = `
 "\\"use strict\\";
 
