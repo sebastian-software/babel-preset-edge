@@ -27,7 +27,7 @@ EdgeBabel is a collection of carefully chosen and configured Babel presets and p
 - Support for converting often times used upcoming ES standards like class properties and object rest spread.
 - Prefers external polyfills and helpers instead of baked-in code which is especially beneficial for caching and code splitting.
 - [Lodash Plugin](https://github.com/lodash/babel-plugin-lodash) to allow cherry-picking of more tranditionally exported libraries like lodash, async, rambda and recompose.
-
+- The transpiler config ignores Generators. As transpiling these results into super slow code and async/await is available the preset prefers to use this instead of "regenerator".
 
 
 
