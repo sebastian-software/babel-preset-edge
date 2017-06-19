@@ -14,15 +14,26 @@ import objectRestSpreadPlugin from "babel-plugin-transform-object-rest-spread"
 import lodashPlugin from "babel-plugin-lodash"
 import transformRuntimePlugin from "babel-plugin-transform-runtime"
 
+import reactIntlPlugin from "babel-plugin-react-intl"
+import removePropTypesPlugin from "babel-plugin-transform-react-remove-prop-types"
+import reactInlineElementsPlugin from "babel-plugin-transform-react-inline-elements"
+import reactConstantElements from "babel-plugin-transform-react-constant-elements"
+
 export default function buildPreset(context, opts = {})
 {
   const presets = []
   const plugins = []
 
+  const looseMode = true
+
+  const envValue = process.env.BABEL_ENV || process.env.NODE_ENV || "development"
+  const isProduction = envValue === "production"
+
   presets.push([ envPreset, {
     // Setting this to false will not transform modules.
     // "modules": false,
     useBuiltIns: true,
+    loose: looseMode,
     exclude: [ "transform-regenerator", "transform-async-to-generator" ],
     targets: {
       browsers: [ "last 2 versions" ],
@@ -65,6 +76,26 @@ export default function buildPreset(context, opts = {})
     useBuiltIns: true,
     useESModules: true
   }])
+
+  if (isProduction) {
+    // Cleanup descriptions for translations from compilation output
+    plugins.push(reactIntlPlugin)
+
+    // Remove prop types from our code
+    plugins.push([ removePropTypesPlugin, { removeImport: true }])
+
+    // Replaces the React.createElement function with one that is
+    // more optimized for production.
+    // NOTE: Symbol needs to be polyfilled.
+    plugins.push(reactInlineElementsPlugin)
+
+    // Hoists element creation to the top level for subtrees that
+    // are fully static, which reduces call to React.createElement
+    // and the resulting allocations. More importantly, it tells
+    // React that the subtree hasn’t changed so React can completely
+    // skip it when reconciling.
+    plugins.push(reactConstantElements)
+  }
 
   // Assemble final config
   return {
