@@ -27,7 +27,7 @@ export default function buildPreset(context, opts = {})
   const looseMode = true
 
   const defaults = {
-    modules: false
+    modules: "commonjs"
   }
   const options = { ...defaults, ...opts }
 

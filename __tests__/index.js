@@ -1,7 +1,7 @@
 import { transform } from "babel-core"
 import buildPreset from "../src"
 
-const options = buildPreset()
+const options = buildPreset(null, { modules: false })
 
 test("ES2015: Classes", () => {
   expect(transform(`class Component{ main() { } }`, options).code).toMatchSnapshot()
