@@ -26,7 +26,7 @@ EdgeBabel is a collection of carefully chosen and configured Babel presets and p
 - Local module support for easily referencing sources inside the `src` folder of the project using the [module resolver plugin](https://github.com/tleunen/babel-plugin-module-resolver).
 - Support for converting often times used upcoming ES standards like class properties and object rest spread.
 - Prefers external polyfills and helpers instead of baked-in code which is especially beneficial for caching and code splitting.
-- [Lodash Plugin](https://github.com/lodash/babel-plugin-lodash) to allow cherry-picking of more tranditionally exported libraries.
+- [Lodash Plugin](https://github.com/lodash/babel-plugin-lodash) to allow cherry-picking of more tranditionally exported libraries like lodash, async, rambda and recompose.
 
 
 

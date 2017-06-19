@@ -62,9 +62,9 @@ export default function buildPreset(context, opts = {})
   // Support for new @import() syntax
   plugins.push(dynamicImportPlugin)
 
-  // Optimization for lodash imports.
+  // Optimization for cheery-picking from lodash, asyncjs, ramba and recompose.
   // Auto cherry-picking es2015 imports from path imports.
-  plugins.push(lodashPlugin)
+  plugins.push([ lodashPlugin, { id: [ "lodash", "async", "rambda", "recompose" ] }])
 
   // Supports loading files in source folder without relative folders
   plugins.push([ moduleResolverPlugin, {
