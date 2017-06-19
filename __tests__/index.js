@@ -22,3 +22,7 @@ test("ESNext: Class Properties", () => {
 test("ESNext: Async/Await", () => {
   expect(transform(`async function hello() { }`, options).code).toMatchSnapshot()
 })
+
+test("Lodash", () => {
+  expect(transform(`import { camelCase } from "lodash"; camelCase("hello world")`, options).code).toMatchSnapshot()
+})

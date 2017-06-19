@@ -346,6 +346,18 @@ exports[`ESNext: Object Spread 1`] = `
 var original = { bar: 10 };var variant = Object.assign({ foo: 1 }, original);"
 `;
 
+exports[`Lodash 1`] = `
+"\\"use strict\\";
+
+var _camelCase2 = require(\\"lodash/camelCase\\");
+
+var _camelCase3 = _interopRequireDefault(_camelCase2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _camelCase3.default)(\\"hello world\\");"
+`;
+
 exports[`React: JSX 1`] = `
 "\\"use strict\\";
 

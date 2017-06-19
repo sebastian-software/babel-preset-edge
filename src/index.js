@@ -11,6 +11,7 @@ import moduleResolverPlugin from "babel-plugin-module-resolver"
 import fastAsyncPlugin from "babel-plugin-fast-async"
 import classPropertiesPlugin from "babel-plugin-transform-class-properties"
 import objectRestSpreadPlugin from "babel-plugin-transform-object-rest-spread"
+import lodashPlugin from "babel-plugin-lodash"
 
 export default function buildPreset(context, opts = {})
 {
@@ -33,6 +34,10 @@ export default function buildPreset(context, opts = {})
 
   // Support for new @import() syntax
   plugins.push(dynamicImportPlugin)
+
+  // Optimization for lodash imports.
+  // Auto cherry-picking es2015 imports from path imports.
+  plugins.push(lodashPlugin)
 
   // Supports loading files in source folder without relative folders
   plugins.push([ moduleResolverPlugin, {
