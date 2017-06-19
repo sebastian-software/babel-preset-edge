@@ -23,7 +23,7 @@ export default function buildPreset(context, opts = {})
     // Setting this to false will not transform modules.
     // "modules": false,
     useBuiltIns: true,
-    exclude: [ "transform-regenerator" ],
+    exclude: [ "transform-regenerator", "transform-async-to-generator" ],
     targets: {
       browsers: [ "last 2 versions" ],
       node: "current"
@@ -47,7 +47,9 @@ export default function buildPreset(context, opts = {})
 
   // Alternative to Babel Regenerator
   // Implements the ES7 keywords async and await using syntax transformation at compile-time, rather than generators.
-  plugins.push(fastAsyncPlugin)
+  plugins.push([ fastAsyncPlugin, {
+    useRuntimeModule: true
+  }])
 
   // Support for ES7 Class Properties (currently stage-2)
   plugins.push(classPropertiesPlugin)
