@@ -3,36 +3,53 @@
 exports[`ES2015: Classes 1`] = `
 "\\"use strict\\";
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\\"value\\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = require(\\"babel-runtime/helpers/classCallCheck\\");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\\"Cannot call a class as a function\\"); } }
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require(\\"babel-runtime/helpers/createClass\\");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Component = function () {
   function Component() {
-    _classCallCheck(this, Component);
+    (0, _classCallCheck3.default)(this, Component);
   }
 
-  _createClass(Component, [{
+  (0, _createClass3.default)(Component, [{
     key: \\"main\\",
     value: function main() {}
   }]);
-
   return Component;
 }();"
+`;
+
+exports[`ES2015: Set 1`] = `
+"\\"use strict\\";
+
+new Set([1, 2, 3]);"
 `;
 
 exports[`ESNext: Async/Await 1`] = `
 "\\"use strict\\";
 
-var _typeof = typeof Symbol === \\"function\\" && typeof Symbol.iterator === \\"symbol\\" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === \\"function\\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \\"symbol\\" : typeof obj; };
+import _typeof from \\"babel-runtime/helpers/typeof\\";
+
+var _asyncToGenerator2 = require(\\"babel-runtime/helpers/asyncToGenerator\\");
+
+var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
 var hello = function () {
-  var _ref = _asyncToGenerator(function* () {});
+  var _ref = (0, _asyncToGenerator3.default)(function* () {});
 
   return function hello() {
     return _ref.apply(this, arguments);
   };
 }();
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 Function.prototype.$asyncbind = function $asyncbind(self, catcher) {
   \\"use strict\\";
@@ -323,18 +340,20 @@ Function.prototype.$asyncbind = function $asyncbind(self, catcher) {
   function boundThen() {
     return resolver.apply(self, arguments);
   }
-};
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\\"next\\", value); }, function (err) { step(\\"throw\\", err); }); } } return step(\\"next\\"); }); }; }"
+};"
 `;
 
 exports[`ESNext: Class Properties 1`] = `
 "\\"use strict\\";
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\\"Cannot call a class as a function\\"); } }
+var _classCallCheck2 = require(\\"babel-runtime/helpers/classCallCheck\\");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Component = function Component() {
-  _classCallCheck(this, Component);
+  (0, _classCallCheck3.default)(this, Component);
 
   this.onClick = function () {};
 };"

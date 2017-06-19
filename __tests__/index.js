@@ -7,6 +7,10 @@ test("ES2015: Classes", () => {
   expect(transform(`class Component{ main() { } }`, options).code).toMatchSnapshot()
 })
 
+test("ES2015: Set", () => {
+  expect(transform(`new Set([1,2,3])`, options).code).toMatchSnapshot()
+})
+
 test("React: JSX", () => {
   expect(transform(`function render() { return <h1>Hello</h1> }`, options).code).toMatchSnapshot()
 })

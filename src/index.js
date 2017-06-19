@@ -12,6 +12,7 @@ import fastAsyncPlugin from "babel-plugin-fast-async"
 import classPropertiesPlugin from "babel-plugin-transform-class-properties"
 import objectRestSpreadPlugin from "babel-plugin-transform-object-rest-spread"
 import lodashPlugin from "babel-plugin-lodash"
+import transformRuntimePlugin from "babel-plugin-transform-runtime"
 
 export default function buildPreset(context, opts = {})
 {
@@ -53,6 +54,15 @@ export default function buildPreset(context, opts = {})
 
   // Support for Object Rest Spread `...` operator in objects.
   plugins.push([ objectRestSpreadPlugin, { useBuiltIns: true }])
+
+  // Use helpers, but not polyfills, in a way that omits duplication.
+  // For polyfills better use polyfill.io or another more sophisticated solution.
+  plugins.push([ transformRuntimePlugin, {
+    regenerator: false,
+    polyfill: false,
+    useBuiltIns: true,
+    useESModules: true
+  }])
 
   // Assemble final config
   return {
