@@ -1,6 +1,6 @@
 {
   "name": "edgebabel",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "EdgeBabel is a collection of carefully chosen and configured Babel presets and plugins for modern React development.",
   "main": "lib/node.commonjs.js",
   "scripts": {
