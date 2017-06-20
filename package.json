@@ -5,7 +5,7 @@
   "main": "lib/node.commonjs.js",
   "scripts": {
     "test": "npm run prepublish && jest",
-    "prepublish": "prepublish",
+    "prepare": "prepublish",
     "release": "release-it --github.release --npm.publish --non-interactive",
     "release:minor": "release-it --github.release --npm.publish --non-interactive --increment minor",
     "release:major": "release-it --github.release --npm.publish --non-interactive --increment major"
