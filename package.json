@@ -1,6 +1,6 @@
 {
   "name": "edge-babel",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Edge Babel is a centralized Babel Configuration. Part of the Edge Platform.",
   "main": "lib/node.commonjs.js",
   "scripts": {
