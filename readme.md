@@ -12,7 +12,7 @@
 [travis]: https://travis-ci.org/sebastian-software/edge-babel
 [appveyor]: https://ci.appveyor.com/project/swernerx/edge-babel/branch/master
 
-Edge Babel is a collection of carefully chosen and configured Babel presets and plugins for modern React development.
+Edge Babel is a centralized Babel Configuration. Part of the Edge Platform.
 
 
 

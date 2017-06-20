@@ -1,7 +1,7 @@
 {
   "name": "edge-babel",
   "version": "0.4.1",
-  "description": "EdgeBabel is a collection of carefully chosen and configured Babel presets and plugins for modern React development.",
+  "description": "Edge Babel is a centralized Babel Configuration. Part of the Edge Platform.",
   "main": "lib/node.commonjs.js",
   "scripts": {
     "test": "npm run prepublish && jest",
