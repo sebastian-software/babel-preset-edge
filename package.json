@@ -1,5 +1,5 @@
 {
-  "name": "edgebabel",
+  "name": "edge-babel",
   "version": "0.3.1",
   "description": "EdgeBabel is a collection of carefully chosen and configured Babel presets and plugins for modern React development.",
   "main": "lib/node.commonjs.js",
@@ -34,12 +34,12 @@
     "*.css": "stylelint"
   },
   "bugs": {
-    "url": "https://github.com/sebastian-software/edgebabel/issues"
+    "url": "https://github.com/sebastian-software/edge-babel/issues"
   },
-  "homepage": "https://github.com/sebastian-software/edgebabel#readme",
+  "homepage": "https://github.com/sebastian-software/edge-babel#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sebastian-software/edgebabel.git"
+    "url": "git+https://github.com/sebastian-software/edge-babel.git"
   },
   "dependencies": {
     "app-root-dir": "^1.0.2",

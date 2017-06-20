@@ -2,17 +2,17 @@
 
 [sponsor-img]: https://img.shields.io/badge/Sponsored%20by-Sebastian%20Software-692446.svg
 [sponsor]: https://www.sebastian-software.de
-[deps]: https://david-dm.org/sebastian-software/edgebabel
-[deps-img]: https://david-dm.org/sebastian-software/edgebabel.svg
-[npm]: https://www.npmjs.com/package/edgebabel
-[npm-downloads-img]: https://img.shields.io/npm/dm/edgebabel.svg
-[npm-version-img]: https://img.shields.io/npm/v/edgebabel.svg
-[travis-img]: https://img.shields.io/travis/sebastian-software/edgebabel/master.svg?branch=master&label=unix%20build
-[appveyor-img]: https://img.shields.io/appveyor/ci/swernerx/edgebabel/master.svg?label=windows%20build
-[travis]: https://travis-ci.org/sebastian-software/edgebabel
-[appveyor]: https://ci.appveyor.com/project/swernerx/edgebabel/branch/master
+[deps]: https://david-dm.org/sebastian-software/edge-babel
+[deps-img]: https://david-dm.org/sebastian-software/edge-babel.svg
+[npm]: https://www.npmjs.com/package/edge-babel
+[npm-downloads-img]: https://img.shields.io/npm/dm/edge-babel.svg
+[npm-version-img]: https://img.shields.io/npm/v/edge-babel.svg
+[travis-img]: https://img.shields.io/travis/sebastian-software/edge-babel/master.svg?branch=master&label=unix%20build
+[appveyor-img]: https://img.shields.io/appveyor/ci/swernerx/edge-babel/master.svg?label=windows%20build
+[travis]: https://travis-ci.org/sebastian-software/edge-babel
+[appveyor]: https://ci.appveyor.com/project/swernerx/edge-babel/branch/master
 
-EdgeBabel is a collection of carefully chosen and configured Babel presets and plugins for modern React development.
+Edge Babel is a collection of carefully chosen and configured Babel presets and plugins for modern React development.
 
 
 
