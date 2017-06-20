@@ -4,7 +4,7 @@
   "description": "Edge Babel is a centralized Babel Configuration. Part of the Edge Platform.",
   "main": "lib/node.commonjs.js",
   "scripts": {
-    "test": "npm run prepublish && jest",
+    "test": "prepublish && jest",
     "prepare": "prepublish",
     "release": "release-it --github.release --npm.publish --non-interactive",
     "release:minor": "release-it --github.release --npm.publish --non-interactive --increment minor",
