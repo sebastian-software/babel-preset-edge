@@ -3,6 +3,10 @@ import buildPreset from "../src"
 
 const options = buildPreset(null, { modules: false, target: { browsers: "ie 11" } })
 
+// Keep formatting for tests (to keep output/diffs readable)
+options.minified = false
+options.compact = false
+
 test("ES2015: Classes", () => {
   expect(transform(`class Component{ main() { } }`, options).code).toMatchSnapshot()
 })

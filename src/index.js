@@ -139,6 +139,15 @@ export default function buildPreset(context, opts = {})
 
   // Assemble final config
   return {
+    // Just some basic minification
+    comments: false,
+    compact: true,
+    minified: true,
+
+    // Enable source maps by default
+    sourceMaps: true,
+
+    // And all the previously built lists of presets and plugins
     presets,
     plugins
   }
