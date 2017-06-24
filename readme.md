@@ -1,18 +1,18 @@
-# Edge Babel<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps]
+# Babel Preset Edge<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps]
 
 [sponsor-img]: https://img.shields.io/badge/Sponsored%20by-Sebastian%20Software-692446.svg
 [sponsor]: https://www.sebastian-software.de
-[deps]: https://david-dm.org/sebastian-software/edge-babel
-[deps-img]: https://david-dm.org/sebastian-software/edge-babel.svg
-[npm]: https://www.npmjs.com/package/edge-babel
-[npm-downloads-img]: https://img.shields.io/npm/dm/edge-babel.svg
-[npm-version-img]: https://img.shields.io/npm/v/edge-babel.svg
-[travis-img]: https://img.shields.io/travis/sebastian-software/edge-babel/master.svg?branch=master&label=unix%20build
-[appveyor-img]: https://img.shields.io/appveyor/ci/swernerx/edge-babel/master.svg?label=windows%20build
-[travis]: https://travis-ci.org/sebastian-software/edge-babel
-[appveyor]: https://ci.appveyor.com/project/swernerx/edge-babel/branch/master
+[deps]: https://david-dm.org/sebastian-software/babel-preset-edge
+[deps-img]: https://david-dm.org/sebastian-software/babel-preset-edge.svg
+[npm]: https://www.npmjs.com/package/babel-preset-edge
+[npm-downloads-img]: https://img.shields.io/npm/dm/babel-preset-edge.svg
+[npm-version-img]: https://img.shields.io/npm/v/babel-preset-edge.svg
+[travis-img]: https://img.shields.io/travis/sebastian-software/babel-preset-edge/master.svg?branch=master&label=unix%20build
+[appveyor-img]: https://img.shields.io/appveyor/ci/swernerx/babel-preset-edge/master.svg?label=windows%20build
+[travis]: https://travis-ci.org/sebastian-software/babel-preset-edge
+[appveyor]: https://ci.appveyor.com/project/swernerx/babel-preset-edge/branch/master
 
-Edge Babel is a centralized Babel Configuration. Part of the Edge Platform.
+Babel Preset Edge is a centralized modern Babel Configuration for React development. Part of the Edge Platform.
 
 
 

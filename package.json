@@ -1,5 +1,5 @@
 {
-  "name": "edge-babel",
+  "name": "babel-preset-edge",
   "version": "0.4.3",
   "description": "Edge Babel is a centralized Babel Configuration. Part of the Edge Platform.",
   "main": "lib/node.commonjs.js",
@@ -34,12 +34,12 @@
     "*.css": "stylelint"
   },
   "bugs": {
-    "url": "https://github.com/sebastian-software/edge-babel/issues"
+    "url": "https://github.com/sebastian-software/babel-preset-edge/issues"
   },
-  "homepage": "https://github.com/sebastian-software/edge-babel#readme",
+  "homepage": "https://github.com/sebastian-software/babel-preset-edge#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sebastian-software/edge-babel.git"
+    "url": "git+https://github.com/sebastian-software/babel-preset-edge.git"
   },
   "dependencies": {
     "app-root-dir": "^1.0.2",
