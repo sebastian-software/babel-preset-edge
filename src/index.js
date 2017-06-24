@@ -25,12 +25,11 @@ export default function buildPreset(context, opts = {})
   const presets = []
   const plugins = []
 
-  const looseMode = true
-  const specMode = false
-
   const defaults = {
     modules: "commonjs",
-    target: "nodejs"
+    target: "nodejs",
+    looseMode: true,
+    specMode: false
   }
   const options = { ...defaults, ...opts }
 
@@ -66,8 +65,8 @@ export default function buildPreset(context, opts = {})
     // for most scenarios like SPAs and NodeJS environments.
     useBuiltIns: true,
 
-    loose: looseMode,
-    spec: specMode,
+    loose: options.looseMode,
+    spec: options.specMode,
 
     // Debug output of features, plugins and presets which are enabled.
     // debug: true,
