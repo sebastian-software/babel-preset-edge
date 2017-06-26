@@ -61,7 +61,7 @@
     "browserslist": "^2.1.5"
   },
   "devDependencies": {
-    "async": "^2.4.1",
+    "async": "^2.5.0",
     "jest-cli": "^20.0.4",
     "lodash": "^4.17.4",
     "prepublish": "^0.16.3",

@@ -65,6 +65,8 @@ export default function buildPreset(context, opts = {})
     // for most scenarios like SPAs and NodeJS environments.
     useBuiltIns: true,
 
+    // Options to tweak the details of the implementation. If both are `false` the environment
+    // preset is executed in default mode.
     loose: options.looseMode,
     spec: options.specMode,
 
@@ -91,6 +93,7 @@ export default function buildPreset(context, opts = {})
   plugins.push([ lodashPlugin, { id: [ "lodash", "async", "rambda", "recompose" ] }])
 
   // Supports loading files in source folder without relative folders
+  // https://github.com/tleunen/babel-plugin-module-resolver
   plugins.push([ moduleResolverPlugin, {
     root: [ resolvePath(getAppRoot(), "src") ]
   }])
@@ -105,7 +108,9 @@ export default function buildPreset(context, opts = {})
   plugins.push(classPropertiesPlugin)
 
   // Support for Object Rest Spread `...` operator in objects.
-  plugins.push([ objectRestSpreadPlugin, { useBuiltIns: true }])
+  plugins.push([ objectRestSpreadPlugin, {
+    useBuiltIns: true
+  }])
 
   // Use helpers, but not polyfills, in a way that omits duplication.
   // For polyfills better use polyfill.io or another more sophisticated solution.
