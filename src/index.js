@@ -8,7 +8,7 @@ import reactPreset from "babel-preset-react"
 import flowPreset from "babel-preset-flow"
 
 import dynamicImportPlugin from "babel-plugin-syntax-dynamic-import"
-import moduleResolverPlugin from "babel-plugin-module-resolver"
+import rootImportPlugin from "babel-plugin-module-resolver"
 import fastAsyncPlugin from "babel-plugin-fast-async"
 import classPropertiesPlugin from "babel-plugin-transform-class-properties"
 import objectRestSpreadPlugin from "babel-plugin-transform-object-rest-spread"
@@ -35,6 +35,9 @@ export default function buildPreset(context, opts = {})
 
     // Lodash Plugin Settings
     optimizeModules: [ "lodash", "async", "rambda", "recompose" ],
+
+    //
+    sourceFolder: "src",
 
     // Babel Settings
     comments: false,
@@ -104,9 +107,12 @@ export default function buildPreset(context, opts = {})
   plugins.push([ lodashPlugin, { id: options.optimizeModules }])
 
   // Supports loading files in source folder without relative folders
-  // https://github.com/tleunen/babel-plugin-module-resolver
-  plugins.push([ moduleResolverPlugin, {
-    root: [ resolvePath(getAppRoot(), "src") ]
+  // https://github.com/entwicklerstube/babel-plugin-root-import
+  // It's better than "babel-plugin-module-resolver" as it supports a custom prefix
+  // so that it is clear which files are locally or from `node_modules`.
+  plugins.push([ rootImportPlugin, {
+    rootPathPrefix: "~",
+    rootPathSuffix: [ resolvePath(getAppRoot(), options.sourceFolder) ]
   }])
 
   // Alternative to Babel Regenerator
