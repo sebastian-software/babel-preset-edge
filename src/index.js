@@ -110,7 +110,7 @@ export default function buildPreset(context, opts = {})
   // https://github.com/tleunen/babel-plugin-module-resolver
   plugins.push([ moduleResolver, {
     alias: {
-      "~": options.sourceFolder
+      "~": resolvePath(getAppRoot(), options.sourceFolder)
     }
   }])
 
