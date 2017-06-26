@@ -28,8 +28,18 @@ export default function buildPreset(context, opts = {})
   const defaults = {
     modules: "commonjs",
     target: "nodejs",
+
+    // Env Settings
     looseMode: true,
-    specMode: false
+    specMode: false,
+
+    // Lodash Plugin Settings
+    optimizeModules: [ "lodash", "async", "rambda", "recompose" ],
+
+    // Babel Settings
+    comments: false,
+    compact: true,
+    minified: true
   }
   const options = { ...defaults, ...opts }
 
@@ -82,6 +92,7 @@ export default function buildPreset(context, opts = {})
     targets: envTargets
   }])
 
+  // Support for React (JSX) and Flowtype
   presets.push(reactPreset)
   presets.push(flowPreset)
 
@@ -90,7 +101,7 @@ export default function buildPreset(context, opts = {})
 
   // Optimization for cheery-picking from lodash, asyncjs, ramba and recompose.
   // Auto cherry-picking es2015 imports from path imports.
-  plugins.push([ lodashPlugin, { id: [ "lodash", "async", "rambda", "recompose" ] }])
+  plugins.push([ lodashPlugin, { id: options.optimizeModules }])
 
   // Supports loading files in source folder without relative folders
   // https://github.com/tleunen/babel-plugin-module-resolver
@@ -126,7 +137,9 @@ export default function buildPreset(context, opts = {})
     plugins.push(reactIntlPlugin)
 
     // Remove prop types from our code
-    plugins.push([ removePropTypesPlugin, { removeImport: true }])
+    plugins.push([ removePropTypesPlugin, {
+      removeImport: true
+    }])
 
     // Replaces the React.createElement function with one that is
     // more optimized for production.
@@ -144,9 +157,9 @@ export default function buildPreset(context, opts = {})
   // Assemble final config
   return {
     // Just some basic minification
-    comments: false,
-    compact: true,
-    minified: true,
+    comments: options.comments,
+    compact: options.compact,
+    minified: options.minified,
 
     // Enable source maps by default
     sourceMaps: true,
