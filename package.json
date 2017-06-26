@@ -6,9 +6,9 @@
   "scripts": {
     "test": "prepublish && jest",
     "prepare": "prepublish",
-    "release": "release-it --github.release --npm.publish --non-interactive",
-    "release:minor": "release-it --github.release --npm.publish --non-interactive --increment minor",
-    "release:major": "release-it --github.release --npm.publish --non-interactive --increment major"
+    "release": "git push && release-it --github.release --npm.publish --non-interactive",
+    "release:minor": "git push && release-it --github.release --npm.publish --non-interactive --increment minor",
+    "release:major": "git push && release-it --github.release --npm.publish --non-interactive --increment major"
   },
   "engines": {
     "node": ">=6.0.0",
