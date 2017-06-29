@@ -19,6 +19,10 @@ import reactIntlPlugin from "babel-plugin-react-intl"
 import removePropTypesPlugin from "babel-plugin-transform-react-remove-prop-types"
 import reactInlineElementsPlugin from "babel-plugin-transform-react-inline-elements"
 import reactConstantElements from "babel-plugin-transform-react-constant-elements"
+import stripFlowType from "transform-flow-strip-types"
+
+import es3PropertyLiterals from "transform-es3-property-literals"
+import es3ExpressionLiterals from "transform-es3-member-expression-literals"
 
 export default function buildPreset(context, opts = {})
 {
@@ -34,6 +38,9 @@ export default function buildPreset(context, opts = {})
     specMode: false,
 
     // Lodash Plugin Settings
+    // Cherry-picks Lodash and recompose modules so you don’t have to.
+    // https://www.npmjs.com/package/babel-plugin-lodash
+    // https://github.com/acdlite/recompose#using-babel-lodash-plugin
     optimizeModules: [ "lodash", "async", "rambda", "recompose" ],
 
     // Configuration for module lookup
@@ -102,6 +109,10 @@ export default function buildPreset(context, opts = {})
   // Support for new @import() syntax
   plugins.push(dynamicImportPlugin)
 
+  // Improve some ES3 edge case to make code parseable by older clients
+  // e.g. when using reserved words as keys like "catch"
+  plugins.push(es3ExpressionLiterals, es3PropertyLiterals)
+
   // Optimization for cheery-picking from lodash, asyncjs, ramba and recompose.
   // Auto cherry-picking es2015 imports from path imports.
   plugins.push([ lodashPlugin, { id: options.optimizeModules }])
@@ -116,14 +127,17 @@ export default function buildPreset(context, opts = {})
 
   // Alternative to Babel Regenerator
   // Implements the ES7 keywords async and await using syntax transformation at compile-time, rather than generators.
+  // https://www.npmjs.com/package/fast-async
   plugins.push([ fastAsyncPlugin, {
     useRuntimeModule: true
   }])
 
   // Support for ES7 Class Properties (currently stage-2)
+  // class { handleClick = () => { } }
   plugins.push(classPropertiesPlugin)
 
   // Support for Object Rest Spread `...` operator in objects.
+  // { ...todo, completed: true }
   plugins.push([ objectRestSpreadPlugin, {
     useBuiltIns: true
   }])
@@ -136,6 +150,9 @@ export default function buildPreset(context, opts = {})
     useBuiltIns: true,
     useESModules: true
   }])
+
+  // Strip flow type annotations from your output code.
+  plugins.push(stripFlowType)
 
   if (isProduction) {
     // Cleanup descriptions for translations from compilation output
