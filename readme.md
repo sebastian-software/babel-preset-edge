@@ -29,7 +29,31 @@ Babel Preset Edge is a centralized modern Babel Configuration for React developm
 - [Lodash Plugin](https://github.com/lodash/babel-plugin-lodash) to allow cherry-picking of more tranditionally exported libraries like lodash, async, rambda and recompose.
 - The transpiler config ignores Generators. As transpiling these results into super slow code and async/await is available the preset prefers to use this instead of "regenerator".
 
+## Defaults
 
+These are our default options. They can be tweaked by passing the required options to the preset.
+
+```js
+const defaults = {
+  modules: "commonjs",
+  target: "nodejs",
+
+  // Env Settings
+  looseMode: true,
+  specMode: false,
+
+  // Lodash Plugin Settings
+  optimizeModules: [ "lodash", "async", "rambda", "recompose" ],
+
+  // Configuration for module lookup
+  sourceFolder: "src",
+
+  // Babel Settings
+  comments: false,
+  compact: true,
+  minified: true
+}
+```
 
 ## License
 

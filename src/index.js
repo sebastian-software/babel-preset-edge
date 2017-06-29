@@ -50,6 +50,8 @@ export default function buildPreset(context, opts = {})
     compact: true,
     minified: true
   }
+
+  // These are the final options we use later on.
   const options = { ...defaults, ...opts }
 
   // There is also a BROWSERSLIST_ENV
