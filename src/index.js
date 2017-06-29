@@ -23,40 +23,37 @@ import reactConstantElements from "babel-plugin-transform-react-constant-element
 import es3PropertyLiterals from "babel-plugin-transform-es3-property-literals"
 import es3ExpressionLiterals from "babel-plugin-transform-es3-member-expression-literals"
 
+const defaults = {
+  // One of the following:
+  // - "node"/nodejs"/"script"/"binary": any NodeJS related execution with wide support to last LTS aka 6.9.0
+  // - "current"/"test": current NodeJS version
+  // - "browser"/"web": browsers as defined by browserslist
+  // - {}: any custom settings support by Env-Preset
+  target: "nodejs",
+
+  // Choose automatically depending on target
+  modules: "auto",
+
+  // Env Settings
+  looseMode: true,
+  specMode: false,
+
+  // Lodash Plugin Settings
+  optimizeModules: [ "lodash", "async", "rambda", "recompose" ],
+
+  // Configuration for module lookup
+  sourceFolder: "src",
+
+  // Babel Core Settings
+  comments: false,
+  compact: true,
+  minified: true
+}
+
 export default function buildPreset(context, opts = {})
 {
   const presets = []
   const plugins = []
-
-  const defaults = {
-    // One of the following:
-    // - "node"/nodejs"/"script"/"binary": any NodeJS related execution with wide support to last LTS aka 6.9.0
-    // - "current"/"test": current NodeJS version
-    // - "browser"/"web": browsers as defined by browserslist
-    // - {}: any custom settings support by Env-Preset
-    target: "nodejs",
-
-    // Choose automatically depending on target
-    modules: "auto",
-
-    // Env Settings
-    looseMode: true,
-    specMode: false,
-
-    // Lodash Plugin Settings
-    // Cherry-picks Lodash and recompose modules so you don’t have to.
-    // https://www.npmjs.com/package/babel-plugin-lodash
-    // https://github.com/acdlite/recompose#using-babel-lodash-plugin
-    optimizeModules: [ "lodash", "async", "rambda", "recompose" ],
-
-    // Configuration for module lookup
-    sourceFolder: "src",
-
-    // Babel Settings
-    comments: false,
-    compact: true,
-    minified: true
-  }
 
   // These are the final options we use later on.
   const options = { ...defaults, ...opts }
@@ -64,6 +61,13 @@ export default function buildPreset(context, opts = {})
   // There is also a BROWSERSLIST_ENV
   const envValue = process.env.BABEL_ENV || process.env.NODE_ENV || "development"
   const isProduction = envValue === "production"
+
+  console.log("- Environment:", envValue)
+
+  // Auto select test target when running in test environment and no other info is available.
+  if (envValue === "test" && options.target == null) {
+    options.target = "test"
+  }
 
   let envTargets = {}
   if (options.target === "node" || options.target === "nodejs" || options.target === "script" || options.target === "binary") {
@@ -145,6 +149,8 @@ export default function buildPreset(context, opts = {})
 
   // Optimization for cheery-picking from lodash, asyncjs, ramba and recompose.
   // Auto cherry-picking es2015 imports from path imports.
+  // https://www.npmjs.com/package/babel-plugin-lodash
+  // https://github.com/acdlite/recompose#using-babel-lodash-plugin
   plugins.push([ lodashPlugin, { id: options.optimizeModules }])
 
   // Supports loading files in source folder without relative folders

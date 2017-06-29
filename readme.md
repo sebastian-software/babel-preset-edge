@@ -35,8 +35,15 @@ These are our default options. They can be tweaked by passing the required optio
 
 ```js
 const defaults = {
-  modules: "commonjs",
+  // One of the following:
+  // - "node"/nodejs"/"script"/"binary": any NodeJS related execution with wide support to last LTS aka 6.9.0
+  // - "current"/"test": current NodeJS version
+  // - "browser"/"web": browsers as defined by browserslist
+  // - {}: any custom settings support by Env-Preset
   target: "nodejs",
+
+  // Choose automatically depending on target
+  modules: "auto",
 
   // Env Settings
   looseMode: true,
@@ -48,7 +55,7 @@ const defaults = {
   // Configuration for module lookup
   sourceFolder: "src",
 
-  // Babel Settings
+  // Babel Core Settings
   comments: false,
   compact: true,
   minified: true
