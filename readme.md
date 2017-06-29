@@ -35,6 +35,9 @@ These are our default options. They can be tweaked by passing the required optio
 
 ```js
 const defaults = {
+  // Whether to print hints on transpilation settings which were selected.
+  debug: false,
+
   // One of the following:
   // - "node"/nodejs"/"script"/"binary": any NodeJS related execution with wide support to last LTS aka 6.9.0
   // - "current"/"test": current NodeJS version

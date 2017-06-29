@@ -24,6 +24,9 @@ import es3PropertyLiterals from "babel-plugin-transform-es3-property-literals"
 import es3ExpressionLiterals from "babel-plugin-transform-es3-member-expression-literals"
 
 const defaults = {
+  // Whether to print hints on transpilation settings which were selected.
+  debug: false,
+
   // One of the following:
   // - "node"/nodejs"/"script"/"binary": any NodeJS related execution with wide support to last LTS aka 6.9.0
   // - "current"/"test": current NodeJS version
@@ -64,7 +67,9 @@ export default function buildPreset(context, opts = {})
   const envValue = process.env.BABEL_ENV || process.env.NODE_ENV || "development"
   const isProduction = envValue === "production"
 
-  console.log("- Environment:", envValue)
+  if (options.debug) {
+    console.log("- Environment:", envValue)
+  }
 
   // Auto select test target when running in test environment and no other info is available.
   if (envValue === "test" && options.target == null) {
@@ -124,14 +129,18 @@ export default function buildPreset(context, opts = {})
       "transform-es2015-modules-systemjs",
       "transform-es2015-modules-amd",
       "transform-es2015-modules-umd"
+
+      // This is already excluded by default
       // "transform-regenerator"
     )
   }
 
-  if (options.target === "es2015") {
-    console.log("- Environment Targets: ES2015 capable")
-  } else {
-    console.log("- Environment Targets:", envTargets)
+  if (options.debug) {
+    if (options.target === "es2015") {
+      console.log("- Environment Targets: ES2015 capable")
+    } else {
+      console.log("- Environment Targets:", envTargets)
+    }
   }
 
   if (options.modules === "auto" || options.modules == null) {
@@ -147,8 +156,10 @@ export default function buildPreset(context, opts = {})
     }
   }
 
-  console.log("- Module Settings:", options.modules === false ? "ESM" : options.modules)
-  console.log("- Transpilation Compliance:", options.specMode ? "SPEC" : options.looseMode ? "LOOSE" : "DEFAULT")
+  if (options.debug) {
+    console.log("- Module Settings:", options.modules === false ? "ESM" : options.modules)
+    console.log("- Transpilation Compliance:", options.specMode ? "SPEC" : options.looseMode ? "LOOSE" : "DEFAULT")
+  }
 
   presets.push([ envPreset, {
     // Setting this to false will not transform modules.
