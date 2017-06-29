@@ -28,6 +28,8 @@ const defaults = {
   // - "node"/nodejs"/"script"/"binary": any NodeJS related execution with wide support to last LTS aka 6.9.0
   // - "current"/"test": current NodeJS version
   // - "browser"/"web": browsers as defined by browserslist
+  // - "library": ideally used for publishing libraries e.g. on NPM
+  // - "es2015": same as "library" but targets es2o15 capable engines only.
   // - {}: any custom settings support by Env-Preset
   target: "nodejs",
 
@@ -86,11 +88,44 @@ export default function buildPreset(context, opts = {})
 
     // For the abstract browsers config we let browserslist find the config file
     envTargets.browsers = autoBrowsers
-  } else if (options.target === "library") {
-    // Explicit undefined results into compilation with "latest" preset supporting a wide range of clients
+  } else if (options.target === "library" || options.target === "es2015") {
+    // Explicit undefined results into compilation with "latest" preset supporting a wide range of clients via ES5 output
     envTargets = null
   } else if (typeof options.target === "object") {
     envTargets = options.target
+  }
+
+  let additionalExcludes = []
+
+  // Exclude all es2015 features which are supported by the default es2015 babel preset.
+  // This targets all es2015-capable browsers and engines.
+  if (options.target === "es2015") {
+    additionalExcludes.push([
+      "transform-es2015-template-literals",
+      "transform-es2015-literals",
+      "transform-es2015-function-name",
+      "transform-es2015-arrow-functions",
+      "transform-es2015-block-scoped-functions",
+      "transform-es2015-classes",
+      "transform-es2015-object-super",
+      "transform-es2015-shorthand-properties",
+      "transform-es2015-duplicate-keys",
+      "transform-es2015-computed-properties",
+      "transform-es2015-for-of",
+      "transform-es2015-sticky-regex",
+      "transform-es2015-unicode-regex",
+      "check-es2015-constants",
+      "transform-es2015-spread",
+      "transform-es2015-parameters",
+      "transform-es2015-destructuring",
+      "transform-es2015-block-scoping",
+      "transform-es2015-typeof-symbol",
+      "transform-es2015-modules-commonjs",
+      "transform-es2015-modules-systemjs",
+      "transform-es2015-modules-amd",
+      "transform-es2015-modules-umd"
+      // "transform-regenerator"
+    ])
   }
 
   console.log("- Environment Targets:", envTargets)
@@ -129,7 +164,7 @@ export default function buildPreset(context, opts = {})
 
     // We prefer the transpilation of the "fast-async" plugin over the
     // slower and more complex Babel internal implementation.
-    exclude: [ "transform-regenerator", "transform-async-to-generator" ],
+    exclude: [ "transform-regenerator", "transform-async-to-generator", ...additionalExcludes ],
 
     // Differ between development and production for our scope.
     // NodeJS is generally fine in development to match the runtime version which is currently installed.

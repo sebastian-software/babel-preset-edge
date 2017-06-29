@@ -39,6 +39,8 @@ const defaults = {
   // - "node"/nodejs"/"script"/"binary": any NodeJS related execution with wide support to last LTS aka 6.9.0
   // - "current"/"test": current NodeJS version
   // - "browser"/"web": browsers as defined by browserslist
+  // - "library": ideally used for publishing libraries e.g. on NPM
+  // - "es2015": same as "library" but targets es2o15 capable engines only.
   // - {}: any custom settings support by Env-Preset
   target: "nodejs",
 
