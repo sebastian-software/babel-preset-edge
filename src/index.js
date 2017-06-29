@@ -19,7 +19,6 @@ import reactIntlPlugin from "babel-plugin-react-intl"
 import removePropTypesPlugin from "babel-plugin-transform-react-remove-prop-types"
 import reactInlineElementsPlugin from "babel-plugin-transform-react-inline-elements"
 import reactConstantElements from "babel-plugin-transform-react-constant-elements"
-import stripFlowType from "transform-flow-strip-types"
 
 import es3PropertyLiterals from "transform-es3-property-literals"
 import es3ExpressionLiterals from "transform-es3-member-expression-literals"
@@ -150,9 +149,6 @@ export default function buildPreset(context, opts = {})
     useBuiltIns: true,
     useESModules: true
   }])
-
-  // Strip flow type annotations from your output code.
-  plugins.push(stripFlowType)
 
   if (isProduction) {
     // Cleanup descriptions for translations from compilation output
