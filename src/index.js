@@ -29,8 +29,15 @@ export default function buildPreset(context, opts = {})
   const plugins = []
 
   const defaults = {
-    modules: "commonjs",
+    // One of the following:
+    // - "node"/nodejs"/"script"/"binary": any NodeJS related execution with wide support to last LTS aka 6.9.0
+    // - "current"/"test": current NodeJS version
+    // - "browser"/"web": browsers as defined by browserslist
+    // - {}: any custom settings support by Env-Preset
     target: "nodejs",
+
+    // Choose automatically depending on target
+    modules: "auto",
 
     // Env Settings
     looseMode: true,
@@ -59,13 +66,14 @@ export default function buildPreset(context, opts = {})
   const isProduction = envValue === "production"
 
   let envTargets = {}
-  if (options.target === "nodejs") {
-    // Last stable NodeJS (LTS)
-    envTargets.node = "6.0"
-  } else if (options.target === "script" || options.target === "test") {
+  if (options.target === "node" || options.target === "nodejs" || options.target === "script" || options.target === "binary") {
+    // Last stable NodeJS (LTS) - first LTS of 6.x.x was 6.9.0
+    // See also: https://nodejs.org/en/blog/release/v6.9.0/
+    envTargets.node = "6.9.0"
+  } else if (options.target === "current" || options.target === "test") {
     // Scripts which are directly used like tests can be transpiled for the current NodeJS version
     envTargets.node = "current"
-  } else if (options.target === "browser") {
+  } else if (options.target === "browser" || options.target === "web") {
     // Until this issue is fixed we can't use auto config detection for browserslist in babel-preset-env
     // https://github.com/babel/babel-preset-env/issues/149
     // What we do here is actually pretty clever/ytupid as we just pass over the already normalized
@@ -74,9 +82,30 @@ export default function buildPreset(context, opts = {})
 
     // For the abstract browsers config we let browserslist find the config file
     envTargets.browsers = autoBrowsers
+  } else if (options.target === "library") {
+    // Explicit undefined results into compilation with "latest" preset supporting a wide range of clients
+    envTargets = null
   } else if (typeof options.target === "object") {
     envTargets = options.target
   }
+
+  console.log("- Environment Targets:", envTargets)
+
+  if (options.modules === "auto" || options.modules == null) {
+    if (options.target === "node" || options.target === "nodejs" || options.target === "script" || options.target === "binary" || options.target === "test") {
+      options.modules = "commonjs"
+    } else if (options.target === "library" || options.target === "browser") {
+      // Libraries should be published as EcmaScript modules for tree shaking support
+      // For browser targets we typically use tools like Webpack which benefit from EcmaScript modules, too.
+      options.modules = false
+    } else {
+      // Best overall support when nothing other is applicable
+      options.modules = "commonjs"
+    }
+  }
+
+  console.log("- Module Settings:", options.modules)
+  console.log("- Transpilation Compliance:", options.specMode ? "SPEC" : options.looseMode ? "LOOSE" : "DEFAULT")
 
   presets.push([ envPreset, {
     // Setting this to false will not transform modules.
