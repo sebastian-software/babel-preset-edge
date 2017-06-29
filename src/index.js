@@ -90,7 +90,7 @@ export default function buildPreset(context, opts = {})
     envTargets.browsers = autoBrowsers
   } else if (options.target === "library" || options.target === "es2015") {
     // Explicit undefined results into compilation with "latest" preset supporting a wide range of clients via ES5 output
-    envTargets = null
+    envTargets = undefined
   } else if (typeof options.target === "object") {
     envTargets = options.target
   }
@@ -100,7 +100,7 @@ export default function buildPreset(context, opts = {})
   // Exclude all es2015 features which are supported by the default es2015 babel preset.
   // This targets all es2015-capable browsers and engines.
   if (options.target === "es2015") {
-    additionalExcludes.push([
+    additionalExcludes.push(
       "transform-es2015-template-literals",
       "transform-es2015-literals",
       "transform-es2015-function-name",
@@ -125,10 +125,14 @@ export default function buildPreset(context, opts = {})
       "transform-es2015-modules-amd",
       "transform-es2015-modules-umd"
       // "transform-regenerator"
-    ])
+    )
   }
 
-  console.log("- Environment Targets:", envTargets)
+  if (options.target === "es2015") {
+    console.log("- Environment Targets: ES2015 capable")
+  } else {
+    console.log("- Environment Targets:", envTargets)
+  }
 
   if (options.modules === "auto" || options.modules == null) {
     if (options.target === "node" || options.target === "nodejs" || options.target === "script" || options.target === "binary" || options.target === "test") {
