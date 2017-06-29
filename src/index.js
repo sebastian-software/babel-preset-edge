@@ -20,8 +20,8 @@ import removePropTypesPlugin from "babel-plugin-transform-react-remove-prop-type
 import reactInlineElementsPlugin from "babel-plugin-transform-react-inline-elements"
 import reactConstantElements from "babel-plugin-transform-react-constant-elements"
 
-import es3PropertyLiterals from "transform-es3-property-literals"
-import es3ExpressionLiterals from "transform-es3-member-expression-literals"
+import es3PropertyLiterals from "babel-plugin-transform-es3-property-literals"
+import es3ExpressionLiterals from "babel-plugin-transform-es3-member-expression-literals"
 
 export default function buildPreset(context, opts = {})
 {
