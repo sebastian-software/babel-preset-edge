@@ -104,7 +104,7 @@ export default function buildPreset(context, opts = {})
     }
   }
 
-  console.log("- Module Settings:", options.modules)
+  console.log("- Module Settings:", options.modules === false ? "ESM" : options.modules)
   console.log("- Transpilation Compliance:", options.specMode ? "SPEC" : options.looseMode ? "LOOSE" : "DEFAULT")
 
   presets.push([ envPreset, {
