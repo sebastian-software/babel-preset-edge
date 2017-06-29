@@ -24,7 +24,9 @@ exports[`ES2015: Generator 1`] = `
 
 exports[`ES2015: Set 1`] = `"new Set([1, 2, 3]);"`;
 
-exports[`ESNext: Async/Await 1`] = `
+exports[`ES2016: Exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
+
+exports[`ES2017: Async/Await 1`] = `
 "import _default from \\"nodent-runtime\\";
 function hello() {
   return new Promise(function ($return, $error) {

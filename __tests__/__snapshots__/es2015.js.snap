@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ES2015: Classes 1`] = `
+"class Component {
+  main() {}
+}"
+`;
+
+exports[`ES2015: Generator 1`] = `
+"function* idMaker() {
+  var index = 0;while (true) yield index++;
+}"
+`;
+
+exports[`ES2015: Set 1`] = `"new Set([1, 2, 3]);"`;
+
+exports[`ES2016: Exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
+
+exports[`ES2017: Async/Await 1`] = `
+"import _default from \\"nodent-runtime\\";
+function hello() {
+  return new Promise(function ($return, $error) {
+    return $return();
+  }.$asyncbind(this));
+}"
+`;
+
+exports[`ESNext: Class Properties 1`] = `
+"class Component {
+  constructor() {
+    this.onClick = () => {};
+  }
+
+}"
+`;
+
+exports[`ESNext: Object Spread 1`] = `"let original = { bar: 10 };let variant = Object.assign({ foo: 1 }, original);"`;
+
+exports[`Lodash: Async 1`] = `
+"import _parallel from \\"async/parallel\\";
+_parallel([]);"
+`;
+
+exports[`Lodash: Lodash 1`] = `
+"import _camelCase from \\"lodash/camelCase\\";
+_camelCase(\\"hello world\\");"
+`;
+
+exports[`Lodash: Recompose 1`] = `
+"import _compose from \\"recompose/compose\\";
+_compose([]);"
+`;
+
+exports[`React: JSX 1`] = `
+"function render() {
+  return React.createElement(
+    \\"h1\\",
+    null,
+    \\"Hello\\"
+  );
+}"
+`;

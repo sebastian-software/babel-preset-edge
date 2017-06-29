@@ -1,7 +1,7 @@
 import { transform } from "babel-core"
 import buildPreset from "../src"
 
-const options = buildPreset(null, { modules: false, target: { browsers: "ie 11" } })
+const options = buildPreset(null, { modules: false, target: "es2015" })
 
 // Keep formatting for tests (to keep output/diffs readable)
 options.minified = false
@@ -20,6 +20,14 @@ test("ES2015: Generator", () => {
     options).code).toMatchSnapshot()
 })
 
+test("ES2016: Exponentiation", () => {
+  expect(transform(`var result = 2 ** 3`, options).code).toMatchSnapshot()
+})
+
+test("ES2017: Async/Await", () => {
+  expect(transform(`async function hello() { }`, options).code).toMatchSnapshot()
+})
+
 test("React: JSX", () => {
   expect(transform(`function render() { return <h1>Hello</h1> }`,
     options).code).toMatchSnapshot()
@@ -32,10 +40,6 @@ test("ESNext: Object Spread", () => {
 
 test("ESNext: Class Properties", () => {
   expect(transform(`class Component{ onClick = () => { } }`, options).code).toMatchSnapshot()
-})
-
-test("ESNext: Async/Await", () => {
-  expect(transform(`async function hello() { }`, options).code).toMatchSnapshot()
 })
 
 test("Lodash: Lodash", () => {
