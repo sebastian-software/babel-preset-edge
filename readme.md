@@ -60,6 +60,9 @@ const defaults = {
   // Configuration for module lookup
   sourceFolder: "src",
 
+  // Source map output
+  sourceMaps: true,
+
   // Babel Core Settings
   comments: false,
   compact: true,

@@ -49,6 +49,9 @@ const defaults = {
   // Configuration for module lookup
   sourceFolder: "src",
 
+  // Source map output
+  sourceMaps: true,
+
   // Babel Core Settings
   comments: false,
   compact: true,
@@ -261,13 +264,13 @@ export default function buildPreset(context, opts = {})
 
   // Assemble final config
   return {
-    // Just some basic minification
+    // Babel basic configuration
     comments: options.comments,
     compact: options.compact,
     minified: options.minified,
 
-    // Enable source maps by default
-    sourceMaps: true,
+    // Whether to enable source maps
+    sourceMaps: options.sourceMaps,
 
     // And all the previously built lists of presets and plugins
     presets,
