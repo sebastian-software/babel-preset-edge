@@ -1,7 +1,7 @@
 import { transform } from "babel-core"
 import buildPreset from "../src"
 
-const options = buildPreset(null, { modules: false, target: { browsers: "ie 11" } })
+const options = buildPreset(null, { modules: false, target: { browsers: "ie 11" }, sourceMaps: false })
 
 // Keep formatting for tests (to keep output/diffs readable)
 options.minified = false
