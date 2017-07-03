@@ -50,6 +50,9 @@ const defaults = {
   // Choose automatically depending on target
   modules: "auto",
 
+  // Prefer built-ins over custom code. This mainly benefits for modern engines.
+  useBuiltIns: true,
+
   // Env Settings
   looseMode: true,
   specMode: false,

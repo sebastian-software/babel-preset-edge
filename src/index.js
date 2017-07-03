@@ -39,6 +39,9 @@ const defaults = {
   // Choose automatically depending on target
   modules: "auto",
 
+  // Prefer built-ins over custom code. This mainly benefits for modern engines.
+  useBuiltIns: true,
+
   // Env Settings
   looseMode: true,
   specMode: false,
@@ -147,7 +150,8 @@ export default function buildPreset(context, opts = {})
   }
 
   if (options.modules === "auto" || options.modules == null) {
-    if (options.target === "node" || options.target === "nodejs" || options.target === "script" || options.target === "binary" || options.target === "test") {
+    if (options.target === "node" || options.target === "nodejs" || options.target === "script" ||
+      options.target === "binary" || options.target === "test") {
       options.modules = "commonjs"
     } else if (options.target === "library" || options.target === "browser") {
       // Libraries should be published as EcmaScript modules for tree shaking support
@@ -170,7 +174,7 @@ export default function buildPreset(context, opts = {})
 
     // Prefer built-ins which also prefers global polyfills which is the right thing to do
     // for most scenarios like SPAs and NodeJS environments.
-    useBuiltIns: true,
+    useBuiltIns: options.useBuiltIns,
 
     // Options to tweak the details of the implementation. If both are `false` the environment
     // preset is executed in default mode.
@@ -228,7 +232,7 @@ export default function buildPreset(context, opts = {})
   // Support for Object Rest Spread `...` operator in objects.
   // { ...todo, completed: true }
   plugins.push([ objectRestSpreadPlugin, {
-    useBuiltIns: true
+    useBuiltIns: options.useBuiltIns
   }])
 
   // Use helpers, but not polyfills, in a way that omits duplication.
@@ -236,7 +240,7 @@ export default function buildPreset(context, opts = {})
   plugins.push([ transformRuntimePlugin, {
     regenerator: false,
     polyfill: false,
-    useBuiltIns: true,
+    useBuiltIns: options.useBuiltIns,
     useESModules: true
   }])
 
