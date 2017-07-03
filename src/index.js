@@ -233,6 +233,10 @@ export default function buildPreset(context, opts = {})
     // it reaches RollupJS's bundling engine.
     // https://github.com/airbnb/babel-plugin-dynamic-import-webpack
     plugins.push(dynamicImportWebpack)
+  } else {
+    if (options.debug) {
+      console.log("- Keeping import() statement as is.")
+    }
   }
 
   // Improve some ES3 edge case to make code parseable by older clients
