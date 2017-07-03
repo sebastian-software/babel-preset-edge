@@ -27,6 +27,9 @@ import es3ExpressionLiterals from "babel-plugin-transform-es3-member-expression-
 
 import parseJSX from "babel-plugin-syntax-jsx"
 import transformReactJSX from "babel-plugin-transform-react-jsx"
+import transformReactJSXSource from "babel-plugin-transform-react-jsx-source"
+import transformReactJSXSelf from "babel-plugin-transform-react-jsx-self"
+
 
 const defaults = {
   // Whether to print hints on transpilation settings which were selected.
@@ -269,6 +272,15 @@ export default function buildPreset(context, opts = {})
     useBuiltIns: options.useBuiltIns,
     pragma: options.jsxPragma
   }])
+
+  // Improve JSX debug capabilities
+  if (!isProduction) {
+    // Adds component stack to warning messages
+    plugins.push(transformReactJSXSource)
+
+    // Adds __self attribute to JSX which React will use for some warnings
+    plugins.push(transformReactJSXSelf)
+  }
 
   // Use helpers, but not polyfills, in a way that omits duplication.
   // For polyfills better use polyfill.io or another more sophisticated solution.
