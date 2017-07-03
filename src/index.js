@@ -29,6 +29,7 @@ import parseJSX from "babel-plugin-syntax-jsx"
 import transformReactJSX from "babel-plugin-transform-react-jsx"
 import transformReactJSXSource from "babel-plugin-transform-react-jsx-source"
 import transformReactJSXSelf from "babel-plugin-transform-react-jsx-self"
+import transformRemovePropTypes from "babel-plugin-transform-react-remove-prop-types"
 
 
 const defaults = {
@@ -285,6 +286,15 @@ export default function buildPreset(context, opts = {})
 
     // Adds __self attribute to JSX which React will use for some warnings
     plugins.push(transformReactJSXSelf)
+  }
+
+  // Remove unnecessary React propTypes from the production build.
+  // https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types
+  if (isProduction) {
+    plugins.push([ transformRemovePropTypes, {
+      mode: "remove",
+      removeImport: true
+    }])
   }
 
   // Use helpers, but not polyfills, in a way that omits duplication.
