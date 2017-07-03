@@ -291,7 +291,8 @@ export default function buildPreset(context, opts = {})
   // https://github.com/facebookincubator/create-react-app/issues/989
   if (!isProduction) {
     // Adds component stack to warning messages
-    plugins.push(transformReactJSXSource)
+    // Note: Currently throws an error when activated
+    // plugins.push(transformReactJSXSource)
 
     // Adds __self attribute to JSX which React will use for some warnings
     plugins.push(transformReactJSXSelf)
