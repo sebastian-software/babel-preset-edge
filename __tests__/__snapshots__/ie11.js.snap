@@ -66,7 +66,9 @@ exports[`React: JSX 1`] = `
 "function render() {
   return React.createElement(
     \\"h1\\",
-    null,
+    {
+      __self: this
+    },
     \\"Hello\\"
   );
 }"
@@ -76,7 +78,9 @@ exports[`React: JSX Spread 1`] = `
 "function render(props) {
   return React.createElement(
     \\"h1\\",
-    Object.assign({ className: \\"large\\" }, props),
+    Object.assign({ className: \\"large\\" }, props, {
+      __self: this
+    }),
     \\"Hello\\"
   );
 }"
