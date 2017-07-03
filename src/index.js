@@ -17,11 +17,6 @@ import objectRestSpreadPlugin from "babel-plugin-transform-object-rest-spread"
 import lodashPlugin from "babel-plugin-lodash"
 import transformRuntimePlugin from "babel-plugin-transform-runtime"
 
-import reactIntlPlugin from "babel-plugin-react-intl"
-import removePropTypesPlugin from "babel-plugin-transform-react-remove-prop-types"
-import reactInlineElementsPlugin from "babel-plugin-transform-react-inline-elements"
-import reactConstantElements from "babel-plugin-transform-react-constant-elements"
-
 import es3PropertyLiterals from "babel-plugin-transform-es3-property-literals"
 import es3ExpressionLiterals from "babel-plugin-transform-es3-member-expression-literals"
 
@@ -30,6 +25,9 @@ import transformReactJSX from "babel-plugin-transform-react-jsx"
 import transformReactJSXSource from "babel-plugin-transform-react-jsx-source"
 import transformReactJSXSelf from "babel-plugin-transform-react-jsx-self"
 import transformRemovePropTypes from "babel-plugin-transform-react-remove-prop-types"
+import reactIntlPlugin from "babel-plugin-react-intl"
+import reactInlineElementsPlugin from "babel-plugin-transform-react-inline-elements"
+import reactConstantElements from "babel-plugin-transform-react-constant-elements"
 
 
 const defaults = {
@@ -288,33 +286,16 @@ export default function buildPreset(context, opts = {})
     plugins.push(transformReactJSXSelf)
   }
 
-  // Remove unnecessary React propTypes from the production build.
-  // https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types
   if (isProduction) {
+    // Remove unnecessary React propTypes from the production build.
+    // https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types
     plugins.push([ transformRemovePropTypes, {
       mode: "remove",
       removeImport: true
     }])
-  }
 
-  // Use helpers, but not polyfills, in a way that omits duplication.
-  // For polyfills better use polyfill.io or another more sophisticated solution.
-  plugins.push([ transformRuntimePlugin, {
-    helpers: true,
-    regenerator: false,
-    polyfill: false,
-    useBuiltIns: options.useBuiltIns,
-    useESModules: true
-  }])
-
-  if (isProduction) {
     // Cleanup descriptions for translations from compilation output
     plugins.push(reactIntlPlugin)
-
-    // Remove prop types from our code
-    plugins.push([ removePropTypesPlugin, {
-      removeImport: true
-    }])
 
     // Replaces the React.createElement function with one that is
     // more optimized for production.
@@ -328,6 +309,16 @@ export default function buildPreset(context, opts = {})
     // skip it when reconciling.
     plugins.push(reactConstantElements)
   }
+
+  // Use helpers, but not polyfills, in a way that omits duplication.
+  // For polyfills better use polyfill.io or another more sophisticated solution.
+  plugins.push([ transformRuntimePlugin, {
+    helpers: true,
+    regenerator: false,
+    polyfill: false,
+    useBuiltIns: options.useBuiltIns,
+    useESModules: true
+  }])
 
   // Assemble final config
   return {
