@@ -167,10 +167,9 @@ export default function buildPreset(context, opts = {})
   }
 
   if (options.modules === "auto" || options.modules == null) {
-    if (options.target === "node" || options.target === "nodejs" || options.target === "script" ||
-      options.target === "binary" || options.target === "test") {
+    if (buildForCurrent || buildDistBinary) {
       options.modules = "commonjs"
-    } else if (options.target === "library" || options.target === "browser") {
+    } else if (buildAsLibrary || buildForBrowserList) {
       // Libraries should be published as EcmaScript modules for tree shaking support
       // For browser targets we typically use tools like Webpack which benefit from EcmaScript modules, too.
       options.modules = false
@@ -218,9 +217,17 @@ export default function buildPreset(context, opts = {})
 
   // Transpile the parsed import() syntax for compatibility in older environments.
   if (buildForCurrent || buildDistBinary) {
+    if (options.debug) {
+      console.log("- Rewriting import() for NodeJS usage.")
+    }
+
     // Compiles import() to a deferred require() for NodeJS
     plugins.push(dynamicImportNode)
   } else if (buildAsLibrary || buildCustom) {
+    if (options.debug) {
+      console.log("- Rewriting import() for Webpack usage.")
+    }
+
     // This is our alternative appeoach for now which "protects" these imports from Rollup
     // for usage in Webpack later on. In detail it transpiles `import()` to `require.ensure()` before
     // it reaches RollupJS's bundling engine.
