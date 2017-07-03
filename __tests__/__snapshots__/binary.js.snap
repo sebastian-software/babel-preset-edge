@@ -108,3 +108,15 @@ function render() {
   );
 }"
 `;
+
+exports[`React: JSX Spread 1`] = `
+"\\"use strict\\";
+
+function render(props) {
+  return React.createElement(
+    \\"h1\\",
+    Object.assign({ className: \\"large\\" }, props),
+    \\"Hello\\"
+  );
+}"
+`;

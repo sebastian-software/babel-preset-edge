@@ -71,3 +71,13 @@ exports[`React: JSX 1`] = `
   );
 }"
 `;
+
+exports[`React: JSX Spread 1`] = `
+"function render(props) {
+  return React.createElement(
+    \\"h1\\",
+    Object.assign({ className: \\"large\\" }, props),
+    \\"Hello\\"
+  );
+}"
+`;

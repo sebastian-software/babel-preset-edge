@@ -33,6 +33,11 @@ test("React: JSX", () => {
     options).code).toMatchSnapshot()
 })
 
+test("React: JSX Spread", () => {
+  expect(transform(`function render(props) { return <h1 className="large" {...props}>Hello</h1> }`,
+    options).code).toMatchSnapshot()
+})
+
 test("ESNext: Object Spread", () => {
   expect(transform(`let original = { bar : 10 }; let variant = { foo: 1, ...original }`,
     options).code).toMatchSnapshot()
