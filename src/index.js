@@ -220,7 +220,7 @@ export default function buildPreset(context, opts = {})
   if (buildForCurrent || buildDistBinary) {
     // Compiles import() to a deferred require() for NodeJS
     plugins.push(dynamicImportNode)
-  } else if (buildAsLibrary) {
+  } else if (buildAsLibrary || buildCustom) {
     // This is our alternative appeoach for now which "protects" these imports from Rollup
     // for usage in Webpack later on. In detail it transpiles `import()` to `require.ensure()` before
     // it reaches RollupJS's bundling engine.
