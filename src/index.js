@@ -68,7 +68,6 @@ const defaults = {
 
   // Babel Core Settings
   comments: false,
-  compact: true,
   minified: true
 }
 
@@ -318,7 +317,7 @@ export default function buildPreset(context, opts = {})
   return {
     // Babel basic configuration
     comments: options.comments,
-    compact: options.compact,
+    compact: true,
     minified: options.minified,
 
     // Whether to enable source maps
