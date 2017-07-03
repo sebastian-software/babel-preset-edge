@@ -94,7 +94,8 @@ export default function buildPreset(context, opts = {})
 
   let envTargets = {}
 
-  let buildDistBinary = options.target === "node" || options.target === "nodejs" || options.target === "script" || options.target === "binary"
+  let buildDistBinary = options.target === "node" || options.target === "nodejs" ||
+    options.target === "script" || options.target === "binary"
   let buildForCurrent = options.target === "current" || options.target === "test"
   let buildForBrowserList = options.target === "browser" || options.target === "web"
   let buildAsLibrary = options.target === "library" || options.target === "es2015"
