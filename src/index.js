@@ -4,7 +4,6 @@ import { resolve as resolvePath } from "path"
 import browserslist from "browserslist"
 
 import envPreset from "babel-preset-env"
-import reactPreset from "babel-preset-react"
 import flowPreset from "babel-preset-flow"
 
 import dynamicImportPlugin from "babel-plugin-syntax-dynamic-import"
@@ -22,6 +21,9 @@ import reactConstantElements from "babel-plugin-transform-react-constant-element
 
 import es3PropertyLiterals from "babel-plugin-transform-es3-property-literals"
 import es3ExpressionLiterals from "babel-plugin-transform-es3-member-expression-literals"
+
+import parseJSX from "babel-plugin-syntax-jsx"
+import transformReactJSX from "babel-plugin-transform-react-jsx"
 
 const defaults = {
   // Whether to print hints on transpilation settings which were selected.
@@ -41,6 +43,9 @@ const defaults = {
 
   // Prefer built-ins over custom code. This mainly benefits for modern engines.
   useBuiltIns: true,
+
+  // JSX Pragma. Default: Use React
+  jsxPragma: "React.createElement",
 
   // Env Settings
   looseMode: true,
@@ -193,8 +198,7 @@ export default function buildPreset(context, opts = {})
     targets: envTargets
   }])
 
-  // Support for React (JSX) and Flowtype
-  presets.push(reactPreset)
+  // Support for Flowtype Parsing
   presets.push(flowPreset)
 
   // Support for new @import() syntax
@@ -233,6 +237,15 @@ export default function buildPreset(context, opts = {})
   // { ...todo, completed: true }
   plugins.push([ objectRestSpreadPlugin, {
     useBuiltIns: options.useBuiltIns
+  }])
+
+  // Allow Babel to parse JSX
+  plugins.push(parseJSX)
+
+  // Transform JSX and prefer built-in methods
+  plugins.push([ transformReactJSX, {
+    useBuiltIns: options.useBuiltIns,
+    pragma: options.jsxPragma
   }])
 
   // Use helpers, but not polyfills, in a way that omits duplication.

@@ -53,6 +53,9 @@ const defaults = {
   // Prefer built-ins over custom code. This mainly benefits for modern engines.
   useBuiltIns: true,
 
+  // JSX Pragma. Default: Use React
+  jsxPragma: "React.createElement",
+
   // Env Settings
   looseMode: true,
   specMode: false,
