@@ -7,6 +7,9 @@ import envPreset from "babel-preset-env"
 import flowPreset from "babel-preset-flow"
 
 import dynamicImportPlugin from "babel-plugin-syntax-dynamic-import"
+import dynamicImportNode from "babel-plugin-dynamic-import-node"
+import dynamicImportWebpack from "babel-plugin-dynamic-import-webpack"
+
 import moduleResolver from "babel-plugin-module-resolver"
 import fastAsyncPlugin from "babel-plugin-fast-async"
 import classPropertiesPlugin from "babel-plugin-transform-class-properties"
@@ -88,14 +91,21 @@ export default function buildPreset(context, opts = {})
   }
 
   let envTargets = {}
-  if (options.target === "node" || options.target === "nodejs" || options.target === "script" || options.target === "binary") {
+
+  let buildDistBinary = options.target === "node" || options.target === "nodejs" || options.target === "script" || options.target === "binary"
+  let buildForCurrent = options.target === "current" || options.target === "test"
+  let buildForBrowserList = options.target === "browser" || options.target === "web"
+  let buildAsLibrary = options.target === "library" || options.target === "es2015"
+  let buildCustom = typeof options.target === "object"
+
+  if (buildDistBinary) {
     // Last stable NodeJS (LTS) - first LTS of 6.x.x was 6.9.0
     // See also: https://nodejs.org/en/blog/release/v6.9.0/
     envTargets.node = "6.9.0"
-  } else if (options.target === "current" || options.target === "test") {
+  } else if (buildForCurrent) {
     // Scripts which are directly used like tests can be transpiled for the current NodeJS version
     envTargets.node = "current"
-  } else if (options.target === "browser" || options.target === "web") {
+  } else if (buildForBrowserList) {
     // Until this issue is fixed we can't use auto config detection for browserslist in babel-preset-env
     // https://github.com/babel/babel-preset-env/issues/149
     // What we do here is actually pretty clever/ytupid as we just pass over the already normalized
@@ -104,10 +114,10 @@ export default function buildPreset(context, opts = {})
 
     // For the abstract browsers config we let browserslist find the config file
     envTargets.browsers = autoBrowsers
-  } else if (options.target === "library" || options.target === "es2015") {
+  } else if (buildAsLibrary) {
     // Explicit undefined results into compilation with "latest" preset supporting a wide range of clients via ES5 output
     envTargets = undefined
-  } else if (typeof options.target === "object") {
+  } else if (buildCustom) {
     envTargets = options.target
   }
 
@@ -203,6 +213,18 @@ export default function buildPreset(context, opts = {})
 
   // Support for new @import() syntax
   plugins.push(dynamicImportPlugin)
+
+  // Transpile the parsed import() syntax for compatibility in older environments.
+  if (buildForCurrent || buildDistBinary) {
+    // Compiles import() to a deferred require() for NodeJS
+    plugins.push(dynamicImportNode)
+  } else if (buildAsLibrary) {
+    // This is our alternative appeoach for now which "protects" these imports from Rollup
+    // for usage in Webpack later on. In detail it transpiles `import()` to `require.ensure()` before
+    // it reaches RollupJS's bundling engine.
+    // https://github.com/airbnb/babel-plugin-dynamic-import-webpack
+    plugins.push(dynamicImportWebpack)
+  }
 
   // Improve some ES3 edge case to make code parseable by older clients
   // e.g. when using reserved words as keys like "catch"
