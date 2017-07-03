@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-edge",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "Edge Babel is a centralized Babel Configuration. Part of the Edge Platform.",
   "main": "lib/node.commonjs.js",
   "scripts": {
