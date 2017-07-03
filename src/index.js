@@ -285,6 +285,7 @@ export default function buildPreset(context, opts = {})
   // Use helpers, but not polyfills, in a way that omits duplication.
   // For polyfills better use polyfill.io or another more sophisticated solution.
   plugins.push([ transformRuntimePlugin, {
+    helpers: true,
     regenerator: false,
     polyfill: false,
     useBuiltIns: options.useBuiltIns,
