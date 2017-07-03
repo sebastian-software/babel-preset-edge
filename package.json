@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-edge",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Edge Babel is a centralized Babel Configuration. Part of the Edge Platform.",
   "main": "lib/node.commonjs.js",
   "scripts": {
@@ -69,7 +69,7 @@
     "lodash": "^4.17.4",
     "prepublish": "^0.17.0",
     "rambda": "^0.7.2",
-    "readable-code": "^3.2.0",
+    "readable-code": "^3.3.0",
     "recompose": "^0.23.5"
   }
 }
