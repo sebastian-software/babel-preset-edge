@@ -331,7 +331,7 @@ export default function buildPreset(context, opts = {})
     regenerator: false,
     polyfill: false,
     useBuiltIns: options.useBuiltIns,
-    useESModules: true
+    useESModules: options.modules === false
   }])
 
   // Assemble final config
