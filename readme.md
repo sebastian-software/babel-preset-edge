@@ -71,7 +71,6 @@ const defaults = {
 
   // Babel Core Settings
   comments: false,
-  compact: true,
   minified: true
 }
 ```

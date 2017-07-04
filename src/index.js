@@ -29,7 +29,6 @@ import reactIntlPlugin from "babel-plugin-react-intl"
 import reactInlineElementsPlugin from "babel-plugin-transform-react-inline-elements"
 import reactConstantElements from "babel-plugin-transform-react-constant-elements"
 
-
 const defaults = {
   // Whether to print hints on transpilation settings which were selected.
   debug: false,
