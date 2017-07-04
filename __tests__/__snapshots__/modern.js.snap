@@ -17,9 +17,7 @@ exports[`es2015: classes 1`] = `
 exports[`es2015: generator 1`] = `
 "function* idMaker() {
   var index = 0;
-  while (true) {
-    yield index++;
-  }
+  while (true) yield index++;
 }"
 `;
 
@@ -56,8 +54,8 @@ console.log(_camelCase(\\"hello world\\"));"
 `;
 
 exports[`esnext: object spread 1`] = `
-"var original = { bar: 10 };
-var variant = Object.assign({ foo: 1 }, original);"
+"let original = { bar: 10 };
+let variant = Object.assign({ foo: 1 }, original);"
 `;
 
 exports[`lodash: async 1`] = `

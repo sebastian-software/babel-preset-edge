@@ -134,13 +134,13 @@ export default function buildPreset(context, opts = {}) {
     if (options.target === "modern") {
       envTargets = {
         node: "6.9.0",
-        electron: "1.4",
+        electron: "1.6",
         browsers: [
-          "Safari >= 10",
-          "iOS >= 10",
-          "Edge >= 14",
-          "Chrome >= 53",
-          "Firefox >= 50"
+          "Safari >= 10.1",
+          "iOS >= 10.3",
+          "Edge >= 15",
+          "Chrome >= 58",
+          "Firefox >= 53"
         ]
       }
     } else {
