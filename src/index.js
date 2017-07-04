@@ -69,8 +69,7 @@ const defaults = {
   minified: true
 }
 
-export default function buildPreset(context, opts = {})
-{
+export default function buildPreset(context, opts = {}) {
   const presets = []
   const plugins = []
 
@@ -92,8 +91,11 @@ export default function buildPreset(context, opts = {})
 
   let envTargets = {}
 
-  let buildDistBinary = options.target === "node" || options.target === "nodejs" ||
-    options.target === "script" || options.target === "binary"
+  let buildDistBinary =
+    options.target === "node" ||
+    options.target === "nodejs" ||
+    options.target === "script" ||
+    options.target === "binary"
   let buildForCurrent = options.target === "current" || options.target === "test"
   let buildForBrowserList = options.target === "browser" || options.target === "web"
   let buildAsLibrary = options.target === "library" || options.target === "es2015"
@@ -180,33 +182,39 @@ export default function buildPreset(context, opts = {})
 
   if (options.debug) {
     console.log("- Module Settings:", options.modules === false ? "ESM" : options.modules)
-    console.log("- Transpilation Compliance:", options.specMode ? "SPEC" : options.looseMode ? "LOOSE" : "DEFAULT")
+    console.log(
+      "- Transpilation Compliance:",
+      options.specMode ? "SPEC" : options.looseMode ? "LOOSE" : "DEFAULT"
+    )
   }
 
-  presets.push([ envPreset, {
-    // Setting this to false will not transform modules.
-    modules: options.modules,
+  presets.push([
+    envPreset,
+    {
+      // Setting this to false will not transform modules.
+      modules: options.modules,
 
-    // Prefer built-ins which also prefers global polyfills which is the right thing to do
-    // for most scenarios like SPAs and NodeJS environments.
-    useBuiltIns: options.useBuiltIns,
+      // Prefer built-ins which also prefers global polyfills which is the right thing to do
+      // for most scenarios like SPAs and NodeJS environments.
+      useBuiltIns: options.useBuiltIns,
 
-    // Options to tweak the details of the implementation. If both are `false` the environment
-    // preset is executed in default mode.
-    loose: options.looseMode,
-    spec: options.specMode,
+      // Options to tweak the details of the implementation. If both are `false` the environment
+      // preset is executed in default mode.
+      loose: options.looseMode,
+      spec: options.specMode,
 
-    // Debug output of features, plugins and presets which are enabled.
-    // debug: true,
+      // Debug output of features, plugins and presets which are enabled.
+      // debug: true,
 
-    // We prefer the transpilation of the "fast-async" plugin over the
-    // slower and more complex Babel internal implementation.
-    exclude: [ "transform-regenerator", "transform-async-to-generator", ...additionalExcludes ],
+      // We prefer the transpilation of the "fast-async" plugin over the
+      // slower and more complex Babel internal implementation.
+      exclude: [ "transform-regenerator", "transform-async-to-generator", ...additionalExcludes ],
 
-    // Differ between development and production for our scope.
-    // NodeJS is generally fine in development to match the runtime version which is currently installed.
-    targets: envTargets
-  }])
+      // Differ between development and production for our scope.
+      // NodeJS is generally fine in development to match the runtime version which is currently installed.
+      targets: envTargets
+    }
+  ])
 
   // Support for Flowtype Parsing
   presets.push(flowPreset)
@@ -251,19 +259,25 @@ export default function buildPreset(context, opts = {})
   // Supports loading files in source folder without relative folders
   // https://github.com/tleunen/babel-plugin-module-resolver
   if (options.sourceFolder != null) {
-    plugins.push([ moduleResolver, {
-      alias: {
-        "~": resolvePath(getAppRoot(), options.sourceFolder)
+    plugins.push([
+      moduleResolver,
+      {
+        alias: {
+          "~": resolvePath(getAppRoot(), options.sourceFolder)
+        }
       }
-    }])
+    ])
   }
 
   // Alternative to Babel Regenerator
   // Implements the ES7 keywords async and await using syntax transformation at compile-time, rather than generators.
   // https://www.npmjs.com/package/fast-async
-  plugins.push([ fastAsyncPlugin, {
-    useRuntimeModule: true
-  }])
+  plugins.push([
+    fastAsyncPlugin,
+    {
+      useRuntimeModule: true
+    }
+  ])
 
   // Support for ES7 Class Properties (currently stage-2)
   // class { handleClick = () => { } }
@@ -271,18 +285,24 @@ export default function buildPreset(context, opts = {})
 
   // Support for Object Rest Spread `...` operator in objects.
   // { ...todo, completed: true }
-  plugins.push([ objectRestSpreadPlugin, {
-    useBuiltIns: options.useBuiltIns
-  }])
+  plugins.push([
+    objectRestSpreadPlugin,
+    {
+      useBuiltIns: options.useBuiltIns
+    }
+  ])
 
   // Allow Babel to parse JSX
   plugins.push(parseJSX)
 
   // Transform JSX and prefer built-in methods
-  plugins.push([ transformReactJSX, {
-    useBuiltIns: options.useBuiltIns,
-    pragma: options.jsxPragma
-  }])
+  plugins.push([
+    transformReactJSX,
+    {
+      useBuiltIns: options.useBuiltIns,
+      pragma: options.jsxPragma
+    }
+  ])
 
   // The following two plugins are currently necessary to make React warnings
   // include more valuable information. They are included here because they are
@@ -302,10 +322,13 @@ export default function buildPreset(context, opts = {})
   if (isProduction) {
     // Remove unnecessary React propTypes from the production build.
     // https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types
-    plugins.push([ transformRemovePropTypes, {
-      mode: "remove",
-      removeImport: true
-    }])
+    plugins.push([
+      transformRemovePropTypes,
+      {
+        mode: "remove",
+        removeImport: true
+      }
+    ])
 
     // Cleanup descriptions for translations from compilation output
     plugins.push(reactIntlPlugin)
@@ -325,13 +348,16 @@ export default function buildPreset(context, opts = {})
 
   // Use helpers, but not polyfills, in a way that omits duplication.
   // For polyfills better use polyfill.io or another more sophisticated solution.
-  plugins.push([ transformRuntimePlugin, {
-    helpers: true,
-    regenerator: false,
-    polyfill: false,
-    useBuiltIns: options.useBuiltIns,
-    useESModules: options.modules === false
-  }])
+  plugins.push([
+    transformRuntimePlugin,
+    {
+      helpers: true,
+      regenerator: false,
+      polyfill: false,
+      useBuiltIns: options.useBuiltIns,
+      useESModules: options.modules === false
+    }
+  ])
 
   // Assemble final config
   return {
