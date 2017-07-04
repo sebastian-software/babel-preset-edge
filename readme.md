@@ -82,6 +82,29 @@ const defaults = {
 }
 ```
 
+
+## Modern Target
+
+This is our current browserslist set-up for a so-called modern development stack.
+
+```js
+const modernTarget = {
+  node: "6.9.0",
+  electron: "1.6",
+  browsers: [
+    "Safari >= 10.1",
+    "iOS >= 10.3",
+    "Edge >= 15",
+    "Chrome >= 58",
+    "Firefox >= 53"
+  ]
+}
+```
+
+Using this preset setting is ideal during development to reduce overall amount of transpilation
+to a useful minimum to test with pretty up-to-date environments and browsers.
+
+
 ## License
 
 [Apache License Version 2.0, January 2004](license)

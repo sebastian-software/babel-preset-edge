@@ -76,6 +76,18 @@ const defaults = {
   minified: true
 }
 
+const modernTarget = {
+  node: "6.9.0",
+  electron: "1.6",
+  browsers: [
+    "Safari >= 10.1",
+    "iOS >= 10.3",
+    "Edge >= 15",
+    "Chrome >= 58",
+    "Firefox >= 53"
+  ]
+}
+
 export default function buildPreset(context, opts = {}) {
   const presets = []
   const plugins = []
@@ -130,19 +142,8 @@ export default function buildPreset(context, opts = {}) {
     // For the abstract browsers config we let browserslist find the config file
     envTargets.browsers = autoBrowsers
   } else if (buildAsLibrary) {
-
     if (options.target === "modern") {
-      envTargets = {
-        node: "6.9.0",
-        electron: "1.6",
-        browsers: [
-          "Safari >= 10.1",
-          "iOS >= 10.3",
-          "Edge >= 15",
-          "Chrome >= 58",
-          "Firefox >= 53"
-        ]
-      }
+      envTargets = modernTarget
     } else {
       // Explicit undefined results into compilation with "latest" preset supporting a wide range of clients via ES5 output
       envTargets = undefined
