@@ -1,1 +1,3 @@
-function render() { return <h1>Hello</h1> }
+function render() {
+  return <h1>Hello</h1>
+}

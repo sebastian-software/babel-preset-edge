@@ -1,1 +1,3 @@
-class Component{ main() { } }
+class Component {
+  main() {}
+}

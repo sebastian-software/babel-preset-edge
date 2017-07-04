@@ -1,1 +1,4 @@
-function* idMaker() { var index = 0; while(true) yield index++ }
+function *idMaker() {
+  var index = 0
+  while (true) yield index++
+}

@@ -1,1 +1,1 @@
-async function hello() { }
+async function hello() {}

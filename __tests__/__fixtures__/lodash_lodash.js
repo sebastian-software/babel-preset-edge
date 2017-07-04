@@ -1,1 +1,2 @@
-import { camelCase } from "lodash"; camelCase("hello world")
+import { camelCase } from "lodash"
+camelCase("hello world")

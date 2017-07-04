@@ -1,1 +1,3 @@
-class Component{ onClick = () => { } }
+class Component {
+  onClick = () => {}
+}

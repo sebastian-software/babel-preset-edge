@@ -1,1 +1,2 @@
-import { compose } from "recompose"; compose([])
+import { compose } from "recompose"
+compose([])

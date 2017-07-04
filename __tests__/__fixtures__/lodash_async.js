@@ -1,1 +1,2 @@
-import { parallel } from "async"; parallel([])
+import { parallel } from "async"
+parallel([])
