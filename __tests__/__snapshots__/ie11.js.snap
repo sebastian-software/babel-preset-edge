@@ -116,3 +116,42 @@ function render(props) {
   );
 }"
 `;
+
+exports[`react: proptypes 1`] = `
+"import _classCallCheck from \\"babel-runtime/helpers/classCallCheck\\";
+import _possibleConstructorReturn from \\"babel-runtime/helpers/possibleConstructorReturn\\";
+import _inherits from \\"babel-runtime/helpers/inherits\\";
+var _jsxFileName = \\"./__tests__/__fixtures__/react_proptypes.js\\";
+import React from \\"react\\";
+import PropTypes from \\"prop-types\\";
+
+var MyComponent = function (_React$Component) {
+  _inherits(MyComponent, _React$Component);
+
+  function MyComponent() {
+    _classCallCheck(this, MyComponent);
+
+    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+  }
+
+  MyComponent.prototype.render = function render() {
+    return React.createElement(
+      \\"div\\",
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 6
+        },
+        __self: this
+      },
+      this.props.userName
+    );
+  };
+
+  return MyComponent;
+}(React.Component);
+
+MyComponent.propTypes = {
+  userName: PropTypes.string
+};"
+`;

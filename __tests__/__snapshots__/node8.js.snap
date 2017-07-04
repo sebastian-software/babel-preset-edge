@@ -105,3 +105,29 @@ function render(props) {
   );
 }"
 `;
+
+exports[`react: proptypes 1`] = `
+"var _jsxFileName = \\"./__tests__/__fixtures__/react_proptypes.js\\";
+import React from \\"react\\";
+import PropTypes from \\"prop-types\\";
+
+class MyComponent extends React.Component {
+  render() {
+    return React.createElement(
+      \\"div\\",
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 6
+        },
+        __self: this
+      },
+      this.props.userName
+    );
+  }
+}
+
+MyComponent.propTypes = {
+  userName: PropTypes.string
+};"
+`;

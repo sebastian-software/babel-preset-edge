@@ -150,3 +150,23 @@ function render(props) {
   );
 }"
 `;
+
+exports[`react: proptypes 1`] = `
+"\\"use strict\\";
+
+var _jsx2 = require(\\"babel-runtime/helpers/jsx\\");
+
+var _jsx3 = _interopRequireDefault(_jsx2);
+
+var _react = require(\\"react\\");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
+
+class MyComponent extends _react2[\\"default\\"].Component {
+  render() {
+    return (0, _jsx3[\\"default\\"])(\\"div\\", {}, void 0, this.props.userName);
+  }
+}"
+`;
