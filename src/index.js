@@ -84,6 +84,7 @@ const modernTarget = {
     "iOS >= 10.3",
     "Edge >= 15",
     "Chrome >= 58",
+    "ChromeAndroid >= 58",
     "Firefox >= 53"
   ]
 }
