@@ -5,6 +5,7 @@ import browserslist from "browserslist"
 
 import envPreset from "babel-preset-env"
 import flowPreset from "babel-preset-flow"
+import babiliPreset from "babel-preset-babili"
 
 import dynamicImportSyntaxPlugin from "babel-plugin-syntax-dynamic-import"
 import dynamicImportNode from "babel-plugin-dynamic-import-node"
@@ -64,8 +65,11 @@ const defaults = {
   // Configuration for module lookup
   sourceFolder: "src",
 
-  // Source map output
+  // Whether to enable source map output
   sourceMaps: true,
+
+  // Enable full compression on production scripts or basic compression for libraries or during development.
+  compression: true,
 
   // Babel Core Settings
   comments: false,
@@ -194,6 +198,27 @@ export default function buildPreset(context, opts = {}) {
       "- Transpilation Compliance:",
       options.specMode ? "SPEC" : options.looseMode ? "LOOSE" : "DEFAULT"
     )
+  }
+
+  // Use basic compression for libraries and full compression on binaries
+  if (options.compression) {
+    if (isProduction && buildDistBinary) {
+      presets.push(babiliPreset)
+    } else {
+      // Apply some basic compression also for normal non-minified builds. After all
+      // it makes no sense to publish deadcode for example.
+      presets.push([
+        babiliPreset, {
+          booleans: false,
+          deadcode: false,
+          infinity: false,
+          mangle: false,
+          flipComparisons: false,
+          replace: false,
+          simplify: false
+        }
+      ])
+    }
   }
 
   presets.push([

@@ -34,7 +34,10 @@
     "*.css": "stylelint"
   },
   "jest": {
-    "testPathIgnorePatterns": ["__fixtures__", "core.js"]
+    "testPathIgnorePatterns": [
+      "__fixtures__",
+      "core.js"
+    ]
   },
   "bugs": {
     "url": "https://github.com/sebastian-software/babel-preset-edge/issues"
@@ -64,6 +67,7 @@
     "babel-plugin-transform-react-inline-elements": "^6.22.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.6",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-babili": "^0.1.4",
     "babel-preset-env": "^1.5.2",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
