@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ES2015: Classes 1`] = `
+exports[`es2015: classes 1`] = `
 "\\"use strict\\";
 
 class Component {
@@ -8,7 +8,7 @@ class Component {
 }"
 `;
 
-exports[`ES2015: Generator 1`] = `
+exports[`es2015: generator 1`] = `
 "\\"use strict\\";
 
 function* idMaker() {
@@ -16,19 +16,19 @@ function* idMaker() {
 }"
 `;
 
-exports[`ES2015: Set 1`] = `
+exports[`es2015: set 1`] = `
 "\\"use strict\\";
 
 new Set([1, 2, 3]);"
 `;
 
-exports[`ES2016: Exponentiation 1`] = `
+exports[`es2016: exponentiation 1`] = `
 "\\"use strict\\";
 
 var result = Math.pow(2, 3);"
 `;
 
-exports[`ES2017: Async/Await 1`] = `
+exports[`es2017: async await 1`] = `
 "\\"use strict\\";
 
 var _nodentRuntime = require(\\"nodent-runtime\\");
@@ -44,7 +44,7 @@ function hello() {
 }"
 `;
 
-exports[`ESNext: Class Properties 1`] = `
+exports[`esnext: class properties 1`] = `
 "\\"use strict\\";
 
 class Component {
@@ -55,13 +55,13 @@ class Component {
 }"
 `;
 
-exports[`ESNext: Object Spread 1`] = `
+exports[`esnext: object spread 1`] = `
 "\\"use strict\\";
 
 let original = { bar: 10 };let variant = Object.assign({ foo: 1 }, original);"
 `;
 
-exports[`Lodash: Async 1`] = `
+exports[`lodash: async 1`] = `
 "\\"use strict\\";
 
 var _parallel2 = require(\\"async/parallel\\");
@@ -73,7 +73,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\
 (0, _parallel3[\\"default\\"])([]);"
 `;
 
-exports[`Lodash: Lodash 1`] = `
+exports[`lodash: lodash 1`] = `
 "\\"use strict\\";
 
 var _camelCase2 = require(\\"lodash/camelCase\\");
@@ -85,7 +85,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\
 (0, _camelCase3[\\"default\\"])(\\"hello world\\");"
 `;
 
-exports[`Lodash: Recompose 1`] = `
+exports[`lodash: recompose 1`] = `
 "\\"use strict\\";
 
 var _compose2 = require(\\"recompose/compose\\");
@@ -97,13 +97,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\
 (0, _compose3[\\"default\\"])([]);"
 `;
 
-exports[`React: JSX 1`] = `
+exports[`react: jsx 1`] = `
 "\\"use strict\\";
 
+var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx.js\\";
 function render() {
   return React.createElement(
     \\"h1\\",
     {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 1
+      },
       __self: this
     },
     \\"Hello\\"
@@ -111,13 +117,19 @@ function render() {
 }"
 `;
 
-exports[`React: JSX Spread 1`] = `
+exports[`react: jsx spread 1`] = `
 "\\"use strict\\";
 
+var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx-spread.js\\";
 function render(props) {
   return React.createElement(
     \\"h1\\",
     Object.assign({ className: \\"large\\" }, props, {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 1
+      },
       __self: this
     }),
     \\"Hello\\"
