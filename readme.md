@@ -73,7 +73,7 @@ const defaults = {
   sourceMaps: true,
 
   // Enable full compression on production scripts or basic compression for libraries or during development.
-  compression: true,
+  compression: false,
 
   // Babel Core Settings
   comments: false,
