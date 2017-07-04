@@ -68,7 +68,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.6",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-babili": "^0.1.4",
-    "babel-preset-env": "^1.5.2",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "browserslist": "^2.1.5",
@@ -78,9 +78,9 @@
     "async": "^2.5.0",
     "jest-cli": "^20.0.4",
     "lodash": "^4.17.4",
-    "prepublish": "^0.19.1",
+    "prepublish": "^0.20.0",
     "rambda": "^0.7.2",
-    "readable-code": "^3.3.0",
+    "readable-code": "^3.3.1",
     "recompose": "^0.23.5"
   }
 }
