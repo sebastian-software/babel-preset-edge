@@ -44,6 +44,7 @@ const defaults = {
   // - "browser"/"web": browsers as defined by browserslist
   // - "library": ideally used for publishing libraries e.g. on NPM
   // - "es2015": same as "library" but targets es2o15 capable engines only.
+  // - "modern": same as "library" but targets modern engines only (slightly more forward-looking than es2015).
   // - {}: any custom settings support by Env-Preset
   target: "nodejs",
 

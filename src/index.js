@@ -110,7 +110,7 @@ export default function buildPreset(context, opts = {}) {
     options.target === "binary"
   let buildForCurrent = options.target === "current" || options.target === "test"
   let buildForBrowserList = options.target === "browser" || options.target === "web"
-  let buildAsLibrary = options.target === "library" || options.target === "es2015"
+  let buildAsLibrary = options.target === "library" || options.target === "es2015" || options.target === "modern"
   let buildCustom = typeof options.target === "object"
 
   if (buildDistBinary) {
@@ -130,8 +130,23 @@ export default function buildPreset(context, opts = {}) {
     // For the abstract browsers config we let browserslist find the config file
     envTargets.browsers = autoBrowsers
   } else if (buildAsLibrary) {
-    // Explicit undefined results into compilation with "latest" preset supporting a wide range of clients via ES5 output
-    envTargets = undefined
+
+    if (options.target === "modern") {
+      envTargets = {
+        node: "6.9.0",
+        electron: "1.4",
+        browsers: [
+          "Safari >= 10",
+          "iOS >= 10",
+          "Edge >= 14",
+          "Chrome >= 53",
+          "Firefox >= 50"
+        ]
+      }
+    } else {
+      // Explicit undefined results into compilation with "latest" preset supporting a wide range of clients via ES5 output
+      envTargets = undefined
+    }
   } else if (buildCustom) {
     envTargets = options.target
   }
