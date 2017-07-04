@@ -1,17 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`es2015: classes 1`] = `
-"\\"use strict\\";
-
-var _classCallCheck2 = require(\\"babel-runtime/helpers/classCallCheck\\");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
+"import _classCallCheck from \\"babel-runtime/helpers/classCallCheck\\";
 
 var Component = function () {
   function Component() {
-    (0, _classCallCheck3[\\"default\\"])(this, Component);
+    _classCallCheck(this, Component);
   }
 
   Component.prototype.main = function main() {};
@@ -21,36 +15,19 @@ var Component = function () {
 `;
 
 exports[`es2015: generator 1`] = `
-"\\"use strict\\";
-
-function* idMaker() {
+"function* idMaker() {
   var index = 0;while (true) {
     yield index++;
   }
 }"
 `;
 
-exports[`es2015: set 1`] = `
-"\\"use strict\\";
+exports[`es2015: set 1`] = `"new Set([1, 2, 3]);"`;
 
-new Set([1, 2, 3]);"
-`;
-
-exports[`es2016: exponentiation 1`] = `
-"\\"use strict\\";
-
-var result = Math.pow(2, 3);"
-`;
+exports[`es2016: exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
 
 exports[`es2017: async await 1`] = `
-"\\"use strict\\";
-
-var _nodentRuntime = require(\\"nodent-runtime\\");
-
-var _nodentRuntime2 = _interopRequireDefault(_nodentRuntime);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
-
+"import _default from \\"nodent-runtime\\";
 function hello() {
   return new Promise(function ($return, $error) {
     return $return();
@@ -59,112 +36,67 @@ function hello() {
 `;
 
 exports[`esnext: class properties 1`] = `
-"\\"use strict\\";
-
-var _classCallCheck2 = require(\\"babel-runtime/helpers/classCallCheck\\");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
+"import _classCallCheck from \\"babel-runtime/helpers/classCallCheck\\";
 
 var Component = function Component() {
-  (0, _classCallCheck3[\\"default\\"])(this, Component);
+  _classCallCheck(this, Component);
 
   this.onClick = function () {};
 };"
 `;
 
 exports[`esnext: import 1`] = `
-"\\"use strict\\";
+"import _camelCase from \\"lodash/camelCase\\";
 
-var _camelCase2 = require(\\"lodash/camelCase\\");
-
-var _camelCase3 = _interopRequireDefault(_camelCase2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
-
-console.log((0, _camelCase3[\\"default\\"])(\\"hello world\\"));"
+console.log(_camelCase(\\"hello world\\"));"
 `;
 
-exports[`esnext: object spread 1`] = `
-"\\"use strict\\";
-
-var original = { bar: 10 };var variant = Object.assign({ foo: 1 }, original);"
-`;
+exports[`esnext: object spread 1`] = `"var original = { bar: 10 };var variant = Object.assign({ foo: 1 }, original);"`;
 
 exports[`lodash: async 1`] = `
-"\\"use strict\\";
-
-var _parallel2 = require(\\"async/parallel\\");
-
-var _parallel3 = _interopRequireDefault(_parallel2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
-
-(0, _parallel3[\\"default\\"])([]);"
+"import _parallel from \\"async/parallel\\";
+_parallel([]);"
 `;
 
 exports[`lodash: lodash 1`] = `
-"\\"use strict\\";
-
-var _camelCase2 = require(\\"lodash/camelCase\\");
-
-var _camelCase3 = _interopRequireDefault(_camelCase2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
-
-(0, _camelCase3[\\"default\\"])(\\"hello world\\");"
+"import _camelCase from \\"lodash/camelCase\\";
+_camelCase(\\"hello world\\");"
 `;
 
 exports[`lodash: recompose 1`] = `
-"\\"use strict\\";
-
-var _compose2 = require(\\"recompose/compose\\");
-
-var _compose3 = _interopRequireDefault(_compose2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
-
-(0, _compose3[\\"default\\"])([]);"
+"import _compose from \\"recompose/compose\\";
+_compose([]);"
 `;
 
 exports[`react: jsx 1`] = `
-"\\"use strict\\";
-
-var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx.js\\";
+"var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx.js\\";
 function render() {
-  var _React$createElement;
-
   return React.createElement(
     \\"h1\\",
-    (_React$createElement = {
+    {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 1
       },
       __self: this
-    }, _React$createElement[\\"__self\\"] = this, _React$createElement),
+    },
     \\"Hello\\"
   );
 }"
 `;
 
 exports[`react: jsx spread 1`] = `
-"\\"use strict\\";
-
-var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx-spread.js\\";
+"var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx-spread.js\\";
 function render(props) {
-  var _Object$assign;
-
   return React.createElement(
     \\"h1\\",
-    Object.assign({ className: \\"large\\" }, props, (_Object$assign = {
+    Object.assign({ className: \\"large\\" }, props, {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 1
       },
       __self: this
-    }, _Object$assign[\\"__self\\"] = this, _Object$assign)),
+    }),
     \\"Hello\\"
   );
 }"

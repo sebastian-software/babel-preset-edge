@@ -121,7 +121,6 @@ function render() {
         fileName: _jsxFileName,
         lineNumber: 1
       },
-      __self: this,
       __self: this
     },
     \\"Hello\\"
@@ -141,7 +140,6 @@ function render(props) {
         fileName: _jsxFileName,
         lineNumber: 1
       },
-      __self: this,
       __self: this
     }),
     \\"Hello\\"
