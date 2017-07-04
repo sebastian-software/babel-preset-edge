@@ -83,6 +83,15 @@ const defaults = {
 ```
 
 
+## ES2015 Target
+
+Follow the idea of https://angularjs.blogspot.de/2017/03/angular-400-now-available.html to offer
+kind of a standardized es2015 package which could be used in more modern browsers/clients. This
+is an alternative to our "modern" approach which is more oriented on specific browser development
+and requires some knowledge of the supported browser / nodejs range.
+The "modern" mode effectively keeps source code with arrow functions, classes, etc. better.
+
+
 ## Modern Target
 
 This is our current browserslist set-up for a so-called modern development stack.
