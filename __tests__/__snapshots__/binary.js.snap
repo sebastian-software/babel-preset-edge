@@ -55,6 +55,18 @@ class Component {
 }"
 `;
 
+exports[`esnext: import 1`] = `
+"\\"use strict\\";
+
+var _camelCase2 = require(\\"lodash/camelCase\\");
+
+var _camelCase3 = _interopRequireDefault(_camelCase2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
+
+console.log((0, _camelCase3[\\"default\\"])(\\"hello world\\"));"
+`;
+
 exports[`esnext: object spread 1`] = `
 "\\"use strict\\";
 
@@ -105,11 +117,11 @@ function render() {
   return React.createElement(
     \\"h1\\",
     {
-      __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 1
       },
+      __self: this,
       __self: this
     },
     \\"Hello\\"
@@ -125,11 +137,11 @@ function render(props) {
   return React.createElement(
     \\"h1\\",
     Object.assign({ className: \\"large\\" }, props, {
-      __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 1
       },
+      __self: this,
       __self: this
     }),
     \\"Hello\\"
