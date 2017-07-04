@@ -128,36 +128,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\
 exports[`react: jsx 1`] = `
 "\\"use strict\\";
 
-var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx.js\\";
+var _jsx2 = require(\\"babel-runtime/helpers/jsx\\");
+
+var _jsx3 = _interopRequireDefault(_jsx2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
+
 function render() {
-  return React.createElement(
-    \\"h1\\",
-    {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 2
-      },
-      __self: this
-    },
-    \\"Hello\\"
-  );
+  return (0, _jsx3[\\"default\\"])(\\"h1\\", {}, void 0, \\"Hello\\");
 }"
 `;
 
 exports[`react: jsx spread 1`] = `
 "\\"use strict\\";
 
-var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx-spread.js\\";
 function render(props) {
   return React.createElement(
     \\"h1\\",
-    Object.assign({ className: \\"large\\" }, props, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 3
-      },
-      __self: this
-    }),
+    Object.assign({ className: \\"large\\" }, props),
     \\"Hello\\"
   );
 }"
