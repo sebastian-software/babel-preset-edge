@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`es3: literal 1`] = `"foo[\\"catch\\"];"`;
+
+exports[`es3: member 1`] = `
+"var foo = {
+  \\"catch\\": function () {}
+};"
+`;
+
 exports[`es2015: classes 1`] = `
 "class Component {
   main() {}

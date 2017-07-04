@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`es3: literal 1`] = `
+"\\"use strict\\";
+
+foo[\\"catch\\"];"
+`;
+
+exports[`es3: member 1`] = `
+"\\"use strict\\";
+
+var foo = {
+  \\"catch\\": function () {}
+};"
+`;
+
 exports[`es2015: classes 1`] = `
 "\\"use strict\\";
 
