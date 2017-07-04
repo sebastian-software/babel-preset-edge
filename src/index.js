@@ -251,11 +251,13 @@ export default function buildPreset(context, opts = {})
 
   // Supports loading files in source folder without relative folders
   // https://github.com/tleunen/babel-plugin-module-resolver
-  plugins.push([ moduleResolver, {
-    alias: {
-      "~": resolvePath(getAppRoot(), options.sourceFolder)
-    }
-  }])
+  if (options.sourceFolder != null) {
+    plugins.push([ moduleResolver, {
+      alias: {
+        "~": resolvePath(getAppRoot(), options.sourceFolder)
+      }
+    }])
+  }
 
   // Alternative to Babel Regenerator
   // Implements the ES7 keywords async and await using syntax transformation at compile-time, rather than generators.
