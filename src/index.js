@@ -6,7 +6,7 @@ import browserslist from "browserslist"
 import envPreset from "babel-preset-env"
 import flowPreset from "babel-preset-flow"
 
-import dynamicImportPlugin from "babel-plugin-syntax-dynamic-import"
+import dynamicImportSyntaxPlugin from "babel-plugin-syntax-dynamic-import"
 import dynamicImportNode from "babel-plugin-dynamic-import-node"
 import dynamicImportWebpack from "babel-plugin-dynamic-import-webpack"
 
@@ -213,7 +213,7 @@ export default function buildPreset(context, opts = {})
   presets.push(flowPreset)
 
   // Support for new @import() syntax
-  plugins.push(dynamicImportPlugin)
+  plugins.push(dynamicImportSyntaxPlugin)
 
   // Transpile the parsed import() syntax for compatibility in older environments.
   if (buildForCurrent || buildDistBinary) {
