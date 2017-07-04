@@ -294,7 +294,7 @@ export default function buildPreset(context, opts = {})
   if (!isProduction) {
     // Adds component stack to warning messages
     // Note: Currently throws an error when activated
-    // plugins.push(transformReactJSXSource)
+    plugins.push(transformReactJSXSource)
 
     // Adds __self attribute to JSX which React will use for some warnings
     plugins.push(transformReactJSXSelf)
