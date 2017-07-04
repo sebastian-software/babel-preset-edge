@@ -1,1 +1,5 @@
-async function hello() {}
+async function main() {
+  await hello()
+  console.log("Done!")
+}
+main()

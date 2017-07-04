@@ -37,11 +37,15 @@ exports[`es2016: exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
 
 exports[`es2017: async await 1`] = `
 "import _default from \\"nodent-runtime\\";
-function hello() {
+function main() {
   return new Promise(function ($return, $error) {
-    return $return();
+    return hello().then(function ($await_1) {
+      console.log(\\"Done!\\");
+      return $return();
+    }.$asyncbind(this, $error), $error);
   }.$asyncbind(this));
-}"
+}
+main();"
 `;
 
 exports[`esnext: class properties 1`] = `

@@ -6,3 +6,9 @@ const options = buildPreset(null, { target: "binary", sourceMaps: false, env: "p
 fixtures.forEach((fileName, index) => {
   test(titles[index], () => check(fileName, options))
 })
+
+const optionsCompressed = buildPreset(null, { target: "binary", sourceMaps: false, env: "production", compression: true })
+
+fixtures.forEach((fileName, index) => {
+  test(titles[index], () => check(fileName, optionsCompressed))
+})

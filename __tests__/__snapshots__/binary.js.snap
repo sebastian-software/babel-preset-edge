@@ -52,11 +52,15 @@ var _nodentRuntime2 = _interopRequireDefault(_nodentRuntime);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
 
-function hello() {
+function main() {
   return new Promise(function ($return, $error) {
-    return $return();
+    return hello().then(function ($await_1) {
+      console.log(\\"Done!\\");
+      return $return();
+    }.$asyncbind(this, $error), $error);
   }.$asyncbind(this));
-}"
+}
+main();"
 `;
 
 exports[`esnext: class properties 1`] = `
