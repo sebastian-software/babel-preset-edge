@@ -42,6 +42,9 @@ const defaults = {
   // - {}: any custom settings support by Env-Preset
   target: "nodejs",
 
+  // Choose environment based on environment variables ... or override with custom value here.
+  env: "auto",
+
   // Choose automatically depending on target
   modules: "auto",
 
@@ -76,8 +79,13 @@ export default function buildPreset(context, opts = {}) {
   // These are the final options we use later on.
   const options = { ...defaults, ...opts }
 
+  // Reset environment value when configured as "auto"
+  if (opts.env === "auto") {
+    opts.env = null
+  }
+
   // There is also a BROWSERSLIST_ENV
-  const envValue = process.env.BABEL_ENV || process.env.NODE_ENV || "development"
+  const envValue = opts.env || process.env.BABEL_ENV || process.env.NODE_ENV || "development"
   const isProduction = envValue === "production"
 
   if (options.debug) {
