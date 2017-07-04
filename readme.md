@@ -47,6 +47,9 @@ const defaults = {
   // - {}: any custom settings support by Env-Preset
   target: "nodejs",
 
+  // Choose environment based on environment variables ... or override with custom value here.
+  env: "auto",
+
   // Choose automatically depending on target
   modules: "auto",
 
