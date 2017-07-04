@@ -16,7 +16,8 @@ var Component = function () {
 
 exports[`es2015: generator 1`] = `
 "function* idMaker() {
-  var index = 0;while (true) {
+  var index = 0;
+  while (true) {
     yield index++;
   }
 }"
@@ -51,20 +52,26 @@ exports[`esnext: import 1`] = `
 console.log(_camelCase(\\"hello world\\"));"
 `;
 
-exports[`esnext: object spread 1`] = `"var original = { bar: 10 };var variant = Object.assign({ foo: 1 }, original);"`;
+exports[`esnext: object spread 1`] = `
+"var original = { bar: 10 };
+var variant = Object.assign({ foo: 1 }, original);"
+`;
 
 exports[`lodash: async 1`] = `
 "import _parallel from \\"async/parallel\\";
+
 _parallel([]);"
 `;
 
 exports[`lodash: lodash 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
+
 _camelCase(\\"hello world\\");"
 `;
 
 exports[`lodash: recompose 1`] = `
 "import _compose from \\"recompose/compose\\";
+
 _compose([]);"
 `;
 
@@ -76,7 +83,7 @@ function render() {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 1
+        lineNumber: 2
       },
       __self: this
     },
@@ -93,7 +100,7 @@ function render(props) {
     Object.assign({ className: \\"large\\" }, props, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 1
+        lineNumber: 3
       },
       __self: this
     }),

@@ -12,7 +12,8 @@ exports[`es2015: generator 1`] = `
 "\\"use strict\\";
 
 function* idMaker() {
-  var index = 0;while (true) yield index++;
+  var index = 0;
+  while (true) yield index++;
 }"
 `;
 
@@ -70,7 +71,8 @@ console.log((0, _camelCase3[\\"default\\"])(\\"hello world\\"));"
 exports[`esnext: object spread 1`] = `
 "\\"use strict\\";
 
-let original = { bar: 10 };let variant = Object.assign({ foo: 1 }, original);"
+let original = { bar: 10 };
+let variant = Object.assign({ foo: 1 }, original);"
 `;
 
 exports[`lodash: async 1`] = `
@@ -119,7 +121,7 @@ function render() {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 1
+        lineNumber: 2
       },
       __self: this
     },
@@ -138,7 +140,7 @@ function render(props) {
     Object.assign({ className: \\"large\\" }, props, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 1
+        lineNumber: 3
       },
       __self: this
     }),
