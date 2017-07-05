@@ -103,10 +103,11 @@ export default function buildPreset(context, opts = {}) {
 
   // There is also a BROWSERSLIST_ENV
   const envValue = opts.env || process.env.BABEL_ENV || process.env.NODE_ENV || "development"
-  const isProduction = envValue === "production"
+  const isProduction = /\bproduction\b/.test(envValue)
 
   if (options.debug) {
     console.log("- Environment:", envValue)
+    console.log("- Is Production:", isProduction)
   }
 
   // Auto select test target when running in test environment and no other info is available.
