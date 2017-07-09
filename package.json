@@ -78,9 +78,9 @@
     "async": "^2.5.0",
     "jest-cli": "^20.0.4",
     "lodash": "^4.17.4",
-    "prepublish": "^0.20.0",
-    "rambda": "^0.7.2",
-    "readable-code": "^3.3.2",
+    "prepublish": "^0.20.1",
+    "rambda": "^0.7.3",
+    "readable-code": "^3.3.3",
     "recompose": "^0.23.5"
   }
 }
