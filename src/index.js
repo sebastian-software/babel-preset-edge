@@ -71,9 +71,11 @@ const defaults = {
   // Enable full compression on production scripts or basic compression for libraries or during development.
   compression: false,
 
-  // Babel Core Settings
-  comments: false,
-  minified: true
+  // Keeping comments to be compatible with Webpack's magic comments
+  comments: true,
+
+  // Do not apply general minification by default
+  minified: false
 }
 
 const modernTarget = {
