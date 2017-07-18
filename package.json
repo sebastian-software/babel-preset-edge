@@ -71,7 +71,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
-    "browserslist": "^2.1.5",
+    "browserslist": "^2.2.0",
     "nodent-runtime": "^3.0.4"
   },
   "devDependencies": {
