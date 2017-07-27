@@ -71,16 +71,16 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
-    "browserslist": "^2.2.0",
+    "browserslist": "^2.2.2",
     "nodent-runtime": "^3.0.4"
   },
   "devDependencies": {
     "async": "^2.5.0",
     "jest-cli": "^20.0.4",
     "lodash": "^4.17.4",
-    "prepublish": "^1.0.6",
-    "rambda": "^0.7.3",
-    "readable-code": "^3.3.6",
+    "prepublish": "^1.1.0",
+    "rambda": "^0.7.5",
+    "readable-code": "^3.4.1",
     "recompose": "^0.24.0"
   }
 }
