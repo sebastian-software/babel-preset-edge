@@ -278,14 +278,14 @@ export default function buildPreset(context, opts = {}) {
   // Transpile the parsed import() syntax for compatibility in older environments.
   if (buildForCurrent || buildDistBinary) {
     if (options.debug) {
-      console.log("- Rewriting import() for NodeJS usage.")
+      console.log("- Rewriting import() for Rollup bundling targeting NodeJS.")
     }
 
     // Compiles import() to a deferred require() for NodeJS
     plugins.push(dynamicImportNode)
   } else if (buildAsLibrary || buildCustom) {
     if (options.debug) {
-      console.log("- Rewriting import() for Webpack usage.")
+      console.log("- Rewriting import() for Rollup bundling targeting Webpack.")
     }
 
     // This is our alternative appeoach for now which "protects" these imports from Rollup
