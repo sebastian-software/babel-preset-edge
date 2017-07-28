@@ -20,7 +20,8 @@
     "preset",
     "babel-preset",
     "react",
-    "webpack"
+    "webpack",
+    "universal"
   ],
   "author": {
     "name": "Sebastian Software",
