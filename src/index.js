@@ -1,4 +1,4 @@
-/* eslint-disable filenames/match-exported */
+/* eslint-disable filenames/match-exported, no-console */
 import { get as getAppRoot } from "app-root-dir"
 import { resolve as resolvePath } from "path"
 import browserslist from "browserslist"
@@ -117,7 +117,7 @@ export default function buildPreset(context, opts = {}) {
 
   // There is also a BROWSERSLIST_ENV
   const envValue = opts.env || process.env.BABEL_ENV || process.env.NODE_ENV || "development"
-  const isProduction = /\bproduction\b/.test(envValue)
+  const isProduction = (/\bproduction\b/).test(envValue)
 
   if (options.debug) {
     console.log("- Environment:", envValue)
@@ -138,7 +138,8 @@ export default function buildPreset(context, opts = {}) {
     options.target === "binary"
   let buildForCurrent = options.target === "current" || options.target === "test"
   let buildForBrowserList = options.target === "browser" || options.target === "web"
-  let buildAsLibrary = options.target === "library" || options.target === "es2015" || options.target === "modern"
+  let buildAsLibrary =
+    options.target === "library" || options.target === "es2015" || options.target === "modern"
   let buildCustom = typeof options.target === "object"
 
   if (buildDistBinary) {
@@ -257,7 +258,8 @@ export default function buildPreset(context, opts = {}) {
       // Apply some basic compression also for normal non-minified builds. After all
       // it makes no sense to publish deadcode for example.
       presets.push([
-        babiliPreset, {
+        babiliPreset,
+        {
           booleans: false,
           deadcode: false,
           infinity: false,
