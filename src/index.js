@@ -234,12 +234,14 @@ export default function buildPreset(context, opts = {}) {
       options.imports = "rollup-webpack"
     } else if (buildForBrowserList) {
       options.imports = "webpack"
-
-      // As chunkNames require Webpack Magic Comments, we can't remove them.
-      options.comments = true
     } else {
       options.imports = null
     }
+  }
+
+  // Automatic chunkNames require Webpack Magic Comments, we can't remove them.
+  if (options.imports === "webpack") {
+    options.comments = true
   }
 
   if (options.debug) {
