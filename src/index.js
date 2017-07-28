@@ -47,10 +47,17 @@ const defaults = {
   // Choose environment based on environment variables ... or override with custom value here.
   env: "auto",
 
-  // Choose automatically depending on target
+  // Choose automatically depending on target or use one of these for full control:
+  // - "commonjs": Transpile module imports to commonjs
+  // - false: Keep module imports as is (e.g. protecting ESM for optiomal usage with Webpack)
+  // - "auto": Automatic selection based on target.
   modules: "auto",
 
-  // Choose automatically depending on target
+  // Choose automatically depending on target by default or use one of these for full control:
+  // - "rollup-nodejs": For bundling with Rollup and later usage in NodeJS (e.g. produce binaries).
+  // - "rollup-webpack": For bundling with Rollup and later usage with Webpack (e.g. publish libraries).
+  // - "webpack": Improve compatibility with direct Webpack usage (add chunkNames, dynamic CSS imports, ...) (e.g. bundling applications)
+  // - "auto": Automatic selection based on target.
   imports: "auto",
 
   // Prefer built-ins over custom code. This mainly benefits for modern engines.
