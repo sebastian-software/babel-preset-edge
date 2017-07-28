@@ -1,11 +1,15 @@
 src
 __tests__
+
 appveyor.yml
 browserslist
 gulpfile.babel.js
+
+.browserslistrc
 .editorconfig
-.eslintignore
+.eslint*
 .babelrc
 .flowconfig
 .gitattributes
 .travis.yml
+.npmignore
