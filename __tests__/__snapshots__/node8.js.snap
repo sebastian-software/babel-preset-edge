@@ -47,6 +47,12 @@ exports[`esnext: class properties 1`] = `
 }"
 `;
 
+exports[`esnext: dynamic import 1`] = `
+"Promise.resolve().then(() => require(\\"lodash\\")).then(lodash => {
+  console.log(lodash.camelCase(\\"hello world\\"));
+});"
+`;
+
 exports[`esnext: import 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
 

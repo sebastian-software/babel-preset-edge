@@ -58,6 +58,16 @@ var Component = function Component() {
 };"
 `;
 
+exports[`esnext: dynamic import 1`] = `
+"new Promise(function (resolve) {
+  require.ensure([], function (require) {
+    resolve(require(\\"lodash\\"));
+  });
+}).then(function (lodash) {
+  console.log(lodash.camelCase(\\"hello world\\"));
+});"
+`;
+
 exports[`esnext: import 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
 

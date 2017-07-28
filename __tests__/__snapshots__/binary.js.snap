@@ -74,6 +74,14 @@ class Component {
 }"
 `;
 
+exports[`esnext: dynamic import 1`] = `
+"\\"use strict\\";
+
+Promise.resolve().then(() => require(\\"lodash\\")).then(lodash => {
+  console.log(lodash.camelCase(\\"hello world\\"));
+});"
+`;
+
 exports[`esnext: import 1`] = `
 "\\"use strict\\";
 
