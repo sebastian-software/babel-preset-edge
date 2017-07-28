@@ -80,7 +80,7 @@
     "lodash": "^4.17.4",
     "prepublish": "^1.1.0",
     "rambda": "^0.7.5",
-    "readable-code": "^3.4.1",
+    "readable-code": "^3.4.2",
     "recompose": "^0.24.0"
   }
 }
