@@ -8,8 +8,9 @@ import flowPreset from "babel-preset-flow"
 import babiliPreset from "babel-preset-babili"
 
 import dynamicImportSyntaxPlugin from "babel-plugin-syntax-dynamic-import"
-import dynamicImportNode from "babel-plugin-dynamic-import-node"
-import dynamicImportWebpack from "babel-plugin-dynamic-import-webpack"
+import dynamicImportRollupNode from "babel-plugin-dynamic-import-node"
+import dynamicImportRollupWebpack from "babel-plugin-dynamic-import-webpack"
+import dynamicImportUniversalWebpack from "babel-plugin-universal-import"
 
 import moduleResolver from "babel-plugin-module-resolver"
 import fastAsyncPlugin from "babel-plugin-fast-async"
@@ -49,6 +50,9 @@ const defaults = {
   // Choose automatically depending on target
   modules: "auto",
 
+  // Choose automatically depending on target
+  imports: "auto",
+
   // Prefer built-ins over custom code. This mainly benefits for modern engines.
   useBuiltIns: true,
 
@@ -72,7 +76,8 @@ const defaults = {
   compression: false,
 
   // Keeping comments to be compatible with Webpack's magic comments
-  comments: true,
+  // Comments are automatically re-enabled if Webpack Universal Imports are used for having correct chunkNames.
+  comments: false,
 
   // Do not apply general minification by default
   minified: false
@@ -199,7 +204,8 @@ export default function buildPreset(context, opts = {}) {
     }
   }
 
-  if (options.modules === "auto" || options.modules == null) {
+  // Automatic detection of "modules" mode based on target
+  if (options.modules == null || options.modules === "auto") {
     if (buildForCurrent || buildDistBinary) {
       options.modules = "commonjs"
     } else if (buildAsLibrary || buildForBrowserList) {
@@ -209,6 +215,22 @@ export default function buildPreset(context, opts = {}) {
     } else {
       // Best overall support when nothing other is applicable
       options.modules = "commonjs"
+    }
+  }
+
+  // Automatic detection of "imports" mode based on target
+  if (options.imports == null || options.imports === "auto") {
+    if (buildForCurrent || buildDistBinary) {
+      options.imports = "rollup-nodejs"
+    } else if (buildAsLibrary || buildCustom) {
+      options.imports = "rollup-webpack"
+    } else if (buildForBrowserList) {
+      options.imports = "webpack"
+
+      // As chunkNames require Webpack Magic Comments, we can't remove them.
+      options.comments = true
+    } else {
+      options.imports = null
     }
   }
 
@@ -275,24 +297,33 @@ export default function buildPreset(context, opts = {}) {
   // Support for new @import() syntax
   plugins.push(dynamicImportSyntaxPlugin)
 
-  // Transpile the parsed import() syntax for compatibility in older environments.
-  if (buildForCurrent || buildDistBinary) {
+  // Transpile the parsed import() syntax for compatibility or extended features.
+  if (options.imports === "rollup-nodejs") {
     if (options.debug) {
       console.log("- Rewriting import() for Rollup bundling targeting NodeJS.")
     }
 
     // Compiles import() to a deferred require() for NodeJS
-    plugins.push(dynamicImportNode)
-  } else if (buildAsLibrary || buildCustom) {
+    plugins.push(dynamicImportRollupNode)
+  } else if (options.imports === "rollup-webpack") {
     if (options.debug) {
       console.log("- Rewriting import() for Rollup bundling targeting Webpack.")
     }
 
     // This is our alternative appeoach for now which "protects" these imports from Rollup
-    // for usage in Webpack later on. In detail it transpiles `import()` to `require.ensure()` before
-    // it reaches RollupJS's bundling engine.
+    // for usage in Webpack later on (not directly). In detail it transpiles `import()` to
+    // `require.ensure()` before it reaches RollupJS's bundling engine.
     // https://github.com/airbnb/babel-plugin-dynamic-import-webpack
-    plugins.push(dynamicImportWebpack)
+    plugins.push(dynamicImportRollupWebpack)
+  } else if (options.imports === "webpack") {
+    if (options.debug) {
+      console.log("- Rewriting import() for Universal Webpack.")
+    }
+
+    // Dual CSS + JS imports together with automatic chunkNames and
+    // optimized non-chunked server-side rendering.
+    // https://github.com/airbnb/babel-plugin-dynamic-import-webpack
+    plugins.push(dynamicImportUniversalWebpack)
   } else {
     if (options.debug) {
       console.log("- Keeping import() statement as is.")

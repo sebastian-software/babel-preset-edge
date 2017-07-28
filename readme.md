@@ -22,7 +22,7 @@ Babel Preset Edge is a centralized modern Babel Configuration for React developm
 - Optimizations for React during development (richer debug capabilities) and production (less code).
 - Automatic environment specific ES2015/2016/2017 support using [Preset Env](https://github.com/babel/babel-preset-env)
 - High performance async/await transpilation using [Fast Async](https://github.com/MatAtBread/fast-async) and [nodeent](https://github.com/MatAtBread/nodent#performance)
-- Support for new dynamic `import()` statement which is used for dynamic chunk creation in Webpack since version 2.
+- Support for dynamic `import()` statement which is used for dynamic chunk creation in Webpack (since version 2). Plus it adds support for dynamic CSS loading + automatic chunkNames.
 - Local module support for easily referencing sources inside the `src` folder of the project using the [module resolver plugin](https://github.com/tleunen/babel-plugin-module-resolver).
 - Support for converting often times used upcoming ES standards like class properties and object rest spread.
 - Prefers external polyfills and helpers instead of baked-in code which is especially beneficial for caching and code splitting.
@@ -54,6 +54,9 @@ const defaults = {
   // Choose automatically depending on target
   modules: "auto",
 
+  // Choose automatically depending on target
+  imports: "auto",
+
   // Prefer built-ins over custom code. This mainly benefits for modern engines.
   useBuiltIns: true,
 
@@ -76,9 +79,12 @@ const defaults = {
   // Enable full compression on production scripts or basic compression for libraries or during development.
   compression: false,
 
-  // Babel Core Settings
+  // Keeping comments to be compatible with Webpack's magic comments
+  // Comments are automatically re-enabled if Webpack Universal Imports are used for having correct chunkNames.
   comments: false,
-  minified: true
+
+  // Do not apply general minification by default
+  minified: false
 }
 ```
 
