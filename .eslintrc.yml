@@ -1,2 +1,4 @@
 extends:
   ./node_modules/readable-code/.eslintrc.yml
+settings:
+  import/resolver: null
