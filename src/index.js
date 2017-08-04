@@ -135,10 +135,9 @@ export default function buildPreset(context, opts = {}) {
     options.target = "test"
   }
 
-  let envTargets = {}
-
   let buildDistBinary =
     options.target === "node" ||
+    options.target === "node8" ||
     options.target === "nodejs" ||
     options.target === "script" ||
     options.target === "binary"
@@ -148,10 +147,14 @@ export default function buildPreset(context, opts = {}) {
     options.target === "library" || options.target === "es2015" || options.target === "modern"
   let buildCustom = typeof options.target === "object"
 
+  let envTargets = {}
+
   if (buildDistBinary) {
     // Last stable NodeJS (LTS) - first LTS of 6.x.x was 6.9.0
     // See also: https://nodejs.org/en/blog/release/v6.9.0/
-    envTargets.node = "6.9.0"
+    // Expected LTS for v8.0.0 is October 2017. https://github.com/nodejs/LTS
+    // We allow using this version already when setting target to "node8".
+    envTargets.node = options.target === "node8" ? "8.0.0" : "6.9.0"
   } else if (buildForCurrent) {
     // Scripts which are directly used like tests can be transpiled for the current NodeJS version
     envTargets.node = "current"

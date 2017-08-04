@@ -3,7 +3,7 @@ import { fixtures, titles, check } from "./core"
 
 const options = buildPreset(null, {
   modules: false,
-  target: { node: "8.0.0" },
+  target: "node8",
   imports: "rollup-nodejs",
   sourceMaps: false
 })
