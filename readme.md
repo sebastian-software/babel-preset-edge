@@ -102,36 +102,57 @@ const defaults = {
 }
 ```
 
+## Supported targets
 
-## ES2015 Target
+### Default Target
 
-Follow the idea of https://angularjs.blogspot.de/2017/03/angular-400-now-available.html to offer
-kind of a standardized es2015 package which could be used in more modern browsers/clients. This
-is an alternative to our "modern" approach which is more oriented on specific browser development
-and requires some knowledge of the supported browser / nodejs range.
-The "modern" mode effectively keeps source code with arrow functions, classes, etc. better.
+The default target is used when not running a test runner and when no other `target` was defined. This transpiles the code will the full feature set of `babel-preset-latest` so that the code should be able to run on all ES5-capable engines. As the compiled code does not contain any polyfills you might want to use `polyfill.io` or `babel-runtime` as needed.
 
 
-## Modern Target
+### Modern Target
 
 This is our current browserslist set-up for a so-called modern development stack.
 
 ```js
 const modernTarget = {
-  node: "6.9.0",
+  node: "8.2.0",
   electron: "1.6",
   browsers: [
     "Safari >= 10.1",
     "iOS >= 10.3",
     "Edge >= 15",
-    "Chrome >= 58",
+    "Chrome >= 59",
+    "ChromeAndroid >= 59",
     "Firefox >= 53"
   ]
 }
 ```
 
 Using this preset setting is ideal during development to reduce overall amount of transpilation
-to a useful minimum to test with pretty up-to-date environments and browsers.
+to a useful minimum to test with pretty up-to-date environments and browsers. It allows you to
+directly benefit from a lot of new features directly built-into Node v8.
+
+
+### ES2015 Target
+
+This follows the idea of https://angularjs.blogspot.de/2017/03/angular-400-now-available.html to offer
+kind of a standardized `es2015` compatible package which could be used in relatively modern engines.
+This is an alternative to our `modern` approach and keeps all ES2015 code exactly as is. It is
+independent from any specific browser lists. This output configuration might be useful to e.g. offer
+two different bundles of your application: one for classic browsers and one of es2015-compatible browsers.
+
+
+### Test Target
+
+The `test` target is ideally suited for any test runner usage. It is enabled by default when no other
+target is given and `NODE_ENV` is configured as `test`. It exactly targets the current environment.
+It is probably not a good idea to use this target outside of testing.
+
+
+### Browser Target
+
+When setting the target to `browser` your build requirements will match the `browserslist` configuration of your projects. This is ideal for all web related builds inside your application. It is not well suited for any publishing of libraries for other use cases.
+
 
 
 ## License
