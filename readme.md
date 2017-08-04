@@ -41,6 +41,7 @@ const defaults = {
 
   // One of the following:
   // - "node"/nodejs"/"script"/"binary": any NodeJS related execution with wide support to last LTS aka 6.9.0
+  // - "node8": identical to the previous option but target Node v8.0.0 (next LTS) - planned for October 2017
   // - "current"/"test": current NodeJS version
   // - "browser"/"web": browsers as defined by browserslist
   // - "library": ideally used for publishing libraries e.g. on NPM
@@ -71,7 +72,12 @@ const defaults = {
   // JSX Pragma. Default: Use React
   jsxPragma: "React.createElement",
 
-  // Env Settings
+  // Async settings: Either `"promises"` or `null`
+  rewriteAsync: "promises",
+
+  // Env Settings. We default on a loose transpilation which is efficient
+  // but not overly compliant. If you experience issues it might be better to
+  // switch `looseMode` off.
   looseMode: true,
   specMode: false,
 
@@ -87,7 +93,7 @@ const defaults = {
   // Enable full compression on production scripts or basic compression for libraries or during development.
   compression: false,
 
-  // Keeping comments to be compatible with Webpack's magic comments
+  // Removing comments by default to keep exported libraries leaner in disc space.
   // Comments are automatically re-enabled if Webpack Universal Imports are used for having correct chunkNames.
   comments: false,
 
