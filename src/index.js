@@ -155,8 +155,10 @@ export default function buildPreset(context, opts = {}) {
   } else if (buildForBrowserList) {
     // Until this issue is fixed we can't use auto config detection for browserslist in babel-preset-env
     // https://github.com/babel/babel-preset-env/issues/149
-    // What we do here is actually pretty clever/ytupid as we just pass over the already normalized
-    // browser list to browserslist again.
+    // This is currently scheduled for v2.0 of babel-preset-env which still has some tasks on the list.
+    // What we do here is actually pretty clever/stupid as we just use browserslist
+    // itself to query its configuration and pass over that data again to babel-preset-env
+    // for passing it to browserslist internally. Yeah.
     const autoBrowsers = browserslist(null, { env: isProduction ? "production" : "development" })
 
     // For the abstract browsers config we let browserslist find the config file
@@ -297,7 +299,11 @@ export default function buildPreset(context, opts = {}) {
 
       // We prefer the transpilation of the "fast-async" plugin over the
       // slower and more complex Babel internal implementation.
-      exclude: [ "transform-regenerator", "transform-async-to-generator", ...additionalExcludes ],
+      exclude: [
+        "transform-regenerator",
+        "transform-async-to-generator",
+        ...additionalExcludes
+      ],
 
       // Differ between development and production for our scope.
       // NodeJS is generally fine in development to match the runtime version which is currently installed.
