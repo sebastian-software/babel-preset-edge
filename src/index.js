@@ -66,6 +66,9 @@ const defaults = {
   // JSX Pragma. Default: Use React
   jsxPragma: "React.createElement",
 
+  // Async settings: Either `"promises"` or `null`
+  rewriteAsync: "promises",
+
   // Env Settings
   looseMode: true,
   specMode: false,
@@ -368,12 +371,14 @@ export default function buildPreset(context, opts = {}) {
   // Implements the ES7 keywords async and await using syntax transformation
   // to at Promises at compile-time, rather than using generators.
   // https://www.npmjs.com/package/fast-async
-  plugins.push([
-    fastAsyncPlugin,
-    {
-      useRuntimeModule: true
-    }
-  ])
+  if (options.rewriteAsync === "promises") {
+    plugins.push([
+      fastAsyncPlugin,
+      {
+        useRuntimeModule: true
+      }
+    ])
+  }
 
   // Support for ES7 Class Properties (currently stage-2)
   // class { handleClick = () => { } }
