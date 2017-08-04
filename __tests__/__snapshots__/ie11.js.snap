@@ -48,6 +48,17 @@ function main() {
 main();"
 `;
 
+exports[`esnext: async 1`] = `
+"import _default from \\"nodent-runtime\\";
+function wait() {
+  return new Promise(function ($return, $error) {
+    return loadData().then(function ($await_1) {
+      return $return();
+    }.$asyncbind(this, $error), $error);
+  }.$asyncbind(this));
+}"
+`;
+
 exports[`esnext: class properties 1`] = `
 "import _classCallCheck from \\"babel-runtime/helpers/classCallCheck\\";
 
