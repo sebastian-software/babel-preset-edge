@@ -3,7 +3,10 @@ import { get as getAppRoot } from "app-root-dir"
 import { resolve as resolvePath } from "path"
 import browserslist from "browserslist"
 
-import envPreset from "babel-preset-env"
+import envPreset, { isPluginRequired } from "babel-preset-env"
+import getTargets from "babel-preset-env/lib/targets-parser"
+import envPlugins from "babel-preset-env/data/plugins.json"
+
 import flowPreset from "babel-preset-flow"
 import babiliPreset from "babel-preset-babili"
 
@@ -249,12 +252,22 @@ export default function buildPreset(context, opts = {}) {
     options.comments = true
   }
 
+  // Directly ask babel-preset-env whether we want to use transform-async
+  // based on currently configured targets. Only if that's the case we
+  // transform our async/await code. Otherwise we assume it works without
+  // any transpilation.
+  let requiresAsync = isPluginRequired(getTargets(envTargets), envPlugins["transform-async-to-generator"])
+  if (!requiresAsync) {
+    options.rewriteAsync = null
+  }
+
   if (options.debug) {
     console.log("- Module Settings:", options.modules === false ? "ESM" : options.modules)
     console.log(
       "- Transpilation Compliance:",
       options.specMode ? "SPEC" : options.looseMode ? "LOOSE" : "DEFAULT"
     )
+    console.log("- Async Transpilation:", options.rewriteAsync)
   }
 
   // Use basic compression for libraries and full compression on binaries
