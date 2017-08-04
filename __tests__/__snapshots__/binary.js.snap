@@ -43,26 +43,6 @@ exports[`es2016: exponentiation 1`] = `
 var result = Math.pow(2, 3);"
 `;
 
-exports[`es2017: async await 1`] = `
-"\\"use strict\\";
-
-var _nodentRuntime = require(\\"nodent-runtime\\");
-
-var _nodentRuntime2 = _interopRequireDefault(_nodentRuntime);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
-
-function main() {
-  return new Promise(function ($return, $error) {
-    return hello().then(function ($await_1) {
-      console.log(\\"Done!\\");
-      return $return();
-    }.$asyncbind(this, $error), $error);
-  }.$asyncbind(this));
-}
-main();"
-`;
-
 exports[`esnext: async 1`] = `
 "\\"use strict\\";
 

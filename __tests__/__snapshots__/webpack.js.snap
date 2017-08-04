@@ -35,19 +35,6 @@ exports[`es2015: set 1`] = `"new Set([1, 2, 3]);"`;
 
 exports[`es2016: exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
 
-exports[`es2017: async await 1`] = `
-"import _default from \\"nodent-runtime\\";
-function main() {
-  return new Promise(function ($return, $error) {
-    return hello().then(function ($await_1) {
-      console.log(\\"Done!\\");
-      return $return();
-    }.$asyncbind(this, $error), $error);
-  }.$asyncbind(this));
-}
-main();"
-`;
-
 exports[`esnext: async 1`] = `
 "import _default from \\"nodent-runtime\\";
 function wait() {
