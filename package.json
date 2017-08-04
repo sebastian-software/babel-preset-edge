@@ -66,9 +66,9 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-inline-elements": "^6.22.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.6",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.8",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-plugin-universal-import": "^1.2.2",
+    "babel-plugin-universal-import": "^1.2.5",
     "babel-preset-babili": "^0.1.4",
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
@@ -82,8 +82,8 @@
     "jest-cli": "^20.0.4",
     "lodash": "^4.17.4",
     "prepublish": "^1.1.3",
-    "rambda": "^0.7.5",
-    "readable-code": "^3.4.4",
+    "rambda": "^0.8.0",
+    "readable-code": "^3.4.5",
     "recompose": "^0.24.0"
   }
 }
