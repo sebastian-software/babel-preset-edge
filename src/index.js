@@ -269,6 +269,7 @@ export default function buildPreset(context, opts = {}) {
   }
 
   if (options.debug) {
+    /* eslint-disable no-nested-ternary */
     console.log("- Module Settings:", options.modules === false ? "ESM" : options.modules)
     console.log(
       "- Transpilation Compliance:",
