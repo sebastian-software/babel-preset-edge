@@ -74,7 +74,7 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "babel-runtime": "^6.25.0",
-    "browserslist": "^2.3.0",
+    "browserslist": "^2.3.3",
     "nodent-runtime": "^3.0.4"
   },
   "devDependencies": {
@@ -82,8 +82,8 @@
     "jest-cli": "^20.0.4",
     "lodash": "^4.17.4",
     "prepublish": "^1.2.7",
-    "rambda": "^0.8.0",
-    "readable-code": "^3.4.9",
+    "rambda": "^0.8.1",
+    "readable-code": "^3.4.11",
     "recompose": "^0.24.0"
   }
 }
