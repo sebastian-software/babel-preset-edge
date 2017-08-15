@@ -1,4 +1,4 @@
-/* eslint-disable filenames/match-exported, no-console */
+/* eslint-disable filenames/match-exported, no-console, complexity */
 import { get as getAppRoot } from "app-root-dir"
 import { resolve as resolvePath } from "path"
 import browserslist from "browserslist"
