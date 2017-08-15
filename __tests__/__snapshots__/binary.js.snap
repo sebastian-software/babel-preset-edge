@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`deadcode 1`] = `
+"\\"use strict\\";
+
+const STATIC = false;
+if (STATIC) {
+  console.log(\\"Remove me in production!\\");
+}"
+`;
+
 exports[`es3: literal 1`] = `
 "\\"use strict\\";
 
