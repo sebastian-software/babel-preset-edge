@@ -82,6 +82,8 @@
     "jest-cli": "^20.0.4",
     "lodash": "^4.17.4",
     "prepublish": "^1.3.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
     "readable-code": "^3.4.12",
     "recompose": "^0.25.0"
   }
