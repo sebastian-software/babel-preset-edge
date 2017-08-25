@@ -1,6 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`deadcode 1`] = `"const STATIC = !1;"`;
+exports[`deadcode 1`] = `
+"const STATIC = !1;
+STATIC, !1;"
+`;
 
 exports[`es3: literal 1`] = `"foo[\\"catch\\"];"`;
 
