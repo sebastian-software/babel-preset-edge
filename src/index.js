@@ -10,6 +10,8 @@ import envPlugins from "babel-preset-env/data/plugins.json"
 import flowPreset from "babel-preset-flow"
 import minifyPreset from "babel-preset-minify"
 
+import deadCodeEliminationPlugin from "babel-plugin-minify-dead-code-elimination"
+
 import dynamicImportSyntaxPlugin from "babel-plugin-syntax-dynamic-import"
 import dynamicImportRollupNode from "babel-plugin-dynamic-import-node"
 import dynamicImportRollupWebpack from "babel-plugin-dynamic-import-webpack"
@@ -292,11 +294,13 @@ export default function buildPreset(context, opts = {}) {
           infinity: false,
           mangle: false,
           flipComparisons: false,
-          replace: false,
-          simplify: false
+          simplify: false,
+          keepFnName: true
         }
       ])
     }
+  } else {
+    plugins.push(deadCodeEliminationPlugin)
   }
 
   presets.push([
