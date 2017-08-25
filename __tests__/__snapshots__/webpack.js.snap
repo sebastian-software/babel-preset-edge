@@ -21,8 +21,7 @@ exports[`es3: member 1`] = `
 
 exports[`es2015: classes 1`] = `
 "import _classCallCheck from \\"babel-runtime/helpers/classCallCheck\\";
-
-var Component = function () {
+export var Component = function () {
   function Component() {
     _classCallCheck(this, Component);
   }
@@ -59,8 +58,7 @@ function wait() {
 
 exports[`esnext: class properties 1`] = `
 "import _classCallCheck from \\"babel-runtime/helpers/classCallCheck\\";
-
-var Component = function Component() {
+export var Component = function Component() {
   _classCallCheck(this, Component);
 
   this.onClick = function () {};

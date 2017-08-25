@@ -1,3 +1,3 @@
-class Component {
+export class Component {
   main() {}
 }

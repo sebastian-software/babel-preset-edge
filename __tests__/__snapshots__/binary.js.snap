@@ -30,9 +30,11 @@ var foo = {
 exports[`es2015: classes 1`] = `
 "\\"use strict\\";
 
+exports.__esModule = true;
 class Component {
   main() {}
-}"
+}
+exports.Component = Component;"
 `;
 
 exports[`es2015: generator 1`] = `
@@ -77,12 +79,14 @@ function wait() {
 exports[`esnext: class properties 1`] = `
 "\\"use strict\\";
 
+exports.__esModule = true;
 class Component {
   constructor() {
     this.onClick = () => {};
   }
 
-}"
+}
+exports.Component = Component;"
 `;
 
 exports[`esnext: dynamic import 1`] = `

@@ -10,7 +10,11 @@ exports[`es3: member 1`] = `
 };"
 `;
 
-exports[`es2015: classes 1`] = `""`;
+exports[`es2015: classes 1`] = `
+"export class Component {
+  main() {}
+}"
+`;
 
 exports[`es2015: generator 1`] = `
 "function* idMaker() {
@@ -34,7 +38,14 @@ function wait() {
 }"
 `;
 
-exports[`esnext: class properties 1`] = `""`;
+exports[`esnext: class properties 1`] = `
+"export class Component {
+  constructor() {
+    this.onClick = () => {};
+  }
+
+}"
+`;
 
 exports[`esnext: dynamic import 1`] = `
 "Promise.resolve().then(() => require(\\"lodash\\")).then(lodash => {

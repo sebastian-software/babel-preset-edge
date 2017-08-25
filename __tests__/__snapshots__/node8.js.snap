@@ -20,7 +20,7 @@ exports[`es3: member 1`] = `
 `;
 
 exports[`es2015: classes 1`] = `
-"class Component {
+"export class Component {
   main() {}
 }"
 `;
@@ -43,7 +43,7 @@ exports[`esnext: async 1`] = `
 `;
 
 exports[`esnext: class properties 1`] = `
-"class Component {
+"export class Component {
   constructor() {
     this.onClick = () => {};
   }
