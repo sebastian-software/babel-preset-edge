@@ -80,9 +80,9 @@
   },
   "devDependencies": {
     "async": "^2.5.0",
-    "jest-cli": "^20.0.4",
+    "jest-cli": "^21.0.1",
     "lodash": "^4.17.4",
-    "prepublish": "^1.3.0",
+    "prepublish": "^1.4.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "readable-code": "^3.4.12",
