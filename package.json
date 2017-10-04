@@ -79,13 +79,13 @@
     "nodent-runtime": "^3.0.4"
   },
   "devDependencies": {
-    "async": "^2.5.0",
-    "jest-cli": "^21.2.1",
-    "lodash": "^4.17.4",
-    "prepublish": "^1.4.2",
-    "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "readable-code": "^3.4.13",
+    "async": "2.x",
+    "jest-cli": "21.x",
+    "lodash": "4.x",
+    "prepublish": "1.x",
+    "prop-types": "15.x",
+    "react": "16.x",
+    "readable-code": "3.x",
     "recompose": "^0.25.1"
   }
 }
