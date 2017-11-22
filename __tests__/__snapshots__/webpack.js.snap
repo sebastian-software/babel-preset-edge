@@ -64,7 +64,7 @@ _universalImport({
   id: \\"lodash\\",
   file: \\"./__tests__/__fixtures__/esnext_dynamic-import.js\\",
   load: function load() {
-    return Promise.all([import( /* webpackChunkName: 'lodash' */\\"lodash\\"), _importCss(\\"lodash\\")]).then(function (proms) {
+    return Promise.all([import( /* webpackChunkName: 'lodash' */\\"lodash\\"), _importCss(\\"lodash\\", {})]).then(function (proms) {
       return proms[0];
     });
   },
