@@ -80,12 +80,12 @@
   },
   "devDependencies": {
     "async": "^2.6.0",
+    "eslint-config-readable": "^0.1.2",
     "jest-cli": "21.x",
     "lodash": "4.x",
     "prepublish": "^1.5.3",
     "prop-types": "15.x",
     "react": "^16.2.0",
-    "readable-code": "^3.4.15",
     "recompose": "^0.26.0"
   }
 }
