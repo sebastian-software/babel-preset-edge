@@ -4,11 +4,13 @@
   "description": "Edge Babel is a centralized Babel Configuration. Part of the Edge Platform.",
   "main": "lib/node.commonjs.js",
   "scripts": {
-    "test": "prepublish && jest",
-    "prepare": "prepublish",
+    "test": "preppy && jest",
+    "prepare": "preppy",
     "release": "git push && release-it --github.release --npm.publish --non-interactive",
-    "release:minor": "git push && release-it --github.release --npm.publish --non-interactive --increment minor",
-    "release:major": "git push && release-it --github.release --npm.publish --non-interactive --increment major"
+    "release:minor":
+      "git push && release-it --github.release --npm.publish --non-interactive --increment minor",
+    "release:major":
+      "git push && release-it --github.release --npm.publish --non-interactive --increment major"
   },
   "engines": {
     "node": ">=6.0.0",
@@ -26,7 +28,7 @@
   "author": {
     "name": "Sebastian Software",
     "email": "s.werner@sebastian-software.de",
-    "url": "sebastian-software.de"
+    "url": "https://www.sebastian-software.de"
   },
   "license": "Apache-2.0",
   "pre-commit": "lint-staged",
@@ -83,7 +85,7 @@
     "eslint-config-readable": "^0.1.2",
     "jest-cli": "21.x",
     "lodash": "4.x",
-    "prepublish": "^1.5.3",
+    "preppy": "^3.1.7",
     "prop-types": "15.x",
     "react": "^16.2.0",
     "recompose": "^0.26.0"
