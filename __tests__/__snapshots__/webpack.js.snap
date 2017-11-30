@@ -57,9 +57,14 @@ export var Component = function Component() {
 `;
 
 exports[`esnext: dynamic import 1`] = `
-"import _path from \\"path\\";
-import _importCss from \\"babel-plugin-universal-import/importCss.js\\";
-import _universalImport from \\"babel-plugin-universal-import/universalImport.js\\";
+"var _path = _interopRequireDefault(require(\\"path\\"))[\\"default\\"];
+
+var _importCss = _interopRequireDefault(require(\\"babel-plugin-universal-import/importCss\\"))[\\"default\\"];
+
+var _universalImport = _interopRequireDefault(require(\\"babel-plugin-universal-import/universalImport\\"))[\\"default\\"];
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
+
 _universalImport({
   id: \\"lodash\\",
   file: \\"./__tests__/__fixtures__/esnext_dynamic-import.js\\",

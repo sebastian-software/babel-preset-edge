@@ -4,13 +4,11 @@
   "description": "Edge Babel is a centralized Babel Configuration. Part of the Edge Platform.",
   "main": "lib/node.commonjs.js",
   "scripts": {
-    "test": "preppy && jest",
-    "prepare": "preppy",
+    "test": "jest",
+    "prepare": "rimraf lib && preppy",
     "release": "git push && release-it --github.release --npm.publish --non-interactive",
-    "release:minor":
-      "git push && release-it --github.release --npm.publish --non-interactive --increment minor",
-    "release:major":
-      "git push && release-it --github.release --npm.publish --non-interactive --increment major"
+    "release:minor": "git push && release-it --github.release --npm.publish --non-interactive --increment minor",
+    "release:major": "git push && release-it --github.release --npm.publish --non-interactive --increment major"
   },
   "engines": {
     "node": ">=6.0.0",
@@ -88,6 +86,7 @@
     "preppy": "^3.1.7",
     "prop-types": "15.x",
     "react": "^16.2.0",
-    "recompose": "^0.26.0"
+    "recompose": "^0.26.0",
+    "rimraf": "^2.6.2"
   }
 }

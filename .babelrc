@@ -1,3 +1,15 @@
 {
-  "presets": [ "." ]
+  "env": {
+    "development": {
+      "presets": [["env", { "modules": false }]]
+    },
+
+    "test": {
+      "presets": [["env"]]
+    }
+  },
+
+  "plugins": [
+    "transform-object-rest-spread"
+  ]
 }
