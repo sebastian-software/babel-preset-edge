@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`comments 1`] = `
+"\\"use strict\\";
+
+var _camelCase2 = require(\\"lodash/camelCase\\");
+
+var _camelCase3 = _interopRequireDefault(_camelCase2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
+
+function translate(value) {
+  return (0, _camelCase3[\\"default\\"])(value);
+}"
+`;
+
 exports[`deadcode 1`] = `
 "\\"use strict\\";
 

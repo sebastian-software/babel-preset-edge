@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`comments 1`] = `
+"import _camelCase from \\"lodash/camelCase\\"; /* Block Comment */
+
+// Line Comment
+function translate(value) {
+  return _camelCase( /* inline Comment */value);
+}"
+`;
+
 exports[`deadcode 1`] = `"var STATIC = false;"`;
 
 exports[`es3: literal 1`] = `"foo[\\"catch\\"];"`;
