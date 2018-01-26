@@ -40,8 +40,9 @@ const defaults = {
   debug: false,
 
   // One of the following:
-  // - "node"/nodejs"/"script"/"binary": any NodeJS related execution with wide support to last LTS aka 6.9.0
-  // - "node8": identical to the previous option but target Node v8.0.0 (next LTS) - planned for October 2017
+  // - "node"/"cli"/"script"/"binary": any NodeJS related execution with wide support (currently Node v6 LTS)
+  // - "node6": identical to the previous option as long as v6 is more widely used - will force v6 when used afterwards.
+  // - "node8": identical to the previous option but enforce target Node v8 LTS instead of v6 LTS
   // - "current"/"test": current NodeJS version
   // - "browser"/"web": browsers as defined by browserslist
   // - "library": ideally used for publishing libraries e.g. on NPM

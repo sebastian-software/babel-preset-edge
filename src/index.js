@@ -41,8 +41,9 @@ const defaults = {
   debug: false,
 
   // One of the following:
-  // - "node"/nodejs"/"script"/"binary": any NodeJS related execution with wide support to last LTS aka 6.9.0
-  // - "node8": identical to the previous option but target Node v8.0.0 (next LTS) - planned for October 2017
+  // - "node"/"cli"/"script"/"binary": any NodeJS related execution with wide support (currently Node v6 LTS)
+  // - "node6": identical to the previous option as long as v6 is more widely used - will force v6 when used afterwards.
+  // - "node8": identical to the previous option but enforce target Node v8 LTS instead of v6 LTS
   // - "current"/"test": current NodeJS version
   // - "browser"/"web": browsers as defined by browserslist
   // - "library": ideally used for publishing libraries e.g. on NPM
@@ -143,8 +144,9 @@ export default function buildPreset(context, opts = {}) {
 
   let buildDistBinary =
     options.target === "node" ||
+    options.target === "node6" ||
     options.target === "node8" ||
-    options.target === "nodejs" ||
+    options.target === "cli" ||
     options.target === "script" ||
     options.target === "binary"
   let buildForCurrent = options.target === "current" || options.target === "test"
@@ -156,11 +158,11 @@ export default function buildPreset(context, opts = {}) {
   let envTargets = {}
 
   if (buildDistBinary) {
-    // Last stable NodeJS (LTS) - first LTS of 6.x.x was 6.9.0
+    // Widely used stable NodeJS (LTS) is v6.9.0
     // See also: https://nodejs.org/en/blog/release/v6.9.0/
-    // Expected LTS for v8.0.0 is October 2017. https://github.com/nodejs/LTS
-    // We allow using this version already when setting target to "node8".
-    envTargets.node = options.target === "node8" ? "8.0.0" : "6.9.0"
+    // Newest LTS is v8.9.0 https://nodejs.org/en/blog/release/v8.9.0/
+    // You can choose the modern version by setting `target` to "node8".
+    envTargets.node = options.target === "node8" ? "8.9.0" : "6.9.0"
   } else if (buildForCurrent) {
     // Scripts which are directly used like tests can be transpiled for the current NodeJS version
     envTargets.node = "current"
