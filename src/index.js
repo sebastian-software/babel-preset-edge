@@ -50,7 +50,7 @@ const defaults = {
   // - "es2015": same as "library" but targets es2o15 capable engines only.
   // - "modern": same as "library" but targets modern engines only (slightly more forward-looking than es2015).
   // - {}: any custom settings support by Env-Preset
-  target: "nodejs",
+  target: "node",
 
   // Choose environment based on environment variables ... or override with custom value here.
   env: "auto",
