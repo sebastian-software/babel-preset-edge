@@ -116,22 +116,22 @@ This is our current browserslist set-up for a so-called modern development stack
 
 ```js
 const modernTarget = {
-  node: "8.2.0",
+  node: "8.9.0",
   electron: "1.6",
   browsers: [
-    "Safari >= 10.1",
-    "iOS >= 10.3",
-    "Edge >= 15",
-    "Chrome >= 59",
-    "ChromeAndroid >= 59",
-    "Firefox >= 53"
+    "Safari >= 11",
+    "iOS >= 11",
+    "Edge >= 16",
+    "Chrome >= 61",
+    "ChromeAndroid >= 61",
+    "Firefox >= 57"
   ]
 }
 ```
 
 Using this preset setting is ideal during development to reduce overall amount of transpilation
 to a useful minimum to test with pretty up-to-date environments and browsers. It allows you to
-directly benefit from a lot of new features directly built-into Node v8.
+directly benefit from a lot of new features directly built-into Node v8 for example.
 
 
 ### ES2015 Target

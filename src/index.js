@@ -104,15 +104,15 @@ const defaults = {
 }
 
 const modernTarget = {
-  node: "8.2.0",
+  node: "8.9.0",
   electron: "1.6",
   browsers: [
-    "Safari >= 10.1",
-    "iOS >= 10.3",
-    "Edge >= 15",
-    "Chrome >= 59",
-    "ChromeAndroid >= 59",
-    "Firefox >= 53"
+    "Safari >= 11",
+    "iOS >= 11",
+    "Edge >= 16",
+    "Chrome >= 61",
+    "ChromeAndroid >= 61",
+    "Firefox >= 57"
   ]
 }
 
