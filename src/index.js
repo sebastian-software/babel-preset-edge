@@ -407,7 +407,7 @@ export default function buildPreset(context, opts = {}) {
     plugins.push([
       fastAsyncPlugin,
       {
-        useRuntimeModule: true
+        useRuntimeModule: "nodent-runtime/promise",
       }
     ])
   }
