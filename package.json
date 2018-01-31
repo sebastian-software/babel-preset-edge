@@ -4,6 +4,9 @@
   "description": "Edge Babel is a centralized Babel Configuration. Part of the Edge Platform.",
   "main": "lib/index.cjs.js",
   "scripts": {
+    "lint:js": "eslint --ignore-path .gitignore .",
+    "fix:js": "eslint --ignore-path .gitignore --fix .",
+    "format:js": "prettier --ignore-path .gitignore --write '**/*.{js,mjs}' && npm run fix:js",
     "test": "jest",
     "prepare": "rimraf lib && preppy",
     "release": "git push && release-it --github.release --npm.publish --non-interactive",

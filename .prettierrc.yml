@@ -1,0 +1,24 @@
+# We generally allow wider code lines, but for auto formatting this
+# is quite a good rule to produce readable code.
+printWidth: 80
+
+# Use two spaces for tabs
+tabWidth: 2
+
+# Unify with convention used in JSX, HTML and CSS to use double quotes
+singleQuote: false
+
+# Don't use semicolons where they are not required
+semi: false
+
+# Don't do noisy trailing commas
+trailingComma: none
+
+# More space is better for readability
+bracketSpacing: true
+
+# Put the > of a multi-line JSX element at the end of the last line
+jsxBracketSameLine: false
+
+# Include parentheses around a sole arrow function parameter.
+arrowParens: always
