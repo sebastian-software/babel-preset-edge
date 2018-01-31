@@ -1,6 +1,6 @@
 # We generally allow wider code lines, but for auto formatting this
 # is quite a good rule to produce readable code.
-printWidth: 80
+printWidth: 100
 
 # Use two spaces for tabs
 tabWidth: 2
