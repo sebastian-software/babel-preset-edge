@@ -129,7 +129,8 @@ export default function buildPreset(context, opts = {}) {
   }
 
   // There is also a BROWSERSLIST_ENV
-  const envValue = opts.env || process.env.BABEL_ENV || process.env.NODE_ENV || "development"
+  const envValue =
+    opts.env || process.env.BABEL_ENV || process.env.NODE_ENV || "development"
   const isProduction = (/\bproduction\b/).test(envValue)
 
   if (options.debug) {
@@ -142,18 +143,22 @@ export default function buildPreset(context, opts = {}) {
     options.target = "test"
   }
 
-  let buildDistBinary =
+  const buildDistBinary =
     options.target === "node" ||
     options.target === "node6" ||
     options.target === "node8" ||
     options.target === "cli" ||
     options.target === "script" ||
     options.target === "binary"
-  let buildForCurrent = options.target === "current" || options.target === "test"
-  let buildForBrowserList = options.target === "browser" || options.target === "web"
-  let buildAsLibrary =
-    options.target === "library" || options.target === "es2015" || options.target === "modern"
-  let buildCustom = typeof options.target === "object"
+  const buildForCurrent =
+    options.target === "current" || options.target === "test"
+  const buildForBrowserList =
+    options.target === "browser" || options.target === "web"
+  const buildAsLibrary =
+    options.target === "library" ||
+    options.target === "es2015" ||
+    options.target === "modern"
+  const buildCustom = typeof options.target === "object"
 
   let envTargets = {}
 
@@ -173,7 +178,9 @@ export default function buildPreset(context, opts = {}) {
     // What we do here is actually pretty clever/stupid as we just use browserslist
     // itself to query its configuration and pass over that data again to babel-preset-env
     // for passing it to browserslist internally. Yeah.
-    const autoBrowsers = browserslist(null, { env: isProduction ? "production" : "development" })
+    const autoBrowsers = browserslist(null, {
+      env: isProduction ? "production" : "development"
+    })
 
     // For the abstract browsers config we let browserslist find the config file
     envTargets.browsers = autoBrowsers
@@ -188,7 +195,7 @@ export default function buildPreset(context, opts = {}) {
     envTargets = options.target
   }
 
-  let additionalExcludes = []
+  const additionalExcludes = []
 
   // Exclude all es2015 features which are supported by the default es2015 babel preset.
   // This targets all es2015-capable browsers and engines.
@@ -267,16 +274,27 @@ export default function buildPreset(context, opts = {}) {
   // based on currently configured targets. Only if that's the case we
   // transform our async/await code. Otherwise we assume it works without
   // any transpilation.
-  let requiresAsync = isPluginRequired(getTargets(envTargets), envPlugins["transform-async-to-generator"])
+  const requiresAsync = isPluginRequired(
+    getTargets(envTargets),
+    envPlugins["transform-async-to-generator"]
+  )
   if (!requiresAsync) {
     options.rewriteAsync = null
   }
 
-  let envSupportsES6 = options.target === "es2015" || !isPluginRequired(getTargets(envTargets), envPlugins["transform-es2015-arrow-functions"])
+  const envSupportsES6 =
+    options.target === "es2015" ||
+    !isPluginRequired(
+      getTargets(envTargets),
+      envPlugins["transform-es2015-arrow-functions"]
+    )
 
   if (options.debug) {
     /* eslint-disable no-nested-ternary */
-    console.log("- Module Settings:", options.modules === false ? "ESM" : options.modules)
+    console.log(
+      "- Module Settings:",
+      options.modules === false ? "ESM" : options.modules
+    )
     console.log(
       "- Transpilation Compliance:",
       options.specMode ? "SPEC" : options.looseMode ? "LOOSE" : "DEFAULT"
