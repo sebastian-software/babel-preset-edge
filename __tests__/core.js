@@ -26,7 +26,10 @@ export function check(fixture, options) {
 export const fixtures = readdirSync(FIXTURE_ROOT)
 
 export function getTitle(fileName) {
-  return fileName.replace(/\.js$/, "").replace(/_/, ": ").replace(/-/, " ")
+  return fileName
+    .replace(/\.js$/, "")
+    .replace(/_/, ": ")
+    .replace(/-/, " ")
 }
 
 export const titles = fixtures.map(getTitle)
