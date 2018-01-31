@@ -1,5 +1,5 @@
 # Generally, we allow slightly longer lines (110 for code, 140 for comments),
-# but we limit this to a value that leads to better results.
+# but we limit this to a value that leads to better results when using auto formatting.
 printWidth: 90
 
 # Use two spaces for tabs
