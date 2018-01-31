@@ -129,7 +129,8 @@ export default function buildPreset(context, opts = {}) {
   }
 
   // There is also a BROWSERSLIST_ENV
-  const envValue = opts.env || process.env.BABEL_ENV || process.env.NODE_ENV || "development"
+  const envValue =
+    opts.env || process.env.BABEL_ENV || process.env.NODE_ENV || "development"
   const isProduction = (/\bproduction\b/).test(envValue)
 
   if (options.debug) {
@@ -152,7 +153,9 @@ export default function buildPreset(context, opts = {}) {
   const buildForCurrent = options.target === "current" || options.target === "test"
   const buildForBrowserList = options.target === "browser" || options.target === "web"
   const buildAsLibrary =
-    options.target === "library" || options.target === "es2015" || options.target === "modern"
+    options.target === "library" ||
+    options.target === "es2015" ||
+    options.target === "modern"
   const buildCustom = typeof options.target === "object"
 
   let envTargets = {}
@@ -279,7 +282,10 @@ export default function buildPreset(context, opts = {}) {
 
   const envSupportsES6 =
     options.target === "es2015" ||
-    !isPluginRequired(getTargets(envTargets), envPlugins["transform-es2015-arrow-functions"])
+    !isPluginRequired(
+      getTargets(envTargets),
+      envPlugins["transform-es2015-arrow-functions"]
+    )
 
   if (options.debug) {
     /* eslint-disable no-nested-ternary */
@@ -334,7 +340,11 @@ export default function buildPreset(context, opts = {}) {
 
       // We prefer the transpilation of the "fast-async" plugin over the
       // slower and more complex Babel internal implementation.
-      exclude: [ "transform-regenerator", "transform-async-to-generator", ...additionalExcludes ],
+      exclude: [
+        "transform-regenerator",
+        "transform-async-to-generator",
+        ...additionalExcludes
+      ],
 
       // Differ between development and production for our scope.
       // NodeJS is generally fine in development to match the runtime version which is currently installed.

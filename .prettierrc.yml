@@ -1,6 +1,6 @@
-# We generally allow wider code lines, but for auto formatting this
-# is quite a good rule to produce readable code.
-printWidth: 100
+# Generally, we allow slightly longer lines (110 for code, 140 for comments),
+# but we limit this to a value that leads to better results.
+printWidth: 90
 
 # Use two spaces for tabs
 tabWidth: 2
