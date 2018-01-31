@@ -80,10 +80,10 @@
   },
   "devDependencies": {
     "async": "^2.6.0",
-    "eslint-config-readable": "^1.4.1",
+    "eslint-config-readable": "^1.9.0",
     "jest-cli": "22.x",
     "lodash": "4.x",
-    "preppy": "^3.2.2",
+    "preppy": "^3.3.0",
     "prop-types": "15.x",
     "react": "^16.2.0",
     "recompose": "^0.26.0",
