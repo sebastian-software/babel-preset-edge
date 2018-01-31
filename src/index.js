@@ -272,6 +272,8 @@ export default function buildPreset(context, opts = {}) {
     options.rewriteAsync = null
   }
 
+  let envSupportsES6 = options.target === "es2015" || !isPluginRequired(getTargets(envTargets), envPlugins["transform-es2015-arrow-functions"])
+
   if (options.debug) {
     /* eslint-disable no-nested-ternary */
     console.log("- Module Settings:", options.modules === false ? "ESM" : options.modules)
@@ -408,6 +410,9 @@ export default function buildPreset(context, opts = {}) {
       fastAsyncPlugin,
       {
         useRuntimeModule: "nodent-runtime/promise",
+        compiler: {
+          es6target: envSupportsES6
+        }
       }
     ])
   }

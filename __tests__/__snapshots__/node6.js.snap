@@ -38,11 +38,9 @@ exports[`es2016: exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
 exports[`esnext: async 1`] = `
 "import _default from \\"nodent-runtime/promise\\";
 function wait() {
-  return new Promise(function ($return, $error) {
-    return loadData().then(function ($await_1) {
-      return $return();
-    }.$asyncbind(this, $error), $error);
-  }.$asyncbind(this));
+  return new Promise(($return, $error) => loadData().then(function ($await_1) {
+    return $return();
+  }.$asyncbind(this, $error), $error));
 }"
 `;
 
