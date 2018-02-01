@@ -422,7 +422,7 @@ export default function buildPreset(context, opts = {}) {
     plugins.push([
       fastAsyncPlugin,
       {
-        useRuntimeModule: "nodent-runtime/promise",
+        useRuntimeModule: "lean-nodent-runtime",
         compiler: {
           es6target: envSupportsES6
         }

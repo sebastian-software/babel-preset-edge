@@ -68,9 +68,9 @@ var result = Math.pow(2, 3);"
 exports[`esnext: async 1`] = `
 "\\"use strict\\";
 
-var _promise = require(\\"nodent-runtime/promise\\");
+var _leanNodentRuntime = require(\\"lean-nodent-runtime\\");
 
-var _promise2 = _interopRequireDefault(_promise);
+var _leanNodentRuntime2 = _interopRequireDefault(_leanNodentRuntime);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
 
