@@ -90,7 +90,7 @@
     "prop-types": "15.x",
     "react": "^16.2.0",
     "recompose": "^0.26.0",
-    "release-it": "^6.1.1",
+    "release-it": "^6.2.0",
     "rimraf": "^2.6.2"
   }
 }
