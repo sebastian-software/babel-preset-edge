@@ -162,6 +162,6 @@ When setting the target to `browser` your build requirements will match the `bro
 
 ## Copyright
 
-<img src="https://github.com/sebastian-software/sebastian-software-brand/blob/master/sebastiansoftware-en.svg" alt="Sebastian Software GmbH Logo" width="250" height="200"/>
+<img src="https://cdn.rawgit.com/sebastian-software/sebastian-software-brand/3d93746f/sebastiansoftware-en.svg" alt="Sebastian Software GmbH Logo" width="250" height="200"/>
 
 Copyright 2017-2018<br/>[Sebastian Software GmbH](http://www.sebastian-software.de)
