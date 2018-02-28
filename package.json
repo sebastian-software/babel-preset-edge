@@ -78,8 +78,7 @@
     "babel-preset-minify": "^0.3.0",
     "babel-preset-react": "^6.24.1",
     "babel-runtime": "^6.26.0",
-    "browserslist": "^3.1.0",
-    "nodent-runtime": "^3.2.0"
+    "browserslist": "^3.1.1"
   },
   "devDependencies": {
     "async": "^2.6.0",
@@ -90,7 +89,7 @@
     "prop-types": "15.x",
     "react": "^16.2.0",
     "recompose": "^0.26.0",
-    "release-it": "^7.0.2",
+    "release-it": "^7.2.0",
     "rimraf": "^2.6.2"
   }
 }
