@@ -251,7 +251,7 @@ export default function buildPreset(context, opts = {}) {
   }
 
   // Automatic detection of "imports" mode based on target
-  if (options.imports == null || options.imports === "auto") {
+  if (options.imports === "auto") {
     if (buildForCurrent || buildDistBinary) {
       options.imports = "rollup-nodejs"
     } else if (buildAsLibrary || buildCustom) {
