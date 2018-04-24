@@ -1,7 +1,7 @@
 [production]
 and_chr >= 59
 chrome >= 57
-edge
+edge >= 14
 firefox >= 52
 ie >= 11
 ios_saf >= 10
