@@ -41,6 +41,18 @@ exports[`esnext: async 1`] = `
 }"
 `;
 
+exports[`esnext: async_loop 1`] = `
+"async function executeTasks(tasks) {
+  for (const taskName of tasks) {
+    try {
+      await executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
+`;
+
 exports[`esnext: class properties 1`] = `
 "export class Component {
   constructor() {
