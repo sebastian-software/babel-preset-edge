@@ -86,7 +86,7 @@
     "flow-bin": "^0.70.0",
     "jest-cli": "22.x",
     "lodash": "4.x",
-    "preppy": "^3.3.2",
+    "preppy": "^3.4.0",
     "prop-types": "15.x",
     "react": "^16.3.2",
     "recompose": "^0.27.0",
