@@ -51,7 +51,7 @@ function wait() {
     return loadData().then(function ($await_1) {
       return $return();
     }.$asyncbind(this, $error), $error);
-  }.$asyncbind(this));
+  });
 }"
 `;
 

@@ -52,7 +52,7 @@ function wait() {
     return loadData().then(function ($await_1) {
       return $return();
     }.$asyncbind(this, $error), $error);
-  }.$asyncbind(this));
+  });
 }"
 `;
 
@@ -66,14 +66,9 @@ export var Component = function Component() {
 `;
 
 exports[`esnext: dynamic import 1`] = `
-"var _path = _interopRequireDefault(require(\\"path\\"))[\\"default\\"];
-
-var _importCss = _interopRequireDefault(require(\\"babel-plugin-universal-import/importCss\\"))[\\"default\\"];
-
-var _universalImport = _interopRequireDefault(require(\\"babel-plugin-universal-import/universalImport\\"))[\\"default\\"];
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
-
+"import _path from \\"path\\";
+import _importCss from \\"babel-plugin-universal-import/importCss\\";
+import _universalImport from \\"babel-plugin-universal-import/universalImport\\";
 _universalImport({
   id: \\"lodash\\",
   file: \\"./__tests__/__fixtures__/esnext_dynamic-import.js\\",

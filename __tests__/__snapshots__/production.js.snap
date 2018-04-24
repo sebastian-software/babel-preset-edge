@@ -10,7 +10,7 @@ function translate(a) {
 
 exports[`deadcode 1`] = `
 "const STATIC = !1;
-STATIC, !1;"
+!1, !1;"
 `;
 
 exports[`es3: literal 1`] = `"foo[\\"catch\\"];"`;
@@ -56,7 +56,7 @@ exports[`esnext: class properties 1`] = `
 `;
 
 exports[`esnext: dynamic import 1`] = `
-"Promise.resolve().then(() => require(\\"lodash\\")).then((a) => {
+"Promise.resolve().then(() => require(\\"lodash\\")).then(a => {
   console.log(a.camelCase(\\"hello world\\"));
 });"
 `;

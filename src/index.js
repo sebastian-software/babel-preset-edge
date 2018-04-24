@@ -18,7 +18,7 @@ import dynamicImportRollupWebpack from "babel-plugin-dynamic-import-webpack"
 import dynamicImportUniversalWebpack from "babel-plugin-universal-import"
 
 import moduleResolver from "babel-plugin-module-resolver"
-import fastAsyncPlugin from "babel-plugin-fast-async"
+import fastAsyncPlugin from "fast-async"
 import classPropertiesPlugin from "babel-plugin-transform-class-properties"
 import objectRestSpreadPlugin from "babel-plugin-transform-object-rest-spread"
 import lodashPlugin from "babel-plugin-lodash"

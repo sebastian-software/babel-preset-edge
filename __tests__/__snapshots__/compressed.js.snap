@@ -95,7 +95,7 @@ function render() {
     \\"h1\\",
     {
       __source: {
-        fileName: _jsxFileName,
+        fileName: \\"./__tests__/__fixtures__/react_jsx.js\\",
         lineNumber: 2
       },
       __self: this
@@ -112,7 +112,7 @@ function render(props) {
     \\"h1\\",
     Object.assign({ className: \\"large\\" }, props, {
       __source: {
-        fileName: _jsxFileName,
+        fileName: \\"./__tests__/__fixtures__/react_jsx-spread.js\\",
         lineNumber: 3
       },
       __self: this
@@ -133,7 +133,7 @@ class MyComponent extends React.Component {
       \\"div\\",
       {
         __source: {
-          fileName: _jsxFileName,
+          fileName: \\"./__tests__/__fixtures__/react_proptypes.js\\",
           lineNumber: 6
         },
         __self: this
