@@ -81,7 +81,6 @@
     "fast-async": "^7.0.4"
   },
   "devDependencies": {
-    "@babel/preset-flow": "7.0.0-beta.46",
     "async": "^2.6.0",
     "babel-core": "^7.0.0-bridge.0",
     "eslint-config-readable": "^1.10.2",
