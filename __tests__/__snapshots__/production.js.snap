@@ -24,6 +24,17 @@ exports[`es3: member 1`] = `
 exports[`es2015: classes 1`] = `
 "export class Component {
   main() {}
+
+}"
+`;
+
+exports[`es2015: for_off 1`] = `
+"function test() {
+  for (const a of tasks) try {
+    executeCommands();
+  } catch (a) {
+    console.error(\\"Error\\");
+  }
 }"
 `;
 
@@ -38,18 +49,85 @@ exports[`es2015: set 1`] = `"new Set([1, 2, 3]);"`;
 exports[`es2016: exponentiation 1`] = `"var result = 8;"`;
 
 exports[`esnext: async 1`] = `
-"import _default from \\"lean-nodent-runtime\\";
-function wait() {
-  return new Promise((a, b) => loadData().then(function () {
-    return a();
-  }.$asyncbind(this, b), b));
+"function wait() {
+  return new Promise(function (a, b) {
+    return Promise.resolve(loadData()).then(function () {
+      try {
+        return a();
+      } catch (a) {
+        return b(a);
+      }
+    }, b);
+  });
+}"
+`;
+
+exports[`esnext: async_loop 1`] = `
+"function executeTasks(a) {
+  return new Promise(function (b, c) {
+    function d() {
+      return b();
+    }
+
+    {
+      function b() {
+        if (!(g[1] = g[0].next()).done && ((f = g[1].value) || !0)) {
+          var a = function () {
+            try {
+              return b;
+            } catch (a) {
+              return c(a);
+            }
+          },
+              d = function () {
+            try {
+              return console.error(\\"Error\\"), a();
+            } catch (a) {
+              return c(a);
+            }
+          };
+
+          try {
+            return Promise.resolve(executeCommands()).then(function () {
+              try {
+                return a();
+              } catch (a) {
+                return d(a);
+              }
+            }, d);
+          } catch (a) {
+            d(a);
+          }
+        } else return [1];
+      }
+
+      let f,
+          g = [a[Symbol.iterator]()];
+      var e;
+      return (e = function (a) {
+        for (; a;) {
+          if (a.then) return void a.then(e, c);
+
+          try {
+            if (a.pop) {
+              if (a.length) return a.pop() ? d.call(this) : a;
+              a = b;
+            } else a = a.call(this);
+          } catch (a) {
+            return c(a);
+          }
+        }
+      }.bind(this))(b);
+    }
+  });
 }"
 `;
 
 exports[`esnext: class properties 1`] = `
-"export class Component {
+"import _defineProperty from \\"@babel/runtime/helpers/builtin/es6/defineProperty\\";
+export class Component {
   constructor() {
-    this.onClick = () => {};
+    _defineProperty(this, \\"onClick\\", () => {});
   }
 
 }"
@@ -67,8 +145,14 @@ console.log(_camelCase(\\"hello world\\"));"
 `;
 
 exports[`esnext: object spread 1`] = `
-"let original = { bar: 10 },
-    variant = Object.assign({ foo: 1 }, original);"
+"import _objectSpread from \\"@babel/runtime/helpers/builtin/es6/objectSpread\\";
+
+let original = {
+  bar: 10
+},
+    variant = _objectSpread({
+  foo: 1
+}, original);"
 `;
 
 exports[`lodash: async 1`] = `
@@ -90,30 +174,28 @@ _compose([]);"
 `;
 
 exports[`react: jsx 1`] = `
-"import _jsx from \\"babel-runtime/helpers/jsx\\";
+"var _ref = React.createElement(\\"h1\\", null, \\"Hello\\");
+
 function render() {
-  return _jsx(\\"h1\\", {}, void 0, \\"Hello\\");
+  return _ref;
 }"
 `;
 
 exports[`react: jsx spread 1`] = `
 "function render(a) {
-  return React.createElement(
-    \\"h1\\",
-    Object.assign({ className: \\"large\\" }, a),
-    \\"Hello\\"
-  );
+  return React.createElement(\\"h1\\", Object.assign({
+    className: \\"large\\"
+  }, a), \\"Hello\\");
 }"
 `;
 
 exports[`react: proptypes 1`] = `
-"import _jsx from \\"babel-runtime/helpers/jsx\\";
-import React from \\"react\\";
-
+"import React from \\"react\\";
 
 class MyComponent extends React.Component {
   render() {
-    return _jsx(\\"div\\", {}, void 0, this.props.userName);
+    return React.createElement(\\"div\\", null, this.props.userName);
   }
+
 }"
 `;

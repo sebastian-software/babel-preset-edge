@@ -21,12 +21,26 @@ exports[`es3: member 1`] = `
 exports[`es2015: classes 1`] = `
 "export class Component {
   main() {}
+
+}"
+`;
+
+exports[`es2015: for_off 1`] = `
+"function test() {
+  for (const taskName of tasks) {
+    try {
+      executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
 }"
 `;
 
 exports[`es2015: generator 1`] = `
 "function* idMaker() {
   var index = 0;
+
   while (true) yield index++;
 }"
 `;
@@ -54,9 +68,10 @@ exports[`esnext: async_loop 1`] = `
 `;
 
 exports[`esnext: class properties 1`] = `
-"export class Component {
+"import _defineProperty from \\"@babel/runtime/helpers/builtin/es6/defineProperty\\";
+export class Component {
   constructor() {
-    this.onClick = () => {};
+    _defineProperty(this, \\"onClick\\", () => {});
   }
 
 }"
@@ -74,13 +89,18 @@ exports[`esnext: dynamic import 1`] = `
 
 exports[`esnext: import 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
-
 console.log(_camelCase(\\"hello world\\"));"
 `;
 
 exports[`esnext: object spread 1`] = `
-"let original = { bar: 10 };
-let variant = Object.assign({ foo: 1 }, original);"
+"import _objectSpread from \\"@babel/runtime/helpers/builtin/es6/objectSpread\\";
+let original = {
+  bar: 10
+};
+
+let variant = _objectSpread({
+  foo: 1
+}, original);"
 `;
 
 exports[`lodash: async 1`] = `
@@ -103,35 +123,31 @@ _compose([]);"
 
 exports[`react: jsx 1`] = `
 "var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx.js\\";
+
 function render() {
-  return React.createElement(
-    \\"h1\\",
-    {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 2
-      },
-      __self: this
+  return React.createElement(\\"h1\\", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 2
     },
-    \\"Hello\\"
-  );
+    __self: this
+  }, \\"Hello\\");
 }"
 `;
 
 exports[`react: jsx spread 1`] = `
 "var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx-spread.js\\";
+
 function render(props) {
-  return React.createElement(
-    \\"h1\\",
-    Object.assign({ className: \\"large\\" }, props, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 3
-      },
-      __self: this
-    }),
-    \\"Hello\\"
-  );
+  return React.createElement(\\"h1\\", Object.assign({
+    className: \\"large\\"
+  }, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 3
+    },
+    __self: this
+  }), \\"Hello\\");
 }"
 `;
 
@@ -142,18 +158,15 @@ import PropTypes from \\"prop-types\\";
 
 class MyComponent extends React.Component {
   render() {
-    return React.createElement(
-      \\"div\\",
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6
-        },
-        __self: this
+    return React.createElement(\\"div\\", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 6
       },
-      this.props.userName
-    );
+      __self: this
+    }, this.props.userName);
   }
+
 }
 
 MyComponent.propTypes = {

@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`comments 1`] = `
-"import _camelCase from \\"lodash/camelCase\\"; /* Block Comment */
+"import _camelCase from \\"lodash/camelCase\\";
 
 // Line Comment
 function translate(value) {
-  return _camelCase( /* inline Comment */value);
+  return _camelCase(
+  /* inline Comment */
+  value);
 }"
 `;
 
@@ -20,50 +22,101 @@ exports[`es3: member 1`] = `
 `;
 
 exports[`es2015: classes 1`] = `
-"import _classCallCheck from \\"babel-runtime/helpers/classCallCheck\\";
-export var Component = function () {
-  function Component() {
-    _classCallCheck(this, Component);
-  }
+"export var Component =
+/*#__PURE__*/
+function () {
+  function Component() {}
 
-  Component.prototype.main = function main() {};
+  var _proto = Component.prototype;
+
+  _proto.main = function main() {};
 
   return Component;
 }();"
 `;
 
+exports[`es2015: for_off 1`] = `
+"import \\"core-js/modules/es7.symbol.async-iterator\\";
+import \\"core-js/modules/es6.symbol\\";
+import \\"core-js/modules/web.dom.iterable\\";
+
+function test() {
+  for (var _iterator = tasks, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+    var _ref;
+
+    if (_isArray) {
+      if (_i >= _iterator.length) break;
+      _ref = _iterator[_i++];
+    } else {
+      _i = _iterator.next();
+      if (_i.done) break;
+      _ref = _i.value;
+    }
+
+    try {
+      executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
+`;
+
 exports[`es2015: generator 1`] = `
 "function* idMaker() {
   var index = 0;
+
   while (true) {
     yield index++;
   }
 }"
 `;
 
-exports[`es2015: set 1`] = `"new Set([1, 2, 3]);"`;
+exports[`es2015: set 1`] = `
+"import \\"core-js/modules/es6.set\\";
+new Set([1, 2, 3]);"
+`;
 
 exports[`es2016: exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
 
 exports[`esnext: async 1`] = `
-"import _default from \\"lean-nodent-runtime\\";
-function wait() {
+"function wait() {
   return new Promise(function ($return, $error) {
-    return loadData().then(function ($await_1) {
-      return $return();
-    }.$asyncbind(this, $error), $error);
+    return Promise.resolve(loadData()).then(function ($await_1) {
+      try {
+        return $return();
+      } catch ($boundEx) {
+        return $error($boundEx);
+      }
+    }, $error);
   });
 }"
 `;
 
 exports[`esnext: async_loop 1`] = `
-"import _default from \\"lean-nodent-runtime\\";
+"import \\"core-js/modules/es7.symbol.async-iterator\\";
+import \\"core-js/modules/es6.symbol\\";
+import \\"core-js/modules/web.dom.iterable\\";
+
 function executeTasks(tasks) {
   return new Promise(function ($return, $error) {
     var _iterator, _isArray, _i, _ref;
 
     _iterator = tasks, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();
-    return Function.$asyncbind.trampoline(this, $Loop_2_exit, $Loop_2, $error, true)($Loop_2);
+    var $Loop_2_trampoline;
+    return ($Loop_2_trampoline = function (q) {
+      while (q) {
+        if (q.then) return void q.then($Loop_2_trampoline, $error);
+
+        try {
+          if (q.pop) {
+            if (q.length) return q.pop() ? $Loop_2_exit.call(this) : q;else q = $Loop_2;
+          } else q = q.call(this);
+        } catch (_exception) {
+          return $error(_exception);
+        }
+      }
+    }.bind(this))($Loop_2);
 
     function $Loop_2() {
       if (true) {
@@ -77,15 +130,30 @@ function executeTasks(tasks) {
         }
 
         var $Try_1_Post = function () {
-          return $Loop_2;
-        }.$asyncbind(this, $error);var $Try_1_Catch = function (error) {
-          console.error(\\"Error\\");
-          return $Try_1_Post();
-        }.$asyncbind(this, $error);
-        try {
-          return executeCommands().then(function ($await_4) {
+          try {
+            return $Loop_2;
+          } catch ($boundEx) {
+            return $error($boundEx);
+          }
+        };
+
+        var $Try_1_Catch = function (error) {
+          try {
+            console.error(\\"Error\\");
             return $Try_1_Post();
-          }.$asyncbind(this, $Try_1_Catch), $Try_1_Catch);
+          } catch ($boundEx) {
+            return $error($boundEx);
+          }
+        };
+
+        try {
+          return Promise.resolve(executeCommands()).then(function ($await_4) {
+            try {
+              return $Try_1_Post();
+            } catch ($boundEx) {
+              return $Try_1_Catch($boundEx);
+            }
+          }, $Try_1_Catch);
         } catch (error) {
           $Try_1_Catch(error)
         }
@@ -100,23 +168,26 @@ function executeTasks(tasks) {
 `;
 
 exports[`esnext: class properties 1`] = `
-"import _classCallCheck from \\"babel-runtime/helpers/classCallCheck\\";
-export var Component = function Component() {
-  _classCallCheck(this, Component);
-
-  this.onClick = function () {};
+"import _defineProperty from \\"@babel/runtime/helpers/builtin/es6/defineProperty\\";
+export var Component = function () {
+  _defineProperty(this, \\"onClick\\", function () {});
 };"
 `;
 
 exports[`esnext: dynamic import 1`] = `
-"import _path from \\"path\\";
+"import \\"core-js/modules/es6.promise\\";
+import \\"core-js/modules/web.dom.iterable\\";
+import _path from \\"path\\";
 import _importCss from \\"babel-plugin-universal-import/importCss\\";
 import _universalImport from \\"babel-plugin-universal-import/universalImport\\";
+
 _universalImport({
   id: \\"lodash\\",
   file: \\"./__tests__/__fixtures__/esnext_dynamic-import.js\\",
   load: function load() {
-    return Promise.all([import( /* webpackChunkName: 'lodash' */\\"lodash\\"), _importCss(\\"lodash\\", {})]).then(function (proms) {
+    return Promise.all([import(
+    /* webpackChunkName: 'lodash' */
+    \\"lodash\\"), _importCss(\\"lodash\\", {})]).then(function (proms) {
       return proms[0];
     });
   },
@@ -136,13 +207,18 @@ _universalImport({
 
 exports[`esnext: import 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
-
 console.log(_camelCase(\\"hello world\\"));"
 `;
 
 exports[`esnext: object spread 1`] = `
-"var original = { bar: 10 };
-var variant = Object.assign({ foo: 1 }, original);"
+"import _objectSpread from \\"@babel/runtime/helpers/builtin/es6/objectSpread\\";
+var original = {
+  bar: 10
+};
+
+var variant = _objectSpread({
+  foo: 1
+}, original);"
 `;
 
 exports[`lodash: async 1`] = `
@@ -165,68 +241,61 @@ _compose([]);"
 
 exports[`react: jsx 1`] = `
 "var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx.js\\";
+
 function render() {
-  return React.createElement(
-    \\"h1\\",
-    {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 2
-      },
-      __self: this
+  return React.createElement(\\"h1\\", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 2
     },
-    \\"Hello\\"
-  );
+    __self: this
+  }, \\"Hello\\");
 }"
 `;
 
 exports[`react: jsx spread 1`] = `
-"var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx-spread.js\\";
+"import \\"core-js/modules/es6.object.assign\\";
+var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx-spread.js\\";
+
 function render(props) {
-  return React.createElement(
-    \\"h1\\",
-    Object.assign({ className: \\"large\\" }, props, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 3
-      },
-      __self: this
-    }),
-    \\"Hello\\"
-  );
+  return React.createElement(\\"h1\\", Object.assign({
+    className: \\"large\\"
+  }, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 3
+    },
+    __self: this
+  }), \\"Hello\\");
 }"
 `;
 
 exports[`react: proptypes 1`] = `
-"import _classCallCheck from \\"babel-runtime/helpers/classCallCheck\\";
-import _possibleConstructorReturn from \\"babel-runtime/helpers/possibleConstructorReturn\\";
-import _inherits from \\"babel-runtime/helpers/inherits\\";
+"import _inheritsLoose from \\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";
 var _jsxFileName = \\"./__tests__/__fixtures__/react_proptypes.js\\";
 import React from \\"react\\";
 import PropTypes from \\"prop-types\\";
 
-var MyComponent = function (_React$Component) {
-  _inherits(MyComponent, _React$Component);
-
+var MyComponent =
+/*#__PURE__*/
+function (_React$Component) {
   function MyComponent() {
-    _classCallCheck(this, MyComponent);
-
-    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+    return _React$Component.apply(this, arguments) || this;
   }
 
-  MyComponent.prototype.render = function render() {
-    return React.createElement(
-      \\"div\\",
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6
-        },
-        __self: this
+  var _proto = MyComponent.prototype;
+
+  _proto.render = function render() {
+    return React.createElement(\\"div\\", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 6
       },
-      this.props.userName
-    );
+      __self: this
+    }, this.props.userName);
   };
+
+  _inheritsLoose(MyComponent, _React$Component);
 
   return MyComponent;
 }(React.Component);

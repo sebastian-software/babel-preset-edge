@@ -3,14 +3,12 @@
 exports[`comments 1`] = `
 "\\"use strict\\";
 
-var _camelCase2 = require(\\"lodash/camelCase\\");
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
 
-var _camelCase3 = _interopRequireDefault(_camelCase2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
+var _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
 
 function translate(value) {
-  return (0, _camelCase3[\\"default\\"])(value);
+  return (0, _camelCase2[\\"default\\"])(value);
 }"
 `;
 
@@ -38,10 +36,28 @@ exports[`es2015: classes 1`] = `
 "\\"use strict\\";
 
 exports.__esModule = true;
+exports.Component = void 0;
+
 class Component {
   main() {}
+
 }
+
 exports.Component = Component;"
+`;
+
+exports[`es2015: for_off 1`] = `
+"\\"use strict\\";
+
+function test() {
+  for (const taskName of tasks) {
+    try {
+      executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
 `;
 
 exports[`es2015: generator 1`] = `
@@ -49,6 +65,7 @@ exports[`es2015: generator 1`] = `
 
 function* idMaker() {
   var index = 0;
+
   while (true) yield index++;
 }"
 `;
@@ -68,29 +85,100 @@ var result = Math.pow(2, 3);"
 exports[`esnext: async 1`] = `
 "\\"use strict\\";
 
-var _leanNodentRuntime = require(\\"lean-nodent-runtime\\");
-
-var _leanNodentRuntime2 = _interopRequireDefault(_leanNodentRuntime);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
-
 function wait() {
-  return new Promise(($return, $error) => loadData().then(function ($await_1) {
-    return $return();
-  }.$asyncbind(this, $error), $error));
+  return new Promise(function ($return, $error) {
+    return Promise.resolve(loadData()).then(function ($await_1) {
+      try {
+        return $return();
+      } catch ($boundEx) {
+        return $error($boundEx);
+      }
+    }, $error);
+  });
+}"
+`;
+
+exports[`esnext: async_loop 1`] = `
+"\\"use strict\\";
+
+function executeTasks(tasks) {
+  return new Promise(function ($return, $error) {
+    {
+      let taskName,
+          $iterator_taskName_2 = [tasks[Symbol.iterator]()];
+      var $Loop_3_trampoline;
+      return ($Loop_3_trampoline = function (q) {
+        while (q) {
+          if (q.then) return void q.then($Loop_3_trampoline, $error);
+
+          try {
+            if (q.pop) {
+              if (q.length) return q.pop() ? $Loop_3_exit.call(this) : q;else q = $Loop_3;
+            } else q = q.call(this);
+          } catch (_exception) {
+            return $error(_exception);
+          }
+        }
+      }.bind(this))($Loop_3);
+
+      function $Loop_3() {
+        if (!($iterator_taskName_2[1] = $iterator_taskName_2[0].next()).done && ((taskName = $iterator_taskName_2[1].value) || true)) {
+          var $Try_1_Post = function () {
+            try {
+              return $Loop_3;
+            } catch ($boundEx) {
+              return $error($boundEx);
+            }
+          };
+
+          var $Try_1_Catch = function (error) {
+            try {
+              console.error(\\"Error\\");
+              return $Try_1_Post();
+            } catch ($boundEx) {
+              return $error($boundEx);
+            }
+          };
+
+          try {
+            return Promise.resolve(executeCommands()).then(function ($await_5) {
+              try {
+                return $Try_1_Post();
+              } catch ($boundEx) {
+                return $Try_1_Catch($boundEx);
+              }
+            }, $Try_1_Catch);
+          } catch (error) {
+            $Try_1_Catch(error)
+          }
+        } else return [1];
+      }
+    }
+
+    function $Loop_3_exit() {
+      return $return();
+    }
+  });
 }"
 `;
 
 exports[`esnext: class properties 1`] = `
 "\\"use strict\\";
 
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
+
 exports.__esModule = true;
+exports.Component = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require(\\"@babel/runtime/helpers/builtin/defineProperty\\"));
+
 class Component {
   constructor() {
-    this.onClick = () => {};
+    (0, _defineProperty2[\\"default\\"])(this, \\"onClick\\", () => {});
   }
 
 }
+
 exports.Component = Component;"
 `;
 
@@ -105,69 +193,65 @@ Promise.resolve().then(() => require(\\"lodash\\")).then(lodash => {
 exports[`esnext: import 1`] = `
 "\\"use strict\\";
 
-var _camelCase2 = require(\\"lodash/camelCase\\");
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
 
-var _camelCase3 = _interopRequireDefault(_camelCase2);
+var _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
-
-console.log((0, _camelCase3[\\"default\\"])(\\"hello world\\"));"
+console.log((0, _camelCase2[\\"default\\"])(\\"hello world\\"));"
 `;
 
 exports[`esnext: object spread 1`] = `
 "\\"use strict\\";
 
-let original = { bar: 10 };
-let variant = Object.assign({ foo: 1 }, original);"
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
+
+var _objectSpread2 = _interopRequireDefault(require(\\"@babel/runtime/helpers/builtin/objectSpread\\"));
+
+let original = {
+  bar: 10
+};
+let variant = (0, _objectSpread2[\\"default\\"])({
+  foo: 1
+}, original);"
 `;
 
 exports[`lodash: async 1`] = `
 "\\"use strict\\";
 
-var _parallel2 = require(\\"async/parallel\\");
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
 
-var _parallel3 = _interopRequireDefault(_parallel2);
+var _parallel2 = _interopRequireDefault(require(\\"async/parallel\\"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
-
-(0, _parallel3[\\"default\\"])([]);"
+(0, _parallel2[\\"default\\"])([]);"
 `;
 
 exports[`lodash: lodash 1`] = `
 "\\"use strict\\";
 
-var _camelCase2 = require(\\"lodash/camelCase\\");
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
 
-var _camelCase3 = _interopRequireDefault(_camelCase2);
+var _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
-
-(0, _camelCase3[\\"default\\"])(\\"hello world\\");"
+(0, _camelCase2[\\"default\\"])(\\"hello world\\");"
 `;
 
 exports[`lodash: recompose 1`] = `
 "\\"use strict\\";
 
-var _compose2 = require(\\"recompose/compose\\");
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
 
-var _compose3 = _interopRequireDefault(_compose2);
+var _compose2 = _interopRequireDefault(require(\\"recompose/compose\\"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
-
-(0, _compose3[\\"default\\"])([]);"
+(0, _compose2[\\"default\\"])([]);"
 `;
 
 exports[`react: jsx 1`] = `
 "\\"use strict\\";
 
-var _jsx2 = require(\\"babel-runtime/helpers/jsx\\");
-
-var _jsx3 = _interopRequireDefault(_jsx2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
+var _ref = React.createElement(\\"h1\\", null, \\"Hello\\");
 
 function render() {
-  return (0, _jsx3[\\"default\\"])(\\"h1\\", {}, void 0, \\"Hello\\");
+  return _ref;
 }"
 `;
 
@@ -175,30 +259,23 @@ exports[`react: jsx spread 1`] = `
 "\\"use strict\\";
 
 function render(props) {
-  return React.createElement(
-    \\"h1\\",
-    Object.assign({ className: \\"large\\" }, props),
-    \\"Hello\\"
-  );
+  return React.createElement(\\"h1\\", Object.assign({
+    className: \\"large\\"
+  }, props), \\"Hello\\");
 }"
 `;
 
 exports[`react: proptypes 1`] = `
 "\\"use strict\\";
 
-var _jsx2 = require(\\"babel-runtime/helpers/jsx\\");
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
 
-var _jsx3 = _interopRequireDefault(_jsx2);
+var _react = _interopRequireDefault(require(\\"react\\"));
 
-var _react = require(\\"react\\");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \\"default\\": obj }; }
-
-class MyComponent extends _react2[\\"default\\"].Component {
+class MyComponent extends _react[\\"default\\"].Component {
   render() {
-    return (0, _jsx3[\\"default\\"])(\\"div\\", {}, void 0, this.props.userName);
+    return _react[\\"default\\"].createElement(\\"div\\", null, this.props.userName);
   }
+
 }"
 `;
