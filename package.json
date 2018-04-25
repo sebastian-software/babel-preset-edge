@@ -81,6 +81,7 @@
     "fast-async": "^7.0.4"
   },
   "devDependencies": {
+    "@babel/node": "^7.0.0-beta.46",
     "async": "^2.6.0",
     "babel-core": "^7.0.0-bridge.0",
     "eslint-config-readable": "^1.10.2",
@@ -91,7 +92,7 @@
     "prop-types": "15.x",
     "react": "^16.3.2",
     "recompose": "^0.27.0",
-    "release-it": "^7.4.1",
+    "release-it": "^7.4.2",
     "rimraf": "^2.6.2"
   }
 }
