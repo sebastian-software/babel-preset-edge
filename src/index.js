@@ -8,20 +8,10 @@ import getTargets from "@babel/preset-env/lib/targets-parser"
 import envPlugins from "@babel/preset-env/data/plugins.json"
 
 import flowPreset from "@babel/preset-flow"
-import minifyPreset from "babel-preset-minify"
 
-import deadCodeEliminationPlugin from "babel-plugin-minify-dead-code-elimination"
-
-import dynamicImportSyntaxPlugin from "babel-plugin-syntax-dynamic-import"
-import dynamicImportRollupNode from "babel-plugin-dynamic-import-node"
-import dynamicImportRollupWebpack from "babel-plugin-dynamic-import-webpack"
-import dynamicImportUniversalWebpack from "babel-plugin-universal-import"
-
-import moduleResolver from "babel-plugin-module-resolver"
-import fastAsyncPlugin from "fast-async"
 import classPropertiesPlugin from "@babel/plugin-proposal-class-properties"
 import objectRestSpreadPlugin from "@babel/plugin-proposal-object-rest-spread"
-import lodashPlugin from "babel-plugin-lodash"
+
 import transformRuntimePlugin from "@babel/plugin-transform-runtime"
 
 import es3PropertyLiterals from "@babel/plugin-transform-property-literals"
@@ -32,11 +22,24 @@ import transformReactJSX from "@babel/plugin-transform-react-jsx"
 import transformReactJSXSource from "@babel/plugin-transform-react-jsx-source"
 import transformReactJSXSelf from "@babel/plugin-transform-react-jsx-self"
 
-import transformRemovePropTypes from "babel-plugin-transform-react-remove-prop-types"
-import reactIntlPlugin from "babel-plugin-react-intl"
-
 import reactInlineElementsPlugin from "@babel/plugin-transform-react-inline-elements"
 import reactConstantElements from "@babel/plugin-transform-react-constant-elements"
+
+import minifyPreset from "babel-preset-minify"
+
+import deadCodeEliminationPlugin from "babel-plugin-minify-dead-code-elimination"
+
+import dynamicImportSyntaxPlugin from "babel-plugin-syntax-dynamic-import"
+import dynamicImportRollupNode from "babel-plugin-dynamic-import-node"
+import dynamicImportRollupWebpack from "babel-plugin-dynamic-import-webpack"
+import dynamicImportUniversalWebpack from "babel-plugin-universal-import"
+
+import moduleResolver from "babel-plugin-module-resolver"
+
+import lodashPlugin from "babel-plugin-lodash"
+
+import transformRemovePropTypes from "babel-plugin-transform-react-remove-prop-types"
+import reactIntlPlugin from "babel-plugin-react-intl"
 
 const defaults = {
   // Whether to print hints on transpilation settings which were selected.
