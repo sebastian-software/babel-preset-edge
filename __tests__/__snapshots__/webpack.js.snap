@@ -104,19 +104,6 @@ function executeTasks(tasks) {
 
     _iterator = tasks, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();
     var $Loop_2_trampoline;
-    return ($Loop_2_trampoline = function (q) {
-      while (q) {
-        if (q.then) return void q.then($Loop_2_trampoline, $error);
-
-        try {
-          if (q.pop) {
-            if (q.length) return q.pop() ? $Loop_2_exit.call(this) : q;else q = $Loop_2;
-          } else q = q.call(this);
-        } catch (_exception) {
-          return $error(_exception);
-        }
-      }
-    }.bind(this))($Loop_2);
 
     function $Loop_2() {
       if (true) {
@@ -159,6 +146,20 @@ function executeTasks(tasks) {
         }
       } else return [1];
     }
+
+    return ($Loop_2_trampoline = function (q) {
+      while (q) {
+        if (q.then) return void q.then($Loop_2_trampoline, $error);
+
+        try {
+          if (q.pop) {
+            if (q.length) return q.pop() ? $Loop_2_exit.call(this) : q;else q = $Loop_2;
+          } else q = q.call(this);
+        } catch (_exception) {
+          return $error(_exception);
+        }
+      }
+    }.bind(this))($Loop_2);
 
     function $Loop_2_exit() {
       return $return();

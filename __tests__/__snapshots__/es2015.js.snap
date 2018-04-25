@@ -69,57 +69,63 @@ exports[`ES2015 esnext: async 1`] = `
 exports[`ES2015 esnext: async_loop 1`] = `
 "function executeTasks(tasks) {
   return new Promise(function ($return, $error) {
-    {
-      let taskName,
-          $iterator_taskName_2 = [tasks[Symbol.iterator]()];
-      var $Loop_3_trampoline;
-      return ($Loop_3_trampoline = function (q) {
-        while (q) {
-          if (q.then) return void q.then($Loop_3_trampoline, $error);
+    var $Loop_3_trampoline, $Loop_3_local;
 
+    function $Loop_3_step() {
+      var [taskName, $iterator_taskName_2] = $Loop_3_local();
+      return $Loop_3.bind(this, taskName, $iterator_taskName_2);
+    }
+
+    function $Loop_3(taskName, $iterator_taskName_2) {
+      $Loop_3_local = function () {
+        return [taskName, $iterator_taskName_2];
+      };
+
+      if (!($iterator_taskName_2[1] = $iterator_taskName_2[0].next()).done && ((taskName = $iterator_taskName_2[1].value) || true)) {
+        var $Try_1_Post = function () {
           try {
-            if (q.pop) {
-              if (q.length) return q.pop() ? $Loop_3_exit.call(this) : q;else q = $Loop_3;
-            } else q = q.call(this);
-          } catch (_exception) {
-            return $error(_exception);
+            return $Loop_3_step;
+          } catch ($boundEx) {
+            return $error($boundEx);
           }
-        }
-      }.bind(this))($Loop_3);
+        };
 
-      function $Loop_3() {
-        if (!($iterator_taskName_2[1] = $iterator_taskName_2[0].next()).done && ((taskName = $iterator_taskName_2[1].value) || true)) {
-          var $Try_1_Post = function () {
-            try {
-              return $Loop_3;
-            } catch ($boundEx) {
-              return $error($boundEx);
-            }
-          };
+        var $Try_1_Catch = function (error) {
+          try {
+            console.error(\\"Error\\");
+            return $Try_1_Post();
+          } catch ($boundEx) {
+            return $error($boundEx);
+          }
+        };
 
-          var $Try_1_Catch = function (error) {
+        try {
+          return Promise.resolve(executeCommands()).then(function ($await_5) {
             try {
-              console.error(\\"Error\\");
               return $Try_1_Post();
             } catch ($boundEx) {
-              return $error($boundEx);
+              return $Try_1_Catch($boundEx);
             }
-          };
-
-          try {
-            return Promise.resolve(executeCommands()).then(function ($await_5) {
-              try {
-                return $Try_1_Post();
-              } catch ($boundEx) {
-                return $Try_1_Catch($boundEx);
-              }
-            }, $Try_1_Catch);
-          } catch (error) {
-            $Try_1_Catch(error)
-          }
-        } else return [1];
-      }
+          }, $Try_1_Catch);
+        } catch (error) {
+          $Try_1_Catch(error)
+        }
+      } else return [1];
     }
+
+    return ($Loop_3_trampoline = function (q) {
+      while (q) {
+        if (q.then) return void q.then($Loop_3_trampoline, $error);
+
+        try {
+          if (q.pop) {
+            if (q.length) return q.pop() ? $Loop_3_exit.call(this) : q;else q = $Loop_3_step;
+          } else q = q.call(this);
+        } catch (_exception) {
+          return $error(_exception);
+        }
+      }
+    }.bind(this))($Loop_3.bind(this, undefined, [tasks[Symbol.iterator]()]));
 
     function $Loop_3_exit() {
       return $return();

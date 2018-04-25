@@ -66,59 +66,62 @@ exports[`Production esnext: async_loop 1`] = `
 "function executeTasks(a) {
   return new Promise(function (b, c) {
     function d() {
-      return b();
+      var [a, b] = h();
+      return e.bind(this, a, b);
     }
 
-    {
-      function b() {
-        if (!(g[1] = g[0].next()).done && ((f = g[1].value) || !0)) {
-          var a = function () {
-            try {
-              return b;
-            } catch (a) {
-              return c(a);
-            }
-          },
-              d = function () {
-            try {
-              return console.error(\\"Error\\"), a();
-            } catch (a) {
-              return c(a);
-            }
-          };
-
+    function e(a, b) {
+      if (h = function () {
+        return [a, b];
+      }, !(b[1] = b[0].next()).done && ((a = b[1].value) || !0)) {
+        var e = function () {
           try {
-            return Promise.resolve(executeCommands()).then(function () {
-              try {
-                return a();
-              } catch (a) {
-                return d(a);
-              }
-            }, d);
-          } catch (a) {
-            d(a);
-          }
-        } else return [1];
-      }
-
-      let f,
-          g = [a[Symbol.iterator]()];
-      var e;
-      return (e = function (a) {
-        for (; a;) {
-          if (a.then) return void a.then(e, c);
-
-          try {
-            if (a.pop) {
-              if (a.length) return a.pop() ? d.call(this) : a;
-              a = b;
-            } else a = a.call(this);
+            return d;
           } catch (a) {
             return c(a);
           }
+        },
+            f = function () {
+          try {
+            return console.error(\\"Error\\"), e();
+          } catch (a) {
+            return c(a);
+          }
+        };
+
+        try {
+          return Promise.resolve(executeCommands()).then(function () {
+            try {
+              return e();
+            } catch (a) {
+              return f(a);
+            }
+          }, f);
+        } catch (a) {
+          f(a);
         }
-      }.bind(this))(b);
+      } else return [1];
     }
+
+    function f() {
+      return b();
+    }
+
+    var g, h;
+    return (g = function (a) {
+      for (; a;) {
+        if (a.then) return void a.then(g, c);
+
+        try {
+          if (a.pop) {
+            if (a.length) return a.pop() ? f.call(this) : a;
+            a = d;
+          } else a = a.call(this);
+        } catch (a) {
+          return c(a);
+        }
+      }
+    }.bind(this))(e.bind(this, void 0, [a[Symbol.iterator]()]));
   });
 }"
 `;
