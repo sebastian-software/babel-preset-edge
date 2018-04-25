@@ -285,7 +285,7 @@ export default function buildPreset(context, opts = {}) {
     options.target === "es2015" ||
     !isPluginRequired(
       getTargets(envTargets),
-      envPlugins["transform-es2015-arrow-functions"]
+      envPlugins["transform-arrow-functions"]
     )
 
   if (options.debug) {
