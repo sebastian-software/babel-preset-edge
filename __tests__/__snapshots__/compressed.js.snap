@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`comments 1`] = `
+exports[`Compressed comments 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
 
 function translate(value) {
@@ -8,24 +8,24 @@ function translate(value) {
 }"
 `;
 
-exports[`deadcode 1`] = `"const STATIC = false;"`;
+exports[`Compressed deadcode 1`] = `"const STATIC = false;"`;
 
-exports[`es3: literal 1`] = `"foo[\\"catch\\"];"`;
+exports[`Compressed es3: literal 1`] = `"foo[\\"catch\\"];"`;
 
-exports[`es3: member 1`] = `
+exports[`Compressed es3: member 1`] = `
 "var foo = {
   catch: function () {}
 };"
 `;
 
-exports[`es2015: classes 1`] = `
+exports[`Compressed es2015: classes 1`] = `
 "export class Component {
   main() {}
 
 }"
 `;
 
-exports[`es2015: for_off 1`] = `
+exports[`Compressed es2015: for_off 1`] = `
 "function test() {
   for (const taskName of tasks) {
     try {
@@ -37,7 +37,7 @@ exports[`es2015: for_off 1`] = `
 }"
 `;
 
-exports[`es2015: generator 1`] = `
+exports[`Compressed es2015: generator 1`] = `
 "function* idMaker() {
   var index = 0;
 
@@ -45,11 +45,11 @@ exports[`es2015: generator 1`] = `
 }"
 `;
 
-exports[`es2015: set 1`] = `"new Set([1, 2, 3]);"`;
+exports[`Compressed es2015: set 1`] = `"new Set([1, 2, 3]);"`;
 
-exports[`es2016: exponentiation 1`] = `"var result = 8;"`;
+exports[`Compressed es2016: exponentiation 1`] = `"var result = 8;"`;
 
-exports[`esnext: async 1`] = `
+exports[`Compressed esnext: async 1`] = `
 "function wait() {
   return new Promise(function ($return, $error) {
     return Promise.resolve(loadData()).then(function () {
@@ -63,7 +63,7 @@ exports[`esnext: async 1`] = `
 }"
 `;
 
-exports[`esnext: async_loop 1`] = `
+exports[`Compressed esnext: async_loop 1`] = `
 "function executeTasks(tasks) {
   return new Promise(function ($return, $error) {
     {
@@ -124,7 +124,7 @@ exports[`esnext: async_loop 1`] = `
 }"
 `;
 
-exports[`esnext: class properties 1`] = `
+exports[`Compressed esnext: class properties 1`] = `
 "import _defineProperty from \\"@babel/runtime/helpers/builtin/es6/defineProperty\\";
 export class Component {
   constructor() {
@@ -134,18 +134,18 @@ export class Component {
 }"
 `;
 
-exports[`esnext: dynamic import 1`] = `
+exports[`Compressed esnext: dynamic import 1`] = `
 "Promise.resolve().then(() => require(\\"lodash\\")).then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
 `;
 
-exports[`esnext: import 1`] = `
+exports[`Compressed esnext: import 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
 console.log(_camelCase(\\"hello world\\"));"
 `;
 
-exports[`esnext: object spread 1`] = `
+exports[`Compressed esnext: object spread 1`] = `
 "import _objectSpread from \\"@babel/runtime/helpers/builtin/es6/objectSpread\\";
 
 let original = {
@@ -156,25 +156,25 @@ let original = {
 }, original);"
 `;
 
-exports[`lodash: async 1`] = `
+exports[`Compressed lodash: async 1`] = `
 "import _parallel from \\"async/parallel\\";
 
 _parallel([]);"
 `;
 
-exports[`lodash: lodash 1`] = `
+exports[`Compressed lodash: lodash 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
 
 _camelCase(\\"hello world\\");"
 `;
 
-exports[`lodash: recompose 1`] = `
+exports[`Compressed lodash: recompose 1`] = `
 "import _compose from \\"recompose/compose\\";
 
 _compose([]);"
 `;
 
-exports[`react: jsx 1`] = `
+exports[`Compressed react: jsx 1`] = `
 "var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx.js\\";
 
 function render() {
@@ -188,7 +188,7 @@ function render() {
 }"
 `;
 
-exports[`react: jsx spread 1`] = `
+exports[`Compressed react: jsx spread 1`] = `
 "var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx-spread.js\\";
 
 function render(props) {
@@ -204,7 +204,7 @@ function render(props) {
 }"
 `;
 
-exports[`react: proptypes 1`] = `
+exports[`Compressed react: proptypes 1`] = `
 "var _jsxFileName = \\"./__tests__/__fixtures__/react_proptypes.js\\";
 import React from \\"react\\";
 import PropTypes from \\"prop-types\\";

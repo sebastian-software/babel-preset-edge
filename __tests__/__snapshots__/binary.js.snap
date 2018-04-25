@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`comments 1`] = `
+exports[`Binary comments 1`] = `
 "\\"use strict\\";
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
@@ -12,19 +12,19 @@ function translate(value) {
 }"
 `;
 
-exports[`deadcode 1`] = `
+exports[`Binary deadcode 1`] = `
 "\\"use strict\\";
 
 const STATIC = false;"
 `;
 
-exports[`es3: literal 1`] = `
+exports[`Binary es3: literal 1`] = `
 "\\"use strict\\";
 
 foo[\\"catch\\"];"
 `;
 
-exports[`es3: member 1`] = `
+exports[`Binary es3: member 1`] = `
 "\\"use strict\\";
 
 var foo = {
@@ -32,7 +32,7 @@ var foo = {
 };"
 `;
 
-exports[`es2015: classes 1`] = `
+exports[`Binary es2015: classes 1`] = `
 "\\"use strict\\";
 
 exports.__esModule = true;
@@ -46,7 +46,7 @@ class Component {
 exports.Component = Component;"
 `;
 
-exports[`es2015: for_off 1`] = `
+exports[`Binary es2015: for_off 1`] = `
 "\\"use strict\\";
 
 function test() {
@@ -60,7 +60,7 @@ function test() {
 }"
 `;
 
-exports[`es2015: generator 1`] = `
+exports[`Binary es2015: generator 1`] = `
 "\\"use strict\\";
 
 function* idMaker() {
@@ -70,19 +70,19 @@ function* idMaker() {
 }"
 `;
 
-exports[`es2015: set 1`] = `
+exports[`Binary es2015: set 1`] = `
 "\\"use strict\\";
 
 new Set([1, 2, 3]);"
 `;
 
-exports[`es2016: exponentiation 1`] = `
+exports[`Binary es2016: exponentiation 1`] = `
 "\\"use strict\\";
 
 var result = Math.pow(2, 3);"
 `;
 
-exports[`esnext: async 1`] = `
+exports[`Binary esnext: async 1`] = `
 "\\"use strict\\";
 
 function wait() {
@@ -98,7 +98,7 @@ function wait() {
 }"
 `;
 
-exports[`esnext: async_loop 1`] = `
+exports[`Binary esnext: async_loop 1`] = `
 "\\"use strict\\";
 
 function executeTasks(tasks) {
@@ -162,7 +162,7 @@ function executeTasks(tasks) {
 }"
 `;
 
-exports[`esnext: class properties 1`] = `
+exports[`Binary esnext: class properties 1`] = `
 "\\"use strict\\";
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
@@ -182,7 +182,7 @@ class Component {
 exports.Component = Component;"
 `;
 
-exports[`esnext: dynamic import 1`] = `
+exports[`Binary esnext: dynamic import 1`] = `
 "\\"use strict\\";
 
 Promise.resolve().then(() => require(\\"lodash\\")).then(lodash => {
@@ -190,7 +190,7 @@ Promise.resolve().then(() => require(\\"lodash\\")).then(lodash => {
 });"
 `;
 
-exports[`esnext: import 1`] = `
+exports[`Binary esnext: import 1`] = `
 "\\"use strict\\";
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
@@ -200,7 +200,7 @@ var _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
 console.log((0, _camelCase2[\\"default\\"])(\\"hello world\\"));"
 `;
 
-exports[`esnext: object spread 1`] = `
+exports[`Binary esnext: object spread 1`] = `
 "\\"use strict\\";
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
@@ -215,7 +215,7 @@ let variant = (0, _objectSpread2[\\"default\\"])({
 }, original);"
 `;
 
-exports[`lodash: async 1`] = `
+exports[`Binary lodash: async 1`] = `
 "\\"use strict\\";
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
@@ -225,7 +225,7 @@ var _parallel2 = _interopRequireDefault(require(\\"async/parallel\\"));
 (0, _parallel2[\\"default\\"])([]);"
 `;
 
-exports[`lodash: lodash 1`] = `
+exports[`Binary lodash: lodash 1`] = `
 "\\"use strict\\";
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
@@ -235,7 +235,7 @@ var _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
 (0, _camelCase2[\\"default\\"])(\\"hello world\\");"
 `;
 
-exports[`lodash: recompose 1`] = `
+exports[`Binary lodash: recompose 1`] = `
 "\\"use strict\\";
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
@@ -245,7 +245,7 @@ var _compose2 = _interopRequireDefault(require(\\"recompose/compose\\"));
 (0, _compose2[\\"default\\"])([]);"
 `;
 
-exports[`react: jsx 1`] = `
+exports[`Binary react: jsx 1`] = `
 "\\"use strict\\";
 
 var _ref = React.createElement(\\"h1\\", null, \\"Hello\\");
@@ -255,7 +255,7 @@ function render() {
 }"
 `;
 
-exports[`react: jsx spread 1`] = `
+exports[`Binary react: jsx spread 1`] = `
 "\\"use strict\\";
 
 function render(props) {
@@ -265,7 +265,7 @@ function render(props) {
 }"
 `;
 
-exports[`react: proptypes 1`] = `
+exports[`Binary react: proptypes 1`] = `
 "\\"use strict\\";
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
