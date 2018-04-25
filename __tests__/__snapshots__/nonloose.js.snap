@@ -103,6 +103,147 @@ exports[`Non Loose esnext: async 1`] = `
 }"
 `;
 
+exports[`Non Loose esnext: async_loop 1`] = `
+"import \\"core-js/modules/es7.symbol.async-iterator\\";
+import \\"core-js/modules/es6.symbol\\";
+import \\"core-js/modules/web.dom.iterable\\";
+
+function executeTasks(tasks) {
+  return new Promise(function ($return, $error) {
+    var $Try_1_Finally = function ($Try_1_Exit) {
+      return function ($Try_1_Value) {
+        try {
+          var $Try_3_Finally = function ($Try_3_Exit) {
+            return function ($Try_3_Value) {
+              try {
+                if (_didIteratorError) {
+                  throw _iteratorError;
+                }
+
+                return $Try_3_Exit && $Try_3_Exit.call(this, $Try_3_Value);
+              } catch ($boundEx) {
+                return $error($boundEx);
+              }
+            }.bind(this);
+          }.bind(this);
+
+          var $Try_3_Catch = function ($exception_4) {
+            try {
+              throw $exception_4;
+            } catch ($boundEx) {
+              return $Try_3_Finally($error)($boundEx);
+            }
+          }.bind(this);
+
+          try {
+            if (!_iteratorNormalCompletion && _iterator[\\"return\\"] != null) {
+              _iterator[\\"return\\"]();
+            }
+
+            return $Try_3_Finally([XXXXX])();
+          } catch ($exception_4) {
+            $Try_3_Catch($exception_4)
+          }
+
+          return $Try_1_Exit && $Try_1_Exit.call(this, $Try_1_Value);
+        } catch ($boundEx) {
+          return $error($boundEx);
+        }
+      }.bind(this);
+    }.bind(this);
+
+    var _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step;
+
+    _iteratorNormalCompletion = true;
+    _didIteratorError = false;
+    _iteratorError = undefined;
+
+    var $Try_1_Post = function () {
+      try {
+        return $return();
+      } catch ($boundEx) {
+        return $error($boundEx);
+      }
+    };
+
+    var $Try_1_Catch = function (err) {
+      try {
+        _didIteratorError = true;
+        _iteratorError = err;
+        return $Try_1_Finally($Try_1_Post)();
+      } catch ($boundEx) {
+        return $Try_1_Finally($error)($boundEx);
+      }
+    };
+
+    try {
+      _iterator = tasks[Symbol.iterator]();
+      var $Loop_5_trampoline;
+
+      function $Loop_5_step() {
+        _iteratorNormalCompletion = true;
+        return $Loop_5;
+      }
+
+      function $Loop_5() {
+        if (!(_iteratorNormalCompletion = (_step = _iterator.next()).done)) {
+          _step.value;
+
+          var $Try_2_Post = function () {
+            try {
+              return $Loop_5_step;
+            } catch ($boundEx) {
+              return $Try_1_Catch($boundEx);
+            }
+          };
+
+          var $Try_2_Catch = function (error) {
+            try {
+              console.error(\\"Error\\");
+              return $Try_2_Post();
+            } catch ($boundEx) {
+              return $Try_1_Catch($boundEx);
+            }
+          };
+
+          try {
+            return Promise.resolve(executeCommands()).then(function ($await_7) {
+              try {
+                return $Try_2_Post();
+              } catch ($boundEx) {
+                return $Try_2_Catch($boundEx);
+              }
+            }, $Try_2_Catch);
+          } catch (error) {
+            $Try_2_Catch(error)
+          }
+        } else return [1];
+      }
+
+      return ($Loop_5_trampoline = function (q) {
+        while (q) {
+          if (q.then) return void q.then($Loop_5_trampoline, $Try_1_Catch);
+
+          try {
+            if (q.pop) {
+              if (q.length) return q.pop() ? $Loop_5_exit.call(this) : q;else q = $Loop_5_step;
+            } else q = q.call(this);
+          } catch (_exception) {
+            return $Try_1_Catch(_exception);
+          }
+        }
+      }.bind(this))($Loop_5);
+
+      function $Loop_5_exit() {
+        return $Try_1_Finally($Try_1_Post)();
+      }
+    } catch (err) {
+      $Try_1_Catch(err)
+    }
+  });
+}"
+`;
+
 exports[`Non Loose esnext: class properties 1`] = `
 "import _classCallCheck from \\"@babel/runtime/helpers/builtin/es6/classCallCheck\\";
 import _defineProperty from \\"@babel/runtime/helpers/builtin/es6/defineProperty\\";
