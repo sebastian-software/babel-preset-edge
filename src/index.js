@@ -418,16 +418,11 @@ export default function buildPreset(context, opts = {}) {
   // Alternative to Babel Regenerator
   // Implements the ES7 keywords async and await using syntax transformation
   // to at Promises at compile-time, rather than using generators.
-  // https://www.npmjs.com/package/fast-async
+  // https://github.com/babel/babel/pull/7076 (NEW: bundled plugin with Babel)
+  // https://www.npmjs.com/package/fast-async (OLD: separate Babel plugin)
   if (options.rewriteAsync === "promises") {
     plugins.push([
-      fastAsyncPlugin,
-      {
-        useRuntimeModule: "lean-nodent-runtime",
-        compiler: {
-          es6target: envSupportsES6
-        }
-      }
+      require("./transformAsyncToPromises")
     ])
   }
 
