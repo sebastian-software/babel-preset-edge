@@ -329,7 +329,7 @@ export default function buildPreset(context, opts = {}) {
 
       // Prefer built-ins which also prefers global polyfills which is the right thing to do
       // for most scenarios like SPAs and NodeJS environments.
-      useBuiltIns: options.useBuiltIns,
+      useBuiltIns: options.useBuiltIns ? "usage" : false,
 
       // Options to tweak the details of the implementation. If both are `false` the environment
       // preset is executed in default mode.
