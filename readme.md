@@ -43,6 +43,7 @@ const defaults = {
   // - "node"/"cli"/"script"/"binary": any NodeJS related execution with wide support (currently Node v6 LTS)
   // - "node6": identical to the previous option as long as v6 is more widely used - will force v6 when used afterwards.
   // - "node8": identical to the previous option but enforce target Node v8 LTS instead of v6 LTS
+  // - "node10": identical to the previous option but enforce target Node v10 (not LTS) instead of v6 LTS
   // - "current"/"test": current NodeJS version
   // - "browser"/"web": browsers as defined by browserslist
   // - "library": ideally used for publishing libraries e.g. on NPM
@@ -68,6 +69,8 @@ const defaults = {
   imports: "auto",
 
   // Prefer built-ins over custom code. This mainly benefits for modern engines.
+  // As we are using the new "usage" mode for `preset-env` we automatically include
+  // all polyfills required by the generated code. Damn smart.
   useBuiltIns: true,
 
   // JSX Pragma. Default: Use React
@@ -76,9 +79,10 @@ const defaults = {
   // Async settings: Either `"promises"` or `null`
   rewriteAsync: "promises",
 
-  // Env Settings. We default on a loose transpilation which is efficient
+  // Transpilation Settings: We default on a loose transpilation which is efficient
   // but not overly compliant. If you experience issues it might be better to
-  // switch `looseMode` off.
+  // switch `looseMode` off. `specMode` on the other hand might produce
+  // 100% correct code, but tend to be large and slower as well.
   looseMode: true,
   specMode: false,
 
@@ -117,14 +121,14 @@ This is our current browserslist set-up for a so-called modern development stack
 ```js
 const modernTarget = {
   node: "8.9.0",
-  electron: "1.6",
+  electron: "1.8",
   browsers: [
-    "Safari >= 11",
-    "iOS >= 11",
+    "Safari >= 11.1",
+    "iOS >= 11.3",
     "Edge >= 16",
-    "Chrome >= 61",
-    "ChromeAndroid >= 61",
-    "Firefox >= 57"
+    "Chrome >= 64",
+    "ChromeAndroid >= 64",
+    "Firefox >= 58"
   ]
 }
 ```
