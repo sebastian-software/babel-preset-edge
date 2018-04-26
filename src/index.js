@@ -182,7 +182,7 @@ export default function buildPreset(context, opts = {}) {
     // itself to query its configuration and pass over that data again to babel-preset-env
     // for passing it to browserslist internally. Yeah.
     const autoBrowsers = browserslist(null, {
-      env: isProduction ? "production" : "development"
+      env: process.env.BROWSERSLIST_ENV || isProduction ? "production" : "development"
     })
 
     // For the abstract browsers config we let browserslist find the config file
