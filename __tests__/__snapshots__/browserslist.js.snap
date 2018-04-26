@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Browserslist comments 1`] = `
+"import _camelCase from \\"lodash/camelCase\\";
+
+// Line Comment
+function translate(value) {
+  return _camelCase(
+  /* inline Comment */
+  value);
+}"
+`;
+
+exports[`Browserslist deadcode 1`] = `"const STATIC = false;"`;
+
+exports[`Browserslist es3: literal 1`] = `"foo[\\"catch\\"];"`;
+
+exports[`Browserslist es3: member 1`] = `
+"var foo = {
+  \\"catch\\": function () {}
+};"
+`;
+
+exports[`Browserslist es2015: classes 1`] = `
+"export class Component {
+  main() {}
+
+}"
+`;
+
+exports[`Browserslist es2015: for_off 1`] = `
+"function test() {
+  for (const taskName of tasks) {
+    try {
+      executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
+`;
+
+exports[`Browserslist es2015: generator 1`] = `
+"function* idMaker() {
+  var index = 0;
+
+  while (true) yield index++;
+}"
+`;
+
+exports[`Browserslist es2015: set 1`] = `"new Set([1, 2, 3]);"`;
+
+exports[`Browserslist es2016: exponentiation 1`] = `"var result = 2 ** 3;"`;
+
+exports[`Browserslist esnext: async 1`] = `
+"async function wait() {
+  await loadData();
+}"
+`;
+
+exports[`Browserslist esnext: async_loop 1`] = `
+"async function executeTasks(tasks) {
+  for (const taskName of tasks) {
+    try {
+      await executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
+`;
+
+exports[`Browserslist esnext: class properties 1`] = `
+"import _defineProperty from \\"@babel/runtime/helpers/builtin/es6/defineProperty\\";
+export class Component {
+  constructor() {
+    _defineProperty(this, \\"onClick\\", () => {});
+  }
+
+}"
+`;
+
+exports[`Browserslist esnext: dynamic import 1`] = `
+"import \\"core-js/modules/web.dom.iterable\\";
+import _path from \\"path\\";
+import _importCss from \\"babel-plugin-universal-import/importCss\\";
+import _universalImport from \\"babel-plugin-universal-import/universalImport\\";
+
+_universalImport({
+  id: \\"lodash\\",
+  file: \\"./__tests__/__fixtures__/esnext_dynamic-import.js\\",
+  load: () => Promise.all([import(
+  /* webpackChunkName: 'lodash' */
+  \\"lodash\\"), _importCss(\\"lodash\\", {})]).then(proms => proms[0]),
+  path: () => _path.join(__dirname, \\"lodash\\"),
+  resolve: () => require.resolveWeak(\\"lodash\\"),
+  chunkName: () => \\"lodash\\"
+}).then(lodash => {
+  console.log(lodash.camelCase(\\"hello world\\"));
+});"
+`;
+
+exports[`Browserslist esnext: import 1`] = `
+"import _camelCase from \\"lodash/camelCase\\";
+console.log(_camelCase(\\"hello world\\"));"
+`;
+
+exports[`Browserslist esnext: object spread 1`] = `
+"import _objectSpread from \\"@babel/runtime/helpers/builtin/es6/objectSpread\\";
+let original = {
+  bar: 10
+};
+
+let variant = _objectSpread({
+  foo: 1
+}, original);"
+`;
+
+exports[`Browserslist lodash: async 1`] = `
+"import _parallel from \\"async/parallel\\";
+
+_parallel([]);"
+`;
+
+exports[`Browserslist lodash: lodash 1`] = `
+"import _camelCase from \\"lodash/camelCase\\";
+
+_camelCase(\\"hello world\\");"
+`;
+
+exports[`Browserslist lodash: recompose 1`] = `
+"import _compose from \\"recompose/compose\\";
+
+_compose([]);"
+`;
+
+exports[`Browserslist react: jsx 1`] = `
+"var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx.js\\";
+
+function render() {
+  return React.createElement(\\"h1\\", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 2
+    },
+    __self: this
+  }, \\"Hello\\");
+}"
+`;
+
+exports[`Browserslist react: jsx spread 1`] = `
+"var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx-spread.js\\";
+
+function render(props) {
+  return React.createElement(\\"h1\\", Object.assign({
+    className: \\"large\\"
+  }, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 3
+    },
+    __self: this
+  }), \\"Hello\\");
+}"
+`;
+
+exports[`Browserslist react: proptypes 1`] = `
+"var _jsxFileName = \\"./__tests__/__fixtures__/react_proptypes.js\\";
+import React from \\"react\\";
+import PropTypes from \\"prop-types\\";
+
+class MyComponent extends React.Component {
+  render() {
+    return React.createElement(\\"div\\", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 6
+      },
+      __self: this
+    }, this.props.userName);
+  }
+
+}
+
+MyComponent.propTypes = {
+  userName: PropTypes.string
+};"
+`;
