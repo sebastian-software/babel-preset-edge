@@ -49,6 +49,7 @@ const defaults = {
   // - "node"/"cli"/"script"/"binary": any NodeJS related execution with wide support (currently Node v6 LTS)
   // - "node6": identical to the previous option as long as v6 is more widely used - will force v6 when used afterwards.
   // - "node8": identical to the previous option but enforce target Node v8 LTS instead of v6 LTS
+  // - "node10": identical to the previous option but enforce target Node v10 (not LTS) instead of v6 LTS
   // - "current"/"test": current NodeJS version
   // - "browser"/"web": browsers as defined by browserslist
   // - "library": ideally used for publishing libraries e.g. on NPM
@@ -152,6 +153,7 @@ export default function buildPreset(context, opts = {}) {
     options.target === "node" ||
     options.target === "node6" ||
     options.target === "node8" ||
+    options.target === "node10" ||
     options.target === "cli" ||
     options.target === "script" ||
     options.target === "binary"
@@ -170,7 +172,8 @@ export default function buildPreset(context, opts = {}) {
     // See also: https://nodejs.org/en/blog/release/v6.9.0/
     // Newest LTS is v8.9.0 https://nodejs.org/en/blog/release/v8.9.0/
     // You can choose the modern version by setting `target` to "node8".
-    envTargets.node = options.target === "node8" ? "8.9.0" : "6.9.0"
+    // We also have support for even more modern Node v10 which did not yet reached LTS.
+    envTargets.node = options.target === "node8" ? "8.9.0" : options.target === "node10" ? "10.0.0" : "6.9.0"
   } else if (buildForCurrent) {
     // Scripts which are directly used like tests can be transpiled for the current NodeJS version
     envTargets.node = "current"

@@ -1,7 +1,7 @@
 import buildPreset from "../src"
 import { fixtures, titles, check } from "./core"
 
-describe("Node8", () => {
+describe("Node v8", () => {
   const options = buildPreset(null, {
     modules: false,
     target: "node8",
