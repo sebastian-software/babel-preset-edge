@@ -78,9 +78,9 @@ function transformAsyncToPromises(api, options) {
               // Print a node as JS source
               printNode: printNode,
               // Log a warning, eg: console.log.bind(console)
-              logger: (msg) => {
+              logger: false /*(msg) => {
                 console.warn("Nodent:", msg)
-              },
+              },*/
             },
           ).ast;
 
