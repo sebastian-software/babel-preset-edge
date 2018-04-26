@@ -55,7 +55,7 @@ exports[`ES2015 es2016: exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
 exports[`ES2015 esnext: async 1`] = `
 "function wait() {
   return new Promise(function ($return, $error) {
-    return Promise.resolve(loadData()).then(function ($await_1) {
+    return Promise.resolve(loadData()).then(function () {
       try {
         return $return();
       } catch ($boundEx) {
@@ -90,7 +90,7 @@ exports[`ES2015 esnext: async_loop 1`] = `
           }
         };
 
-        var $Try_1_Catch = function (error) {
+        var $Try_1_Catch = function () {
           try {
             console.error(\\"Error\\");
             return $Try_1_Post();
@@ -100,7 +100,7 @@ exports[`ES2015 esnext: async_loop 1`] = `
         };
 
         try {
-          return Promise.resolve(executeCommands()).then(function ($await_5) {
+          return Promise.resolve(executeCommands()).then(function () {
             try {
               return $Try_1_Post();
             } catch ($boundEx) {
