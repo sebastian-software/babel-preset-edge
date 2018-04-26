@@ -301,6 +301,17 @@ export default function buildPreset(context, opts = {}) {
     console.log("- Async Transpilation:", options.rewriteAsync)
   }
 
+  // Alternative to Babel Regenerator
+  // Implements the ES7 keywords async and await using syntax transformation
+  // to at Promises at compile-time, rather than using generators.
+  // https://github.com/babel/babel/pull/7076 (NEW: bundled plugin with Babel)
+  // https://www.npmjs.com/package/fast-async (OLD: separate Babel plugin)
+  if (options.rewriteAsync === "promises") {
+    plugins.push([
+      require("./transformAsyncToPromises")
+    ])
+  }
+
   // Use basic compression for libraries and full compression on binaries
   if (options.compression) {
     if (isProduction && buildDistBinary) {
@@ -413,17 +424,6 @@ export default function buildPreset(context, opts = {}) {
           "~": resolvePath(getAppRoot(), options.sourceFolder)
         }
       }
-    ])
-  }
-
-  // Alternative to Babel Regenerator
-  // Implements the ES7 keywords async and await using syntax transformation
-  // to at Promises at compile-time, rather than using generators.
-  // https://github.com/babel/babel/pull/7076 (NEW: bundled plugin with Babel)
-  // https://www.npmjs.com/package/fast-async (OLD: separate Babel plugin)
-  if (options.rewriteAsync === "promises") {
-    plugins.push([
-      require("./transformAsyncToPromises")
     ])
   }
 
