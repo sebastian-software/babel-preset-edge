@@ -1,8 +1,6 @@
 import buildPreset from "../src"
 import { fixtures, titles, check } from "./core"
 
-process.env.NODE_ENV = "production"
-
 describe("Browserslist Production", () => {
   const options = buildPreset(null, {
     target: "browser",
