@@ -76,7 +76,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
     "babel-plugin-universal-import": "^1.5.1",
     "babel-preset-minify": "^0.4.0",
-    "browserslist": "^3.2.5",
+    "browserslist": "^3.2.6",
     "nodent-transform": "^3.2.3"
   },
   "devDependencies": {
