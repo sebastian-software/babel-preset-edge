@@ -320,8 +320,6 @@ export default function buildPreset(context, opts = {}) {
         }
       ])
     }
-  } else {
-    plugins.push(deadCodeEliminationPlugin)
   }
 
   presets.push([
@@ -453,6 +451,12 @@ export default function buildPreset(context, opts = {}) {
       pragma: options.jsxPragma
     }
   ])
+
+  // Even when no compression is enabled, it makes sense to remove
+  // and code paths which are clearly never executed.
+  if (!options.compression) {
+    plugins.push(deadCodeEliminationPlugin)
+  }
 
   // The following two plugins are currently necessary to make React warnings
   // include more valuable information. They are included here because they are
