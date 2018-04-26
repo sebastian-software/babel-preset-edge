@@ -5,7 +5,11 @@
         [
           "@babel/preset-env",
           {
-            "modules": false
+            "modules": false,
+            "useBuiltins": "usage",
+            "targets": {
+              "node": "6.10"
+            }
           }
         ]
       ]
@@ -13,7 +17,13 @@
     "test": {
       "presets": [
         [
-          "@babel/preset-env"
+          "@babel/preset-env",
+          {
+            "useBuiltins": "usage",
+            "targets": {
+              "node": "6.10"
+            }
+          }
         ]
       ]
     }
