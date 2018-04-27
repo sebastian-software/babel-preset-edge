@@ -19,7 +19,7 @@ import es3ExpressionLiterals from "@babel/plugin-transform-member-expression-lit
 
 import parseJSX from "@babel/plugin-syntax-jsx"
 import transformReactJSX from "@babel/plugin-transform-react-jsx"
-import transformReactJSXSource from "@babel/plugin-transform-react-jsx-source"
+// import transformReactJSXSource from "@babel/plugin-transform-react-jsx-source"
 import transformReactJSXSelf from "@babel/plugin-transform-react-jsx-self"
 
 import reactInlineElementsPlugin from "@babel/plugin-transform-react-inline-elements"
@@ -488,7 +488,7 @@ export default function buildPreset(context, opts = {}) {
   if (!isProduction) {
     // Adds component stack to warning messages
     // Increases sizes in JSX rich areas quite a bit.
-    // plugins.push(transformReactJSXSource)
+    // // plugins.push(transformReactJSXSource)
 
     // Adds __self attribute to JSX which React will use for some warnings
     plugins.push(transformReactJSXSelf)
