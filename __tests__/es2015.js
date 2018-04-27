@@ -3,7 +3,6 @@ import { fixtures, titles, check } from "./core"
 
 describe("ES2015", () => {
   const options = buildPreset(null, {
-    modules: false,
     target: "es2015",
     sourceMaps: false
   })

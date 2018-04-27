@@ -3,7 +3,6 @@ import { fixtures, titles, check } from "./core"
 
 describe("Production", () => {
   const options = buildPreset(null, {
-    modules: false,
     sourceMaps: false,
     compression: true,
     env: "production"

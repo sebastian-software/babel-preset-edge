@@ -3,9 +3,7 @@ import { fixtures, titles, check } from "./core"
 
 describe("Node v6", () => {
   const options = buildPreset(null, {
-    modules: false,
     target: "node6",
-    imports: "rollup-nodejs",
     sourceMaps: false
   })
 
