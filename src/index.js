@@ -328,9 +328,7 @@ export default function buildPreset(context, opts = {}) {
   // https://github.com/babel/babel/pull/7076 (NEW: bundled plugin with Babel)
   // https://www.npmjs.com/package/fast-async (OLD: separate Babel plugin)
   if (options.rewriteAsync === "promises") {
-    plugins.push([
-      fastAsyncPlugin
-    ])
+    plugins.push(fastAsyncPlugin)
   }
 
   // Use basic compression for development/bundling and full compression for production output.
