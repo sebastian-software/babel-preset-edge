@@ -149,11 +149,17 @@ export default function buildPreset(context, opts = {}) {
     console.log("- Is Production:", isProduction)
   }
 
-  // Auto select test target when running in test environment and no other info is available.
+  // Auto select test target when running in test environment
   if (envValue === "test" && options.target == null) {
     options.target = "test"
   }
 
+  // Check for which major targets we are building
+  const supportBrowsersAndNode = /library|es2015|modern/.exec(options.target)
+  const supportBrowsers = supportBrowsersAndNode || /browser|web/.exec(options.target)
+  const supportNode = supportBrowsersAndNode || /node|node6|node8|node10|cli|script|binary|current|test/.exec(options.target)
+
+  // Separate build targets
   const buildDistBinary =
     options.target === "node" ||
     options.target === "node6" ||
@@ -163,7 +169,7 @@ export default function buildPreset(context, opts = {}) {
     options.target === "script" ||
     options.target === "binary"
   const buildForCurrent = options.target === "current" || options.target === "test"
-  const buildForBrowserList = options.target === "browser" || options.target === "web"
+  const buildForBrowsersList = options.target === "browser" || options.target === "web"
   const buildAsLibrary =
     options.target === "library" ||
     options.target === "es2015" ||
@@ -179,13 +185,12 @@ export default function buildPreset(context, opts = {}) {
     // You can choose the modern version by setting `target` to "node8".
     // We also have support for even more modern Node v10 which did not yet reached LTS.
     envTargets.node = options.target === "node8" ? "8.9.0" : options.target === "node10" ? "10.0.0" : "6.9.0"
+    envTargets.browsers = []
   } else if (buildForCurrent) {
     // Scripts which are directly used like tests can be transpiled for the current NodeJS version
     envTargets.node = "current"
-  } else if (buildForBrowserList) {
-    // Until this issue is fixed we can't use auto config detection for browserslist in babel-preset-env
-    // https://github.com/babel/babel-preset-env/issues/149
-    // This is currently scheduled for v2.0 of babel-preset-env which still has some tasks on the list.
+    envTargets.browsers = []
+  } else if (buildForBrowsersList) {
     // What we do here is actually pretty clever/stupid as we just use browserslist
     // itself to query its configuration and pass over that data again to babel-preset-env
     // for passing it to browserslist internally. Yeah.
@@ -200,7 +205,8 @@ export default function buildPreset(context, opts = {}) {
       envTargets = modernTarget
     } else {
       // Explicit undefined results into compilation with "latest" preset supporting a wide range of clients via ES5 output
-      envTargets = undefined
+      // For ignoring any existing browserslist config we have to pass over an empty array.
+      envTargets.browsers = []
     }
   } else if (buildCustom) {
     envTargets = options.target
@@ -250,15 +256,12 @@ export default function buildPreset(context, opts = {}) {
 
   // Automatic detection of "modules" mode based on target
   if (options.modules == null || options.modules === "auto") {
-    if (buildForCurrent || buildDistBinary) {
-      options.modules = "commonjs"
-    } else if (buildAsLibrary || buildForBrowserList) {
-      // Libraries should be published as EcmaScript modules for tree shaking support
-      // For browser targets we typically use tools like Webpack which benefit from EcmaScript modules, too.
-      options.modules = false
+    if (buildForCurrent) {
+      options.modules = "cjs"
     } else {
-      // Best overall support when nothing other is applicable
-      options.modules = "commonjs"
+      // Libraries should be published as EcmaScript modules for tree shaking support
+      // For browser targets we typically use tools like Webpack, Rollup or Parcel which benefit from EcmaScript modules, too.
+      options.modules = false
     }
   }
 
@@ -268,7 +271,7 @@ export default function buildPreset(context, opts = {}) {
       options.imports = "rollup-nodejs"
     } else if (buildAsLibrary || buildCustom) {
       options.imports = "rollup-webpack"
-    } else if (buildForBrowserList) {
+    } else if (buildForBrowsersList) {
       options.imports = "webpack"
     } else {
       options.imports = null
