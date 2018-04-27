@@ -135,13 +135,13 @@ export default function buildPreset(context, opts = {}) {
   const options = { ...defaults, ...opts }
 
   // Reset environment value when configured as "auto"
-  if (opts.env === "auto") {
-    opts.env = null
+  if (options.env === "auto") {
+    options.env = null
   }
 
   // There is also a BROWSERSLIST_ENV
   const envValue =
-    opts.env || process.env.BABEL_ENV || process.env.NODE_ENV || "development"
+    options.env || process.env.BABEL_ENV || process.env.NODE_ENV || "development"
   const isProduction = (/\bproduction\b/).test(envValue)
 
   if (options.debug) {
