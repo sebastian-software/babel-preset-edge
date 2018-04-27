@@ -12,6 +12,19 @@
             }
           }
         ]
+      ],
+      "plugins": [
+        [
+          "@babel/plugin-transform-runtime",
+          {
+            "helpers": true,
+            "regenerator": false,
+            "polyfill": false,
+            "useBuiltIns": true,
+            "useESModules": true
+          }
+        ],
+        "@babel/plugin-proposal-object-rest-spread"
       ]
     },
     "test": {
@@ -27,18 +40,5 @@
         ]
       ]
     }
-  },
-  "plugins": [
-    "@babel/plugin-proposal-object-rest-spread",
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "helpers": true,
-        "regenerator": false,
-        "polyfill": false,
-        "useBuiltIns": true,
-        "useESModules": true
-      }
-    ]
-  ]
+  }
 }
