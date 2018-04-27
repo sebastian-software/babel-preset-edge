@@ -333,13 +333,11 @@ export default function buildPreset(context, opts = {}) {
     ])
   }
 
-  // Use basic compression for libraries and full compression on binaries
+  // Use basic compression for development/bundling and full compression for production output.
   if (options.compression) {
-    if (isProduction && buildDistBinary) {
+    if (isProduction) {
       presets.push(minifyPreset)
     } else {
-      // Apply some basic compression also for normal non-minified builds. After all
-      // it makes no sense to publish deadcode for example.
       presets.push([
         minifyPreset,
         {
@@ -427,7 +425,11 @@ export default function buildPreset(context, opts = {}) {
 
   // Improve some ES3 edge case to make code parseable by older clients
   // e.g. when using reserved words as keys like "catch"
-  plugins.push(es3ExpressionLiterals, es3PropertyLiterals)
+  // Does not work together with compression as the preset changes the code
+  // back again.
+  if (options.compression === false) {
+    plugins.push(es3ExpressionLiterals, es3PropertyLiterals)
+  }
 
   // Optimization for cheery-picking from lodash, asyncjs, ramba and recompose.
   // Auto cherry-picking es2015 imports from path imports.

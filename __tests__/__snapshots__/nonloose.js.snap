@@ -14,7 +14,7 @@ exports[`Non Loose es3: literal 1`] = `"foo[\\"catch\\"];"`;
 
 exports[`Non Loose es3: member 1`] = `
 "var foo = {
-  \\"catch\\": function _catch() {}
+  catch: function _catch() {}
 };"
 `;
 
@@ -77,7 +77,7 @@ exports[`Non Loose es2015: set 1`] = `
 new Set([1, 2, 3]);"
 `;
 
-exports[`Non Loose es2016: exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
+exports[`Non Loose es2016: exponentiation 1`] = `"var result = 8;"`;
 
 exports[`Non Loose esnext: async 1`] = `
 "function wait() {
@@ -106,45 +106,42 @@ function executeTasks(tasks) {
     var $Loop_2_trampoline;
 
     function $Loop_2() {
-      if (true) {
-        if (_isArray) {
-          if (_i >= _iterator.length) return [1];
-          _ref = _iterator[_i++];
-        } else {
-          _i = _iterator.next();
-          if (_i.done) return [1];
-          _ref = _i.value;
+      if (_isArray) {
+        if (_i >= _iterator.length) return [1];
+        _ref = _iterator[_i++];
+      } else {
+        _i = _iterator.next();
+        if (_i.done) return [1];
+        _ref = _i.value;
+      }
+
+      var $Try_1_Post = function () {
+        try {
+          return $Loop_2;
+        } catch ($boundEx) {
+          return $error($boundEx);
         }
+      },
+          $Try_1_Catch = function () {
+        try {
+          console.error(\\"Error\\");
+          return $Try_1_Post();
+        } catch ($boundEx) {
+          return $error($boundEx);
+        }
+      };
 
-        var $Try_1_Post = function () {
+      try {
+        return Promise.resolve(executeCommands()).then(function () {
           try {
-            return $Loop_2;
-          } catch ($boundEx) {
-            return $error($boundEx);
-          }
-        };
-
-        var $Try_1_Catch = function () {
-          try {
-            console.error(\\"Error\\");
             return $Try_1_Post();
           } catch ($boundEx) {
-            return $error($boundEx);
+            return $Try_1_Catch($boundEx);
           }
-        };
-
-        try {
-          return Promise.resolve(executeCommands()).then(function () {
-            try {
-              return $Try_1_Post();
-            } catch ($boundEx) {
-              return $Try_1_Catch($boundEx);
-            }
-          }, $Try_1_Catch);
-        } catch (error) {
-          $Try_1_Catch(error)
-        }
-      } else return [1];
+        }, $Try_1_Catch);
+      } catch (error) {
+        $Try_1_Catch(error)
+      }
     }
 
     return ($Loop_2_trampoline = function (q) {
@@ -194,11 +191,11 @@ console.log(_camelCase(\\"hello world\\"));"
 
 exports[`Non Loose esnext: object spread 1`] = `
 "import _objectSpread from \\"@babel/runtime/helpers/builtin/es6/objectSpread\\";
+
 var original = {
   bar: 10
-};
-
-var variant = _objectSpread({
+},
+    variant = _objectSpread({
   foo: 1
 }, original);"
 `;
@@ -222,14 +219,8 @@ _compose([]);"
 `;
 
 exports[`Non Loose react: jsx 1`] = `
-"var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx.js\\";
-
-function render() {
+"function render() {
   return React.createElement(\\"h1\\", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 2
-    },
     __self: this
   }, \\"Hello\\");
 }"
@@ -237,16 +228,11 @@ function render() {
 
 exports[`Non Loose react: jsx spread 1`] = `
 "import \\"core-js/modules/es6.object.assign\\";
-var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx-spread.js\\";
 
 function render(props) {
   return React.createElement(\\"h1\\", Object.assign({
     className: \\"large\\"
   }, props, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 3
-    },
     __self: this
   }), \\"Hello\\");
 }"
@@ -258,7 +244,6 @@ import _inherits from \\"@babel/runtime/helpers/builtin/es6/inherits\\";
 import _createClass from \\"@babel/runtime/helpers/builtin/es6/createClass\\";
 import _possibleConstructorReturn from \\"@babel/runtime/helpers/builtin/es6/possibleConstructorReturn\\";
 import _getPrototypeOf from \\"@babel/runtime/helpers/builtin/es6/getPrototypeOf\\";
-var _jsxFileName = \\"./__tests__/__fixtures__/react_proptypes.js\\";
 import React from \\"react\\";
 import PropTypes from \\"prop-types\\";
 
@@ -273,10 +258,6 @@ var MyComponent = function (_React$Component) {
     key: \\"render\\",
     value: function render() {
       return React.createElement(\\"div\\", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6
-        },
         __self: this
       }, this.props.userName);
     }

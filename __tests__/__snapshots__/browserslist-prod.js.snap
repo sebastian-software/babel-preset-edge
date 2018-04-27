@@ -4,20 +4,23 @@ exports[`Browserslist Production comments 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
 
 // Line Comment
-function translate(value) {
+function translate(a) {
   return _camelCase(
   /* inline Comment */
-  value);
+  a);
 }"
 `;
 
-exports[`Browserslist Production deadcode 1`] = `"var STATIC = false;"`;
+exports[`Browserslist Production deadcode 1`] = `
+"var STATIC = !1;
+!1, !1;"
+`;
 
 exports[`Browserslist Production es3: literal 1`] = `"foo[\\"catch\\"];"`;
 
 exports[`Browserslist Production es3: member 1`] = `
 "var foo = {
-  \\"catch\\": function _catch() {}
+  catch: function _catch() {}
 };"
 `;
 
@@ -25,13 +28,10 @@ exports[`Browserslist Production es2015: classes 1`] = `
 "export var Component =
 /*#__PURE__*/
 function () {
-  function Component() {}
+  function a() {}
 
-  var _proto = Component.prototype;
-
-  _proto.main = function main() {};
-
-  return Component;
+  var b = a.prototype;
+  return b.main = function main() {}, a;
 }();"
 `;
 
@@ -41,21 +41,20 @@ import \\"core-js/modules/es6.symbol\\";
 import \\"core-js/modules/web.dom.iterable\\";
 
 function test() {
-  for (var _iterator = tasks, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-    var _ref;
+  for (var a = tasks, b = Array.isArray(a), c = 0, a = b ? a : a[Symbol.iterator]();;) {
+    var d;
 
-    if (_isArray) {
-      if (_i >= _iterator.length) break;
-      _ref = _iterator[_i++];
+    if (b) {
+      if (c >= a.length) break;
+      d = a[c++];
     } else {
-      _i = _iterator.next();
-      if (_i.done) break;
-      _ref = _i.value;
+      if (c = a.next(), c.done) break;
+      d = c.value;
     }
 
     try {
       executeCommands();
-    } catch (error) {
+    } catch (a) {
       console.error(\\"Error\\");
     }
   }
@@ -64,11 +63,7 @@ function test() {
 
 exports[`Browserslist Production es2015: generator 1`] = `
 "function* idMaker() {
-  var index = 0;
-
-  while (true) {
-    yield index++;
-  }
+  for (var a = 0;;) yield a++;
 }"
 `;
 
@@ -77,18 +72,18 @@ exports[`Browserslist Production es2015: set 1`] = `
 new Set([1, 2, 3]);"
 `;
 
-exports[`Browserslist Production es2016: exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
+exports[`Browserslist Production es2016: exponentiation 1`] = `"var result = 8;"`;
 
 exports[`Browserslist Production esnext: async 1`] = `
 "function wait() {
-  return new Promise(function ($return, $error) {
+  return new Promise(function (a, b) {
     return Promise.resolve(loadData()).then(function () {
       try {
-        return $return();
-      } catch ($boundEx) {
-        return $error($boundEx);
+        return a();
+      } catch (a) {
+        return b(a);
       }
-    }, $error);
+    }, b);
   });
 }"
 `;
@@ -98,72 +93,66 @@ exports[`Browserslist Production esnext: async_loop 1`] = `
 import \\"core-js/modules/es6.symbol\\";
 import \\"core-js/modules/web.dom.iterable\\";
 
-function executeTasks(tasks) {
-  return new Promise(function ($return, $error) {
-    var _iterator, _isArray, _i, _ref;
+function executeTasks(a) {
+  return new Promise(function (b, c) {
+    function d() {
+      if (g) {
+        if (h >= f.length) return [1];
+        i = f[h++];
+      } else {
+        if (h = f.next(), h.done) return [1];
+        i = h.value;
+      }
 
-    _iterator = tasks, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();
-    var $Loop_2_trampoline;
-
-    function $Loop_2() {
-      if (true) {
-        if (_isArray) {
-          if (_i >= _iterator.length) return [1];
-          _ref = _iterator[_i++];
-        } else {
-          _i = _iterator.next();
-          if (_i.done) return [1];
-          _ref = _i.value;
-        }
-
-        var $Try_1_Post = function () {
-          try {
-            return $Loop_2;
-          } catch ($boundEx) {
-            return $error($boundEx);
-          }
-        };
-
-        var $Try_1_Catch = function () {
-          try {
-            console.error(\\"Error\\");
-            return $Try_1_Post();
-          } catch ($boundEx) {
-            return $error($boundEx);
-          }
-        };
-
+      var a = function () {
         try {
-          return Promise.resolve(executeCommands()).then(function () {
-            try {
-              return $Try_1_Post();
-            } catch ($boundEx) {
-              return $Try_1_Catch($boundEx);
-            }
-          }, $Try_1_Catch);
-        } catch (error) {
-          $Try_1_Catch(error)
+          return d;
+        } catch (a) {
+          return c(a);
         }
-      } else return [1];
+      },
+          b = function () {
+        try {
+          return console.error(\\"Error\\"), a();
+        } catch (a) {
+          return c(a);
+        }
+      };
+
+      try {
+        return Promise.resolve(executeCommands()).then(function () {
+          try {
+            return a();
+          } catch (a) {
+            return b(a);
+          }
+        }, b);
+      } catch (a) {
+        b(a);
+      }
     }
 
-    return ($Loop_2_trampoline = function (q) {
-      while (q) {
-        if (q.then) return void q.then($Loop_2_trampoline, $error);
+    function e() {
+      return b();
+    }
+
+    var f, g, h, i;
+    f = a, g = Array.isArray(f), h = 0, f = g ? f : f[Symbol.iterator]();
+    var j;
+    return (j = function (a) {
+      for (; a;) {
+        if (a.then) return void a.then(j, c);
 
         try {
-          if (q.pop) {
-            if (q.length) return q.pop() ? $Loop_2_exit.call(this) : q;else q = $Loop_2;
-          } else q = q.call(this);
-        } catch (_exception) {
-          return $error(_exception);
+          if (a.pop) {
+            if (a.length) return a.pop() ? e.call(this) : a;
+            a = d;
+          } else a = a.call(this);
+        } catch (a) {
+          return c(a);
         }
       }
-    }.bind(this))($Loop_2);
-
-    function $Loop_2_exit() {
-      return $return();
-    }
+    }.bind(this))(d);
   });
 }"
 `;
@@ -188,8 +177,8 @@ _universalImport({
   load: function load() {
     return Promise.all([import(
     /* webpackChunkName: 'lodash' */
-    \\"lodash\\"), _importCss(\\"lodash\\", {})]).then(function (proms) {
-      return proms[0];
+    \\"lodash\\"), _importCss(\\"lodash\\", {})]).then(function (a) {
+      return a[0];
     });
   },
   path: function path() {
@@ -201,8 +190,8 @@ _universalImport({
   chunkName: function chunkName() {
     return \\"lodash\\";
   }
-}).then(function (lodash) {
-  console.log(lodash.camelCase(\\"hello world\\"));
+}).then(function (a) {
+  console.log(a.camelCase(\\"hello world\\"));
 });"
 `;
 
@@ -213,11 +202,11 @@ console.log(_camelCase(\\"hello world\\"));"
 
 exports[`Browserslist Production esnext: object spread 1`] = `
 "import _objectSpread from \\"@babel/runtime/helpers/builtin/es6/objectSpread\\";
+
 var original = {
   bar: 10
-};
-
-var variant = _objectSpread({
+},
+    variant = _objectSpread({
   foo: 1
 }, original);"
 `;
@@ -253,10 +242,10 @@ function render() {
 exports[`Browserslist Production react: jsx spread 1`] = `
 "import \\"core-js/modules/es6.object.assign\\";
 
-function render(props) {
+function render(a) {
   return React.createElement(\\"h1\\", Object.assign({
     className: \\"large\\"
-  }, props), \\"Hello\\");
+  }, a), \\"Hello\\");
 }"
 `;
 
@@ -266,19 +255,14 @@ import React from \\"react\\";
 
 var MyComponent =
 /*#__PURE__*/
-function (_React$Component) {
-  function MyComponent() {
-    return _React$Component.apply(this, arguments) || this;
+function (a) {
+  function b() {
+    return a.apply(this, arguments) || this;
   }
 
-  var _proto = MyComponent.prototype;
-
-  _proto.render = function render() {
+  var c = b.prototype;
+  return c.render = function render() {
     return React.createElement(\\"div\\", null, this.props.userName);
-  };
-
-  _inheritsLoose(MyComponent, _React$Component);
-
-  return MyComponent;
+  }, _inheritsLoose(b, a), b;
 }(React.Component);"
 `;

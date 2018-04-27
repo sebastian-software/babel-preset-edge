@@ -14,7 +14,7 @@ exports[`Node v10 es3: literal 1`] = `"foo[\\"catch\\"];"`;
 
 exports[`Node v10 es3: member 1`] = `
 "var foo = {
-  \\"catch\\": function () {}
+  catch: function () {}
 };"
 `;
 
@@ -47,7 +47,7 @@ exports[`Node v10 es2015: generator 1`] = `
 
 exports[`Node v10 es2015: set 1`] = `"new Set([1, 2, 3]);"`;
 
-exports[`Node v10 es2016: exponentiation 1`] = `"var result = 2 ** 3;"`;
+exports[`Node v10 es2016: exponentiation 1`] = `"var result = 8;"`;
 
 exports[`Node v10 esnext: async 1`] = `
 "async function wait() {
@@ -90,11 +90,11 @@ console.log(_camelCase(\\"hello world\\"));"
 
 exports[`Node v10 esnext: object spread 1`] = `
 "import _objectSpread from \\"@babel/runtime/helpers/builtin/es6/objectSpread\\";
+
 let original = {
   bar: 10
-};
-
-let variant = _objectSpread({
+},
+    variant = _objectSpread({
   foo: 1
 }, original);"
 `;
@@ -118,47 +118,30 @@ _compose([]);"
 `;
 
 exports[`Node v10 react: jsx 1`] = `
-"var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx.js\\";
-
-function render() {
+"function render() {
   return React.createElement(\\"h1\\", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 2
-    },
     __self: this
   }, \\"Hello\\");
 }"
 `;
 
 exports[`Node v10 react: jsx spread 1`] = `
-"var _jsxFileName = \\"./__tests__/__fixtures__/react_jsx-spread.js\\";
-
-function render(props) {
+"function render(props) {
   return React.createElement(\\"h1\\", Object.assign({
     className: \\"large\\"
   }, props, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 3
-    },
     __self: this
   }), \\"Hello\\");
 }"
 `;
 
 exports[`Node v10 react: proptypes 1`] = `
-"var _jsxFileName = \\"./__tests__/__fixtures__/react_proptypes.js\\";
-import React from \\"react\\";
+"import React from \\"react\\";
 import PropTypes from \\"prop-types\\";
 
 class MyComponent extends React.Component {
   render() {
     return React.createElement(\\"div\\", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 6
-      },
       __self: this
     }, this.props.userName);
   }
