@@ -10,7 +10,7 @@ function translate(value) {
 
 exports[`IE11 deadcode 1`] = `"var STATIC = false;"`;
 
-exports[`IE11 es3: literal 1`] = `"foo[\\"catch\\"];"`;
+exports[`IE11 es3: literal 1`] = `"foo.catch;"`;
 
 exports[`IE11 es3: member 1`] = `
 "var foo = {

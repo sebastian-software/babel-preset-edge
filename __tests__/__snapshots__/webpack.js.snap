@@ -13,7 +13,7 @@ function translate(value) {
 
 exports[`Webpack deadcode 1`] = `"var STATIC = false;"`;
 
-exports[`Webpack es3: literal 1`] = `"foo[\\"catch\\"];"`;
+exports[`Webpack es3: literal 1`] = `"foo.catch;"`;
 
 exports[`Webpack es3: member 1`] = `
 "var foo = {

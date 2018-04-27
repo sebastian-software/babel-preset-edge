@@ -10,7 +10,7 @@ function translate(value) {
 
 exports[`Non Loose deadcode 1`] = `"var STATIC = false;"`;
 
-exports[`Non Loose es3: literal 1`] = `"foo[\\"catch\\"];"`;
+exports[`Non Loose es3: literal 1`] = `"foo.catch;"`;
 
 exports[`Non Loose es3: member 1`] = `
 "var foo = {

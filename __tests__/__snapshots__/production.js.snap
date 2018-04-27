@@ -13,7 +13,7 @@ exports[`Production deadcode 1`] = `
 !1, !1;"
 `;
 
-exports[`Production es3: literal 1`] = `"foo[\\"catch\\"];"`;
+exports[`Production es3: literal 1`] = `"foo.catch;"`;
 
 exports[`Production es3: member 1`] = `
 "var foo = {

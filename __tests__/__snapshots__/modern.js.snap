@@ -10,7 +10,7 @@ function translate(value) {
 
 exports[`Modern deadcode 1`] = `"const STATIC = false;"`;
 
-exports[`Modern es3: literal 1`] = `"foo[\\"catch\\"];"`;
+exports[`Modern es3: literal 1`] = `"foo.catch;"`;
 
 exports[`Modern es3: member 1`] = `
 "var foo = {

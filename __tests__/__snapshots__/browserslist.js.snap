@@ -13,7 +13,7 @@ function translate(value) {
 
 exports[`Browserslist deadcode 1`] = `"const STATIC = false;"`;
 
-exports[`Browserslist es3: literal 1`] = `"foo[\\"catch\\"];"`;
+exports[`Browserslist es3: literal 1`] = `"foo.catch;"`;
 
 exports[`Browserslist es3: member 1`] = `
 "var foo = {

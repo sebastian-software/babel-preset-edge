@@ -10,7 +10,7 @@ function translate(value) {
 
 exports[`Node v8 deadcode 1`] = `"const STATIC = false;"`;
 
-exports[`Node v8 es3: literal 1`] = `"foo[\\"catch\\"];"`;
+exports[`Node v8 es3: literal 1`] = `"foo.catch;"`;
 
 exports[`Node v8 es3: member 1`] = `
 "var foo = {
