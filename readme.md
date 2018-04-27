@@ -40,17 +40,17 @@ const defaults = {
   debug: false,
 
   // One of the following:
+  // - "library": Ideally used for publishing libraries e.g. on NPM [Browsers + NodeJS]
+  // - "es2015": Like "library, but explicitely disables all ES2015 transforms. [Browsers + NodeJS]
+  // - "modern": Like "library, but only transpiles features requires by modern browsers (see docs) [Browsers + NodeJS]
   // - "node"/"cli"/"script"/"binary": any NodeJS related execution with wide support (currently Node v6 LTS)
   // - "node6": identical to the previous option as long as v6 is more widely used - will force v6 when used afterwards.
   // - "node8": identical to the previous option but enforce target Node v8 LTS instead of v6 LTS
-  // - "node10": identical to the previous option but enforce target Node v10 (not LTS) instead of v6 LTS
+  // - "node10": identical to the previous option but enforce target Node v10 instead of v6 LTS
   // - "current"/"test": current NodeJS version
-  // - "browser"/"web": browsers as defined by browserslist
-  // - "library": ideally used for publishing libraries e.g. on NPM
-  // - "es2015": same as "library" but targets es2o15 capable engines only.
-  // - "modern": same as "library" but targets modern engines only (slightly more forward-looking than es2015).
+  // - "browser"/"web": browsers as defined by browserslist config
   // - {}: any custom settings support by Env-Preset
-  target: "nodejs",
+  target: "node",
 
   // Choose environment based on environment variables ... or override with custom value here.
   env: "auto",
