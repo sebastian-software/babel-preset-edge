@@ -41,6 +41,8 @@ import lodashPlugin from "babel-plugin-lodash"
 import transformRemovePropTypes from "babel-plugin-transform-react-remove-prop-types"
 import reactIntlPlugin from "babel-plugin-react-intl"
 
+import fastAsyncPlugin from "./transformAsyncToPromises"
+
 const defaults = {
   // Whether to print hints on transpilation settings which were selected.
   debug: false,
@@ -324,7 +326,7 @@ export default function buildPreset(context, opts = {}) {
   // https://www.npmjs.com/package/fast-async (OLD: separate Babel plugin)
   if (options.rewriteAsync === "promises") {
     plugins.push([
-      require("./transformAsyncToPromises")
+      fastAsyncPlugin
     ])
   }
 

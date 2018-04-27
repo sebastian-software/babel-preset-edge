@@ -119,4 +119,4 @@ function transformAsyncToPromises(api, options) {
   };
 }
 
-module.exports = transformAsyncToPromises;
+export default transformAsyncToPromises
