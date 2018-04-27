@@ -26,11 +26,6 @@
     "webpack",
     "universal"
   ],
-  "author": {
-    "name": "Sebastian Software",
-    "email": "s.werner@sebastian-software.de",
-    "url": "https://www.sebastian-software.de"
-  },
   "license": "Apache-2.0",
   "pre-commit": "lint-staged",
   "lint-staged": {
@@ -84,11 +79,11 @@
     "@babel/node": "^7.0.0-beta.46",
     "async": "^2.6.0",
     "babel-core": "^7.0.0-bridge.0",
-    "eslint-config-readable": "^1.10.2",
-    "flow-bin": "^0.70.0",
+    "eslint-config-readable": "^1.11.1",
+    "flow-bin": "^0.71.0",
     "jest-cli": "22.x",
     "lodash": "4.x",
-    "preppy": "^4.0.0",
+    "preppy": "^4.1.0",
     "prop-types": "15.x",
     "react": "^16.3.2",
     "recompose": "^0.27.0",
