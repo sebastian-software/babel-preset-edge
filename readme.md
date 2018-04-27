@@ -18,17 +18,17 @@ Babel Preset Edge is a centralized modern Babel Configuration for React developm
 
 ## Features
 
-- React and Flowtype Support baked-in for transpiling JSX and removing non-standard Flowtype definitions.
+- Prefers external polyfills and uses `@babel/runtime` for helpers instead of baked-in code which is especially beneficial for overall bundle sizes of applications.
+- React and Flowtype support baked-in for transpiling JSX and removing non-standard Flowtype definitions.
 - Optimizations for React during development (richer debug capabilities) and production (less code).
 - Automatic environment specific ES2015/2016/2017 support using [Preset Env](https://github.com/babel/babel-preset-env)
-- High performance async/await transpilation using [Nodeent](https://github.com/MatAtBread/nodent#performance).
+- No transpilation of generators. Doing this produces relatively slow and complex code. Better use `async/await`.
+- High performance async/await transpilation using [Nodeent](https://github.com/MatAtBread/nodent#performance) making it available to older engines and browsers as well.
 - Support for dynamic `import()` statement which is used for dynamic chunk creation in Webpack (since version 2).
-- Edge Preset adds support for dynamic CSS loading + automatic chunkNames using [universal-import](https://github.com/faceyspacey/babel-plugin-universal-import).
+- Support for dynamic CSS loading + automatic chunkNames using [universal-import](https://github.com/faceyspacey/babel-plugin-universal-import).
 - Local module support for easily referencing sources inside the `src` folder of the project using the [module resolver plugin](https://github.com/tleunen/babel-plugin-module-resolver).
 - Support for converting often times used upcoming EcmaScript standards like class properties and object rest spread.
-- Prefers external polyfills and helpers instead of baked-in code which is especially beneficial for caching and code splitting.
 - [Lodash Plugin](https://github.com/lodash/babel-plugin-lodash) to allow cherry-picking of more tranditionally exported libraries like lodash, async, rambda and recompose.
-- The transpiler config ignores generators. As transpiling these results into super slow code and async/await is available the preset prefers to use this instead of "regenerator".
 
 ## Defaults
 
@@ -111,7 +111,7 @@ const defaults = {
 
 ### Default Target
 
-The default target is used when not running a test runner and when no other `target` was defined. This transpiles the code will the full feature set of `babel-preset-latest` so that the code should be able to run on all ES5-capable engines. As the compiled code does not contain any polyfills you might want to use `polyfill.io` or `babel-runtime` as needed.
+The default target is used when not running a test runner and when no other `target` was defined. This transpiles the code will the full feature set of `babel-preset-latest` so that the code should be able to run on all ES5-capable engines. As the compiled code does not contain any polyfills you might want to use `polyfill.io` any any alternative service.
 
 
 ### Modern Target
