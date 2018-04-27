@@ -1,5 +1,5 @@
 import buildPreset from "../src"
-import { fixtures, titles, check } from "./core"
+import { getFixtures, check } from "./core"
 
 describe("Browserslist Production", () => {
   const options = buildPreset(null, {
@@ -8,7 +8,9 @@ describe("Browserslist Production", () => {
     env: "production"
   })
 
-  fixtures.forEach((fileName, index) => {
-    test(titles[index], () => check(fileName, options))
+  getFixtures().then((fixtures, titles) => {
+    fixtures.forEach((fileName, index) => {
+      test(titles[index], () => check(fileName, options))
+    })
   })
 })

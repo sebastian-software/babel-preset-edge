@@ -1,5 +1,5 @@
 import { transformFile } from "babel-core"
-import { readdirSync } from "fs"
+import { readdir } from "fs"
 
 const FIXTURE_ROOT = "./__tests__/__fixtures__/"
 
@@ -23,8 +23,6 @@ export function check(fixture, options) {
   })
 }
 
-export const fixtures = readdirSync(FIXTURE_ROOT)
-
 export function getTitle(fileName) {
   return fileName
     .replace(/\.js$/, "")
@@ -32,4 +30,10 @@ export function getTitle(fileName) {
     .replace(/-/, " ")
 }
 
-export const titles = fixtures.map(getTitle)
+export function getFixtures() {
+  return new Promise((resolve, reject) => {
+    readdir(FIXTURE_ROOT, (error, fixtures) => {
+      resolve([fixtures, fixtures.map(getTitle)])
+    })
+  })
+}

@@ -1,5 +1,5 @@
 import buildPreset from "../src"
-import { fixtures, titles, check } from "./core"
+import { getFixtures, check } from "./core"
 
 describe("Node v6", () => {
   const options = buildPreset(null, {
@@ -9,7 +9,9 @@ describe("Node v6", () => {
     sourceMaps: false
   })
 
-  fixtures.forEach((fileName, index) => {
-    test(titles[index], () => check(fileName, options))
+  getFixtures().then((fixtures, titles) => {
+    fixtures.forEach((fileName, index) => {
+      test(titles[index], () => check(fileName, options))
+    })
   })
 })
