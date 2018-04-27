@@ -64,8 +64,8 @@ const defaults = {
   env: "auto",
 
   // Choose automatically depending on target or use one of these for full control:
-  // - "commonjs": Transpile module imports to commonjs
-  // - false: Keep module imports as is (e.g. protecting ESM for optiomal usage with Webpack)
+  // - "cjs": Transpile module imports to commonjs
+  // - false: Keep module imports as is (e.g. protecting ESM for optiomal usage with Webpack/Rollup)
   // - "auto": Automatic selection based on target.
   modules: "auto",
 
@@ -78,7 +78,7 @@ const defaults = {
 
   // Prefer built-ins over custom code. This mainly benefits for modern engines.
   // As we are using the new "usage" mode for `preset-env` we automatically include
-  // all polyfills required by the generated code. Damn smart.
+  // all polyfills required by the generated code.
   useBuiltIns: true,
 
   // JSX Pragma. Default: Use React
@@ -104,7 +104,7 @@ const defaults = {
   sourceMaps: true,
 
   // Enable full compression on production scripts or basic compression for libraries or during development.
-  compression: false,
+  compression: true,
 
   // Removing comments by default to keep exported libraries leaner in disc space.
   // Comments are automatically re-enabled if Webpack Universal Imports are used for having correct chunkNames.
