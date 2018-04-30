@@ -48,6 +48,7 @@ const defaults = {
   debug: false,
 
   // One of the following:
+  // - "auto": Automatically determine runtime and environment variables for deciding on which target to use.
   // - "library": Ideally used for publishing libraries e.g. on NPM [Browsers + NodeJS]
   // - "es2015": Like "library, but explicitely disables all ES2015 transforms. [Browsers + NodeJS]
   // - "modern": Like "library, but only transpiles features requires by modern browsers (see docs) [Browsers + NodeJS]
@@ -58,7 +59,7 @@ const defaults = {
   // - "current"/"test": current NodeJS version
   // - "browser"/"web": browsers as defined by browserslist config
   // - {}: any custom settings support by Env-Preset
-  target: "node",
+  target: "auto",
 
   // Choose environment based on environment variables ... or override with custom value here.
   env: "auto",
@@ -155,7 +156,7 @@ export default function buildPreset(context, opts = {}) {
   }
 
   // Check for which major targets we are building
-  const supportBrowsersAndNode = /library|es2015|modern/.exec(options.target)
+  const supportBrowsersAndNode = /auto|library|es2015|modern/.exec(options.target)
   const supportBrowsers = supportBrowsersAndNode || /browser|web/.exec(options.target)
   const supportNode = supportBrowsersAndNode || /node|node6|node8|node10|cli|script|binary|current|test/.exec(options.target)
 
@@ -171,10 +172,11 @@ export default function buildPreset(context, opts = {}) {
   const buildForCurrent = options.target === "current" || options.target === "test"
   const buildForBrowsersList = options.target === "browser" || options.target === "web"
   const buildAsLibrary =
+    options.target === "auto" ||
     options.target === "library" ||
     options.target === "es2015" ||
     options.target === "modern"
-  const buildCustom = typeof options.target === "object"
+  const buildCustom = options.target != null && typeof options.target === "object"
 
   let envTargets = {}
 

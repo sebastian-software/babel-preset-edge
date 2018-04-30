@@ -40,6 +40,7 @@ const defaults = {
   debug: false,
 
   // One of the following:
+  // - "auto": Automatically determine runtime and environment variables for deciding on which target to use.
   // - "library": Ideally used for publishing libraries e.g. on NPM [Browsers + NodeJS]
   // - "es2015": Like "library, but explicitely disables all ES2015 transforms. [Browsers + NodeJS]
   // - "modern": Like "library, but only transpiles features requires by modern browsers (see docs) [Browsers + NodeJS]
@@ -50,7 +51,7 @@ const defaults = {
   // - "current"/"test": current NodeJS version
   // - "browser"/"web": browsers as defined by browserslist config
   // - {}: any custom settings support by Env-Preset
-  target: "node",
+  target: "auto",
 
   // Choose environment based on environment variables ... or override with custom value here.
   env: "auto",
