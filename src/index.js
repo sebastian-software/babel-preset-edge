@@ -312,16 +312,6 @@ export default function buildPreset(context, opts = {}) {
     console.log("- Async Transpilation:", options.rewriteAsync)
   }
 
-  // Because of bugs in processing for-of right now when being configured to loose=false
-  // we activate loose mode for this feature all the time - when required by the transpilation.
-  if (options.looseMode === false && !envSupportsES6) {
-    plugins.push(
-      ["@babel/transform-for-of", {
-        "loose": true
-      }]
-    )
-  }
-
   // Alternative to Babel Regenerator
   // Implements the ES7 keywords async and await using syntax transformation
   // to at Promises at compile-time, rather than using generators.
