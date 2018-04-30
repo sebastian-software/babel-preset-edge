@@ -72,7 +72,7 @@
     "babel-plugin-universal-import": "^1.5.2",
     "babel-preset-minify": "^0.4.0",
     "browserslist": "^3.2.6",
-    "nodent-transform": "^3.2.3"
+    "nodent-transform": "^3.2.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.46",

@@ -540,7 +540,7 @@ export default function buildPreset(context, opts = {}) {
   return {
     // Babel basic configuration
     comments: options.comments,
-    compact: true,
+    compact: options.minified ? true : "auto",
     minified: options.minified,
 
     // Whether to enable source maps
