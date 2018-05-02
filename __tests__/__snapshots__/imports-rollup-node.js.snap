@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Webpack comments 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+    _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
+
+function translate(value) {
+  return (0, _camelCase2.default)(value);
+}"
+`;
+
+exports[`Webpack deadcode 1`] = `
+"\\"use strict\\";
+
+const STATIC = false;"
+`;
+
+exports[`Webpack es3: literal 1`] = `
+"\\"use strict\\";
+
+foo.catch;"
+`;
+
+exports[`Webpack es3: member 1`] = `
+"\\"use strict\\";
+
+var foo = {
+  catch: function () {}
+};"
+`;
+
+exports[`Webpack es2015: classes 1`] = `
+"\\"use strict\\";
+
+exports.__esModule = true;
+exports.Component = void 0;
+
+class Component {
+  main() {}
+
+}
+
+exports.Component = Component;"
+`;
+
+exports[`Webpack es2015: for_off 1`] = `
+"\\"use strict\\";
+
+function test() {
+  for (const taskName of tasks) {
+    try {
+      executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
+`;
+
+exports[`Webpack es2015: generator 1`] = `
+"\\"use strict\\";
+
+function* idMaker() {
+  var index = 0;
+
+  while (true) yield index++;
+}"
+`;
+
+exports[`Webpack es2015: set 1`] = `
+"\\"use strict\\";
+
+new Set([1, 2, 3]);"
+`;
+
+exports[`Webpack es2016: exponentiation 1`] = `
+"\\"use strict\\";
+
+var result = 8;"
+`;
+
+exports[`Webpack esnext: async 1`] = `
+"\\"use strict\\";
+
+async function wait() {
+  await loadData();
+}"
+`;
+
+exports[`Webpack esnext: async_loop 1`] = `
+"\\"use strict\\";
+
+async function executeTasks(tasks) {
+  for (const taskName of tasks) {
+    try {
+      await executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
+`;
+
+exports[`Webpack esnext: class properties 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
+
+exports.__esModule = true;
+exports.Component = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require(\\"@babel/runtime/helpers/builtin/defineProperty\\"));
+
+class Component {
+  constructor() {
+    (0, _defineProperty2.default)(this, \\"onClick\\", () => {});
+  }
+
+}
+
+exports.Component = Component;"
+`;
+
+exports[`Webpack esnext: dynamic import 1`] = `
+"\\"use strict\\";
+
+Promise.resolve().then(() => require(\\"lodash\\")).then(lodash => {
+  console.log(lodash.camelCase(\\"hello world\\"));
+});"
+`;
+
+exports[`Webpack esnext: import 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+    _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
+
+console.log((0, _camelCase2.default)(\\"hello world\\"));"
+`;
+
+exports[`Webpack esnext: object spread 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+    _objectSpread2 = _interopRequireDefault(require(\\"@babel/runtime/helpers/builtin/objectSpread\\"));
+
+let original = {
+  bar: 10
+},
+    variant = (0, _objectSpread2.default)({
+  foo: 1
+}, original);"
+`;
+
+exports[`Webpack lodash: async 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+    _parallel2 = _interopRequireDefault(require(\\"async/parallel\\"));
+
+(0, _parallel2.default)([]);"
+`;
+
+exports[`Webpack lodash: lodash 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+    _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
+
+(0, _camelCase2.default)(\\"hello world\\");"
+`;
+
+exports[`Webpack lodash: recompose 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+    _compose2 = _interopRequireDefault(require(\\"recompose/compose\\"));
+
+(0, _compose2.default)([]);"
+`;
+
+exports[`Webpack react: jsx 1`] = `
+"\\"use strict\\";
+
+function render() {
+  return React.createElement(\\"h1\\", {
+    __self: this
+  }, \\"Hello\\");
+}"
+`;
+
+exports[`Webpack react: jsx spread 1`] = `
+"\\"use strict\\";
+
+function render(props) {
+  return React.createElement(\\"h1\\", Object.assign({
+    className: \\"large\\"
+  }, props, {
+    __self: this
+  }), \\"Hello\\");
+}"
+`;
+
+exports[`Webpack react: proptypes 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+    _react = _interopRequireDefault(require(\\"react\\")),
+    _propTypes = _interopRequireDefault(require(\\"prop-types\\"));
+
+class MyComponent extends _react.default.Component {
+  render() {
+    return _react.default.createElement(\\"div\\", {
+      __self: this
+    }, this.props.userName);
+  }
+
+}
+
+MyComponent.propTypes = {
+  userName: _propTypes.default.string
+};"
+`;
