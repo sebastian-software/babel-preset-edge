@@ -41,7 +41,7 @@ import lodashPlugin from "babel-plugin-lodash"
 import transformRemovePropTypes from "babel-plugin-transform-react-remove-prop-types"
 import reactIntlPlugin from "babel-plugin-react-intl"
 
-import fastAsyncPlugin from "./transformAsyncToPromises"
+import fastAsyncPlugin from "fast-async"
 
 const defaults = {
   // Whether to print hints on transpilation settings which were selected.
