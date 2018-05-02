@@ -63,8 +63,8 @@ const defaults = {
   modules: "auto",
 
   // Choose automatically depending on target by default or use one of these for full control:
-  // - "rollup-nodejs": For bundling with Rollup and later usage in NodeJS (e.g. produce binaries).
-  // - "rollup-webpack": For bundling with Rollup and later usage with Webpack (e.g. publish libraries).
+  // - "rollup-node": For bundling with Rollup and later usage in NodeJS (e.g. produce cli tools).
+  // - "rollup-webpack": For bundling with Rollup and later usage with Webpack (e.g. publish browser libraries).
   // - "webpack": Improve compatibility with direct Webpack usage (add chunkNames, dynamic CSS imports, ...) (e.g. bundling applications)
   // - "auto": Automatic selection based on target.
   imports: "auto",

@@ -71,7 +71,7 @@ const defaults = {
   modules: "auto",
 
   // Choose automatically depending on target by default or use one of these for full control:
-  // - "rollup-nodejs": For bundling with Rollup and later usage in NodeJS (e.g. produce binaries).
+  // - "rollup-node": For bundling with Rollup and later usage in NodeJS (e.g. produce binaries).
   // - "rollup-webpack": For bundling with Rollup and later usage with Webpack (e.g. publish libraries).
   // - "webpack": Improve compatibility with direct Webpack usage (add chunkNames, dynamic CSS imports, ...) (e.g. bundling applications)
   // - "auto": Automatic selection based on target.
@@ -285,7 +285,7 @@ export default function buildPreset(context, opts = {}) {
   // Automatic detection of "imports" mode based on target
   if (options.imports === "auto") {
     if (buildForCurrent || buildDistBinary) {
-      options.imports = "rollup-nodejs"
+      options.imports = "rollup-node"
     } else if (buildAsLibrary || buildCustom) {
       options.imports = "rollup-webpack"
     } else if (buildForBrowsersList) {
@@ -396,7 +396,7 @@ export default function buildPreset(context, opts = {}) {
   plugins.push(dynamicImportSyntaxPlugin)
 
   // Transpile the parsed import() syntax for compatibility or extended features.
-  if (options.imports === "rollup-nodejs") {
+  if (options.imports === "rollup-node") {
     if (options.debug) {
       console.log("- Rewriting import() for Rollup bundling targeting NodeJS.")
     }

@@ -255,10 +255,7 @@ export var Component = function Component() {
 `;
 
 exports[`Non Loose esnext: dynamic import 1`] = `
-"import \\"core-js/modules/es6.promise\\";
-Promise.resolve().then(function () {
-  return require(\\"lodash\\");
-}).then(function (lodash) {
+"import(\\"lodash\\").then(function (lodash) {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
 `;
