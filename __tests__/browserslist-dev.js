@@ -3,8 +3,8 @@ import { fixtures, titles, check } from "./core"
 
 describe("Browserslist", () => {
   const options = buildPreset(null, {
-    target: "browser",
     sourceMaps: false,
+    target: "browser",
     env: "development"
   })
 

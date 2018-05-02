@@ -3,8 +3,8 @@ import { fixtures, titles, check } from "./core"
 
 describe("ES2015", () => {
   const options = buildPreset(null, {
-    target: "es2015",
-    sourceMaps: false
+    sourceMaps: false,
+    target: "es2015"
   })
 
   fixtures.forEach((fileName, index) => {

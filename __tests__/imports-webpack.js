@@ -3,8 +3,8 @@ import { fixtures, titles, check } from "./core"
 
 describe("Webpack", () => {
   const options = buildPreset(null, {
-    imports: "webpack",
-    sourceMaps: false
+    sourceMaps: false,
+    imports: "webpack"
   })
 
   fixtures.forEach((fileName, index) => {

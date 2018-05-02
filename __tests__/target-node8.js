@@ -3,8 +3,8 @@ import { fixtures, titles, check } from "./core"
 
 describe("Node v8", () => {
   const options = buildPreset(null, {
-    target: "node8",
-    sourceMaps: false
+    sourceMaps: false,
+    target: "node8"
   })
 
   fixtures.forEach((fileName, index) => {
