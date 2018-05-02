@@ -24,7 +24,7 @@ exports[`Minified esnext: async_loop 1`] = `"import\\"core-js/modules/es7.symbol
 
 exports[`Minified esnext: class properties 1`] = `"import _defineProperty from\\"@babel/runtime/helpers/builtin/es6/defineProperty\\";export var Component=function(){_defineProperty(this,\\"onClick\\",function(){})};"`;
 
-exports[`Minified esnext: dynamic import 1`] = `"import\\"core-js/modules/es6.promise\\";new Promise(function(a){require.ensure([],function(b){a(b(\\"lodash\\"))})}).then(function(a){console.log(a.camelCase(\\"hello world\\"))});"`;
+exports[`Minified esnext: dynamic import 1`] = `"import(\\"lodash\\").then(function(a){console.log(a.camelCase(\\"hello world\\"))});"`;
 
 exports[`Minified esnext: import 1`] = `"import _camelCase from\\"lodash/camelCase\\";console.log(_camelCase(\\"hello world\\"));"`;
 

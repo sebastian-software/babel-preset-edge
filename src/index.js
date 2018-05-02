@@ -135,7 +135,11 @@ export default function buildPreset(context, opts = {}) {
   // These are the final options we use later on.
   const options = { ...defaults, ...opts }
 
-  // Reset environment value when configured as "auto"
+  // Reset environment/target value when configured as "auto"
+  if (options.target === "auto") {
+    options.target = null
+  }
+
   if (options.env === "auto") {
     options.env = null
   }
@@ -143,16 +147,27 @@ export default function buildPreset(context, opts = {}) {
   // There is also a BROWSERSLIST_ENV
   const envValue =
     options.env || process.env.BABEL_ENV || process.env.NODE_ENV || "development"
-  const isProduction = (/\bproduction\b/).test(envValue)
+
+  const hasProductionEnv = (/\bproduction\b/).test(envValue)
+  const hasDevelopmentEnv = (/\bdevelopment\b/).test(envValue)
+  const hasTestEnv = (/\btest\b/).test(envValue)
 
   if (options.debug) {
     console.log("- Environment:", envValue)
-    console.log("- Is Production:", isProduction)
+    console.log("- Is Development:", hasDevelopmentEnv)
+    console.log("- Is Production:", hasProductionEnv)
+    console.log("- Is Test:", hasTestEnv)
   }
 
   // Auto select test target when running in test environment
-  if (envValue === "test" && options.target == null) {
-    options.target = "test"
+  if (options.target == null) {
+    if (hasTestEnv) {
+      options.target = "test"
+
+      if (options.debug) {
+        console.log("- Selecting \"test\" target based on environment.")
+      }
+    }
   }
 
   // Check for which major targets we are building
@@ -197,7 +212,7 @@ export default function buildPreset(context, opts = {}) {
     // itself to query its configuration and pass over that data again to babel-preset-env
     // for passing it to browserslist internally. Yeah.
     const autoBrowsers = browserslist(null, {
-      env: process.env.BROWSERSLIST_ENV || isProduction ? "production" : "development"
+      env: process.env.BROWSERSLIST_ENV || hasProductionEnv ? "production" : "development"
     })
 
     // For the abstract browsers config we let browserslist find the config file
@@ -325,7 +340,7 @@ export default function buildPreset(context, opts = {}) {
 
   // Use basic compression for development/bundling and full compression for production output.
   if (options.compression) {
-    if (isProduction) {
+    if (hasProductionEnv) {
       presets.push(minifyPreset)
     } else {
       presets.push([
@@ -477,7 +492,7 @@ export default function buildPreset(context, opts = {}) {
   // https://github.com/babel/babel/issues/4702
   // https://github.com/babel/babel/pull/3540#issuecomment-228673661
   // https://github.com/facebookincubator/create-react-app/issues/989
-  if (!isProduction) {
+  if (!hasProductionEnv) {
     // Adds component stack to warning messages
     // Increases sizes in JSX rich areas quite a bit.
     // // plugins.push(transformReactJSXSource)
@@ -486,7 +501,7 @@ export default function buildPreset(context, opts = {}) {
     plugins.push(transformReactJSXSelf)
   }
 
-  if (isProduction) {
+  if (hasProductionEnv) {
     // Remove unnecessary React propTypes from the production build.
     // https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types
     plugins.push([

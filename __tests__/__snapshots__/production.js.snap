@@ -162,12 +162,7 @@ export var Component = function () {
 `;
 
 exports[`Production esnext: dynamic import 1`] = `
-"import \\"core-js/modules/es6.promise\\";
-new Promise(function (a) {
-  require.ensure([], function (b) {
-    a(b(\\"lodash\\"));
-  });
-}).then(function (a) {
+"import(\\"lodash\\").then(function (a) {
   console.log(a.camelCase(\\"hello world\\"));
 });"
 `;

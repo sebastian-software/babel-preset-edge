@@ -5,7 +5,8 @@ describe("Production", () => {
   const options = buildPreset(null, {
     sourceMaps: false,
     compression: true,
-    env: "production"
+    env: "production",
+    debug: true
   })
 
   fixtures.forEach((fileName, index) => {
