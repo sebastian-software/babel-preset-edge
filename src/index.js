@@ -30,8 +30,14 @@ import minifyPreset from "babel-preset-minify"
 import deadCodeEliminationPlugin from "babel-plugin-minify-dead-code-elimination"
 
 import dynamicImportSyntaxPlugin from "babel-plugin-syntax-dynamic-import"
+
+// Babel plugin to transpile import() to a deferred require(), for NodeJS
 import dynamicImportRollupNode from "babel-plugin-dynamic-import-node"
+
+// Babel plugin to transpile import() to require.ensure, for Webpack.
 import dynamicImportRollupWebpack from "babel-plugin-dynamic-import-webpack"
+
+// Babel plugin to transpile import() to a wrapper with support for SSR and CSS loading
 import dynamicImportUniversalWebpack from "babel-plugin-universal-import"
 
 import moduleResolver from "babel-plugin-module-resolver"
