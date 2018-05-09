@@ -21,7 +21,9 @@ exports[`Non Loose es3: member 1`] = `
 exports[`Non Loose es2015: classes 1`] = `
 "import _classCallCheck from \\"@babel/runtime/helpers/builtin/es6/classCallCheck\\";
 import _createClass from \\"@babel/runtime/helpers/builtin/es6/createClass\\";
-export var Component = function () {
+export var Component =
+/*#__PURE__*/
+function () {
   function Component() {
     _classCallCheck(this, Component);
   }
@@ -323,7 +325,9 @@ import _getPrototypeOf from \\"@babel/runtime/helpers/builtin/es6/getPrototypeOf
 import React from \\"react\\";
 import PropTypes from \\"prop-types\\";
 
-var MyComponent = function (_React$Component) {
+var MyComponent =
+/*#__PURE__*/
+function (_React$Component) {
   function MyComponent() {
     _classCallCheck(this, MyComponent);
 

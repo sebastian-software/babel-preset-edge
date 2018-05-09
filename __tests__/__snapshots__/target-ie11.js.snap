@@ -19,7 +19,9 @@ exports[`IE11 es3: member 1`] = `
 `;
 
 exports[`IE11 es2015: classes 1`] = `
-"export var Component = function () {
+"export var Component =
+/*#__PURE__*/
+function () {
   function Component() {}
 
   var _proto = Component.prototype;
@@ -237,7 +239,9 @@ exports[`IE11 react: proptypes 1`] = `
 import React from \\"react\\";
 import PropTypes from \\"prop-types\\";
 
-var MyComponent = function (_React$Component) {
+var MyComponent =
+/*#__PURE__*/
+function (_React$Component) {
   function MyComponent() {
     return _React$Component.apply(this, arguments) || this;
   }

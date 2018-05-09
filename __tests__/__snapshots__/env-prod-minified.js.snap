@@ -8,7 +8,7 @@ exports[`Minified es3: literal 1`] = `"foo.catch;"`;
 
 exports[`Minified es3: member 1`] = `"var foo={catch:function _catch(){}};"`;
 
-exports[`Minified es2015: classes 1`] = `"export var Component=function(){function a(){}var b=a.prototype;return b.main=function main(){},a}();"`;
+exports[`Minified es2015: classes 1`] = `"export var Component=/*#__PURE__*/function(){function a(){}var b=a.prototype;return b.main=function main(){},a}();"`;
 
 exports[`Minified es2015: for_off 1`] = `"import\\"core-js/modules/es7.symbol.async-iterator\\";import\\"core-js/modules/es6.symbol\\";import\\"core-js/modules/web.dom.iterable\\";import\\"core-js/modules/es6.array.is-array\\";function test(){for(var a=tasks,b=Array.isArray(a),c=0,a=b?a:a[Symbol.iterator]();;){var d;if(b){if(c>=a.length)break;d=a[c++]}else{if(c=a.next(),c.done)break;d=c.value}try{executeCommands()}catch(a){console.error(\\"Error\\")}}}"`;
 
@@ -36,8 +36,8 @@ exports[`Minified lodash: lodash 1`] = `"import _camelCase from\\"lodash/camelCa
 
 exports[`Minified lodash: recompose 1`] = `"import _compose from\\"recompose/compose\\";_compose([]);"`;
 
-exports[`Minified react: jsx 1`] = `"var _ref=React.createElement(\\"h1\\",null,\\"Hello\\");function render(){return _ref}"`;
+exports[`Minified react: jsx 1`] = `"var _ref=/*#__PURE__*/React.createElement(\\"h1\\",null,\\"Hello\\");function render(){return _ref}"`;
 
 exports[`Minified react: jsx spread 1`] = `"import\\"core-js/modules/es6.object.assign\\";function render(a){return React.createElement(\\"h1\\",Object.assign({className:\\"large\\"},a),\\"Hello\\")}"`;
 
-exports[`Minified react: proptypes 1`] = `"import _inheritsLoose from\\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";import React from\\"react\\";var MyComponent=function(a){function b(){return a.apply(this,arguments)||this}var c=b.prototype;return c.render=function render(){return React.createElement(\\"div\\",null,this.props.userName)},_inheritsLoose(b,a),b}(React.Component);"`;
+exports[`Minified react: proptypes 1`] = `"import _inheritsLoose from\\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";import React from\\"react\\";var MyComponent=/*#__PURE__*/function(a){function b(){return a.apply(this,arguments)||this}var c=b.prototype;return c.render=function render(){return React.createElement(\\"div\\",null,this.props.userName)},_inheritsLoose(b,a),b}(React.Component);"`;

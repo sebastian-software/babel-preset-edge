@@ -3,11 +3,8 @@
 exports[`Browserslist comments 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
 
-// Line Comment
 function translate(value) {
-  return _camelCase(
-  /* inline Comment */
-  value);
+  return _camelCase(value);
 }"
 `;
 

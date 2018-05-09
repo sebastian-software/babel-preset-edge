@@ -22,7 +22,9 @@ exports[`Production es3: member 1`] = `
 `;
 
 exports[`Production es2015: classes 1`] = `
-"export var Component = function () {
+"export var Component =
+/*#__PURE__*/
+function () {
   function a() {}
 
   var b = a.prototype;
@@ -202,7 +204,9 @@ _compose([]);"
 `;
 
 exports[`Production react: jsx 1`] = `
-"var _ref = React.createElement(\\"h1\\", null, \\"Hello\\");
+"var _ref =
+/*#__PURE__*/
+React.createElement(\\"h1\\", null, \\"Hello\\");
 
 function render() {
   return _ref;
@@ -223,7 +227,9 @@ exports[`Production react: proptypes 1`] = `
 "import _inheritsLoose from \\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";
 import React from \\"react\\";
 
-var MyComponent = function (a) {
+var MyComponent =
+/*#__PURE__*/
+function (a) {
   function b() {
     return a.apply(this, arguments) || this;
   }
