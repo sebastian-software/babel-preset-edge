@@ -45,6 +45,18 @@ export default function getOptions(input = {}) {
         console.log("- Selecting `transpile: current` based on environment.")
       }
     }
+
+    else if (output.target === "browser") {
+      output.transpile = "browser"
+    }
+
+    else if (output.target === "node") {
+      output.transpile = "node"
+    }
+
+    else {
+      output.transpile = "es5"
+    }
   }
 
   // Automatic detection of "modules" mode based on target
