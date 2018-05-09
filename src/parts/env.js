@@ -1,7 +1,9 @@
-import envPreset, { isPluginRequired } from "@babel/preset-env"
+import browserslist from "browserslist"
+import envPreset from "@babel/preset-env"
 import transformRuntimePlugin from "@babel/plugin-transform-runtime"
 
 import modernTarget from "../modernTarget"
+import { isProduction } from "../util"
 
 function getEnvTargets(options) {
   /* eslint-disable immutable/no-mutation */
@@ -31,7 +33,7 @@ function getEnvTargets(options) {
     envTargets.node = null
     envTargets.browsers = browserslist(null, {
       env:
-        process.env.BROWSERSLIST_ENV || (/\bproduction\b/).test(options.env) ?
+        process.env.BROWSERSLIST_ENV || isProduction(env) ?
           "production" :
           "development"
     })

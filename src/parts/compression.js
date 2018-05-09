@@ -1,4 +1,5 @@
 import minifyPreset from "babel-preset-minify"
+import { isProduction } from "../util"
 
 const allDisabled = {
   booleans: false,
@@ -61,7 +62,7 @@ const lowCompression = {
 export default function compression(presets, plugins, options) {
   // Use basic compression for development/bundling and full compression for production output.
   if (options.compression) {
-    if (hasProductionEnv) {
+    if (isProduction(options)) {
       presets.push(minifyPreset)
 
       if (options.debug) {

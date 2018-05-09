@@ -1,4 +1,7 @@
 import fastAsyncPlugin from "fast-async"
+import { isPluginRequired } from "@babel/preset-env"
+import getTargets from "@babel/preset-env/lib/targets-parser"
+import envPlugins from "@babel/preset-env/data/plugins.json"
 
 export default function async(presets, plugins, options) {
   // Directly ask babel-preset-env whether we want to use transform-async

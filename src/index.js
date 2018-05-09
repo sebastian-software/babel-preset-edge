@@ -1,11 +1,5 @@
 /* eslint-disable filenames/match-exported, no-console, complexity */
-import browserslist from "browserslist"
-
-import envPreset, { isPluginRequired } from "@babel/preset-env"
-import getTargets from "@babel/preset-env/lib/targets-parser"
-import envPlugins from "@babel/preset-env/data/plugins.json"
-
-import options from "./options"
+import getOptions from "./getOptions"
 import shouldPrintComment from "./shouldPrintComment"
 
 import asyncPart from "./parts/async"
@@ -16,8 +10,8 @@ import importsPart from "./parts/imports"
 import proposalsPart from "./parts/proposals"
 import reactPart from "./parts/react"
 
-export default function buildPreset(context, opts) {
-  const options = options(opts)
+export default function buildPreset(context, input) {
+  const options = getOptions(input)
 
   const presets = []
   const plugins = []
@@ -33,13 +27,13 @@ export default function buildPreset(context, opts) {
   // See also: https://jamie.build/babel-plugin-ordering.html
 
   // Mainly plugins
+  proposalsPart(presets, plugins, options)
   asyncPart(presets, plugins, options)
   conveniencePart(presets, plugins, options)
   importsPart(presets, plugins, options)
-  proposalsPart(presets, plugins, options)
 
   // Mainly presets
-  // Run env first, then react, then compression
+  // env => react => compression
   compressionPart(presets, plugins, options)
   reactPart(presets, plugins, options)
   envPart(presets, plugins, options)

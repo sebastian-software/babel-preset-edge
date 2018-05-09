@@ -1,8 +1,8 @@
 import defaults from "./defaults"
+import { isProduction } from "./util"
 
-export default function options(input = {}) {
-  /* eslint-disable immutable/no-mutation */
-
+/* eslint-disable complexity, immutable/no-mutation */
+export default function getOptions(input = {}) {
   // These are the final options we use later on.
   const output = { ...defaults, ...input }
 
@@ -59,7 +59,7 @@ export default function options(input = {}) {
   }
 
   if (output.minified === "auto") {
-    output.minified = output.compression && hasProductionEnv
+    output.minified = output.compression && isProduction(output)
   }
 
   return output

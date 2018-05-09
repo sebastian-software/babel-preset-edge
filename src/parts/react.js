@@ -7,6 +7,8 @@ import reactConstantElements from "@babel/plugin-transform-react-constant-elemen
 import reactIntlPlugin from "babel-plugin-react-intl"
 import transformRemovePropTypes from "babel-plugin-transform-react-remove-prop-types"
 
+import { isDevelopment, isProduction } from "../util"
+
 export default function react(presets, plugins, options) {
   // Support Flow Syntax
   presets.push(flowPreset)
@@ -18,11 +20,11 @@ export default function react(presets, plugins, options) {
       useBuiltIns: true,
       pragma: options.jsxPragma,
       pragmaFrag: options.jsxPragmaFrag,
-      development: hasDevelopmentEnv
+      development: isDevelopment(options)
     }
   ])
 
-  if (hasProductionEnv) {
+  if (isProduction(options)) {
     // Remove unnecessary React propTypes from the production build.
     // https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types
     plugins.push([
