@@ -36,6 +36,21 @@ export default function getOptions(input = {}) {
       "development"
   }
 
+  if (output.target === "auto") {
+    if (/\btest\b/.test(output.env)) {
+      output.target = "node"
+    }
+    else if (/\bnode\b/.test(output.env)) {
+      output.target = "node"
+    }
+    else if (/\bbrowser\b/.test(output.env)) {
+      output.target = "browser"
+    }
+    else {
+      output.target = "universal"
+    }
+  }
+
   // Auto select test target when running in test environment
   if (output.transpile === "auto") {
     if (/\btest\b/.test(output.env)) {
@@ -52,6 +67,14 @@ export default function getOptions(input = {}) {
 
     else if (output.target === "node") {
       output.transpile = "node"
+    }
+
+    else if (/\bmodern\b/.test(output.env)) {
+      output.transpile = "modern"
+    }
+
+    else if (/\bes2015\b/.test(output.env)) {
+      output.transpile = "es2015"
     }
 
     else {
