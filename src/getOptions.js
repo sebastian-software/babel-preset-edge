@@ -51,7 +51,9 @@ export default function getOptions(input = {}) {
     }
   }
 
-  console.log("- Target:", output.target)
+  if (output.debug) {
+    console.log("- Target:", output.target)
+  }
 
   // Auto select test target when running in test environment
   if (output.transpile === "auto") {
@@ -92,7 +94,9 @@ export default function getOptions(input = {}) {
     }
   }
 
-  console.log("- Transpile:", output.transpile)
+  if (output.debug) {
+    console.log("- Transpile:", output.transpile)
+  }
 
   // Automatic detection of "modules" mode based on target
   if (output.modules === "auto") {
