@@ -4,7 +4,7 @@ exports[`Transpile: Browser: Prod comments 1`] = `"import _camelCase from\\"loda
 
 exports[`Transpile: Browser: Prod deadcode 1`] = `"var STATIC=!1;!1,before(),!1,after();"`;
 
-exports[`Transpile: Browser: Prod es2015: classes 1`] = `"export var Component=/*#__PURE__*/function(){function a(){}var b=a.prototype;return b.main=function main(){},a}();"`;
+exports[`Transpile: Browser: Prod es2015: classes 1`] = `"import _inheritsLoose from\\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";export var Component=/*#__PURE__*/function(a){function b(){var b;return b=a.call(this)||this,b.flag=!0,b}var c=b.prototype;return c.main=function main(){alert(this.foo)},_inheritsLoose(b,a),b}(Other);"`;
 
 exports[`Transpile: Browser: Prod es2015: for_off 1`] = `"import\\"core-js/modules/es7.symbol.async-iterator\\";import\\"core-js/modules/es6.symbol\\";import\\"core-js/modules/web.dom.iterable\\";import\\"core-js/modules/es6.array.is-array\\";function test(){for(var a=tasks,b=Array.isArray(a),c=0,a=b?a:a[Symbol.iterator]();;){var d;if(b){if(c>=a.length)break;d=a[c++]}else{if(c=a.next(),c.done)break;d=c.value}try{executeCommands()}catch(a){console.error(\\"Error\\")}}}"`;
 

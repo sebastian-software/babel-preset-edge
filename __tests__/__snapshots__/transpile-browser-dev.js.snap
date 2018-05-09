@@ -15,17 +15,27 @@ after();"
 `;
 
 exports[`Transpile: Browser: Dev es2015: classes 1`] = `
-"export var Component =
+"import _inheritsLoose from \\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";
+export var Component =
 /*#__PURE__*/
-function () {
-  function Component() {}
+function (_Other) {
+  function Component() {
+    var _this = _Other.call(this) || this;
+
+    _this.flag = true;
+    return _this;
+  }
 
   var _proto = Component.prototype;
 
-  _proto.main = function main() {};
+  _proto.main = function main() {
+    alert(this.foo);
+  };
+
+  _inheritsLoose(Component, _Other);
 
   return Component;
-}();"
+}(Other);"
 `;
 
 exports[`Transpile: Browser: Dev es2015: for_off 1`] = `

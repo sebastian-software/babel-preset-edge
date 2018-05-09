@@ -15,8 +15,15 @@ after();"
 `;
 
 exports[`Transpile: ES2015 es2015: classes 1`] = `
-"export class Component {
-  main() {}
+"export class Component extends Other {
+  constructor() {
+    super();
+    this.flag = true;
+  }
+
+  main() {
+    alert(this.foo);
+  }
 
 }"
 `;
