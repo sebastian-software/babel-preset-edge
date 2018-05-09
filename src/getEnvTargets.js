@@ -1,4 +1,5 @@
 import browserslist from "browserslist"
+import getTargets from "@babel/preset-env/lib/targets-parser"
 
 import { isProduction } from "./util"
 import modernTarget from "./modernTarget"
@@ -49,7 +50,8 @@ export default function getEnvTargets(options) {
   }
 
   if (options.debug) {
-    console.log("ENV Targets:", envTargets, "Target:",options.target, "Transpile:",options.transpile)
+    console.log("- Computed Targets:", envTargets)
+    console.log("- Final Targets:", getTargets(envTargets))
   }
 
   return envTargets
