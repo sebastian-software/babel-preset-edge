@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transpile: Browser: Dev comments 1`] = `
+"import _camelCase from \\"lodash/camelCase\\";
+
+function translate(value) {
+  return _camelCase(value);
+}"
+`;
+
+exports[`Transpile: Browser: Dev deadcode 1`] = `
+"var STATIC = false;
+before();
+after();"
+`;
+
+exports[`Transpile: Browser: Dev es2015: classes 1`] = `
+"export var Component =
+/*#__PURE__*/
+function () {
+  function Component() {}
+
+  var _proto = Component.prototype;
+
+  _proto.main = function main() {};
+
+  return Component;
+}();"
+`;
+
+exports[`Transpile: Browser: Dev es2015: for_off 1`] = `
+"import \\"core-js/modules/es7.symbol.async-iterator\\";
+import \\"core-js/modules/es6.symbol\\";
+import \\"core-js/modules/web.dom.iterable\\";
+import \\"core-js/modules/es6.array.is-array\\";
+
+function test() {
+  for (var _iterator = tasks, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+    var _ref;
+
+    if (_isArray) {
+      if (_i >= _iterator.length) break;
+      _ref = _iterator[_i++];
+    } else {
+      _i = _iterator.next();
+      if (_i.done) break;
+      _ref = _i.value;
+    }
+
+    try {
+      executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
+`;
+
+exports[`Transpile: Browser: Dev es2015: generator 1`] = `
+"function* idMaker() {
+  var index = 0;
+
+  while (true) {
+    yield index++;
+  }
+}"
+`;
+
+exports[`Transpile: Browser: Dev es2015: set 1`] = `
+"import \\"core-js/modules/es6.set\\";
+new Set([1, 2, 3]);"
+`;
+
+exports[`Transpile: Browser: Dev es2016: exponentiation 1`] = `"var result = 8;"`;
+
+exports[`Transpile: Browser: Dev esnext: async 1`] = `
+"function wait() {
+  return new Promise(function ($return, $error) {
+    return Promise.resolve(loadData()).then(function () {
+      try {
+        return $return();
+      } catch ($boundEx) {
+        return $error($boundEx);
+      }
+    }, $error);
+  });
+}"
+`;
+
+exports[`Transpile: Browser: Dev esnext: async_loop 1`] = `
+"import \\"core-js/modules/es7.symbol.async-iterator\\";
+import \\"core-js/modules/es6.symbol\\";
+import \\"core-js/modules/web.dom.iterable\\";
+import \\"core-js/modules/es6.array.is-array\\";
+
+function executeTasks(tasks) {
+  return new Promise(function ($return, $error) {
+    var _iterator, _isArray, _i, _ref;
+
+    _iterator = tasks, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();
+    var $Loop_2_trampoline;
+
+    function $Loop_2() {
+      if (_isArray) {
+        if (_i >= _iterator.length) return [1];
+        _ref = _iterator[_i++];
+      } else {
+        _i = _iterator.next();
+        if (_i.done) return [1];
+        _ref = _i.value;
+      }
+
+      var $Try_1_Post = function () {
+        try {
+          return $Loop_2;
+        } catch ($boundEx) {
+          return $error($boundEx);
+        }
+      },
+          $Try_1_Catch = function () {
+        try {
+          console.error(\\"Error\\");
+          return $Try_1_Post();
+        } catch ($boundEx) {
+          return $error($boundEx);
+        }
+      };
+
+      try {
+        return Promise.resolve(executeCommands()).then(function () {
+          try {
+            return $Try_1_Post();
+          } catch ($boundEx) {
+            return $Try_1_Catch($boundEx);
+          }
+        }, $Try_1_Catch);
+      } catch (error) {
+        $Try_1_Catch(error)
+      }
+    }
+
+    return ($Loop_2_trampoline = function (q) {
+      while (q) {
+        if (q.then) return void q.then($Loop_2_trampoline, $error);
+
+        try {
+          if (q.pop) {
+            if (q.length) return q.pop() ? $Loop_2_exit.call(this) : q;else q = $Loop_2;
+          } else q = q.call(this);
+        } catch (_exception) {
+          return $error(_exception);
+        }
+      }
+    }.bind(this))($Loop_2);
+
+    function $Loop_2_exit() {
+      return $return();
+    }
+  });
+}"
+`;
+
+exports[`Transpile: Browser: Dev esnext: class properties 1`] = `
+"import _defineProperty from \\"@babel/runtime/helpers/builtin/es6/defineProperty\\";
+export var Component = function Component() {
+  _defineProperty(this, \\"onClick\\", function () {});
+};"
+`;
+
+exports[`Transpile: Browser: Dev esnext: dynamic import 1`] = `
+"import(\\"lodash\\").then(function (lodash) {
+  console.log(lodash.camelCase(\\"hello world\\"));
+});"
+`;
+
+exports[`Transpile: Browser: Dev esnext: object spread 1`] = `
+"import _objectSpread from \\"@babel/runtime/helpers/builtin/es6/objectSpread\\";
+
+var original = {
+  bar: 10
+},
+    variant = _objectSpread({
+  foo: 1
+}, original);"
+`;
+
+exports[`Transpile: Browser: Dev lodash: async 1`] = `
+"import _parallel from \\"async/parallel\\";
+
+_parallel([]);"
+`;
+
+exports[`Transpile: Browser: Dev lodash: lodash 1`] = `
+"import _camelCase from \\"lodash/camelCase\\";
+
+_camelCase(\\"hello world\\");"
+`;
+
+exports[`Transpile: Browser: Dev lodash: recompose 1`] = `
+"import _compose from \\"recompose/compose\\";
+
+_compose([]);"
+`;
+
+exports[`Transpile: Browser: Dev react: jsx 1`] = `
+"function render() {
+  return React.createElement(\\"h1\\", null, \\"Hello\\");
+}"
+`;
+
+exports[`Transpile: Browser: Dev react: jsx spread 1`] = `
+"import \\"core-js/modules/es6.object.assign\\";
+
+function render(props) {
+  return React.createElement(\\"h1\\", Object.assign({
+    className: \\"large\\"
+  }, props), \\"Hello\\");
+}"
+`;
+
+exports[`Transpile: Browser: Dev react: proptypes 1`] = `
+"import _inheritsLoose from \\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";
+import React from \\"react\\";
+import PropTypes from \\"prop-types\\";
+
+var MyComponent =
+/*#__PURE__*/
+function (_React$Component) {
+  function MyComponent() {
+    return _React$Component.apply(this, arguments) || this;
+  }
+
+  var _proto = MyComponent.prototype;
+
+  _proto.render = function render() {
+    return React.createElement(\\"div\\", null, this.props.userName);
+  };
+
+  _inheritsLoose(MyComponent, _React$Component);
+
+  return MyComponent;
+}(React.Component);
+
+MyComponent.propTypes = {
+  userName: PropTypes.string
+};"
+`;

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transpile: Browser: Prod comments 1`] = `"import _camelCase from\\"lodash/camelCase\\";function translate(a){return _camelCase(a)}"`;
+
+exports[`Transpile: Browser: Prod deadcode 1`] = `"var STATIC=!1;!1,before(),!1,after();"`;
+
+exports[`Transpile: Browser: Prod es2015: classes 1`] = `"export var Component=/*#__PURE__*/function(){function a(){}var b=a.prototype;return b.main=function main(){},a}();"`;
+
+exports[`Transpile: Browser: Prod es2015: for_off 1`] = `"import\\"core-js/modules/es7.symbol.async-iterator\\";import\\"core-js/modules/es6.symbol\\";import\\"core-js/modules/web.dom.iterable\\";import\\"core-js/modules/es6.array.is-array\\";function test(){for(var a=tasks,b=Array.isArray(a),c=0,a=b?a:a[Symbol.iterator]();;){var d;if(b){if(c>=a.length)break;d=a[c++]}else{if(c=a.next(),c.done)break;d=c.value}try{executeCommands()}catch(a){console.error(\\"Error\\")}}}"`;
+
+exports[`Transpile: Browser: Prod es2015: generator 1`] = `"function*idMaker(){for(var a=0;;)yield a++}"`;
+
+exports[`Transpile: Browser: Prod es2015: set 1`] = `"import\\"core-js/modules/es6.set\\";new Set([1,2,3]);"`;
+
+exports[`Transpile: Browser: Prod es2016: exponentiation 1`] = `"var result=8;"`;
+
+exports[`Transpile: Browser: Prod esnext: async 1`] = `"function wait(){return new Promise(function(a,b){return Promise.resolve(loadData()).then(function(){try{return a()}catch(a){return b(a)}},b)})}"`;
+
+exports[`Transpile: Browser: Prod esnext: async_loop 1`] = `"import\\"core-js/modules/es7.symbol.async-iterator\\";import\\"core-js/modules/es6.symbol\\";import\\"core-js/modules/web.dom.iterable\\";import\\"core-js/modules/es6.array.is-array\\";function executeTasks(a){return new Promise(function(b,c){function d(){if(g){if(h>=f.length)return[1];i=f[h++]}else{if(h=f.next(),h.done)return[1];i=h.value}var a=function(){try{return d}catch(a){return c(a)}},b=function(){try{return console.error(\\"Error\\"),a()}catch(a){return c(a)}};try{return Promise.resolve(executeCommands()).then(function(){try{return a()}catch(a){return b(a)}},b)}catch(a){b(a)}}function e(){return b()}var f,g,h,i;f=a,g=Array.isArray(f),h=0,f=g?f:f[Symbol.iterator]();var j;return(j=function(a){for(;a;){if(a.then)return void a.then(j,c);try{if(a.pop){if(a.length)return a.pop()?e.call(this):a;a=d}else a=a.call(this)}catch(a){return c(a)}}}.bind(this))(d)})}"`;
+
+exports[`Transpile: Browser: Prod esnext: class properties 1`] = `"import _defineProperty from\\"@babel/runtime/helpers/builtin/es6/defineProperty\\";export var Component=function(){_defineProperty(this,\\"onClick\\",function(){})};"`;
+
+exports[`Transpile: Browser: Prod esnext: dynamic import 1`] = `"import(\\"lodash\\").then(function(a){console.log(a.camelCase(\\"hello world\\"))});"`;
+
+exports[`Transpile: Browser: Prod esnext: object spread 1`] = `"import _objectSpread from\\"@babel/runtime/helpers/builtin/es6/objectSpread\\";var original={bar:10},variant=_objectSpread({foo:1},original);"`;
+
+exports[`Transpile: Browser: Prod lodash: async 1`] = `"import _parallel from\\"async/parallel\\";_parallel([]);"`;
+
+exports[`Transpile: Browser: Prod lodash: lodash 1`] = `"import _camelCase from\\"lodash/camelCase\\";_camelCase(\\"hello world\\");"`;
+
+exports[`Transpile: Browser: Prod lodash: recompose 1`] = `"import _compose from\\"recompose/compose\\";_compose([]);"`;
+
+exports[`Transpile: Browser: Prod react: jsx 1`] = `"import _jsx from\\"@babel/runtime/helpers/builtin/es6/jsx\\";var _ref=/*#__PURE__*/_jsx(\\"h1\\",{},void 0,\\"Hello\\");function render(){return _ref}"`;
+
+exports[`Transpile: Browser: Prod react: jsx spread 1`] = `"import\\"core-js/modules/es6.object.assign\\";function render(a){return React.createElement(\\"h1\\",Object.assign({className:\\"large\\"},a),\\"Hello\\")}"`;
+
+exports[`Transpile: Browser: Prod react: proptypes 1`] = `"import _jsx from\\"@babel/runtime/helpers/builtin/es6/jsx\\";import _inheritsLoose from\\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";import React from\\"react\\";var MyComponent=/*#__PURE__*/function(a){function b(){return a.apply(this,arguments)||this}var c=b.prototype;return c.render=function render(){return _jsx(\\"div\\",{},void 0,this.props.userName)},_inheritsLoose(b,a),b}(React.Component);"`;
