@@ -1,6 +1,6 @@
 import fastAsyncPlugin from "fast-async"
 
-export default function register(presets, plugins, options) {
+export default function async(presets, plugins, options) {
   // Directly ask babel-preset-env whether we want to use transform-async
   // based on currently configured targets. Only if that's the case we
   // transform our async/await code. Otherwise we assume it works without

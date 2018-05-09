@@ -4,7 +4,7 @@ import { resolve as resolvePath } from "path"
 import moduleResolver from "babel-plugin-module-resolver"
 import lodashPlugin from "babel-plugin-lodash"
 
-export default function register(presets, plugins, options) {
+export default function convenience(presets, plugins, options) {
   // Optimization for cheery-picking from lodash, asyncjs, ramba and recompose.
   // Auto cherry-picking es2015 imports from path imports.
   // https://www.npmjs.com/package/babel-plugin-lodash

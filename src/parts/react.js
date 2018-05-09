@@ -7,7 +7,7 @@ import reactConstantElements from "@babel/plugin-transform-react-constant-elemen
 import reactIntlPlugin from "babel-plugin-react-intl"
 import transformRemovePropTypes from "babel-plugin-transform-react-remove-prop-types"
 
-export function register(presets, plugins, options) {
+export default function react(presets, plugins, options) {
   // Support Flow Syntax
   presets.push(flowPreset)
 

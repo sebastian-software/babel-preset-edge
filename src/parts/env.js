@@ -3,7 +3,8 @@ import transformRuntimePlugin from "@babel/plugin-transform-runtime"
 
 import modernTarget from "../modernTarget"
 
-function getEnvTargets() {
+function getEnvTargets(options) {
+  /* eslint-disable immutable/no-mutation */
   let envTargets = {}
 
   if (buildDistBinary) {
@@ -49,7 +50,7 @@ function getEnvTargets() {
   return envTargets
 }
 
-export default function register(presets, plugins, options) {
+export default function env(presets, plugins, options) {
   const excludes = []
 
   excludes.push("transform-regenerator", "transform-async-to-generator")

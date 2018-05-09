@@ -1,7 +1,7 @@
 import minifyPreset from "babel-preset-minify"
 import deadCodeEliminationPlugin from "babel-plugin-minify-dead-code-elimination"
 
-export default function register(presets, plugins, options) {
+export default function compression(presets, plugins, options) {
   // Use basic compression for development/bundling and full compression for production output.
   if (options.compression) {
     if (hasProductionEnv) {

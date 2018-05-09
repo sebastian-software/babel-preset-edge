@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 export default {
   // Whether to print hints on transpilation settings which were selected.
   debug: false,

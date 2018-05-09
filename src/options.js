@@ -1,35 +1,35 @@
 import defaults from "./defaults"
 
-export default function normalize(opts = {}) {
+export default function options(input = {}) {
   /* eslint-disable immutable/no-mutation */
 
   // These are the final options we use later on.
-  const options = { ...defaults, ...opts }
+  const output = { ...defaults, ...input }
 
   // Normalize "auto"/null. Makes processing later in code better.
-  if (options.target == null) {
-    options.target = "auto"
+  if (output.target == null) {
+    output.target = "auto"
   }
 
-  if (options.transpile == null) {
-    options.transpile = "auto"
+  if (output.transpile == null) {
+    output.transpile = "auto"
   }
 
-  if (options.env == null) {
-    options.env = "auto"
+  if (output.env == null) {
+    output.env = "auto"
   }
 
-  if (options.minified == null) {
-    options.minified = "auto"
+  if (output.minified == null) {
+    output.minified = "auto"
   }
 
-  if (options.modules == null) {
-    options.modules = "auto"
+  if (output.modules == null) {
+    output.modules = "auto"
   }
 
   // Fallback to environment variables when possible.
-  if (options.env == null) {
-    options.env =
+  if (output.env == null) {
+    output.env =
       process.env.EDGE_ENV ||
       process.env.BABEL_ENV ||
       process.env.NODE_ENV ||
@@ -37,28 +37,30 @@ export default function normalize(opts = {}) {
   }
 
   // Auto select test target when running in test environment
-  if (options.transpile === "auto") {
-    if (/\btest\b/.test(options.env)) {
-      options.transpile = "current"
+  if (output.transpile === "auto") {
+    if (/\btest\b/.test(output.env)) {
+      output.transpile = "current"
 
-      if (options.debug) {
+      if (output.debug) {
         console.log("- Selecting `transpile: current` based on environment.")
       }
     }
   }
 
   // Automatic detection of "modules" mode based on target
-  if (options.modules === "auto") {
-    if (options.target === "node") {
-      options.modules = "cjs"
+  if (output.modules === "auto") {
+    if (output.target === "node") {
+      output.modules = "cjs"
     } else {
       // Libraries should be published as EcmaScript modules for tree shaking support
       // For browser targets we typically use tools like Webpack, Rollup or Parcel which benefit from EcmaScript modules, too.
-      options.modules = false
+      output.modules = false
     }
   }
 
-  if (options.minified === "auto") {
-    options.minified = options.compression && hasProductionEnv
+  if (output.minified === "auto") {
+    output.minified = output.compression && hasProductionEnv
   }
+
+  return output
 }
