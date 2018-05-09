@@ -11,6 +11,10 @@ export default function env(presets, plugins, options) {
   // Exclude all es2015 features which are supported by the default es2015 babel preset.
   // This targets all es2015-capable browsers and engines.
   if (options.transpile === "es2015") {
+    if (options.debug) {
+      console.log("- Targetting ES2015 engines")
+    }
+
     exclude.push(
       "transform-template-literals",
       "transform-literals",
@@ -30,15 +34,6 @@ export default function env(presets, plugins, options) {
       "transform-destructuring",
       "transform-block-scoping",
       "transform-typeof-symbol"
-
-      // These are not really features to transpile down
-      // "transform-modules-commonjs",
-      // "transform-modules-systemjs",
-      // "transform-modules-amd",
-      // "transform-modules-umd"
-
-      // This is already excluded by default
-      // "transform-regenerator"
     )
   }
 
