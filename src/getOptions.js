@@ -113,5 +113,9 @@ export default function getOptions(input = {}) {
     output.minified = output.compression && isProduction(output)
   }
 
+  if (output.debug) {
+    console.log("Final Options:", output)
+  }
+
   return output
 }
