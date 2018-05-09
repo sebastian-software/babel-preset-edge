@@ -78,21 +78,15 @@ export class Component {
 `;
 
 exports[`Browserslist esnext: dynamic import 1`] = `
-"import \\"core-js/modules/web.dom.iterable\\";
-import _path from \\"path\\";
-import _importCss from \\"babel-plugin-universal-import/importCss\\";
-import _universalImport from \\"babel-plugin-universal-import/universalImport\\";
+"function importedWrapper(marker, name, realImport) {
+  if (typeof __deoptimization_sidEffect__ != 'undefined') {
+    __deoptimization_sidEffect__(marker, name, realImport);
+  }
 
-_universalImport({
-  id: \\"lodash\\",
-  file: \\"./__tests__/__fixtures__/esnext_dynamic-import.js\\",
-  load: () => Promise.all([import(
-  /* webpackChunkName: 'lodash' */
-  \\"lodash\\"), _importCss(\\"lodash\\", {})]).then(proms => proms[0]),
-  path: () => _path.join(__dirname, \\"lodash\\"),
-  resolve: () => require.resolveWeak(\\"lodash\\"),
-  chunkName: () => \\"lodash\\"
-}).then(lodash => {
+  return realImport;
+}
+
+importedWrapper(\\"imported-component\\", \\"1nrp302\\", import(\\"lodash\\")).then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
 `;

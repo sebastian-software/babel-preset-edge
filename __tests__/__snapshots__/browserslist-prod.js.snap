@@ -162,32 +162,11 @@ export var Component = function () {
 `;
 
 exports[`Browserslist Production esnext: dynamic import 1`] = `
-"import \\"core-js/modules/es6.promise\\";
-import \\"core-js/modules/web.dom.iterable\\";
-import _path from \\"path\\";
-import _importCss from \\"babel-plugin-universal-import/importCss\\";
-import _universalImport from \\"babel-plugin-universal-import/universalImport\\";
+"function importedWrapper(a, b, c) {
+  return 'undefined' != typeof __deoptimization_sidEffect__ && __deoptimization_sidEffect__(a, b, c), c;
+}
 
-_universalImport({
-  id: \\"lodash\\",
-  file: \\"./__tests__/__fixtures__/esnext_dynamic-import.js\\",
-  load: function load() {
-    return Promise.all([import(
-    /* webpackChunkName: 'lodash' */
-    \\"lodash\\"), _importCss(\\"lodash\\", {})]).then(function (a) {
-      return a[0];
-    });
-  },
-  path: function path() {
-    return _path.join(__dirname, \\"lodash\\");
-  },
-  resolve: function resolve() {
-    return require.resolveWeak(\\"lodash\\");
-  },
-  chunkName: function chunkName() {
-    return \\"lodash\\";
-  }
-}).then(function (a) {
+importedWrapper(\\"imported-component\\", \\"1nrp302\\", import(\\"lodash\\")).then(function (a) {
   console.log(a.camelCase(\\"hello world\\"));
 });"
 `;

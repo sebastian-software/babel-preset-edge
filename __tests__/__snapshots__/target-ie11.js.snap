@@ -170,12 +170,7 @@ export var Component = function Component() {
 `;
 
 exports[`IE11 esnext: dynamic import 1`] = `
-"import \\"core-js/modules/es6.promise\\";
-new Promise(function (resolve) {
-  require.ensure([], function (require) {
-    resolve(require(\\"lodash\\"));
-  });
-}).then(function (lodash) {
+"import(\\"lodash\\").then(function (lodash) {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
 `;

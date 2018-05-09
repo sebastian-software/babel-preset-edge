@@ -144,12 +144,7 @@ export class Component {
 `;
 
 exports[`ES2015 esnext: dynamic import 1`] = `
-"import \\"core-js/modules/es6.promise\\";
-new Promise(resolve => {
-  require.ensure([], require => {
-    resolve(require(\\"lodash\\"));
-  });
-}).then(lodash => {
+"import(\\"lodash\\").then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
 `;

@@ -78,11 +78,7 @@ export class Component {
 `;
 
 exports[`Modern esnext: dynamic import 1`] = `
-"new Promise(resolve => {
-  require.ensure([], require => {
-    resolve(require(\\"lodash\\"));
-  });
-}).then(lodash => {
+"import(\\"lodash\\").then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
 `;

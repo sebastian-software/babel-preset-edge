@@ -6,11 +6,8 @@ exports[`Webpack comments 1`] = `
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
     _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
 
-// Line Comment
 function translate(value) {
-  return (0, _camelCase2.default)(
-  /* inline Comment */
-  value);
+  return (0, _camelCase2.default)(value);
 }"
 `;
 
@@ -129,21 +126,7 @@ exports.Component = Component;"
 exports[`Webpack esnext: dynamic import 1`] = `
 "\\"use strict\\";
 
-var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
-    _path2 = _interopRequireDefault(require(\\"path\\")),
-    _importCss2 = _interopRequireDefault(require(\\"babel-plugin-universal-import/importCss\\")),
-    _universalImport2 = _interopRequireDefault(require(\\"babel-plugin-universal-import/universalImport\\"));
-
-(0, _universalImport2.default)({
-  id: \\"lodash\\",
-  file: \\"./__tests__/__fixtures__/esnext_dynamic-import.js\\",
-  load: () => Promise.all([import(
-  /* webpackChunkName: 'lodash' */
-  \\"lodash\\"), (0, _importCss2.default)(\\"lodash\\", {})]).then(proms => proms[0]),
-  path: () => _path2.default.join(__dirname, \\"lodash\\"),
-  resolve: () => require.resolveWeak(\\"lodash\\"),
-  chunkName: () => \\"lodash\\"
-}).then(lodash => {
+import(\\"lodash\\").then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
 `;

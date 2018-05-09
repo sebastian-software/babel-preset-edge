@@ -63,11 +63,9 @@ const defaults = {
   modules: "auto",
 
   // Choose automatically depending on target by default or use one of these for full control:
-  // - "rollup-node": For bundling with Rollup and later usage in NodeJS (e.g. produce cli tools).
-  // - "rollup-webpack": For bundling with Rollup and later usage with Webpack (e.g. publish browser libraries).
-  // - "webpack": Improve compatibility with direct Webpack usage (add chunkNames, dynamic CSS imports, ...) (e.g. bundling applications)
-  // - "auto": Automatic selection based on target.
-  imports: "auto",
+  // - "node": For usage in NodeJS (e.g. produce binaries).
+  // - "component": Wraps imports into a helper for dealing with async components.
+  imports: null,
 
   // Prefer built-ins over custom code. This mainly benefits for modern engines.
   // As we are using the new "usage" mode for `preset-env` we automatically include
@@ -98,10 +96,6 @@ const defaults = {
 
   // Enable full compression on production scripts or basic compression for libraries or during development.
   compression: true,
-
-  // Removing comments by default to keep exported libraries leaner in disc space.
-  // Comments are automatically re-enabled if Webpack Universal Imports are used for having correct chunkNames.
-  comments: false,
 
   // Do not apply general minification by default
   minified: false

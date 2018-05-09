@@ -30,15 +30,8 @@ import minifyPreset from "babel-preset-minify"
 import deadCodeEliminationPlugin from "babel-plugin-minify-dead-code-elimination"
 
 import dynamicImportSyntaxPlugin from "babel-plugin-syntax-dynamic-import"
-
-// Babel plugin to transpile import() to a deferred require(), for NodeJS
 import dynamicImportRollupNode from "babel-plugin-dynamic-import-node"
-
-// Babel plugin to transpile import() to require.ensure, for Webpack.
-import dynamicImportRollupWebpack from "babel-plugin-dynamic-import-webpack"
-
-// Babel plugin to transpile import() to a wrapper with support for SSR and CSS loading
-import dynamicImportUniversalWebpack from "babel-plugin-universal-import"
+import dynamicImportComponent from "react-imported-component/babel"
 
 import moduleResolver from "babel-plugin-module-resolver"
 
@@ -77,10 +70,9 @@ const defaults = {
   modules: "auto",
 
   // Choose automatically depending on target by default or use one of these for full control:
-  // - "rollup-node": For bundling with Rollup and later usage in NodeJS (e.g. produce binaries).
-  // - "rollup-webpack": For bundling with Rollup and later usage with Webpack (e.g. publish libraries).
-  // - "webpack": Improve compatibility with direct Webpack usage (add chunkNames, dynamic CSS imports, ...) (e.g. bundling applications)
-  // - "auto": Automatic selection based on target.
+  // - "node": For usage in NodeJS (e.g. produce binaries).
+  // - "component": Wraps imports into a helper for dealing with async components.
+  // - "auto": Automatically choose best behavior
   imports: "auto",
 
   // Prefer built-ins over custom code. This mainly benefits for modern engines.
@@ -112,10 +104,6 @@ const defaults = {
 
   // Enable full compression on production scripts or basic compression for libraries or during development.
   compression: true,
-
-  // Removing comments by default to keep exported libraries leaner in disc space.
-  // Comments are automatically re-enabled if Webpack Universal Imports are used for having correct chunkNames.
-  comments: false,
 
   // Do not apply general minification by default
   minified: false
@@ -288,22 +276,12 @@ export default function buildPreset(context, opts = {}) {
     }
   }
 
-  // Automatic detection of "imports" mode based on target
   if (options.imports === "auto") {
-    if (buildForCurrent || buildDistBinary) {
-      options.imports = "rollup-node"
-    } else if (buildAsLibrary || buildCustom) {
-      options.imports = "rollup-webpack"
+    if (buildDistBinary || buildForCurrent) {
+      options.imports = "node"
     } else if (buildForBrowsersList) {
-      options.imports = "webpack"
-    } else {
-      options.imports = null
+      options.imports = "component"
     }
-  }
-
-  // Automatic chunkNames require Webpack Magic Comments, we can't remove them.
-  if (options.imports === "webpack") {
-    options.comments = true
   }
 
   // Directly ask babel-preset-env whether we want to use transform-async
@@ -402,32 +380,20 @@ export default function buildPreset(context, opts = {}) {
   plugins.push(dynamicImportSyntaxPlugin)
 
   // Transpile the parsed import() syntax for compatibility or extended features.
-  if (options.imports === "rollup-node") {
+  if (options.imports === "node") {
     if (options.debug) {
       console.log("- Rewriting import() for Rollup bundling targeting NodeJS.")
     }
 
     // Compiles import() to a deferred require() for NodeJS
     plugins.push(dynamicImportRollupNode)
-  } else if (options.imports === "rollup-webpack") {
+  } else if (options.imports === "component") {
     if (options.debug) {
-      console.log("- Rewriting import() for Rollup bundling targeting Webpack.")
+      console.log("- Rewriting import() for Rollup bundling targeting NodeJS.")
     }
 
-    // This is our alternative appeoach for now which "protects" these imports from Rollup
-    // for usage in Webpack later on (not directly). In detail it transpiles `import()` to
-    // `require.ensure()` before it reaches RollupJS's bundling engine.
-    // https://github.com/airbnb/babel-plugin-dynamic-import-webpack
-    plugins.push(dynamicImportRollupWebpack)
-  } else if (options.imports === "webpack") {
-    if (options.debug) {
-      console.log("- Rewriting import() for Universal Webpack.")
-    }
-
-    // Dual CSS + JS imports together with automatic chunkNames and
-    // optimized non-chunked server-side rendering.
-    // https://github.com/airbnb/babel-plugin-dynamic-import-webpack
-    plugins.push(dynamicImportUniversalWebpack)
+    // Support for enhanced imported components
+    plugins.push(dynamicImportComponent)
   } else {
     if (options.debug) {
       console.log("- Keeping import() statement as is.")
@@ -551,8 +517,23 @@ export default function buildPreset(context, opts = {}) {
 
   // Assemble final config
   return {
+    // Fine tune comment output
+    shouldPrintComment: function (comment) {
+      // Keep pure function markers which are generated by some plugins
+      // See sideEffects option: https://github.com/mishoo/UglifyJS2
+      if (/[#@]__PURE__/.exec(comment)) {
+        return true
+      }
+
+      // Keep JSON5 magic comments for Webpack instructions
+      if (/^\s?webpack[A-Z][A-Za-z]+\:/.exec(comment)) {
+        return true
+      }
+
+      return false
+    },
+
     // Babel basic configuration
-    comments: options.comments,
     compact: options.minified ? true : "auto",
     minified: options.minified,
 
