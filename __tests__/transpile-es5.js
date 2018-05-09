@@ -4,7 +4,7 @@ import { fixtures, titles, check } from "./core"
 describe("Transpile: ES5", () => {
   const options = buildPreset(null, {
     sourceMaps: false,
-    transpile: "es2015"
+    transpile: "es5"
   })
 
   fixtures.forEach((fileName, index) => {
