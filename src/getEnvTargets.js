@@ -1,8 +1,12 @@
+import { get as getAppRoot } from "app-root-dir"
+import semver from "semver"
 import browserslist from "browserslist"
 import getTargets from "@babel/preset-env/lib/targets-parser"
 
 import { isProduction } from "./util"
 import modernTarget from "./modernTarget"
+
+const engines = require(getAppRoot() + "/package.json").engines
 
 /* eslint-disable immutable/no-mutation, complexity */
 export default function getEnvTargets(options) {
@@ -45,8 +49,25 @@ export default function getEnvTargets(options) {
   } else if (typeof options.transpile === "object") {
     envTargets = options.target
   } else if (options.transpile === "node") {
-    // TODO
-    // read package.json
+    // Using NodeJS version from engine field
+    if (engines && engines.node) {
+      // LTS Overview as of May 2018
+      // 4.2.0 - out of support
+      // 6.9.0 - maintenance
+      // 8.9.0 - active
+      if (semver.satisfies("4.2.0", engines.node)) {
+        envTargets.node = "4.2.0"
+      } else if (semver.satisfies("6.9.0", engines.node)) {
+        envTargets.node = "6.9.0"
+      } else if (semver.satisfies("8.9.0", engines.node)) {
+        envTargets.node = "8.9.0"
+      }
+    } else {
+      // As Node v4 is out of support, we use the current LTS as default
+      // See also: https://github.com/nodejs/Release
+      // This behavior reduces the amount a transpilations a bit when working in pure NodeJS environments
+      envTargets.node = "6.9.0"
+    }
   }
 
   if (options.debug) {

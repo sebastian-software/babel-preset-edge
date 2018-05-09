@@ -70,7 +70,8 @@
     "babel-preset-minify": "^0.4.1",
     "browserslist": "^3.2.6",
     "fast-async": "^7.0.6",
-    "react-imported-component": "^4.3.2"
+    "react-imported-component": "^4.3.2",
+    "semver": "^5.5.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.46",

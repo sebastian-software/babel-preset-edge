@@ -25,8 +25,15 @@ exports[`Target: NodeJS es2015: classes 1`] = `
 exports.__esModule = true;
 exports.Component = void 0;
 
-class Component {
-  main() {}
+class Component extends Other {
+  constructor() {
+    super();
+    this.flag = true;
+  }
+
+  main() {
+    alert(this.foo);
+  }
 
 }
 
