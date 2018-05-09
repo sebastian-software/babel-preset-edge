@@ -29,6 +29,6 @@ export default function async(presets, plugins, options) {
   }
 
   if (options.debug) {
-    console.log("- Async Transpilation:", options.rewriteAsync)
+    console.log("- Async/Await Transpilation:", options.rewriteAsync)
   }
 }
