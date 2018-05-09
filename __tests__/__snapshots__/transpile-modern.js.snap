@@ -9,44 +9,28 @@ function translate(value) {
 `;
 
 exports[`Transpile: Modern deadcode 1`] = `
-"var STATIC = false;
+"const STATIC = false;
 before();
 after();"
 `;
 
 exports[`Transpile: Modern es2015: classes 1`] = `
-"export var Component =
-/*#__PURE__*/
-function () {
-  function Component() {}
+"export class Component extends Other {
+  constructor() {
+    super();
+    this.flag = true;
+  }
 
-  var _proto = Component.prototype;
+  main() {
+    alert(this.foo);
+  }
 
-  _proto.main = function main() {};
-
-  return Component;
-}();"
+}"
 `;
 
 exports[`Transpile: Modern es2015: for_off 1`] = `
-"import \\"core-js/modules/es7.symbol.async-iterator\\";
-import \\"core-js/modules/es6.symbol\\";
-import \\"core-js/modules/web.dom.iterable\\";
-import \\"core-js/modules/es6.array.is-array\\";
-
-function test() {
-  for (var _iterator = tasks, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-    var _ref;
-
-    if (_isArray) {
-      if (_i >= _iterator.length) break;
-      _ref = _iterator[_i++];
-    } else {
-      _i = _iterator.next();
-      if (_i.done) break;
-      _ref = _i.value;
-    }
-
+"function test() {
+  for (const taskName of tasks) {
     try {
       executeCommands();
     } catch (error) {
@@ -60,115 +44,44 @@ exports[`Transpile: Modern es2015: generator 1`] = `
 "function* idMaker() {
   var index = 0;
 
-  while (true) {
-    yield index++;
-  }
+  while (true) yield index++;
 }"
 `;
 
-exports[`Transpile: Modern es2015: set 1`] = `
-"import \\"core-js/modules/es6.set\\";
-new Set([1, 2, 3]);"
-`;
+exports[`Transpile: Modern es2015: set 1`] = `"new Set([1, 2, 3]);"`;
 
 exports[`Transpile: Modern es2016: exponentiation 1`] = `"var result = 8;"`;
 
 exports[`Transpile: Modern esnext: async 1`] = `
-"function wait() {
-  return new Promise(function ($return, $error) {
-    return Promise.resolve(loadData()).then(function () {
-      try {
-        return $return();
-      } catch ($boundEx) {
-        return $error($boundEx);
-      }
-    }, $error);
-  });
+"async function wait() {
+  await loadData();
 }"
 `;
 
 exports[`Transpile: Modern esnext: async_loop 1`] = `
-"import \\"core-js/modules/es7.symbol.async-iterator\\";
-import \\"core-js/modules/es6.symbol\\";
-import \\"core-js/modules/web.dom.iterable\\";
-import \\"core-js/modules/es6.array.is-array\\";
-
-function executeTasks(tasks) {
-  return new Promise(function ($return, $error) {
-    var _iterator, _isArray, _i, _ref;
-
-    _iterator = tasks, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();
-    var $Loop_2_trampoline;
-
-    function $Loop_2() {
-      if (_isArray) {
-        if (_i >= _iterator.length) return [1];
-        _ref = _iterator[_i++];
-      } else {
-        _i = _iterator.next();
-        if (_i.done) return [1];
-        _ref = _i.value;
-      }
-
-      var $Try_1_Post = function () {
-        try {
-          return $Loop_2;
-        } catch ($boundEx) {
-          return $error($boundEx);
-        }
-      },
-          $Try_1_Catch = function () {
-        try {
-          console.error(\\"Error\\");
-          return $Try_1_Post();
-        } catch ($boundEx) {
-          return $error($boundEx);
-        }
-      };
-
-      try {
-        return Promise.resolve(executeCommands()).then(function () {
-          try {
-            return $Try_1_Post();
-          } catch ($boundEx) {
-            return $Try_1_Catch($boundEx);
-          }
-        }, $Try_1_Catch);
-      } catch (error) {
-        $Try_1_Catch(error)
-      }
+"async function executeTasks(tasks) {
+  for (const taskName of tasks) {
+    try {
+      await executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
     }
-
-    return ($Loop_2_trampoline = function (q) {
-      while (q) {
-        if (q.then) return void q.then($Loop_2_trampoline, $error);
-
-        try {
-          if (q.pop) {
-            if (q.length) return q.pop() ? $Loop_2_exit.call(this) : q;else q = $Loop_2;
-          } else q = q.call(this);
-        } catch (_exception) {
-          return $error(_exception);
-        }
-      }
-    }.bind(this))($Loop_2);
-
-    function $Loop_2_exit() {
-      return $return();
-    }
-  });
+  }
 }"
 `;
 
 exports[`Transpile: Modern esnext: class properties 1`] = `
 "import _defineProperty from \\"@babel/runtime/helpers/builtin/es6/defineProperty\\";
-export var Component = function Component() {
-  _defineProperty(this, \\"onClick\\", function () {});
-};"
+export class Component {
+  constructor() {
+    _defineProperty(this, \\"onClick\\", () => {});
+  }
+
+}"
 `;
 
 exports[`Transpile: Modern esnext: dynamic import 1`] = `
-"import(\\"lodash\\").then(function (lodash) {
+"import(\\"lodash\\").then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
 `;
@@ -176,7 +89,7 @@ exports[`Transpile: Modern esnext: dynamic import 1`] = `
 exports[`Transpile: Modern esnext: object spread 1`] = `
 "import _objectSpread from \\"@babel/runtime/helpers/builtin/es6/objectSpread\\";
 
-var original = {
+let original = {
   bar: 10
 },
     variant = _objectSpread({
@@ -209,9 +122,7 @@ exports[`Transpile: Modern react: jsx 1`] = `
 `;
 
 exports[`Transpile: Modern react: jsx spread 1`] = `
-"import \\"core-js/modules/es6.object.assign\\";
-
-function render(props) {
+"function render(props) {
   return React.createElement(\\"h1\\", Object.assign({
     className: \\"large\\"
   }, props), \\"Hello\\");
@@ -219,27 +130,15 @@ function render(props) {
 `;
 
 exports[`Transpile: Modern react: proptypes 1`] = `
-"import _inheritsLoose from \\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";
-import React from \\"react\\";
+"import React from \\"react\\";
 import PropTypes from \\"prop-types\\";
 
-var MyComponent =
-/*#__PURE__*/
-function (_React$Component) {
-  function MyComponent() {
-    return _React$Component.apply(this, arguments) || this;
+class MyComponent extends React.Component {
+  render() {
+    return React.createElement(\\"div\\", null, this.props.userName);
   }
 
-  var _proto = MyComponent.prototype;
-
-  _proto.render = function render() {
-    return React.createElement(\\"div\\", null, this.props.userName);
-  };
-
-  _inheritsLoose(MyComponent, _React$Component);
-
-  return MyComponent;
-}(React.Component);
+}
 
 MyComponent.propTypes = {
   userName: PropTypes.string
