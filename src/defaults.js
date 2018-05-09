@@ -6,7 +6,7 @@ export default {
   // One of the following:
   // - "node": Targetting NodeJS (Outputs CommonJS modules, translates dynamic imports into require statements, ...)
   // - "browser": Targetting Browsers (Expects Webpack, Parcel or Rollup post-processing, keeps dynamic import, ...)
-  // - "universal": Targetting both NodeJS and Browsers (Ideally for libraries published for both NodeJS and browsers via NPM)
+  // - "universal": Targetting both NodeJS and Browsers (Ideally suited for libraries published for both NodeJS and browsers via NPM)
   // - "auto": Define target automatically based on NODE_ENV environment.
   target: "auto",
 
@@ -19,6 +19,7 @@ export default {
   // - "node": NodeJS only. Uses `engines` field in `package.json` to define the NodeJS version to target.
   // - "browser": Browser only. Uses local "browserslist" config to determine transpilation target.
   // - "auto": Uses "browser" for `target: browser`. Uses "node" for `target: node`. Uses `es5` for `target: universal`.
+  // - {}: A custom object which is passed to `@babel/preset-env`
   transpile: "auto",
 
   // Select environment where we are in for the current job.

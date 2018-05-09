@@ -3,13 +3,15 @@ import { isPluginRequired } from "@babel/preset-env"
 import getTargets from "@babel/preset-env/lib/targets-parser"
 import envPlugins from "@babel/preset-env/data/plugins.json"
 
+import getEnvTargets from "../getEnvTargets"
+
 export default function async(presets, plugins, options) {
   // Directly ask babel-preset-env whether we want to use transform-async
   // based on currently configured targets. Only if that's the case we
   // transform our async/await code. Otherwise we assume it works without
   // any transpilation.
   const requiresAsync = isPluginRequired(
-    getTargets(envTargets),
+    getTargets(getEnvTargets(options)),
     envPlugins["transform-async-to-generator"]
   )
 
