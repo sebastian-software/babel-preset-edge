@@ -5,7 +5,7 @@ import envPreset, { isPluginRequired } from "@babel/preset-env"
 import getTargets from "@babel/preset-env/lib/targets-parser"
 import envPlugins from "@babel/preset-env/data/plugins.json"
 
-import normalize from "./normalize"
+import options from "./options"
 import shouldPrintComment from "./shouldPrintComment"
 
 import asyncPart from "./parts/async"
@@ -16,9 +16,8 @@ import importsPart from "./parts/imports"
 import proposalsPart from "./parts/proposals"
 import reactPart from "./parts/react"
 
-
 export default function buildPreset(context, opts) {
-  const options = normalize(normalize)
+  const options = options(opts)
 
   const presets = []
   const plugins = []

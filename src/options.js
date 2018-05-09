@@ -1,6 +1,8 @@
 import defaults from "./defaults"
 
 export default function normalize(opts = {}) {
+  /* eslint-disable immutable/no-mutation */
+
   // These are the final options we use later on.
   const options = { ...defaults, ...opts }
 
@@ -25,16 +27,18 @@ export default function normalize(opts = {}) {
     options.modules = "auto"
   }
 
-
-
   // Fallback to environment variables when possible.
   if (options.env == null) {
-    options.env = process.env.EDGE_ENV || process.env.BABEL_ENV || process.env.NODE_ENV || "development"
+    options.env =
+      process.env.EDGE_ENV ||
+      process.env.BABEL_ENV ||
+      process.env.NODE_ENV ||
+      "development"
   }
 
   // Auto select test target when running in test environment
   if (options.transpile === "auto") {
-    if ((/\btest\b/).test(options.env)) {
+    if (/\btest\b/.test(options.env)) {
       options.transpile = "current"
 
       if (options.debug) {
@@ -54,7 +58,7 @@ export default function normalize(opts = {}) {
     }
   }
 
-  if (options.minified == "auto") {
+  if (options.minified === "auto") {
     options.minified = options.compression && hasProductionEnv
   }
 }

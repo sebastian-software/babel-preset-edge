@@ -7,7 +7,7 @@ export default {
   // - "browser": Targetting Browsers (Expects Webpack, Parcel or Rollup post-processing, keeps dynamic import, ...)
   // - "universal": Targetting both NodeJS and Browsers (Ideally for libraries published for both NodeJS and browsers via NPM)
   // - "auto": Define target automatically based on NODE_ENV environment.
-  target: "auto"
+  target: "auto",
 
   // Choose which transpilation should be applied.
   // One of the following:
@@ -18,7 +18,7 @@ export default {
   // - "node": NodeJS only. Uses `engines` field in `package.json` to define the NodeJS version to target.
   // - "browser": Browser only. Uses local "browserslist" config to determine transpilation target.
   // - "auto": Uses "browser" for `target: browser`. Uses "node" for `target: node`. Uses `es5` for `target: universal`.
-  transpile: "auto"
+  transpile: "auto",
 
   // Select environment where we are in for the current job.
   // One the the following:

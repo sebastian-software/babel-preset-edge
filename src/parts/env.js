@@ -12,7 +12,12 @@ function getEnvTargets() {
     // Newest LTS is v8.9.0 https://nodejs.org/en/blog/release/v8.9.0/
     // You can choose the modern version by setting `target` to "node8".
     // We also have support for even more modern Node v10 which did not yet reached LTS.
-    envTargets.node = options.target === "node8" ? "8.9.0" : options.target === "node10" ? "10.0.0" : "6.9.0"
+    envTargets.node =
+      options.target === "node8" ?
+        "8.9.0" :
+        options.target === "node10" ?
+          "10.0.0" :
+          "6.9.0"
     envTargets.browsers = []
   } else if (options.transpile === "current") {
     // Scripts which are directly used like tests can be transpiled for the current NodeJS version
@@ -24,7 +29,10 @@ function getEnvTargets() {
     // for passing it to browserslist internally. Yeah.
     envTargets.node = null
     envTargets.browsers = browserslist(null, {
-      env: process.env.BROWSERSLIST_ENV || (/\bproduction\b/).test(options.env) ? "production" : "development"
+      env:
+        process.env.BROWSERSLIST_ENV || (/\bproduction\b/).test(options.env) ?
+          "production" :
+          "development"
     })
   } else if (buildAsLibrary) {
     if (options.target === "modern") {
@@ -44,10 +52,7 @@ function getEnvTargets() {
 export default function register(presets, plugins, options) {
   const excludes = []
 
-  excludes.push(
-    "transform-regenerator",
-    "transform-async-to-generator"
-  )
+  excludes.push("transform-regenerator", "transform-async-to-generator")
 
   // Exclude all es2015 features which are supported by the default es2015 babel preset.
   // This targets all es2015-capable browsers and engines.
@@ -70,7 +75,7 @@ export default function register(presets, plugins, options) {
       "transform-parameters",
       "transform-destructuring",
       "transform-block-scoping",
-      "transform-typeof-symbol",
+      "transform-typeof-symbol"
 
       // These are not really features to transpile down
       // "transform-modules-commonjs",
@@ -127,6 +132,9 @@ export default function register(presets, plugins, options) {
   if (options.debug) {
     /* eslint-disable no-nested-ternary */
     console.log("- Module Settings:", options.modules === false ? "ESM" : options.modules)
-    console.log("- Transpilation Compliance:", options.specMode ? "SPEC" : options.looseMode ? "LOOSE" : "DEFAULT")
+    console.log(
+      "- Transpilation Compliance:",
+      options.specMode ? "SPEC" : options.looseMode ? "LOOSE" : "DEFAULT"
+    )
   }
 }

@@ -1,2 +1,5 @@
 extends:
   - readable
+
+rules:
+  no-console: off
