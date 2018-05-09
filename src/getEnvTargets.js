@@ -31,7 +31,7 @@ export default function getEnvTargets(options) {
     // What we do here is actually pretty clever/stupid as we just use browserslist
     // itself to query its configuration and pass over that data again to babel-preset-env
     // for passing it to browserslist internally. Yeah.
-    envTargets = browserslist(null, {
+    envTargets.browsers = browserslist(null, {
       env:
         process.env.BROWSERSLIST_ENV ||
           isProduction(options) ? "production" : "development"
