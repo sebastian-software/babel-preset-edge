@@ -17,7 +17,7 @@ export default {
   // - "modern": Uses a built-in definition of modern NodeJS and browser versions. This is interesting for local development of application as it accelerates features like hot-loading quite a bit.
   // - "current": NodeJS only. Ideally for local running test suites, etc. Using the least amount of transpile for making code runnable locally.
   // - "node": NodeJS only. Uses `engines` field in `package.json` to define the NodeJS version to target.
-  // - "browser": Browser only. Uses local "browserslist" config to determine transpilation target.
+  // - "browser": Browser only. Uses local "browserslist" config to determine transpilation target. Uses `BROWSERSLIST_ENV` if configured. Otherwise uses `env` passed through preset or via `NODE_ENV`.
   // - "auto": Uses "browser" for `target: browser`. Uses "node" for `target: node`. Uses `es5` for `target: universal`.
   // - {}: A custom object which is passed to `@babel/preset-env`
   transpile: "auto",
