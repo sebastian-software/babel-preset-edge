@@ -9,6 +9,7 @@
     "format:js": "prettier --ignore-path .gitignore --write '**/*.{js,mjs}' && npm run fix:js",
     "test": "jest",
     "prepare": "rimraf lib && preppy",
+    "precommit": "lint-staged",
     "release": "git push && release-it --github.release --npm.publish --non-interactive",
     "release:minor": "git push && release-it --github.release --npm.publish --non-interactive --increment minor",
     "release:major": "git push && release-it --github.release --npm.publish --non-interactive --increment major"
@@ -29,8 +30,7 @@
   "license": "Apache-2.0",
   "pre-commit": "lint-staged",
   "lint-staged": {
-    "*.js": "eslint",
-    "*.css": "stylelint"
+    "*.js": "eslint"
   },
   "jest": {
     "testPathIgnorePatterns": [
@@ -80,7 +80,9 @@
     "eslint": "^4.19.1",
     "eslint-config-readable": "^1.12.1",
     "flow-bin": "^0.71.0",
+    "husky": "^0.14.3",
     "jest-cli": "^22.4.3",
+    "lint-staged": "^7.1.0",
     "lodash": "^4.17.10",
     "preppy": "^4.2.2",
     "prettier": "^1.12.1",
