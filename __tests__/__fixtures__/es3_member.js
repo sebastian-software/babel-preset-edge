@@ -1,3 +1,0 @@
-var foo = {
-  catch: function () {}
-}

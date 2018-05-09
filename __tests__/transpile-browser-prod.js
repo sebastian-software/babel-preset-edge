@@ -1,10 +1,11 @@
 import buildPreset from "../src"
 import { fixtures, titles, check } from "./core"
 
-describe("Webpack", () => {
+describe("Transpile: Browser: Prod", () => {
   const options = buildPreset(null, {
     sourceMaps: false,
-    imports: "webpack"
+    target: "browser",
+    env: "production"
   })
 
   fixtures.forEach((fileName, index) => {

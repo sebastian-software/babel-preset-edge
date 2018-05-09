@@ -1,10 +1,10 @@
 import buildPreset from "../src"
 import { fixtures, titles, check } from "./core"
 
-describe("Modern", () => {
+describe("Transpile: ES2015", () => {
   const options = buildPreset(null, {
     sourceMaps: false,
-    target: "modern"
+    transpile: "es2015"
   })
 
   fixtures.forEach((fileName, index) => {

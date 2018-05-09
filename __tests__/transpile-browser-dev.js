@@ -1,11 +1,11 @@
 import buildPreset from "../src"
 import { fixtures, titles, check } from "./core"
 
-describe("Production", () => {
+describe("Transpile: Browser: Dev", () => {
   const options = buildPreset(null, {
     sourceMaps: false,
-    compression: true,
-    env: "production"
+    target: "browser",
+    env: "development"
   })
 
   fixtures.forEach((fileName, index) => {

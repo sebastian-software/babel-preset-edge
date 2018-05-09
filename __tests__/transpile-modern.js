@@ -1,10 +1,10 @@
 import buildPreset from "../src"
 import { fixtures, titles, check } from "./core"
 
-describe("IE11", () => {
+describe("Transpile: Modern", () => {
   const options = buildPreset(null, {
     sourceMaps: false,
-    target: { browsers: "ie 11" }
+    transpile: "modern"
   })
 
   fixtures.forEach((fileName, index) => {

@@ -1,12 +1,10 @@
 import buildPreset from "../src"
 import { fixtures, titles, check } from "./core"
 
-describe("Non Loose", () => {
+describe("Transpile: ES5", () => {
   const options = buildPreset(null, {
     sourceMaps: false,
-    target: { browsers: "ie 11" },
-    looseMode: false,
-    imports: "rollup-nodejs"
+    transpile: "es2015"
   })
 
   fixtures.forEach((fileName, index) => {

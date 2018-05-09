@@ -1,10 +1,10 @@
 import buildPreset from "../src"
 import { fixtures, titles, check } from "./core"
 
-describe("Node v6", () => {
+describe("Target: NodeJS", () => {
   const options = buildPreset(null, {
     sourceMaps: false,
-    target: "node6"
+    target: "node"
   })
 
   fixtures.forEach((fileName, index) => {
