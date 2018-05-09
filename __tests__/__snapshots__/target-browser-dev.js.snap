@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Transpile: Browser: Dev comments 1`] = `
+exports[`Target: Browser: Dev comments 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
 
 function translate(value) {
@@ -8,13 +8,13 @@ function translate(value) {
 }"
 `;
 
-exports[`Transpile: Browser: Dev deadcode 1`] = `
+exports[`Target: Browser: Dev deadcode 1`] = `
 "const STATIC = false;
 before();
 after();"
 `;
 
-exports[`Transpile: Browser: Dev es2015: classes 1`] = `
+exports[`Target: Browser: Dev es2015: classes 1`] = `
 "export class Component extends Other {
   constructor() {
     super();
@@ -28,7 +28,7 @@ exports[`Transpile: Browser: Dev es2015: classes 1`] = `
 }"
 `;
 
-exports[`Transpile: Browser: Dev es2015: for_off 1`] = `
+exports[`Target: Browser: Dev es2015: for_off 1`] = `
 "function test() {
   for (const taskName of tasks) {
     try {
@@ -40,7 +40,7 @@ exports[`Transpile: Browser: Dev es2015: for_off 1`] = `
 }"
 `;
 
-exports[`Transpile: Browser: Dev es2015: generator 1`] = `
+exports[`Target: Browser: Dev es2015: generator 1`] = `
 "function* idMaker() {
   var index = 0;
 
@@ -48,17 +48,17 @@ exports[`Transpile: Browser: Dev es2015: generator 1`] = `
 }"
 `;
 
-exports[`Transpile: Browser: Dev es2015: set 1`] = `"new Set([1, 2, 3]);"`;
+exports[`Target: Browser: Dev es2015: set 1`] = `"new Set([1, 2, 3]);"`;
 
-exports[`Transpile: Browser: Dev es2016: exponentiation 1`] = `"var result = 8;"`;
+exports[`Target: Browser: Dev es2016: exponentiation 1`] = `"var result = 8;"`;
 
-exports[`Transpile: Browser: Dev esnext: async 1`] = `
+exports[`Target: Browser: Dev esnext: async 1`] = `
 "async function wait() {
   await loadData();
 }"
 `;
 
-exports[`Transpile: Browser: Dev esnext: async_loop 1`] = `
+exports[`Target: Browser: Dev esnext: async_loop 1`] = `
 "async function executeTasks(tasks) {
   for (const taskName of tasks) {
     try {
@@ -70,7 +70,7 @@ exports[`Transpile: Browser: Dev esnext: async_loop 1`] = `
 }"
 `;
 
-exports[`Transpile: Browser: Dev esnext: class properties 1`] = `
+exports[`Target: Browser: Dev esnext: class properties 1`] = `
 "import _defineProperty from \\"@babel/runtime/helpers/builtin/es6/defineProperty\\";
 export class Component {
   constructor() {
@@ -80,13 +80,13 @@ export class Component {
 }"
 `;
 
-exports[`Transpile: Browser: Dev esnext: dynamic import 1`] = `
+exports[`Target: Browser: Dev esnext: dynamic import 1`] = `
 "import(\\"lodash\\").then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
 `;
 
-exports[`Transpile: Browser: Dev esnext: object spread 1`] = `
+exports[`Target: Browser: Dev esnext: object spread 1`] = `
 "import _objectSpread from \\"@babel/runtime/helpers/builtin/es6/objectSpread\\";
 
 let original = {
@@ -97,31 +97,31 @@ let original = {
 }, original);"
 `;
 
-exports[`Transpile: Browser: Dev lodash: async 1`] = `
+exports[`Target: Browser: Dev lodash: async 1`] = `
 "import _parallel from \\"async/parallel\\";
 
 _parallel([]);"
 `;
 
-exports[`Transpile: Browser: Dev lodash: lodash 1`] = `
+exports[`Target: Browser: Dev lodash: lodash 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
 
 _camelCase(\\"hello world\\");"
 `;
 
-exports[`Transpile: Browser: Dev lodash: recompose 1`] = `
+exports[`Target: Browser: Dev lodash: recompose 1`] = `
 "import _compose from \\"recompose/compose\\";
 
 _compose([]);"
 `;
 
-exports[`Transpile: Browser: Dev react: jsx 1`] = `
+exports[`Target: Browser: Dev react: jsx 1`] = `
 "function render() {
   return React.createElement(\\"h1\\", null, \\"Hello\\");
 }"
 `;
 
-exports[`Transpile: Browser: Dev react: jsx spread 1`] = `
+exports[`Target: Browser: Dev react: jsx spread 1`] = `
 "function render(props) {
   return React.createElement(\\"h1\\", Object.assign({
     className: \\"large\\"
@@ -129,7 +129,7 @@ exports[`Transpile: Browser: Dev react: jsx spread 1`] = `
 }"
 `;
 
-exports[`Transpile: Browser: Dev react: proptypes 1`] = `
+exports[`Target: Browser: Dev react: proptypes 1`] = `
 "import React from \\"react\\";
 import PropTypes from \\"prop-types\\";
 

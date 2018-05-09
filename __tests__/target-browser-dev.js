@@ -1,7 +1,7 @@
 import buildPreset from "../src"
 import { fixtures, titles, check } from "./core"
 
-describe("Transpile: Browser: Dev", () => {
+describe("Target: Browser: Dev", () => {
   const options = buildPreset(null, {
     sourceMaps: false,
     target: "browser",
