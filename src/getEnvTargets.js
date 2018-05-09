@@ -47,5 +47,9 @@ export default function getEnvTargets(options) {
     envTargets = options.target
   }
 
+  if (options.debug) {
+    console.log("ENV Targets:", envTargets)
+  }
+
   return envTargets
 }
