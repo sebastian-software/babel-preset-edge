@@ -58,7 +58,7 @@ export default function env(presets, plugins, options) {
       spec: options.specMode,
 
       // Debug output of features, plugins and presets which are enabled.
-      debug: options.debug,
+      debug: false,
 
       // We prefer the transpilation of the "fast-async" plugin over the
       // slower and more complex Babel internal implementation.
