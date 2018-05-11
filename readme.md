@@ -22,9 +22,9 @@ Babel Preset Edge is a centralized modern Babel Configuration for React developm
 - React and Flowtype support baked-in for transpiling JSX and removing non-standard Flowtype definitions.
 - Optimizations for React during development (richer debug capabilities) and production (less code).
 - Automatic environment specific ES2015/2016/2017 support using [Preset Env](https://github.com/babel/babel-preset-env)
-- No transpilation of generators. Doing this produces relatively slow and complex code. Better use `async/await`.
+- No transpilation of generators. Doing this produces relatively slow and complex code. We suggest using `async/await` when possible.
 - High performance async/await transpilation using [Nodeent](https://github.com/MatAtBread/nodent#performance) making it available to older engines and browsers as well.
-- Support for dynamic `import()` statement which is used for dynamic chunk creation in Webpack (since version 2).
+- Support for dynamic `import()` statement which is used for dynamic chunk creation in Webpack.
 - Support for dynamic CSS loading + automatic chunkNames using [universal-import](https://github.com/faceyspacey/babel-plugin-universal-import).
 - Local module support for easily referencing sources inside the `src` folder of the project using the [module resolver plugin](https://github.com/tleunen/babel-plugin-module-resolver).
 - Support for converting often times used upcoming EcmaScript standards like class properties and object rest spread.
