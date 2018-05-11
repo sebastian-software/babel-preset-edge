@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transpile: NodeJS v8 comments 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+    _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
+
+function translate(value) {
+  return (0, _camelCase2.default)(value);
+}"
+`;
+
+exports[`Transpile: NodeJS v8 deadcode 1`] = `
+"\\"use strict\\";
+
+const STATIC = false;
+before();
+after();"
+`;
+
+exports[`Transpile: NodeJS v8 es2015: classes 1`] = `
+"\\"use strict\\";
+
+exports.__esModule = true;
+exports.Component = void 0;
+
+class Component extends Other {
+  constructor() {
+    super();
+    this.flag = true;
+  }
+
+  main() {
+    alert(this.foo);
+  }
+
+}
+
+exports.Component = Component;"
+`;
+
+exports[`Transpile: NodeJS v8 es2015: for_off 1`] = `
+"\\"use strict\\";
+
+function test() {
+  for (const taskName of tasks) {
+    try {
+      executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
+`;
+
+exports[`Transpile: NodeJS v8 es2015: generator 1`] = `
+"\\"use strict\\";
+
+function* idMaker() {
+  var index = 0;
+
+  while (true) yield index++;
+}"
+`;
+
+exports[`Transpile: NodeJS v8 es2015: set 1`] = `
+"\\"use strict\\";
+
+new Set([1, 2, 3]);"
+`;
+
+exports[`Transpile: NodeJS v8 es2016: exponentiation 1`] = `
+"\\"use strict\\";
+
+var result = 8;"
+`;
+
+exports[`Transpile: NodeJS v8 esnext: async 1`] = `
+"\\"use strict\\";
+
+async function wait() {
+  await loadData();
+}"
+`;
+
+exports[`Transpile: NodeJS v8 esnext: async_loop 1`] = `
+"\\"use strict\\";
+
+async function executeTasks(tasks) {
+  for (const taskName of tasks) {
+    try {
+      await executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
+`;
+
+exports[`Transpile: NodeJS v8 esnext: class properties 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
+
+exports.__esModule = true;
+exports.Component = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require(\\"@babel/runtime/helpers/builtin/defineProperty\\"));
+
+class Component {
+  constructor() {
+    (0, _defineProperty2.default)(this, \\"onClick\\", () => {});
+  }
+
+}
+
+exports.Component = Component;"
+`;
+
+exports[`Transpile: NodeJS v8 esnext: dynamic import 1`] = `
+"\\"use strict\\";
+
+import(\\"lodash\\").then(lodash => {
+  console.log(lodash.camelCase(\\"hello world\\"));
+});"
+`;
+
+exports[`Transpile: NodeJS v8 esnext: object spread 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+    _objectSpread2 = _interopRequireDefault(require(\\"@babel/runtime/helpers/builtin/objectSpread\\"));
+
+let original = {
+  bar: 10
+},
+    variant = (0, _objectSpread2.default)({
+  foo: 1
+}, original);"
+`;
+
+exports[`Transpile: NodeJS v8 lodash: async 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+    _parallel2 = _interopRequireDefault(require(\\"async/parallel\\"));
+
+(0, _parallel2.default)([]);"
+`;
+
+exports[`Transpile: NodeJS v8 lodash: lodash 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+    _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
+
+(0, _camelCase2.default)(\\"hello world\\");"
+`;
+
+exports[`Transpile: NodeJS v8 lodash: recompose 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+    _compose2 = _interopRequireDefault(require(\\"recompose/compose\\"));
+
+(0, _compose2.default)([]);"
+`;
+
+exports[`Transpile: NodeJS v8 react: jsx 1`] = `
+"\\"use strict\\";
+
+function render() {
+  return React.createElement(\\"h1\\", null, \\"Hello\\");
+}"
+`;
+
+exports[`Transpile: NodeJS v8 react: jsx spread 1`] = `
+"\\"use strict\\";
+
+function render(props) {
+  return React.createElement(\\"h1\\", Object.assign({
+    className: \\"large\\"
+  }, props), \\"Hello\\");
+}"
+`;
+
+exports[`Transpile: NodeJS v8 react: proptypes 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+    _react = _interopRequireDefault(require(\\"react\\")),
+    _propTypes = _interopRequireDefault(require(\\"prop-types\\"));
+
+class MyComponent extends _react.default.Component {
+  render() {
+    return _react.default.createElement(\\"div\\", null, this.props.userName);
+  }
+
+}
+
+MyComponent.propTypes = {
+  userName: _propTypes.default.string
+};"
+`;
