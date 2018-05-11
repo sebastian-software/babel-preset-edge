@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "fix": "eslint --fix .",
-    "format": "prettier --ignore-path .gitignore --write '**/*.{js,mjs}' && npm run fix",
+    "format": "prettier --ignore-path .gitignore --write '**/*.js' && npm run fix",
     "test": "jest",
     "prepare": "rimraf lib && preppy",
     "precommit": "lint-staged",
