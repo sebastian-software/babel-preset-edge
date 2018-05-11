@@ -6,6 +6,8 @@ import envPlugins from "@babel/preset-env/data/plugins.json"
 import getEnvTargets from "../getEnvTargets"
 
 export default function async(presets, plugins, options) {
+  /* eslint-disable immutable/no-mutation */
+
   // Directly ask babel-preset-env whether we want to use transform-async
   // based on currently configured targets. Only if that's the case we
   // transform our async/await code. Otherwise we assume it works without
