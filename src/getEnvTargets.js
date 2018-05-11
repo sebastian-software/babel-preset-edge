@@ -6,7 +6,7 @@ import getTargets from "@babel/preset-env/lib/targets-parser"
 import { isProduction } from "./util"
 import modernTarget from "./modernTarget"
 
-const engines = require(getAppRoot() + "/package.json").engines
+const engines = require(`${getAppRoot()}/package.json`).engines
 
 /* eslint-disable immutable/no-mutation, complexity */
 export default function getEnvTargets(options) {
@@ -27,7 +27,9 @@ export default function getEnvTargets(options) {
   //   envTargets.browsers = []
   // }
 
-  if (options.transpile === "current") {
+  if (typeof options.transpile === "object") {
+    envTargets = options.transpile
+  } else if (options.transpile === "current") {
     // Scripts which are directly used like tests can be transpiled for the current NodeJS version
     envTargets.node = "current"
     envTargets.browsers = []
@@ -37,8 +39,9 @@ export default function getEnvTargets(options) {
     // for passing it to browserslist internally. Yeah.
     envTargets.browsers = browserslist(null, {
       env:
-        process.env.BROWSERSLIST_ENV ||
-          isProduction(options) ? "production" : "development"
+        process.env.BROWSERSLIST_ENV || isProduction(options) ?
+          "production" :
+          "development"
     })
   } else if (options.transpile === "modern") {
     envTargets = modernTarget
@@ -46,8 +49,6 @@ export default function getEnvTargets(options) {
     // Compilation with "latest" preset supporting a wide range of clients via ES5 output
     // For ignoring any existing browserslist config we have to pass over an empty array.
     envTargets.browsers = []
-  } else if (typeof options.transpile === "object") {
-    envTargets = options.target
   } else if (options.transpile === "node") {
     // Using NodeJS version from engine field
     if (engines && engines.node) {
@@ -61,6 +62,8 @@ export default function getEnvTargets(options) {
         envTargets.node = "6.9.0"
       } else if (semver.satisfies("8.9.0", engines.node)) {
         envTargets.node = "8.9.0"
+      } else {
+        throw new Error("Invalid transpile configuration! Unable to match required engines.")
       }
     } else {
       // As Node v4 is out of support, we use the current LTS as default
@@ -68,6 +71,8 @@ export default function getEnvTargets(options) {
       // This behavior reduces the amount a transpilations a bit when working in pure NodeJS environments
       envTargets.node = "6.9.0"
     }
+  } else {
+    throw new Error("Invalid transpile configuration!")
   }
 
   if (options.debug) {
