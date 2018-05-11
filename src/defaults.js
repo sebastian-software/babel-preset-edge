@@ -42,11 +42,6 @@ export default {
   // - "auto": Automatically choose best behavior
   imports: "auto",
 
-  // Prefer built-ins over custom code. This mainly benefits for modern engines.
-  // As we are using the new "usage" mode for `preset-env` we automatically include
-  // all polyfills required by the generated code.
-  useBuiltIns: true,
-
   // Replace the function used when compiling JSX expressions. Default: React.
   // See also: https://www.npmjs.com/package/@babel/preset-react
   jsxPragma: null,
@@ -54,11 +49,6 @@ export default {
   // Replace the component used when compiling JSX fragments. Default: React.
   // See also: https://www.npmjs.com/package/@babel/preset-react
   jsxPragmaFrag: null,
-
-  // Do you want to transpile the modern async/await code?
-  // Either `"promises"` or `null`.
-  // Transpiling with generators is not supported by this preset as the resulting code is slow and complex.
-  rewriteAsync: "promises",
 
   // Transpilation Settings: We default on a loose transpilation which is efficient
   // but not overly compliant. If you experience issues it might be better to

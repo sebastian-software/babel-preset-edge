@@ -35,71 +35,79 @@ Babel Preset Edge is a centralized modern Babel Configuration for React developm
 These are our default options. They can be tweaked by passing the required options to the preset.
 
 ```js
-const defaults = {
-  // Whether to print hints on transpilation settings which were selected.
-  debug: false,
+// Whether to print hints on transpilation settings which were selected.
+debug: false,
 
-  // One of the following:
-  // - "auto": Automatically determine runtime and environment variables for deciding on which target to use.
-  // - "library": Ideally used for publishing libraries e.g. on NPM [Browsers + NodeJS]
-  // - "es2015": Like "library, but explicitely disables all ES2015 transforms. [Browsers + NodeJS]
-  // - "modern": Like "library, but only transpiles features requires by modern browsers (see docs) [Browsers + NodeJS]
-  // - "node"/"cli"/"script"/"binary": any NodeJS related execution with wide support (currently Node v6 LTS)
-  // - "node6": identical to the previous option as long as v6 is more widely used - will force v6 when used afterwards.
-  // - "node8": identical to the previous option but enforce target Node v8 LTS instead of v6 LTS
-  // - "node10": identical to the previous option but enforce target Node v10 instead of v6 LTS
-  // - "current"/"test": current NodeJS version
-  // - "browser"/"web": browsers as defined by browserslist config
-  // - {}: any custom settings support by Env-Preset
-  target: "auto",
+// One of the following:
+// - "node": Targetting NodeJS (Outputs CommonJS modules, translates dynamic imports into require statements, ...)
+// - "browser": Targetting Browsers (Expects Webpack, Parcel or Rollup post-processing, keeps dynamic import, ...)
+// - "universal": Targetting both NodeJS and Browsers (Ideally suited for libraries published for both NodeJS and browsers via NPM)
+// - "auto": Define target automatically based on NODE_ENV environment.
+target: "auto",
 
-  // Choose environment based on environment variables ... or override with custom value here.
-  env: "auto",
+// Choose which transpilation should be applied.
+// One of the following:
+// - "es5": Standard output for widest engine and browser support. Ideally suited for publishing to NPM.
+// - "es2015": Alternative to standard es5 reaching only modern engines and browsers which support at least all features of es2015. Might be a good alternative for publishing modern libraries to NPM or when using transpilation on all content - even `node_modules` in application code.
+// - "modern": Uses a built-in definition of modern NodeJS and browser versions. This is interesting for local development of application as it accelerates features like hot-loading quite a bit.
+// - "current": NodeJS only. Ideally for local running test suites, etc. Using the least amount of transpile for making code runnable locally.
+// - "node": NodeJS only. Uses `engines` field in `package.json` to define the NodeJS version to target.
+// - "browser": Browser only. Uses local "browserslist" config to determine transpilation target. Uses `BROWSERSLIST_ENV` if configured. Otherwise uses `env` passed through preset or via `NODE_ENV`.
+// - "auto": Uses "browser" for `target: browser`. Uses "node" for `target: node`. Uses `es5` for `target: universal`.
+// - {}: A custom object which is passed to `@babel/preset-env`
+transpile: "auto",
 
-  // Choose automatically depending on target or use one of these for full control:
-  // - "cjs": Transpile module imports to commonjs
-  // - false: Keep module imports as is (e.g. protecting ESM for optiomal usage with Webpack/Rollup)
-  // - "auto": Automatic selection based on target.
-  modules: "auto",
+// Select environment where we are in for the current job.
+// One the the following:
+// - "development": During development of applications, publishing of libraries containing debug code
+// - "production": Publishing application to the public, publishing of clean non-debug code containing libraries and command line applications.
+// - "test": Used for testing e.g. with Ava or Jest test runners.
+// - "auto": Automatically using the `EDGE_ENV` or `NODE_ENV` environment variables.
+env: "auto",
 
-  // Choose automatically depending on target by default or use one of these for full control:
-  // - "node": For usage in NodeJS (e.g. produce binaries).
-  // - "component": Wraps imports into a helper for dealing with async components.
-  imports: null,
+// Choose whether and how imports should be processed.
+// - "cjs": Transpile module imports to CommonJS
+// - false: Keep module imports
+// - "auto": Automatic selection based on `target`.
+modules: "auto",
 
-  // Prefer built-ins over custom code. This mainly benefits for modern engines.
-  // As we are using the new "usage" mode for `preset-env` we automatically include
-  // all polyfills required by the generated code.
-  useBuiltIns: true,
+// Choose automatically depending on target by default or use one of these for full control:
+// - "node": For usage in NodeJS (e.g. produce binaries), publish NodeJS-only libraries.
+// - "ssr": Wraps imports into a helper for dealing with async components when using Server Side Rendering (SSR).
+// - "auto": Automatically choose best behavior
+imports: "auto",
 
-  // JSX Pragma. Default: Use React
-  jsxPragma: "React.createElement",
+// Replace the function used when compiling JSX expressions. Default: React.
+// See also: https://www.npmjs.com/package/@babel/preset-react
+jsxPragma: null,
 
-  // Async settings: Either `"promises"` or `null`
-  rewriteAsync: "promises",
+// Replace the component used when compiling JSX fragments. Default: React.
+// See also: https://www.npmjs.com/package/@babel/preset-react
+jsxPragmaFrag: null,
 
-  // Transpilation Settings: We default on a loose transpilation which is efficient
-  // but not overly compliant. If you experience issues it might be better to
-  // switch `looseMode` off. `specMode` on the other hand might produce
-  // 100% correct code, but tend to be large and slower as well.
-  looseMode: true,
-  specMode: false,
+// Transpilation Settings: We default on a loose transpilation which is efficient
+// but not overly compliant. If you experience issues it might be better to
+// switch `looseMode` off. `specMode` on the other hand might produce
+// 100% correct code, but tend to be large and slower as well.
+looseMode: true,
+specMode: false,
 
-  // Lodash Plugin Settings
-  optimizeModules: [ "lodash", "async", "rambda", "recompose" ],
+// Lodash Plugin Settings. Optimizes import statements for smaller bundles.
+// The idea behind here is that some libraries are publishing individual functions into individual files.
+// This helps tree-shaking until all libraries are correctly dealing with side-effect flags and bundlers have better support.
+optimizeModules: [ "lodash", "async", "rambda", "recompose" ],
 
-  // Configuration for module lookup
-  sourceFolder: "src",
+// Configuration for module lookup
+sourceFolder: "src",
 
-  // Whether to enable source map output
-  sourceMaps: true,
+// Whether to enable source map output
+sourceMaps: true,
 
-  // Enable full compression on production scripts or basic compression for libraries or during development.
-  compression: true,
+// Enable full compression on production scripts or basic compression for libraries or during development.
+compression: true,
 
-  // Do not apply general minification by default
-  minified: false
-}
+// Whether to apply more agressive minification. Automatically enabled when using `compression: true` and running in production env.
+minified: null
 ```
 
 ## Supported targets
