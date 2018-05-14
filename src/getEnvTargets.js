@@ -75,6 +75,12 @@ export default function getEnvTargets(options) {
     throw new Error("Invalid transpile configuration!")
   }
 
+  // We fill the browsers field if not defined with an empty array so that
+  // the browserslist config is properly ignored when transpilation if passed over.
+  if (envTargets.node != null && envTargets.browsers == null) {
+    envTargets.browsers = []
+  }
+
   if (options.debug) {
     console.log("- Computed Targets:", envTargets)
     console.log("- Final Targets:", getTargets(envTargets))
