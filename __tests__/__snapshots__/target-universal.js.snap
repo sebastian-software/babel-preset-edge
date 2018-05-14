@@ -252,21 +252,21 @@ var page = \\"About\\",
     lang = \\"de_DE\\";
 export var views = loadable(function () {
   return import(
-  /*webpackChunkName:'[request]-eNKDf'*/
+  /*webpackChunkName:'views-[request]-eNKDf'*/
   \\"./views/About\\");
 }, {
   modules: [\\"./views/About\\"]
 });
 export var leanIntl = loadable(function () {
   return import(
-  /*webpackChunkName:'[request]-zd7G4'*/
+  /*webpackChunkName:'lean-intl-[request]-zd7G4'*/
   \\"./lean-intl/\\" + lang + \\"/data\\");
 }, {
   modules: [\\"./lean-intl/\\" + lang + \\"/data\\"]
 });
 export var reactIntl = loadable(function () {
   return import(
-  /*webpackChunkName:'[request]-5gr63'*/
+  /*webpackChunkName:'react-intl-[request]-5gr63'*/
   \\"./react-intl/\\" + lang + \\"/data\\");
 }, {
   modules: [\\"./react-intl/\\" + lang + \\"/data\\"]

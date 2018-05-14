@@ -215,19 +215,19 @@ var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\
 const page = \\"About\\",
       lang = \\"de_DE\\",
       views = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'[request]-eNKDf'*/
+/*webpackChunkName:'views-[request]-eNKDf'*/
 \`./views/\${\\"About\\"}\`), {
   modules: [\`./views/\${\\"About\\"}\`]
 });
 exports.views = views;
 const leanIntl = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'[request]-zd7G4'*/
+/*webpackChunkName:'lean-intl-[request]-zd7G4'*/
 \`./lean-intl/\${lang}/data\`), {
   modules: [\`./lean-intl/\${lang}/data\`]
 });
 exports.leanIntl = leanIntl;
 const reactIntl = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'[request]-5gr63'*/
+/*webpackChunkName:'react-intl-[request]-5gr63'*/
 \`./react-intl/\${lang}/data\`), {
   modules: [\`./react-intl/\${lang}/data\`]
 });

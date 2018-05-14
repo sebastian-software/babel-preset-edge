@@ -142,17 +142,17 @@ exports[`Transpile: Modern loadable wildcard 1`] = `
 const page = \\"About\\",
       lang = \\"de_DE\\";
 export const views = loadable(() => import(
-/*webpackChunkName:'[request]-eNKDf'*/
+/*webpackChunkName:'views-[request]-eNKDf'*/
 \`./views/\${\\"About\\"}\`), {
   modules: [\`./views/\${\\"About\\"}\`]
 });
 export const leanIntl = loadable(() => import(
-/*webpackChunkName:'[request]-zd7G4'*/
+/*webpackChunkName:'lean-intl-[request]-zd7G4'*/
 \`./lean-intl/\${lang}/data\`), {
   modules: [\`./lean-intl/\${lang}/data\`]
 });
 export const reactIntl = loadable(() => import(
-/*webpackChunkName:'[request]-5gr63'*/
+/*webpackChunkName:'react-intl-[request]-5gr63'*/
 \`./react-intl/\${lang}/data\`), {
   modules: [\`./react-intl/\${lang}/data\`]
 });"

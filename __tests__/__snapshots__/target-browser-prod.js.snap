@@ -4,7 +4,7 @@ exports[`Target: Browser: Prod comments 1`] = `"import _camelCase from\\"lodash/
 
 exports[`Target: Browser: Prod deadcode 1`] = `"var STATIC=!1;!1,before(),!1,after();"`;
 
-exports[`Target: Browser: Prod es2015: classes 1`] = `"import _inheritsLoose from\\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";export var Component=/*#__PURE__*/function(a){function b(){var b;return b=a.call(this)||this,b.flag=!0,b}var c=b.prototype;return c.main=function main(){alert(this.foo)},_inheritsLoose(b,a),b}(Other);"`;
+exports[`Target: Browser: Prod es2015: classes 1`] = `"import _inheritsLoose from\\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";export var Component=/*#__PURE__*/function(a){function b(){var b;return b=a.call(this)||this,b.flag=!0,b}var c=b.prototype;return c.main=function a(){alert(this.foo)},_inheritsLoose(b,a),b}(Other);"`;
 
 exports[`Target: Browser: Prod es2015: for_off 1`] = `"import\\"core-js/modules/es7.symbol.async-iterator\\";import\\"core-js/modules/es6.symbol\\";import\\"core-js/modules/web.dom.iterable\\";function test(){for(var a=tasks,b=Array.isArray(a),c=0,a=b?a:a[Symbol.iterator]();;){var d;if(b){if(c>=a.length)break;d=a[c++]}else{if(c=a.next(),c.done)break;d=c.value}try{executeCommands()}catch(a){console.error(\\"Error\\")}}}"`;
 
@@ -28,7 +28,7 @@ exports[`Target: Browser: Prod loadable 1`] = `"import loadable from\\"loadable-
 
 exports[`Target: Browser: Prod loadable magic-comments 1`] = `"import loadable from\\"loadable-components\\";export var Home=loadable(function(){return import(/*webpackChunkName:'Home-bqRLr'*/\\"./views/Home\\")},{modules:[\\"./views/Home\\"]});export var About=loadable(function(){return import(/* webpackChunkName: \\"About\\" */\\"./views/About\\")},{modules:[\\"./views/About\\"]});export var Contact=loadable(function(){return import(/*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-Urv1P'*/\\"./views/Contact\\")},{modules:[\\"./views/Contact\\"]});"`;
 
-exports[`Target: Browser: Prod loadable wildcard 1`] = `"import loadable from\\"loadable-components\\";var page=\\"About\\",lang=\\"de_DE\\";export var views=loadable(function(){return import(/*webpackChunkName:'[request]-eNKDf'*/\\"./views/About\\")},{modules:[\\"./views/About\\"]});export var leanIntl=loadable(function(){return import(/*webpackChunkName:'[request]-zd7G4'*/\\"./lean-intl/\\"+lang+\\"/data\\")},{modules:[\\"./lean-intl/\\"+lang+\\"/data\\"]});export var reactIntl=loadable(function(){return import(/*webpackChunkName:'[request]-5gr63'*/\\"./react-intl/\\"+lang+\\"/data\\")},{modules:[\\"./react-intl/\\"+lang+\\"/data\\"]});"`;
+exports[`Target: Browser: Prod loadable wildcard 1`] = `"import loadable from\\"loadable-components\\";var page=\\"About\\",lang=\\"de_DE\\";export var views=loadable(function(){return import(/*webpackChunkName:'views-[request]-eNKDf'*/\\"./views/About\\")},{modules:[\\"./views/About\\"]});export var leanIntl=loadable(function(){return import(/*webpackChunkName:'lean-intl-[request]-zd7G4'*/\\"./lean-intl/\\"+lang+\\"/data\\")},{modules:[\\"./lean-intl/\\"+lang+\\"/data\\"]});export var reactIntl=loadable(function(){return import(/*webpackChunkName:'react-intl-[request]-5gr63'*/\\"./react-intl/\\"+lang+\\"/data\\")},{modules:[\\"./react-intl/\\"+lang+\\"/data\\"]});"`;
 
 exports[`Target: Browser: Prod lodash: async 1`] = `"import _parallel from\\"async/parallel\\";_parallel([]);"`;
 
@@ -40,4 +40,4 @@ exports[`Target: Browser: Prod react: jsx 1`] = `"import _jsx from\\"@babel/runt
 
 exports[`Target: Browser: Prod react: jsx spread 1`] = `"import\\"core-js/modules/es6.object.assign\\";function render(a){return React.createElement(\\"h1\\",Object.assign({className:\\"large\\"},a),\\"Hello\\")}"`;
 
-exports[`Target: Browser: Prod react: proptypes 1`] = `"import _jsx from\\"@babel/runtime/helpers/builtin/es6/jsx\\";import _inheritsLoose from\\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";import React from\\"react\\";var MyComponent=/*#__PURE__*/function(a){function b(){return a.apply(this,arguments)||this}var c=b.prototype;return c.render=function render(){return _jsx(\\"div\\",{},void 0,this.props.userName)},_inheritsLoose(b,a),b}(React.Component);"`;
+exports[`Target: Browser: Prod react: proptypes 1`] = `"import _jsx from\\"@babel/runtime/helpers/builtin/es6/jsx\\";import _inheritsLoose from\\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";import React from\\"react\\";var MyComponent=/*#__PURE__*/function(a){function b(){return a.apply(this,arguments)||this}var c=b.prototype;return c.render=function a(){return _jsx(\\"div\\",{},void 0,this.props.userName)},_inheritsLoose(b,a),b}(React.Component);"`;
