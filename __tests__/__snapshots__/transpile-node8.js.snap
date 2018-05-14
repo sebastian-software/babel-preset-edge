@@ -121,7 +121,9 @@ exports.Component = Component;"
 exports[`Transpile: NodeJS v8 esnext: dynamic import 1`] = `
 "\\"use strict\\";
 
-import(\\"lodash\\").then(lodash => {
+import(
+/*webpackChunkName:'lodash-m66dk'*/
+\\"lodash\\").then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
 `;
@@ -150,16 +152,52 @@ exports.Contact = exports.About = exports.Home = void 0;
 
 var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
 
-const Home = (0, _loadableComponents.default)(() => import(\\"./Home\\"), {
-  modules: [\\"./Home\\"]
+const Home = (0, _loadableComponents.default)(() => import(
+/*webpackChunkName:'Home-m66dk'*/
+\\"./views/Home\\"), {
+  modules: [\\"./views/Home\\"]
 });
 exports.Home = Home;
-const About = (0, _loadableComponents.default)(() => import(\\"./About\\"), {
-  modules: [\\"./About\\"]
+const About = (0, _loadableComponents.default)(() => import(
+/*webpackChunkName:'About-m66dk'*/
+\\"./views/About\\"), {
+  modules: [\\"./views/About\\"]
 });
 exports.About = About;
-const Contact = (0, _loadableComponents.default)(() => import(\\"./Contact\\"), {
-  modules: [\\"./Contact\\"]
+const Contact = (0, _loadableComponents.default)(() => import(
+/*webpackChunkName:'Contact-m66dk'*/
+\\"./views/Contact\\"), {
+  modules: [\\"./views/Contact\\"]
+});
+exports.Contact = Contact;"
+`;
+
+exports[`Transpile: NodeJS v8 loadable magic-comments 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
+
+exports.__esModule = true;
+exports.Contact = exports.About = exports.Home = void 0;
+
+var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
+
+const Home = (0, _loadableComponents.default)(() => import(
+/*webpackChunkName:'Home-m66dk'*/
+\\"./views/Home\\"), {
+  modules: [\\"./views/Home\\"]
+});
+exports.Home = Home;
+const About = (0, _loadableComponents.default)(() => import(
+/* webpackChunkName: \\"About\\" */
+\\"./views/About\\"), {
+  modules: [\\"./views/About\\"]
+});
+exports.About = About;
+const Contact = (0, _loadableComponents.default)(() => import(
+/*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-m66dk'*/
+\\"./views/Contact\\"), {
+  modules: [\\"./views/Contact\\"]
 });
 exports.Contact = Contact;"
 `;

@@ -81,7 +81,9 @@ export class Component {
 `;
 
 exports[`Transpile: Modern esnext: dynamic import 1`] = `
-"import(\\"lodash\\").then(lodash => {
+"import(
+/*webpackChunkName:'lodash-m66dk'*/
+\\"lodash\\").then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
 `;
@@ -99,14 +101,39 @@ let original = {
 
 exports[`Transpile: Modern loadable 1`] = `
 "import loadable from 'loadable-components';
-export const Home = loadable(() => import(\\"./Home\\"), {
-  modules: [\\"./Home\\"]
+export const Home = loadable(() => import(
+/*webpackChunkName:'Home-m66dk'*/
+\\"./views/Home\\"), {
+  modules: [\\"./views/Home\\"]
 });
-export const About = loadable(() => import(\\"./About\\"), {
-  modules: [\\"./About\\"]
+export const About = loadable(() => import(
+/*webpackChunkName:'About-m66dk'*/
+\\"./views/About\\"), {
+  modules: [\\"./views/About\\"]
 });
-export const Contact = loadable(() => import(\\"./Contact\\"), {
-  modules: [\\"./Contact\\"]
+export const Contact = loadable(() => import(
+/*webpackChunkName:'Contact-m66dk'*/
+\\"./views/Contact\\"), {
+  modules: [\\"./views/Contact\\"]
+});"
+`;
+
+exports[`Transpile: Modern loadable magic-comments 1`] = `
+"import loadable from 'loadable-components';
+export const Home = loadable(() => import(
+/*webpackChunkName:'Home-m66dk'*/
+\\"./views/Home\\"), {
+  modules: [\\"./views/Home\\"]
+});
+export const About = loadable(() => import(
+/* webpackChunkName: \\"About\\" */
+\\"./views/About\\"), {
+  modules: [\\"./views/About\\"]
+});
+export const Contact = loadable(() => import(
+/*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-m66dk'*/
+\\"./views/Contact\\"), {
+  modules: [\\"./views/Contact\\"]
 });"
 `;
 

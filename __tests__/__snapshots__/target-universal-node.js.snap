@@ -202,24 +202,50 @@ exports[`Target: Universal: Node Imports loadable 1`] = `
 import loadable from 'loadable-components';
 export var Home = loadable(function () {
   return Promise.resolve().then(function () {
-    return require(\\"./Home\\");
+    return require(\\"./views/Home\\");
   });
 }, {
-  modules: [\\"./Home\\"]
+  modules: [\\"./views/Home\\"]
 });
 export var About = loadable(function () {
   return Promise.resolve().then(function () {
-    return require(\\"./About\\");
+    return require(\\"./views/About\\");
   });
 }, {
-  modules: [\\"./About\\"]
+  modules: [\\"./views/About\\"]
 });
 export var Contact = loadable(function () {
   return Promise.resolve().then(function () {
-    return require(\\"./Contact\\");
+    return require(\\"./views/Contact\\");
   });
 }, {
-  modules: [\\"./Contact\\"]
+  modules: [\\"./views/Contact\\"]
+});"
+`;
+
+exports[`Target: Universal: Node Imports loadable magic-comments 1`] = `
+"import \\"core-js/modules/es6.promise\\";
+import loadable from 'loadable-components';
+export var Home = loadable(function () {
+  return Promise.resolve().then(function () {
+    return require(\\"./views/Home\\");
+  });
+}, {
+  modules: [\\"./views/Home\\"]
+});
+export var About = loadable(function () {
+  return Promise.resolve().then(function () {
+    return require(\\"./views/About\\");
+  });
+}, {
+  modules: [\\"./views/About\\"]
+});
+export var Contact = loadable(function () {
+  return Promise.resolve().then(function () {
+    return require(\\"./views/Contact\\");
+  });
+}, {
+  modules: [\\"./views/Contact\\"]
 });"
 `;
 

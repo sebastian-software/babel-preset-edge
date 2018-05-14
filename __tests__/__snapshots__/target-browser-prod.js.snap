@@ -20,11 +20,13 @@ exports[`Target: Browser: Prod esnext: async_loop 1`] = `"import\\"core-js/modul
 
 exports[`Target: Browser: Prod esnext: class properties 1`] = `"import _defineProperty from\\"@babel/runtime/helpers/builtin/es6/defineProperty\\";export var Component=function(){_defineProperty(this,\\"onClick\\",function(){})};"`;
 
-exports[`Target: Browser: Prod esnext: dynamic import 1`] = `"import(\\"lodash\\").then(function(a){console.log(a.camelCase(\\"hello world\\"))});"`;
+exports[`Target: Browser: Prod esnext: dynamic import 1`] = `"import(/*webpackChunkName:'lodash-m66dk'*/\\"lodash\\").then(function(a){console.log(a.camelCase(\\"hello world\\"))});"`;
 
 exports[`Target: Browser: Prod esnext: object spread 1`] = `"import _objectSpread from\\"@babel/runtime/helpers/builtin/es6/objectSpread\\";var original={bar:10},variant=_objectSpread({foo:1},original);"`;
 
-exports[`Target: Browser: Prod loadable 1`] = `"import loadable from\\"loadable-components\\";export var Home=loadable(function(){return import(\\"./Home\\")},{modules:[\\"./Home\\"]});export var About=loadable(function(){return import(\\"./About\\")},{modules:[\\"./About\\"]});export var Contact=loadable(function(){return import(\\"./Contact\\")},{modules:[\\"./Contact\\"]});"`;
+exports[`Target: Browser: Prod loadable 1`] = `"import loadable from\\"loadable-components\\";export var Home=loadable(function(){return import(/*webpackChunkName:'Home-m66dk'*/\\"./views/Home\\")},{modules:[\\"./views/Home\\"]});export var About=loadable(function(){return import(/*webpackChunkName:'About-m66dk'*/\\"./views/About\\")},{modules:[\\"./views/About\\"]});export var Contact=loadable(function(){return import(/*webpackChunkName:'Contact-m66dk'*/\\"./views/Contact\\")},{modules:[\\"./views/Contact\\"]});"`;
+
+exports[`Target: Browser: Prod loadable magic-comments 1`] = `"import loadable from\\"loadable-components\\";export var Home=loadable(function(){return import(/*webpackChunkName:'Home-m66dk'*/\\"./views/Home\\")},{modules:[\\"./views/Home\\"]});export var About=loadable(function(){return import(/* webpackChunkName: \\"About\\" */\\"./views/About\\")},{modules:[\\"./views/About\\"]});export var Contact=loadable(function(){return import(/*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-m66dk'*/\\"./views/Contact\\")},{modules:[\\"./views/Contact\\"]});"`;
 
 exports[`Target: Browser: Prod lodash: async 1`] = `"import _parallel from\\"async/parallel\\";_parallel([]);"`;
 
