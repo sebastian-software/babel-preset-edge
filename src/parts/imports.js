@@ -2,7 +2,6 @@ import dynamicImportSyntaxPlugin from "babel-plugin-syntax-dynamic-import"
 import dynamicImportRollupNode from "babel-plugin-dynamic-import-node"
 import dynamicImportServerRendering from "loadable-components/babel"
 
-
 import json5 from "json5"
 import { dirname, basename, extname } from "path"
 import crypto from "crypto"
@@ -11,8 +10,15 @@ import basex from "base-x"
 const base62 = basex("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 const DEFAULT_LENGTH = 5
-function hashString(input, precision=DEFAULT_LENGTH) {
-  return base62.encode(crypto.createHash('sha256').update(input).digest()).slice(0, precision)
+function hashString(input, precision = DEFAULT_LENGTH) {
+  return base62
+    .encode(
+      crypto
+        .createHash("sha256")
+        .update(input)
+        .digest()
+    )
+    .slice(0, precision)
 }
 
 function getImportArgPath(path) {
@@ -36,7 +42,17 @@ function autoNamePlugin({ types, template }) {
 
         const importArg = getImportArgPath(path)
         const importArgNode = importArg.node
-        const { quasis, leadingComments } = importArgNode
+        const { quasis, expressions, leadingComments } = importArgNode
+
+        const requester = dirname(state.file.opts.filename)
+        const request = quasis ? quasis[0].value.cooked : importArgNode.value
+
+        // There exists the possibility of non usable value. Typically only
+        // when the user has import() statements with other complex data, but
+        // not a string or template string. We handle this gracefully by ignoring.
+        if (request == null) {
+          return
+        }
 
         const jsonContent = {}
 
@@ -52,7 +68,7 @@ function autoNamePlugin({ types, template }) {
             let parsed
             try {
               parsed = json5.parse("{" + comment.value + "}")
-            } catch(err) {
+            } catch (err) {
               // Most probably a non JSON5 comment
               return
             }
@@ -74,15 +90,23 @@ function autoNamePlugin({ types, template }) {
         }
 
         if (!jsonContent.webpackChunkName) {
-          const requester = dirname(state.file.opts.filename)
-          const request = importArgNode.value
-          const plainRequest = basename(request, extname(request))
+          const hasExpressions = expressions && expressions.length > 0
 
-          // Hash request origin
-          const requesterHash = hashString(requester)
+          // Append [request] as placeholder for dynamic part in WebpackChunkName
+          const fullRequest = hasExpressions ? request + "[request]" : request
+
+          // Prepend some clean identifier of the static part when using expressions.
+          // This is not required to work, but helps users to identify different chunks.
+          const requestPrefix = hasExpressions ? request.replace(/^[./]+|(\.js$)/g, "").replace(/\//g, "-") : ""
+
+          // Cleanup combined request to not contain any paths info
+          const plainRequest = basename(fullRequest, extname(fullRequest))
+
+          // Hash request origin and request
+          const importHash = hashString(requester + "::" + request)
 
           // Add our chunk name to the previously parsed values
-          jsonContent.webpackChunkName = plainRequest + "-" + requesterHash
+          jsonContent.webpackChunkName = requestPrefix + plainRequest + "-" + importHash
 
           // Convert to string and remove outer JSON object symbols {}
           const magicComment = json5.stringify(jsonContent).slice(1, -1)
@@ -95,7 +119,6 @@ function autoNamePlugin({ types, template }) {
   }
 }
 
-
 export default function imports(presets, plugins, options) {
   // Support for new @import() syntax
   plugins.push(dynamicImportSyntaxPlugin)
@@ -104,7 +127,6 @@ export default function imports(presets, plugins, options) {
   plugins.push(dynamicImportServerRendering)
 
   plugins.push(autoNamePlugin)
-
 
   // Transpile the parsed import() syntax for compatibility or extended features.
   if (options.imports === "node") {

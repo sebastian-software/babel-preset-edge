@@ -249,6 +249,34 @@ export var Contact = loadable(function () {
 });"
 `;
 
+exports[`Target: Universal: Node Imports loadable wildcard 1`] = `
+"import \\"core-js/modules/es6.promise\\";
+import loadable from 'loadable-components';
+var page = \\"About\\",
+    lang = \\"de_DE\\";
+export var views = loadable(function () {
+  return Promise.resolve().then(function () {
+    return require(\\"./views/About\\");
+  });
+}, {
+  modules: [\\"./views/About\\"]
+});
+export var leanIntl = loadable(function () {
+  return Promise.resolve().then(function () {
+    return require(\\"./lean-intl/\\" + lang + \\"/data\\");
+  });
+}, {
+  modules: [\\"./lean-intl/\\" + lang + \\"/data\\"]
+});
+export var reactIntl = loadable(function () {
+  return Promise.resolve().then(function () {
+    return require(\\"./react-intl/\\" + lang + \\"/data\\");
+  });
+}, {
+  modules: [\\"./react-intl/\\" + lang + \\"/data\\"]
+});"
+`;
+
 exports[`Target: Universal: Node Imports lodash: async 1`] = `
 "import _parallel from \\"async/parallel\\";
 

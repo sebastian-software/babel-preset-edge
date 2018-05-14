@@ -179,7 +179,7 @@ export var Component = function Component() {
 
 exports[`Transpile: ES5 esnext: dynamic import 1`] = `
 "import(
-/*webpackChunkName:'lodash-m66dk'*/
+/*webpackChunkName:'lodash-pst7t'*/
 \\"lodash\\").then(function (lodash) {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
@@ -200,21 +200,21 @@ exports[`Transpile: ES5 loadable 1`] = `
 "import loadable from 'loadable-components';
 export var Home = loadable(function () {
   return import(
-  /*webpackChunkName:'Home-m66dk'*/
+  /*webpackChunkName:'Home-bqRLr'*/
   \\"./views/Home\\");
 }, {
   modules: [\\"./views/Home\\"]
 });
 export var About = loadable(function () {
   return import(
-  /*webpackChunkName:'About-m66dk'*/
+  /*webpackChunkName:'About-q5EMT'*/
   \\"./views/About\\");
 }, {
   modules: [\\"./views/About\\"]
 });
 export var Contact = loadable(function () {
   return import(
-  /*webpackChunkName:'Contact-m66dk'*/
+  /*webpackChunkName:'Contact-Urv1P'*/
   \\"./views/Contact\\");
 }, {
   modules: [\\"./views/Contact\\"]
@@ -225,7 +225,7 @@ exports[`Transpile: ES5 loadable magic-comments 1`] = `
 "import loadable from 'loadable-components';
 export var Home = loadable(function () {
   return import(
-  /*webpackChunkName:'Home-m66dk'*/
+  /*webpackChunkName:'Home-bqRLr'*/
   \\"./views/Home\\");
 }, {
   modules: [\\"./views/Home\\"]
@@ -239,10 +239,37 @@ export var About = loadable(function () {
 });
 export var Contact = loadable(function () {
   return import(
-  /*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-m66dk'*/
+  /*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-Urv1P'*/
   \\"./views/Contact\\");
 }, {
   modules: [\\"./views/Contact\\"]
+});"
+`;
+
+exports[`Transpile: ES5 loadable wildcard 1`] = `
+"import loadable from 'loadable-components';
+var page = \\"About\\",
+    lang = \\"de_DE\\";
+export var views = loadable(function () {
+  return import(
+  /*webpackChunkName:'[request]-eNKDf'*/
+  \\"./views/About\\");
+}, {
+  modules: [\\"./views/About\\"]
+});
+export var leanIntl = loadable(function () {
+  return import(
+  /*webpackChunkName:'[request]-zd7G4'*/
+  \\"./lean-intl/\\" + lang + \\"/data\\");
+}, {
+  modules: [\\"./lean-intl/\\" + lang + \\"/data\\"]
+});
+export var reactIntl = loadable(function () {
+  return import(
+  /*webpackChunkName:'[request]-5gr63'*/
+  \\"./react-intl/\\" + lang + \\"/data\\");
+}, {
+  modules: [\\"./react-intl/\\" + lang + \\"/data\\"]
 });"
 `;
 
