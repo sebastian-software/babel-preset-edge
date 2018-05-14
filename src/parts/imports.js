@@ -1,6 +1,6 @@
 import dynamicImportSyntaxPlugin from "babel-plugin-syntax-dynamic-import"
 import dynamicImportRollupNode from "babel-plugin-dynamic-import-node"
-import dynamicImportComponent from "react-imported-component/babel"
+import dynamicImportComponent from "loadable-components/babel"
 
 export default function imports(presets, plugins, options) {
   // Support for new @import() syntax

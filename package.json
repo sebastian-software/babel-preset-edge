@@ -75,7 +75,7 @@
     "babel-preset-minify": "^0.4.1",
     "browserslist": "^3.2.7",
     "fast-async": "^7.0.6",
-    "react-imported-component": "^4.3.2",
+    "loadable-components": "^2.1.0",
     "semver": "^5.5.0"
   },
   "devDependencies": {
