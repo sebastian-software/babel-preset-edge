@@ -73,9 +73,8 @@ modules: "auto",
 
 // Choose automatically depending on target by default or use one of these for full control:
 // - "node": For usage in NodeJS (e.g. produce binaries), publish NodeJS-only libraries.
-// - "ssr": Wraps imports into a helper for dealing with async components when using Server Side Rendering (SSR).
-// - "auto": Automatically choose best behavior
-imports: "auto",
+// - false: Enhance imports with further details (chunk names, SSR support), but keep them functional as they are.
+imports: false,
 
 // Replace the function used when compiling JSX expressions. Default: React.
 // See also: https://www.npmjs.com/package/@babel/preset-react
