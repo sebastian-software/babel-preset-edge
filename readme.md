@@ -25,7 +25,7 @@ Babel Preset Edge is a centralized modern Babel Configuration for React developm
 - No transpilation of generators. Doing this produces relatively slow and complex code. We suggest using `async/await` when possible.
 - High performance async/await transpilation using [Nodeent](https://github.com/MatAtBread/nodent#performance) making it available to older engines and browsers as well.
 - Support for dynamic `import()` statement which is used for dynamic chunk creation in Webpack.
-- Support for dynamic CSS loading + automatic chunkNames using [universal-import](https://github.com/faceyspacey/babel-plugin-universal-import).
+- Automatically naming of `import()` chunks + support for SSR.
 - Local module support for easily referencing sources inside the `src` folder of the project using the [module resolver plugin](https://github.com/tleunen/babel-plugin-module-resolver).
 - Support for converting often times used upcoming EcmaScript standards like class properties and object rest spread.
 - [Lodash Plugin](https://github.com/lodash/babel-plugin-lodash) to allow cherry-picking of more tranditionally exported libraries like lodash, async, rambda and recompose.
