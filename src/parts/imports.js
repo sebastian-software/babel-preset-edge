@@ -12,7 +12,7 @@ export default function imports(presets, plugins, options) {
   // Transpile the parsed import() syntax for compatibility or extended features.
   if (options.imports === "node") {
     if (options.debug) {
-      console.log("- Rewriting import() for Rollup bundling targeting NodeJS.")
+      console.log("- Rewriting import() for NodeJS.")
     }
 
     // Compiles import() to a deferred require() for NodeJS
