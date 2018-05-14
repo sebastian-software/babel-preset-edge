@@ -73,7 +73,7 @@
     "babel-plugin-react-intl": "^2.4.0",
     "babel-plugin-smart-webpack-import": "^1.0.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
-    "babel-preset-minify": "^0.4.1",
+    "babel-preset-minify": "0.4.1",
     "browserslist": "^3.2.7",
     "fast-async": "^7.0.6",
     "loadable-components": "^2.1.0",
