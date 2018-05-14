@@ -38,6 +38,11 @@
       "core.js"
     ]
   },
+  "author": {
+    "name": "Sebastian Software",
+    "email": "s.werner@sebastian-software.de",
+    "url": "https://www.sebastian-software.de"
+  },
   "bugs": {
     "url": "https://github.com/sebastian-software/babel-preset-edge/issues"
   },
