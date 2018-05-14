@@ -71,12 +71,11 @@
     "babel-plugin-lodash": "^3.3.2",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-react-intl": "^2.4.0",
+    "babel-plugin-smart-webpack-import": "^1.0.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
     "babel-preset-minify": "^0.4.1",
-    "base-x": "^3.0.4",
     "browserslist": "^3.2.7",
     "fast-async": "^7.0.6",
-    "json5": "^1.0.1",
     "loadable-components": "^2.1.0",
     "semver": "^5.5.0"
   },
