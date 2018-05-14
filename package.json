@@ -27,6 +27,9 @@
     "webpack",
     "universal"
   ],
+  "files": [
+    "lib/"
+  ],
   "license": "Apache-2.0",
   "pre-commit": "lint-staged",
   "lint-staged": {
