@@ -97,6 +97,19 @@ let original = {
 }, original);"
 `;
 
+exports[`Target: Browser: Dev loadable 1`] = `
+"import loadable from 'loadable-components';
+export const Home = loadable(() => import(\\"./Home\\"), {
+  modules: [\\"./Home\\"]
+});
+export const About = loadable(() => import(\\"./About\\"), {
+  modules: [\\"./About\\"]
+});
+export const Contact = loadable(() => import(\\"./Contact\\"), {
+  modules: [\\"./Contact\\"]
+});"
+`;
+
 exports[`Target: Browser: Dev lodash: async 1`] = `
 "import _parallel from \\"async/parallel\\";
 

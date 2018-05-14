@@ -1,10 +1,13 @@
 import dynamicImportSyntaxPlugin from "babel-plugin-syntax-dynamic-import"
 import dynamicImportRollupNode from "babel-plugin-dynamic-import-node"
-import dynamicImportComponent from "loadable-components/babel"
+import dynamicImportServerRendering from "loadable-components/babel"
 
 export default function imports(presets, plugins, options) {
   // Support for new @import() syntax
   plugins.push(dynamicImportSyntaxPlugin)
+
+  // Support for enhanced imported components with SSR support
+  plugins.push(dynamicImportServerRendering)
 
   // Transpile the parsed import() syntax for compatibility or extended features.
   if (options.imports === "node") {
@@ -14,13 +17,6 @@ export default function imports(presets, plugins, options) {
 
     // Compiles import() to a deferred require() for NodeJS
     plugins.push(dynamicImportRollupNode)
-  } else if (options.imports === "ssr") {
-    if (options.debug) {
-      console.log("- Rewriting import() for universal applications.")
-    }
-
-    // Support for enhanced imported components
-    plugins.push(dynamicImportComponent)
   } else {
     if (options.debug) {
       console.log("- Keeping import() statement as is.")

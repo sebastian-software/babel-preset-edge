@@ -140,6 +140,30 @@ let original = {
 }, original);"
 `;
 
+exports[`Transpile: NodeJS v8 loadable 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
+
+exports.__esModule = true;
+exports.Contact = exports.About = exports.Home = void 0;
+
+var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
+
+const Home = (0, _loadableComponents.default)(() => import(\\"./Home\\"), {
+  modules: [\\"./Home\\"]
+});
+exports.Home = Home;
+const About = (0, _loadableComponents.default)(() => import(\\"./About\\"), {
+  modules: [\\"./About\\"]
+});
+exports.About = About;
+const Contact = (0, _loadableComponents.default)(() => import(\\"./Contact\\"), {
+  modules: [\\"./Contact\\"]
+});
+exports.Contact = Contact;"
+`;
+
 exports[`Transpile: NodeJS v8 lodash: async 1`] = `
 "\\"use strict\\";
 

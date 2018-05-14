@@ -194,6 +194,25 @@ var original = {
 }, original);"
 `;
 
+exports[`Transpile: ES5 loadable 1`] = `
+"import loadable from 'loadable-components';
+export var Home = loadable(function () {
+  return import(\\"./Home\\");
+}, {
+  modules: [\\"./Home\\"]
+});
+export var About = loadable(function () {
+  return import(\\"./About\\");
+}, {
+  modules: [\\"./About\\"]
+});
+export var Contact = loadable(function () {
+  return import(\\"./Contact\\");
+}, {
+  modules: [\\"./Contact\\"]
+});"
+`;
+
 exports[`Transpile: ES5 lodash: async 1`] = `
 "import _parallel from \\"async/parallel\\";
 

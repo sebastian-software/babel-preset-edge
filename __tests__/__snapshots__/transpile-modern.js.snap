@@ -97,6 +97,19 @@ let original = {
 }, original);"
 `;
 
+exports[`Transpile: Modern loadable 1`] = `
+"import loadable from 'loadable-components';
+export const Home = loadable(() => import(\\"./Home\\"), {
+  modules: [\\"./Home\\"]
+});
+export const About = loadable(() => import(\\"./About\\"), {
+  modules: [\\"./About\\"]
+});
+export const Contact = loadable(() => import(\\"./Contact\\"), {
+  modules: [\\"./Contact\\"]
+});"
+`;
+
 exports[`Transpile: Modern lodash: async 1`] = `
 "import _parallel from \\"async/parallel\\";
 
