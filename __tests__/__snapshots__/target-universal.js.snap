@@ -256,9 +256,9 @@ var page = \\"About\\",
 export var views = loadable(function () {
   return import(
   /*webpackChunkName:'views-[request]-eNKDf'*/
-  \\"./views/About\\");
+  \\"./views/\\" + page);
 }, {
-  modules: [\\"./views/About\\"]
+  modules: [\\"./views/\\" + page]
 });
 export var leanIntl = loadable(function () {
   return import(

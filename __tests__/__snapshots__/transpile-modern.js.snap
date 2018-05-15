@@ -53,7 +53,7 @@ exports[`Transpile: Modern es2015: set 1`] = `
 new Set([1, 2, 3]);"
 `;
 
-exports[`Transpile: Modern es2016: exponentiation 1`] = `"var result = 8;"`;
+exports[`Transpile: Modern es2016: exponentiation 1`] = `"var result = 2 ** 3;"`;
 
 exports[`Transpile: Modern esnext: async 1`] = `
 "async function wait() {
@@ -146,8 +146,8 @@ const page = \\"About\\",
       lang = \\"de_DE\\";
 export const views = loadable(() => import(
 /*webpackChunkName:'views-[request]-eNKDf'*/
-\`./views/\${\\"About\\"}\`), {
-  modules: [\`./views/\${\\"About\\"}\`]
+\`./views/\${page}\`), {
+  modules: [\`./views/\${page}\`]
 });
 export const leanIntl = loadable(() => import(
 /*webpackChunkName:'lean-intl-[request]-zd7G4'*/

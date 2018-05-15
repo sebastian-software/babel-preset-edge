@@ -279,8 +279,8 @@ const page = \\"About\\",
       lang = \\"de_DE\\",
       views = (0, _loadableComponents.default)(() => import(
 /*webpackChunkName:'views-[request]-eNKDf'*/
-\`./views/\${\\"About\\"}\`), {
-  modules: [\`./views/\${\\"About\\"}\`]
+\`./views/\${page}\`), {
+  modules: [\`./views/\${page}\`]
 });
 exports.views = views;
 const leanIntl = (0, _loadableComponents.default)(() => import(
