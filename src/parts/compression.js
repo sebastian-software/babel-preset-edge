@@ -33,6 +33,7 @@ const mediumCompression = {
 
   // Disable Agressive Plugins
   booleans: false,
+  evaluate: false,
   infinity: false,
   mangle: false,
   flipComparisons: false,
