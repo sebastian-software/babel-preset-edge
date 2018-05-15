@@ -3,6 +3,10 @@ import { readdirSync } from "fs"
 
 const FIXTURE_ROOT = "./__tests__/__fixtures__/"
 
+// We need to explicitely change this from "test" via "jest" to
+// not automatically switch into the "test" target.
+process.env.NODE_ENV = "development"
+
 export function check(fixture, options) {
   // Ignore local non-configured babelrc
   options.babelrc = false
