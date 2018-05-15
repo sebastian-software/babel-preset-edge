@@ -48,7 +48,10 @@ exports[`Transpile: Modern es2015: generator 1`] = `
 }"
 `;
 
-exports[`Transpile: Modern es2015: set 1`] = `"new Set([1, 2, 3]);"`;
+exports[`Transpile: Modern es2015: set 1`] = `
+"import \\"core-js/modules/web.dom.iterable\\";
+new Set([1, 2, 3]);"
+`;
 
 exports[`Transpile: Modern es2016: exponentiation 1`] = `"var result = 8;"`;
 

@@ -10,7 +10,7 @@ exports[`Target: Browser: Prod es2015: for_off 1`] = `"import\\"core-js/modules/
 
 exports[`Target: Browser: Prod es2015: generator 1`] = `"function*idMaker(){for(var a=0;;)yield a++}"`;
 
-exports[`Target: Browser: Prod es2015: set 1`] = `"import\\"core-js/modules/es6.set\\";new Set([1,2,3]);"`;
+exports[`Target: Browser: Prod es2015: set 1`] = `"import\\"core-js/modules/web.dom.iterable\\";import\\"core-js/modules/es6.array.iterator\\";import\\"core-js/modules/es6.set\\";new Set([1,2,3]);"`;
 
 exports[`Target: Browser: Prod es2016: exponentiation 1`] = `"var result=8;"`;
 
