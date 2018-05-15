@@ -28,7 +28,7 @@ export default function getOptions(input = {}) {
   }
 
   // Fallback to environment variables when possible.
-  if (output.env == null) {
+  if (output.env == null || output.env === "auto") {
     output.env =
       process.env.EDGE_ENV ||
       process.env.BABEL_ENV ||
@@ -100,7 +100,7 @@ export default function getOptions(input = {}) {
 
   // Automatic detection of "modules" mode based on target
   if (output.modules === "auto") {
-    if (output.target === "node") {
+    if (output.target === "node" || output.env === "test") {
       output.modules = "cjs"
     } else {
       // Libraries should be published as EcmaScript modules for tree shaking support
