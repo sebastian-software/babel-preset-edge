@@ -1,4 +1,4 @@
-# Babel Preset Edge<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps]
+# Babel Preset Edge<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps] [Jest][jest-img]][jest]
 
 [sponsor-img]: https://img.shields.io/badge/Sponsored%20by-Sebastian%20Software-692446.svg
 [sponsor]: https://www.sebastian-software.de
@@ -11,6 +11,8 @@
 [appveyor-img]: https://img.shields.io/appveyor/ci/swernerx/babel-preset-edge/master.svg?label=windows%20build
 [travis]: https://travis-ci.org/sebastian-software/babel-preset-edge
 [appveyor]: https://ci.appveyor.com/project/swernerx/babel-preset-edge/branch/master
+[jest-img]: https://facebook.github.io/jest/img/jest-badge.svg
+[jest]: https://github.com/facebook/jest
 
 Babel Preset Edge is a centralized modern Babel Configuration for React development. Part of the Edge Platform.
 
