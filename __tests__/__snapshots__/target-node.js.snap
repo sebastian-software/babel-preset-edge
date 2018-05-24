@@ -161,6 +161,18 @@ function executeTasks(tasks) {
 }"
 `;
 
+exports[`Target: NodeJS esnext: catch_bind 1`] = `
+"\\"use strict\\";
+
+try {
+  throw 0;
+} catch (_unused) {
+  doSomethingWhichDoesntCareAboutTheValueThrown();
+} finally {
+  doSomeCleanup();
+}"
+`;
+
 exports[`Target: NodeJS esnext: class properties 1`] = `
 "\\"use strict\\";
 

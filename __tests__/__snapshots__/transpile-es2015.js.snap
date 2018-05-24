@@ -139,6 +139,16 @@ exports[`Transpile: ES2015 esnext: async_loop 1`] = `
 }"
 `;
 
+exports[`Transpile: ES2015 esnext: catch_bind 1`] = `
+"try {
+  throw 0;
+} catch (_unused) {
+  doSomethingWhichDoesntCareAboutTheValueThrown();
+} finally {
+  doSomeCleanup();
+}"
+`;
+
 exports[`Transpile: ES2015 esnext: class properties 1`] = `
 "export class Component {
   constructor() {

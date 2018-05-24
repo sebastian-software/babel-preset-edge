@@ -98,6 +98,18 @@ async function executeTasks(tasks) {
 }"
 `;
 
+exports[`Transpile: NodeJS v8 esnext: catch_bind 1`] = `
+"\\"use strict\\";
+
+try {
+  throw 0;
+} catch (_unused) {
+  doSomethingWhichDoesntCareAboutTheValueThrown();
+} finally {
+  doSomeCleanup();
+}"
+`;
+
 exports[`Transpile: NodeJS v8 esnext: class properties 1`] = `
 "\\"use strict\\";
 

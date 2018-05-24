@@ -73,6 +73,16 @@ exports[`Target: Browser: Dev esnext: async_loop 1`] = `
 }"
 `;
 
+exports[`Target: Browser: Dev esnext: catch_bind 1`] = `
+"try {
+  throw 0;
+} catch (_unused) {
+  doSomethingWhichDoesntCareAboutTheValueThrown();
+} finally {
+  doSomeCleanup();
+}"
+`;
+
 exports[`Target: Browser: Dev esnext: class properties 1`] = `
 "export class Component {
   constructor() {

@@ -18,6 +18,8 @@ exports[`Target: Browser: Prod esnext: async 1`] = `"function wait(){return new 
 
 exports[`Target: Browser: Prod esnext: async_loop 1`] = `"import\\"core-js/modules/es7.symbol.async-iterator\\";import\\"core-js/modules/es6.symbol\\";import\\"core-js/modules/web.dom.iterable\\";function executeTasks(a){return new Promise(function(b,c){function d(){if(g){if(h>=f.length)return[1];i=f[h++]}else{if(h=f.next(),h.done)return[1];i=h.value}var a=function(){try{return d}catch(a){return c(a)}},b=function(){try{return console.error(\\"Error\\"),a()}catch(a){return c(a)}};try{return Promise.resolve(executeCommands()).then(function(){try{return a()}catch(a){return b(a)}},b)}catch(a){b(a)}}function e(){return b()}var f,g,h,i;f=a,g=Array.isArray(f),h=0,f=g?f:f[Symbol.iterator]();var j;return(j=function(a){for(;a;){if(a.then)return void a.then(j,c);try{if(a.pop){if(a.length)return a.pop()?e.call(this):a;a=d}else a=a.call(this)}catch(a){return c(a)}}}.bind(this))(d)})}"`;
 
+exports[`Target: Browser: Prod esnext: catch_bind 1`] = `"try{throw 0}catch(a){doSomethingWhichDoesntCareAboutTheValueThrown()}finally{doSomeCleanup()}"`;
+
 exports[`Target: Browser: Prod esnext: class properties 1`] = `"export var Component=function(){this.onClick=function(){}};"`;
 
 exports[`Target: Browser: Prod esnext: decorators 1`] = `"var _class,MyClass=annotation(_class=function(){})||_class;function annotation(a){a.annotated=!0}"`;

@@ -173,6 +173,16 @@ function executeTasks(tasks) {
 }"
 `;
 
+exports[`Target: Universal esnext: catch_bind 1`] = `
+"try {
+  throw 0;
+} catch (_unused) {
+  doSomethingWhichDoesntCareAboutTheValueThrown();
+} finally {
+  doSomeCleanup();
+}"
+`;
+
 exports[`Target: Universal esnext: class properties 1`] = `
 "export var Component = function Component() {
   this.onClick = function () {};

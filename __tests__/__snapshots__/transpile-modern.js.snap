@@ -73,6 +73,16 @@ exports[`Transpile: Modern esnext: async_loop 1`] = `
 }"
 `;
 
+exports[`Transpile: Modern esnext: catch_bind 1`] = `
+"try {
+  throw 0;
+} catch (_unused) {
+  doSomethingWhichDoesntCareAboutTheValueThrown();
+} finally {
+  doSomeCleanup();
+}"
+`;
+
 exports[`Transpile: Modern esnext: class properties 1`] = `
 "export class Component {
   constructor() {
