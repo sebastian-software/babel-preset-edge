@@ -208,14 +208,26 @@ Promise.resolve().then(function () {
 `;
 
 exports[`Target: Universal: Node Imports esnext: object spread 1`] = `
-"import _objectSpread from \\"@babel/runtime/helpers/builtin/es6/objectSpread\\";
-
+"import \\"core-js/modules/es6.object.assign\\";
 var original = {
   bar: 10
 },
-    variant = _objectSpread({
+    variant = Object.assign({
   foo: 1
 }, original);"
+`;
+
+exports[`Target: Universal: Node Imports esnext: optional_chaining 1`] = `
+"var _obj$foo,
+    _obj$foo$bar,
+    obj = {
+  foo: {
+    bar: {
+      baz: 42
+    }
+  }
+},
+    baz = (_obj$foo = obj.foo) == null ? void 0 : (_obj$foo$bar = _obj$foo.bar) == null ? void 0 : _obj$foo$bar.baz;"
 `;
 
 exports[`Target: Universal: Node Imports loadable 1`] = `

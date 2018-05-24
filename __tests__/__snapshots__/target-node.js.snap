@@ -214,15 +214,27 @@ import(
 exports[`Target: NodeJS esnext: object spread 1`] = `
 "\\"use strict\\";
 
-var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
-    _objectSpread2 = _interopRequireDefault(require(\\"@babel/runtime/helpers/builtin/objectSpread\\"));
-
 let original = {
   bar: 10
 },
-    variant = (0, _objectSpread2.default)({
+    variant = Object.assign({
   foo: 1
 }, original);"
+`;
+
+exports[`Target: NodeJS esnext: optional_chaining 1`] = `
+"\\"use strict\\";
+
+var _obj$foo, _obj$foo$bar;
+
+const obj = {
+  foo: {
+    bar: {
+      baz: 42
+    }
+  }
+},
+      baz = (_obj$foo = obj.foo) == null ? void 0 : (_obj$foo$bar = _obj$foo.bar) == null ? void 0 : _obj$foo$bar.baz;"
 `;
 
 exports[`Target: NodeJS loadable 1`] = `

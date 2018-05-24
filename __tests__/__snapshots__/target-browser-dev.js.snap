@@ -111,14 +111,25 @@ exports[`Target: Browser: Dev esnext: dynamic import 1`] = `
 `;
 
 exports[`Target: Browser: Dev esnext: object spread 1`] = `
-"import _objectSpread from \\"@babel/runtime/helpers/builtin/es6/objectSpread\\";
-
-let original = {
+"let original = {
   bar: 10
 },
-    variant = _objectSpread({
+    variant = Object.assign({
   foo: 1
 }, original);"
+`;
+
+exports[`Target: Browser: Dev esnext: optional_chaining 1`] = `
+"var _obj$foo, _obj$foo$bar;
+
+const obj = {
+  foo: {
+    bar: {
+      baz: 42
+    }
+  }
+},
+      baz = (_obj$foo = obj.foo) == null ? void 0 : (_obj$foo$bar = _obj$foo.bar) == null ? void 0 : _obj$foo$bar.baz;"
 `;
 
 exports[`Target: Browser: Dev loadable 1`] = `

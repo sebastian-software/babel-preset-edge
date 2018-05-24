@@ -60,6 +60,7 @@
     "@babel/plugin-proposal-decorators": "^7.0.0-beta.48",
     "@babel/plugin-proposal-object-rest-spread": "7.0.0-beta.48",
     "@babel/plugin-proposal-optional-catch-binding": "^7.0.0-beta.48",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0-beta.48",
     "@babel/plugin-syntax-dynamic-import": "7.0.0-beta.48",
     "@babel/plugin-syntax-jsx": "7.0.0-beta.48",
     "@babel/plugin-transform-member-expression-literals": "7.0.0-beta.48",
