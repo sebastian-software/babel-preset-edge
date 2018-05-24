@@ -19,6 +19,8 @@ exports[`Target: Universal es2015: classes 1`] = `
 export var Component =
 /*#__PURE__*/
 function (_Other) {
+  _inheritsLoose(Component, _Other);
+
   function Component() {
     var _this = _Other.call(this) || this;
 
@@ -31,8 +33,6 @@ function (_Other) {
   _proto.main = function main() {
     alert(this.foo);
   };
-
-  _inheritsLoose(Component, _Other);
 
   return Component;
 }(Other);"
@@ -182,7 +182,7 @@ export var Component = function Component() {
 
 exports[`Target: Universal esnext: dynamic import 1`] = `
 "import(
-/*webpackChunkName:'lodash-pst7t'*/
+/*webpackChunkName:'lodash-wBYk8'*/
 \\"lodash\\").then(function (lodash) {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
@@ -203,21 +203,21 @@ exports[`Target: Universal loadable 1`] = `
 "import loadable from 'loadable-components';
 export var Home = loadable(function () {
   return import(
-  /*webpackChunkName:'Home-bqRLr'*/
+  /*webpackChunkName:'Home-JfPYC'*/
   \\"./views/Home\\");
 }, {
   modules: [\\"./views/Home\\"]
 });
 export var About = loadable(function () {
   return import(
-  /*webpackChunkName:'About-q5EMT'*/
+  /*webpackChunkName:'About-8yDxR'*/
   \\"./views/About\\");
 }, {
   modules: [\\"./views/About\\"]
 });
 export var Contact = loadable(function () {
   return import(
-  /*webpackChunkName:'Contact-Urv1P'*/
+  /*webpackChunkName:'Contact-AIf6m'*/
   \\"./views/Contact\\");
 }, {
   modules: [\\"./views/Contact\\"]
@@ -228,7 +228,7 @@ exports[`Target: Universal loadable magic-comments 1`] = `
 "import loadable from 'loadable-components';
 export var Home = loadable(function () {
   return import(
-  /*webpackChunkName:'Home-bqRLr'*/
+  /*webpackChunkName:'Home-JfPYC'*/
   \\"./views/Home\\");
 }, {
   modules: [\\"./views/Home\\"]
@@ -242,7 +242,7 @@ export var About = loadable(function () {
 });
 export var Contact = loadable(function () {
   return import(
-  /*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-Urv1P'*/
+  /*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-AIf6m'*/
   \\"./views/Contact\\");
 }, {
   modules: [\\"./views/Contact\\"]
@@ -255,21 +255,21 @@ var page = \\"About\\",
     lang = \\"de_DE\\";
 export var views = loadable(function () {
   return import(
-  /*webpackChunkName:'views-[request]-eNKDf'*/
+  /*webpackChunkName:'views-[request]-q9bqd'*/
   \\"./views/\\" + page);
 }, {
   modules: [\\"./views/\\" + page]
 });
 export var leanIntl = loadable(function () {
   return import(
-  /*webpackChunkName:'lean-intl-[request]-zd7G4'*/
+  /*webpackChunkName:'lean-intl-[request]-ucOqv'*/
   \\"./lean-intl/\\" + lang + \\"/data\\");
 }, {
   modules: [\\"./lean-intl/\\" + lang + \\"/data\\"]
 });
 export var reactIntl = loadable(function () {
   return import(
-  /*webpackChunkName:'react-intl-[request]-5gr63'*/
+  /*webpackChunkName:'react-intl-[request]-owXpv'*/
   \\"./react-intl/\\" + lang + \\"/data\\");
 }, {
   modules: [\\"./react-intl/\\" + lang + \\"/data\\"]
@@ -318,6 +318,8 @@ import PropTypes from \\"prop-types\\";
 var MyComponent =
 /*#__PURE__*/
 function (_React$Component) {
+  _inheritsLoose(MyComponent, _React$Component);
+
   function MyComponent() {
     return _React$Component.apply(this, arguments) || this;
   }
@@ -327,8 +329,6 @@ function (_React$Component) {
   _proto.render = function render() {
     return React.createElement(\\"div\\", null, this.props.userName);
   };
-
-  _inheritsLoose(MyComponent, _React$Component);
 
   return MyComponent;
 }(React.Component);

@@ -122,7 +122,7 @@ exports[`Transpile: NodeJS v8 esnext: dynamic import 1`] = `
 "\\"use strict\\";
 
 import(
-/*webpackChunkName:'lodash-pst7t'*/
+/*webpackChunkName:'lodash-wBYk8'*/
 \\"lodash\\").then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
@@ -153,19 +153,19 @@ exports.Contact = exports.About = exports.Home = void 0;
 var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
 
 const Home = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'Home-bqRLr'*/
+/*webpackChunkName:'Home-JfPYC'*/
 \\"./views/Home\\"), {
   modules: [\\"./views/Home\\"]
 });
 exports.Home = Home;
 const About = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'About-q5EMT'*/
+/*webpackChunkName:'About-8yDxR'*/
 \\"./views/About\\"), {
   modules: [\\"./views/About\\"]
 });
 exports.About = About;
 const Contact = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'Contact-Urv1P'*/
+/*webpackChunkName:'Contact-AIf6m'*/
 \\"./views/Contact\\"), {
   modules: [\\"./views/Contact\\"]
 });
@@ -183,7 +183,7 @@ exports.Contact = exports.About = exports.Home = void 0;
 var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
 
 const Home = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'Home-bqRLr'*/
+/*webpackChunkName:'Home-JfPYC'*/
 \\"./views/Home\\"), {
   modules: [\\"./views/Home\\"]
 });
@@ -195,7 +195,7 @@ const About = (0, _loadableComponents.default)(() => import(
 });
 exports.About = About;
 const Contact = (0, _loadableComponents.default)(() => import(
-/*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-Urv1P'*/
+/*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-AIf6m'*/
 \\"./views/Contact\\"), {
   modules: [\\"./views/Contact\\"]
 });
@@ -215,19 +215,19 @@ var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\
 const page = \\"About\\",
       lang = \\"de_DE\\",
       views = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'views-[request]-eNKDf'*/
+/*webpackChunkName:'views-[request]-q9bqd'*/
 \`./views/\${page}\`), {
   modules: [\`./views/\${page}\`]
 });
 exports.views = views;
 const leanIntl = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'lean-intl-[request]-zd7G4'*/
+/*webpackChunkName:'lean-intl-[request]-ucOqv'*/
 \`./lean-intl/\${lang}/data\`), {
   modules: [\`./lean-intl/\${lang}/data\`]
 });
 exports.leanIntl = leanIntl;
 const reactIntl = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'react-intl-[request]-5gr63'*/
+/*webpackChunkName:'react-intl-[request]-owXpv'*/
 \`./react-intl/\${lang}/data\`), {
   modules: [\`./react-intl/\${lang}/data\`]
 });

@@ -19,6 +19,8 @@ exports[`Target: Universal: Node Imports es2015: classes 1`] = `
 export var Component =
 /*#__PURE__*/
 function (_Other) {
+  _inheritsLoose(Component, _Other);
+
   function Component() {
     var _this = _Other.call(this) || this;
 
@@ -31,8 +33,6 @@ function (_Other) {
   _proto.main = function main() {
     alert(this.foo);
   };
-
-  _inheritsLoose(Component, _Other);
 
   return Component;
 }(Other);"
@@ -322,6 +322,8 @@ import PropTypes from \\"prop-types\\";
 var MyComponent =
 /*#__PURE__*/
 function (_React$Component) {
+  _inheritsLoose(MyComponent, _React$Component);
+
   function MyComponent() {
     return _React$Component.apply(this, arguments) || this;
   }
@@ -331,8 +333,6 @@ function (_React$Component) {
   _proto.render = function render() {
     return React.createElement(\\"div\\", null, this.props.userName);
   };
-
-  _inheritsLoose(MyComponent, _React$Component);
 
   return MyComponent;
 }(React.Component);
