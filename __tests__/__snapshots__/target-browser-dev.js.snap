@@ -74,12 +74,21 @@ exports[`Target: Browser: Dev esnext: async_loop 1`] = `
 `;
 
 exports[`Target: Browser: Dev esnext: class properties 1`] = `
-"import _defineProperty from \\"@babel/runtime/helpers/builtin/es6/defineProperty\\";
-export class Component {
+"export class Component {
   constructor() {
-    _defineProperty(this, \\"onClick\\", () => {});
+    this.onClick = () => {};
   }
 
+}"
+`;
+
+exports[`Target: Browser: Dev esnext: decorators 1`] = `
+"var _class;
+
+let MyClass = annotation(_class = class MyClass {}) || _class;
+
+function annotation(target) {
+  target.annotated = true;
 }"
 `;
 

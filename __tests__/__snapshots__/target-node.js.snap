@@ -164,21 +164,29 @@ function executeTasks(tasks) {
 exports[`Target: NodeJS esnext: class properties 1`] = `
 "\\"use strict\\";
 
-var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
-
 exports.__esModule = true;
 exports.Component = void 0;
 
-var _defineProperty2 = _interopRequireDefault(require(\\"@babel/runtime/helpers/builtin/defineProperty\\"));
-
 class Component {
   constructor() {
-    (0, _defineProperty2.default)(this, \\"onClick\\", () => {});
+    this.onClick = () => {};
   }
 
 }
 
 exports.Component = Component;"
+`;
+
+exports[`Target: NodeJS esnext: decorators 1`] = `
+"\\"use strict\\";
+
+var _class;
+
+let MyClass = annotation(_class = class MyClass {}) || _class;
+
+function annotation(target) {
+  target.annotated = true;
+}"
 `;
 
 exports[`Target: NodeJS esnext: dynamic import 1`] = `

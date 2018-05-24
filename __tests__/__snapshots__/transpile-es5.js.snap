@@ -174,10 +174,18 @@ function executeTasks(tasks) {
 `;
 
 exports[`Transpile: ES5 esnext: class properties 1`] = `
-"import _defineProperty from \\"@babel/runtime/helpers/builtin/es6/defineProperty\\";
-export var Component = function Component() {
-  _defineProperty(this, \\"onClick\\", function () {});
+"export var Component = function Component() {
+  this.onClick = function () {};
 };"
+`;
+
+exports[`Transpile: ES5 esnext: decorators 1`] = `
+"var _class,
+    MyClass = annotation(_class = function MyClass() {}) || _class;
+
+function annotation(target) {
+  target.annotated = true;
+}"
 `;
 
 exports[`Transpile: ES5 esnext: dynamic import 1`] = `
