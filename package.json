@@ -79,7 +79,7 @@
     "babel-plugin-macros": "^2.2.1",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-react-intl": "^2.4.0",
-    "babel-plugin-smart-webpack-import": "^1.0.3",
+    "babel-plugin-smart-webpack-import": "^1.1.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
     "babel-preset-minify": "^0.4.3",
     "browserslist": "^3.2.8",
