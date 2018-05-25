@@ -19,6 +19,22 @@ before();
 after();"
 `;
 
+exports[`Target: NodeJS emotion 1`] = `
+"\\"use strict\\";
+
+var _emotion = require(\\"emotion\\");
+
+const className =
+/*#__PURE__*/
+(0, _emotion.css)(\\"color:hotpink;\\");
+
+function SomeComponent() {
+  return React.createElement(\\"div\\", {
+    className: className
+  }, \\"Some hotpink text.\\");
+}"
+`;
+
 exports[`Target: NodeJS es2015: classes 1`] = `
 "\\"use strict\\";
 

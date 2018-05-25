@@ -14,6 +14,19 @@ before();
 after();"
 `;
 
+exports[`Transpile: ES2015 emotion 1`] = `
+"import { css } from \\"emotion\\";
+const className =
+/*#__PURE__*/
+css(\\"color:hotpink;\\");
+
+function SomeComponent() {
+  return React.createElement(\\"div\\", {
+    className: className
+  }, \\"Some hotpink text.\\");
+}"
+`;
+
 exports[`Transpile: ES2015 es2015: classes 1`] = `
 "export class Component extends Other {
   constructor() {

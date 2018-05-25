@@ -14,6 +14,19 @@ before();
 after();"
 `;
 
+exports[`Target: Universal emotion 1`] = `
+"import { css } from \\"emotion\\";
+var className =
+/*#__PURE__*/
+css(\\"color:hotpink;\\");
+
+function SomeComponent() {
+  return React.createElement(\\"div\\", {
+    className: className
+  }, \\"Some hotpink text.\\");
+}"
+`;
+
 exports[`Target: Universal es2015: classes 1`] = `
 "import _inheritsLoose from \\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";
 export var Component =

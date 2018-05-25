@@ -4,6 +4,8 @@ exports[`Target: Browser: Prod comments 1`] = `"import _camelCase from\\"lodash/
 
 exports[`Target: Browser: Prod deadcode 1`] = `"var STATIC=!1;!1,before(),!1,after();"`;
 
+exports[`Target: Browser: Prod emotion 1`] = `"import _jsx from\\"@babel/runtime/helpers/builtin/es6/jsx\\";import{css}from\\"emotion\\";var className=/*#__PURE__*/css(\\"color:hotpink;\\"),_ref=/*#__PURE__*/_jsx(\\"div\\",{className:className},void 0,\\"Some hotpink text.\\");function SomeComponent(){return _ref}"`;
+
 exports[`Target: Browser: Prod es2015: classes 1`] = `"import _inheritsLoose from\\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";export var Component=/*#__PURE__*/function(a){function b(){var b;return b=a.call(this)||this,b.flag=!0,b}_inheritsLoose(b,a);var c=b.prototype;return c.main=function a(){alert(this.foo)},b}(Other);"`;
 
 exports[`Target: Browser: Prod es2015: for_off 1`] = `"import\\"core-js/modules/es7.symbol.async-iterator\\";import\\"core-js/modules/es6.symbol\\";import\\"core-js/modules/web.dom.iterable\\";function test(){for(var a=tasks,b=Array.isArray(a),c=0,a=b?a:a[Symbol.iterator]();;){var d;if(b){if(c>=a.length)break;d=a[c++]}else{if(c=a.next(),c.done)break;d=c.value}try{executeCommands()}catch(a){console.error(\\"Error\\")}}}"`;
