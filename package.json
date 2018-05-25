@@ -93,7 +93,7 @@
     "babel-minify": "^0.4.3",
     "eslint": "^4.19.1",
     "eslint-config-readable": "^1.13.4",
-    "flow-bin": "^0.72.0",
+    "flow-bin": "^0.73.0",
     "husky": "^0.14.3",
     "jest-cli": "^23.0.0",
     "lint-staged": "^7.1.2",
