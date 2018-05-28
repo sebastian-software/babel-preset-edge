@@ -221,7 +221,7 @@ exports[`Target: NodeJS esnext: dynamic import 1`] = `
 "\\"use strict\\";
 
 import(
-/*webpackChunkName:'lodash-wBYk8'*/
+/*webpackChunkName:'lodash-vX3XN'*/
 \\"lodash\\").then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
@@ -264,19 +264,19 @@ exports.Contact = exports.About = exports.Home = void 0;
 var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
 
 const Home = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'Home-JfPYC'*/
+/*webpackChunkName:'Home-NOPWp'*/
 \\"./views/Home\\"), {
   modules: [\\"./views/Home\\"]
 });
 exports.Home = Home;
 const About = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'About-8yDxR'*/
+/*webpackChunkName:'About-kr3Tt'*/
 \\"./views/About\\"), {
   modules: [\\"./views/About\\"]
 });
 exports.About = About;
 const Contact = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'Contact-AIf6m'*/
+/*webpackChunkName:'Contact-Uluwi'*/
 \\"./views/Contact\\"), {
   modules: [\\"./views/Contact\\"]
 });
@@ -294,7 +294,7 @@ exports.Contact = exports.About = exports.Home = void 0;
 var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
 
 const Home = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'Home-JfPYC'*/
+/*webpackChunkName:'Home-NOPWp'*/
 \\"./views/Home\\"), {
   modules: [\\"./views/Home\\"]
 });
@@ -306,7 +306,7 @@ const About = (0, _loadableComponents.default)(() => import(
 });
 exports.About = About;
 const Contact = (0, _loadableComponents.default)(() => import(
-/*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-AIf6m'*/
+/*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-Uluwi'*/
 \\"./views/Contact\\"), {
   modules: [\\"./views/Contact\\"]
 });
@@ -326,19 +326,19 @@ var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\
 const page = \\"About\\",
       lang = \\"de_DE\\",
       views = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'views-[request]-q9bqd'*/
+/*webpackChunkName:'views-[request]-GPHJF'*/
 \`./views/\${page}\`), {
   modules: [\`./views/\${page}\`]
 });
 exports.views = views;
 const leanIntl = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'lean-intl-[request]-ucOqv'*/
+/*webpackChunkName:'lean-intl-[request]-g30wA'*/
 \`./lean-intl/\${lang}/data\`), {
   modules: [\`./lean-intl/\${lang}/data\`]
 });
 exports.leanIntl = leanIntl;
 const reactIntl = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'react-intl-[request]-owXpv'*/
+/*webpackChunkName:'react-intl-[request]-81XPq'*/
 \`./react-intl/\${lang}/data\`), {
   modules: [\`./react-intl/\${lang}/data\`]
 });
