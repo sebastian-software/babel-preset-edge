@@ -29,6 +29,7 @@ Babel Preset Edge is a centralized modern Babel Configuration for React developm
 - As we focus on `async/await` we do not offer any transpilation of generators. Doing this produces relatively slow and complex code.
 - Local module support for easily referencing sources inside the `src` folder of the project using the [module resolver plugin](https://github.com/tleunen/babel-plugin-module-resolver).
 - [Lodash Plugin](https://github.com/lodash/babel-plugin-lodash) to allow cherry-picking of more tranditionally exported libraries like lodash, async, rambda and recompose.
+- [Babel Macros](https://www.npmjs.com/package/babel-plugin-macros) allows endless extensibility in user code by things like GraphQL parsing, pre-evaluation and more.
 - By relying on the awesome [Babel Minify](https://github.com/babel/minify) the preset is able to apply different levels of compression directly while transpiling. There is really no reason to publish dead code paths or keeping all super detailed comments in-tact for NPM packages. A minor compression is enabled by default. Full minification is activated in when using `minify:true` inside a `production` environment.
 
 
