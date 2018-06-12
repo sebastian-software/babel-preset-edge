@@ -20,7 +20,7 @@ Babel Preset Edge is a centralized modern Babel Configuration for React developm
 ## Key Features
 
 - Babel v7 based. Get all the new glory, plugins and performance.
-- Technically based on [Preset-Env](https://github.com/babel/babel/tree/master/packages/babel-preset-env) to deal with targetted output, but making it way smarter by automatically supporting additional transpile settings like `es2015` or `modern`. Externalizes helpers, prefers built-ins over inlined code and adds polyfills as needed by your code. Effectively following all best-practises.
+- Technically based on [Preset-Env](https://github.com/babel/babel/tree/master/packages/babel-preset-env) to deal with targetted output, but making it way smarter by automatically supporting additional transpile settings like `esm`, `es2015` or `modern`. Externalizes helpers, prefers built-ins over inlined code and adds polyfills as needed by your code. Effectively following all best-practises.
 - Automatic environment detection. In most cases you shouldn't require using `env` blocks in your `.babelrc` at all. Making things way simpler.
 - Uses more flexible environment parameters to allow further settings via `EDGE_ENV` e.g. pass over `EDGE_ENV=development-es2015` to enable ES2015 output for development.
 - Integrated React, JSX and Flowtype support. Plus support for often used features like [Class Properties](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-class-properties), [Object Rest Spread](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-object-rest-spread) and [Decorators](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-decorators)
@@ -52,7 +52,8 @@ target: "auto",
 // Choose which transpilation should be applied.
 // One of the following:
 // - "es5": Standard output for widest engine and browser support. Ideally suited for publishing to NPM.
-// - "es2015": Alternative to standard es5 reaching only modern engines and browsers which support at least all features of es2015. Might be a good alternative for publishing modern libraries to NPM or when using transpilation on all content - even `node_modules` in application code.
+// - "esm": Alternative to standard ES5 targetting only browsers which are capable of import ESM modules. This is probably the better solution then the next option "es2015" as it most probably targets the same browers but does so in a way that we can use a simple duplicate script-tag to import either this or the default ES5 one. See also: https://jakearchibald.com/2017/es-modules-in-browsers/#nomodule-for-backwards-compatibility
+// - "es2015": Alternative to standard ES5 reaching only modern engines and browsers which support at least all features of es2015. Might be a good alternative for publishing modern libraries to NPM or when using transpilation on all content - even `node_modules` in application code.
 // - "modern": Uses a built-in definition of modern NodeJS and browser versions. This is interesting for local development of application as it accelerates features like hot-loading quite a bit.
 // - "current": NodeJS only. Ideally for local running test suites, etc. Using the least amount of transpile for making code runnable locally.
 // - "node": NodeJS only. Uses `engines` field in `package.json` to define the NodeJS version to target.
@@ -140,6 +141,10 @@ When setting the target to `browser` your build requirements will match the `bro
 ### Default Transpilation
 
 The default is used when not running a test runner and when no other `transpile` was defined. Transpilation applies all features from `babel-preset-env` so that the code should be able to run on all ES5-capable engines. Ideally for publishing libs to NPM or bundling applications for the widest possible use case.
+
+### ESM Transilation
+
+This output target is meant for [making use of this idea by Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/#nomodule-for-backwards-compatibility). The idea is basically to use two different script tags. One for ESM capable browsers and another one for all legacy browsers. Transpilation output is somewhat identical to "ES2015" transpilation. As this is one is easier to deal with it's probably the better choice over `es2015`.
 
 ### ES2015 Transpilation
 

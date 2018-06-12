@@ -81,6 +81,14 @@ export default function getOptions(input = {}) {
       }
     }
 
+    else if (/\besm\b/.test(output.env)) {
+      output.transpile = "esm"
+
+      if (output.debug) {
+        console.log("- Selected 'esm' transpile based on ENV")
+      }
+    }
+
     else if (/\bes2015\b/.test(output.env)) {
       output.transpile = "es2015"
 

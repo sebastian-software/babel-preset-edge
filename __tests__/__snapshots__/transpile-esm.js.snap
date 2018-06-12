@@ -1,0 +1,324 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transpile: ESM comments 1`] = `
+"import _camelCase from \\"lodash/camelCase\\";
+
+function translate(value) {
+  return _camelCase(value);
+}"
+`;
+
+exports[`Transpile: ESM deadcode 1`] = `
+"const STATIC = false;
+before();
+after();"
+`;
+
+exports[`Transpile: ESM emotion 1`] = `
+"import { css } from \\"emotion\\";
+const className =
+/*#__PURE__*/
+css(\\"color:hotpink;\\");
+
+function SomeComponent() {
+  return React.createElement(\\"div\\", {
+    className: className
+  }, \\"Some hotpink text.\\");
+}"
+`;
+
+exports[`Transpile: ESM es2015: classes 1`] = `
+"export class Component extends Other {
+  constructor() {
+    super();
+    this.flag = true;
+  }
+
+  main() {
+    alert(this.foo);
+  }
+
+}"
+`;
+
+exports[`Transpile: ESM es2015: for_off 1`] = `
+"function test() {
+  for (const taskName of tasks) {
+    try {
+      executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
+`;
+
+exports[`Transpile: ESM es2015: generator 1`] = `
+"function* idMaker() {
+  var index = 0;
+
+  while (true) yield index++;
+}"
+`;
+
+exports[`Transpile: ESM es2015: set 1`] = `
+"import \\"core-js/modules/web.dom.iterable\\";
+new Set([1, 2, 3]);"
+`;
+
+exports[`Transpile: ESM es2016: exponentiation 1`] = `"var result = 2 ** 3;"`;
+
+exports[`Transpile: ESM esnext: async 1`] = `
+"async function wait() {
+  await loadData();
+}"
+`;
+
+exports[`Transpile: ESM esnext: async_loop 1`] = `
+"async function executeTasks(tasks) {
+  for (const taskName of tasks) {
+    try {
+      await executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
+`;
+
+exports[`Transpile: ESM esnext: catch_bind 1`] = `
+"try {
+  throw 0;
+} catch (_unused) {
+  doSomethingWhichDoesntCareAboutTheValueThrown();
+} finally {
+  doSomeCleanup();
+}"
+`;
+
+exports[`Transpile: ESM esnext: class properties 1`] = `
+"export class Component {
+  constructor() {
+    this.onClick = () => {};
+  }
+
+}"
+`;
+
+exports[`Transpile: ESM esnext: decorators 1`] = `
+"var _class;
+
+let MyClass = annotation(_class = class MyClass {}) || _class;
+
+function annotation(target) {
+  target.annotated = true;
+}"
+`;
+
+exports[`Transpile: ESM esnext: dynamic import 1`] = `
+"import(
+/*webpackChunkName:'lodash-vX3XN'*/
+\\"lodash\\").then(lodash => {
+  console.log(lodash.camelCase(\\"hello world\\"));
+});"
+`;
+
+exports[`Transpile: ESM esnext: object spread 1`] = `
+"let original = {
+  bar: 10
+},
+    variant = Object.assign({
+  foo: 1
+}, original);"
+`;
+
+exports[`Transpile: ESM esnext: optional_chaining 1`] = `
+"var _obj$foo, _obj$foo$bar;
+
+const obj = {
+  foo: {
+    bar: {
+      baz: 42
+    }
+  }
+},
+      baz = (_obj$foo = obj.foo) == null ? void 0 : (_obj$foo$bar = _obj$foo.bar) == null ? void 0 : _obj$foo$bar.baz;"
+`;
+
+exports[`Transpile: ESM loadable 1`] = `
+"import loadable from 'loadable-components';
+export const Home = loadable(() => import(
+/*webpackChunkName:'Home-NOPWp'*/
+\\"./views/Home\\"), {
+  modules: [\\"./views/Home\\"]
+});
+export const About = loadable(() => import(
+/*webpackChunkName:'About-kr3Tt'*/
+\\"./views/About\\"), {
+  modules: [\\"./views/About\\"]
+});
+export const Contact = loadable(() => import(
+/*webpackChunkName:'Contact-Uluwi'*/
+\\"./views/Contact\\"), {
+  modules: [\\"./views/Contact\\"]
+});"
+`;
+
+exports[`Transpile: ESM loadable magic-comments 1`] = `
+"import loadable from 'loadable-components';
+export const Home = loadable(() => import(
+/*webpackChunkName:'Home-NOPWp'*/
+\\"./views/Home\\"), {
+  modules: [\\"./views/Home\\"]
+});
+export const About = loadable(() => import(
+/* webpackChunkName: \\"About\\" */
+\\"./views/About\\"), {
+  modules: [\\"./views/About\\"]
+});
+export const Contact = loadable(() => import(
+/*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-Uluwi'*/
+\\"./views/Contact\\"), {
+  modules: [\\"./views/Contact\\"]
+});"
+`;
+
+exports[`Transpile: ESM loadable wildcard 1`] = `
+"import loadable from 'loadable-components';
+const page = \\"About\\",
+      lang = \\"de_DE\\";
+export const views = loadable(() => import(
+/*webpackChunkName:'views-[request]-GPHJF'*/
+\`./views/\${page}\`), {
+  modules: [\`./views/\${page}\`]
+});
+export const leanIntl = loadable(() => import(
+/*webpackChunkName:'lean-intl-[request]-g30wA'*/
+\`./lean-intl/\${lang}/data\`), {
+  modules: [\`./lean-intl/\${lang}/data\`]
+});
+export const reactIntl = loadable(() => import(
+/*webpackChunkName:'react-intl-[request]-81XPq'*/
+\`./react-intl/\${lang}/data\`), {
+  modules: [\`./react-intl/\${lang}/data\`]
+});"
+`;
+
+exports[`Transpile: ESM lodash: async 1`] = `
+"import _parallel from \\"async/parallel\\";
+
+_parallel([]);"
+`;
+
+exports[`Transpile: ESM lodash: lodash 1`] = `
+"import _camelCase from \\"lodash/camelCase\\";
+
+_camelCase(\\"hello world\\");"
+`;
+
+exports[`Transpile: ESM lodash: recompose 1`] = `
+"import _compose from \\"recompose/compose\\";
+
+_compose([]);"
+`;
+
+exports[`Transpile: ESM macro: gql 1`] = `
+"const query = {
+  kind: \\"Document\\",
+  definitions: [{
+    kind: \\"OperationDefinition\\",
+    operation: \\"query\\",
+    name: {
+      kind: \\"Name\\",
+      value: \\"User\\"
+    },
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: {
+      kind: \\"SelectionSet\\",
+      selections: [{
+        kind: \\"Field\\",
+        name: {
+          kind: \\"Name\\",
+          value: \\"user\\"
+        },
+        arguments: [{
+          kind: \\"Argument\\",
+          name: {
+            kind: \\"Name\\",
+            value: \\"id\\"
+          },
+          value: {
+            kind: \\"IntValue\\",
+            value: \\"5\\"
+          }
+        }],
+        directives: [],
+        selectionSet: {
+          kind: \\"SelectionSet\\",
+          selections: [{
+            kind: \\"Field\\",
+            name: {
+              kind: \\"Name\\",
+              value: \\"lastName\\"
+            },
+            arguments: [],
+            directives: []
+          }, {
+            kind: \\"FragmentSpread\\",
+            name: {
+              kind: \\"Name\\",
+              value: \\"UserEntry1\\"
+            },
+            directives: []
+          }]
+        }
+      }]
+    }
+  }],
+  loc: {
+    start: 0,
+    end: 79,
+    source: {
+      body: \\"\\\\n  query User {\\\\n    user(id: 5) {\\\\n      lastName\\\\n      ...UserEntry1\\\\n    }\\\\n  }\\\\n\\",
+      name: \\"GraphQL request\\",
+      locationOffset: {
+        line: 1,
+        column: 1
+      }
+    }
+  }
+};"
+`;
+
+exports[`Transpile: ESM macro: preval 1`] = `"const one = 1;"`;
+
+exports[`Transpile: ESM react: jsx 1`] = `
+"function render() {
+  return React.createElement(\\"h1\\", null, \\"Hello\\");
+}"
+`;
+
+exports[`Transpile: ESM react: jsx spread 1`] = `
+"function render(props) {
+  return React.createElement(\\"h1\\", Object.assign({
+    className: \\"large\\"
+  }, props), \\"Hello\\");
+}"
+`;
+
+exports[`Transpile: ESM react: proptypes 1`] = `
+"import React from \\"react\\";
+import PropTypes from \\"prop-types\\";
+
+class MyComponent extends React.Component {
+  render() {
+    return React.createElement(\\"div\\", null, this.props.userName);
+  }
+
+}
+
+MyComponent.propTypes = {
+  userName: PropTypes.string
+};"
+`;

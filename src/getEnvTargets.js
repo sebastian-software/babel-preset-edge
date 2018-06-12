@@ -45,6 +45,12 @@ export default function getEnvTargets(options) {
     })
   } else if (options.transpile === "modern") {
     envTargets = modernTarget
+  } else if (options.transpile === "esm") {
+    // Support output mode for script type=module aka ESM which is kind of a nice way to deliver ~ES2015 code
+    // by using an easy duplicate script tag.
+    envTargets = {
+      esmodules: true
+    }
   } else if (options.transpile === "es5" || options.transpile === "es2015") {
     // Compilation with "latest" preset supporting a wide range of clients via ES5 output
     // For ignoring any existing browserslist config we have to pass over an empty array.
