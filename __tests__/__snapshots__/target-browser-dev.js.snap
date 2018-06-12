@@ -222,6 +222,77 @@ exports[`Target: Browser: Dev lodash: recompose 1`] = `
 _compose([]);"
 `;
 
+exports[`Target: Browser: Dev macro: gql 1`] = `
+"const query = {
+  kind: \\"Document\\",
+  definitions: [{
+    kind: \\"OperationDefinition\\",
+    operation: \\"query\\",
+    name: {
+      kind: \\"Name\\",
+      value: \\"User\\"
+    },
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: {
+      kind: \\"SelectionSet\\",
+      selections: [{
+        kind: \\"Field\\",
+        name: {
+          kind: \\"Name\\",
+          value: \\"user\\"
+        },
+        arguments: [{
+          kind: \\"Argument\\",
+          name: {
+            kind: \\"Name\\",
+            value: \\"id\\"
+          },
+          value: {
+            kind: \\"IntValue\\",
+            value: \\"5\\"
+          }
+        }],
+        directives: [],
+        selectionSet: {
+          kind: \\"SelectionSet\\",
+          selections: [{
+            kind: \\"Field\\",
+            name: {
+              kind: \\"Name\\",
+              value: \\"lastName\\"
+            },
+            arguments: [],
+            directives: []
+          }, {
+            kind: \\"FragmentSpread\\",
+            name: {
+              kind: \\"Name\\",
+              value: \\"UserEntry1\\"
+            },
+            directives: []
+          }]
+        }
+      }]
+    }
+  }],
+  loc: {
+    start: 0,
+    end: 79,
+    source: {
+      body: \\"\\\\n  query User {\\\\n    user(id: 5) {\\\\n      lastName\\\\n      ...UserEntry1\\\\n    }\\\\n  }\\\\n\\",
+      name: \\"GraphQL request\\",
+      locationOffset: {
+        line: 1,
+        column: 1
+      }
+    }
+  }
+};"
+`;
+
+exports[`Target: Browser: Dev macro: preval 1`] = `"const one = 1;"`;
+
 exports[`Target: Browser: Dev react: jsx 1`] = `
 "function render() {
   return React.createElement(\\"h1\\", null, \\"Hello\\");
