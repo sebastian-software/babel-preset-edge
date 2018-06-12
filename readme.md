@@ -52,7 +52,7 @@ target: "auto",
 // Choose which transpilation should be applied.
 // One of the following:
 // - "es5": Standard output for widest engine and browser support. Ideally suited for publishing to NPM.
-// - "esm": Alternative to standard ES5 targetting only browsers which are capable of import ESM modules. This is probably the better solution then the next option "es2015" as it most probably targets the same browers but does so in a way that we can use a simple duplicate script-tag to import either this or the default ES5 one. See also: https://jakearchibald.com/2017/es-modules-in-browsers/#nomodule-for-backwards-compatibility
+// - "esm": Alternative to standard ES5 targetting only browsers which are capable of import ESM modules. This is probably the better solution for targetting browsers than the next option "es2015" as it targets quite the same browsers but does so in a way that we can use a simple duplicate script-tag to import either this or the default ES5 one. See also: https://jakearchibald.com/2017/es-modules-in-browsers/#nomodule-for-backwards-compatibility
 // - "es2015": Alternative to standard ES5 reaching only modern engines and browsers which support at least all features of es2015. Might be a good alternative for publishing modern libraries to NPM or when using transpilation on all content - even `node_modules` in application code.
 // - "modern": Uses a built-in definition of modern NodeJS and browser versions. This is interesting for local development of application as it accelerates features like hot-loading quite a bit.
 // - "current": NodeJS only. Ideally for local running test suites, etc. Using the least amount of transpile for making code runnable locally.
@@ -144,7 +144,7 @@ The default is used when not running a test runner and when no other `transpile`
 
 ### ESM Transilation
 
-This output target is meant for [making use of this idea by Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/#nomodule-for-backwards-compatibility). The idea is basically to use two different script tags. One for ESM capable browsers and another one for all legacy browsers. Transpilation output is somewhat identical to "ES2015" transpilation. As this is one is easier to deal with it's probably the better choice over `es2015`. See also [Deploying ES2015+ Code in Production Today by Philip Walton](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/)
+This output target is meant for [making use of this idea by Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/#nomodule-for-backwards-compatibility). The idea is basically to use two different script tags. One for ESM capable browsers and another one for all legacy browsers. Transpilation output is somewhat identical to "ES2015+Async/Await" transpilation. As this is one is easier to deal with (on client-side) it's probably the better choice over `es2015` for browser modules. See also [Deploying ES2015+ Code in Production Today by Philip Walton](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/)
 
 ### ES2015 Transpilation
 
