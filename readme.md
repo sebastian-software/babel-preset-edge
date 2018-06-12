@@ -144,7 +144,7 @@ The default is used when not running a test runner and when no other `transpile`
 
 ### ESM Transilation
 
-This output target is meant for [making use of this idea by Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/#nomodule-for-backwards-compatibility). The idea is basically to use two different script tags. One for ESM capable browsers and another one for all legacy browsers. Transpilation output is somewhat identical to "ES2015" transpilation. As this is one is easier to deal with it's probably the better choice over `es2015`.
+This output target is meant for [making use of this idea by Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/#nomodule-for-backwards-compatibility). The idea is basically to use two different script tags. One for ESM capable browsers and another one for all legacy browsers. Transpilation output is somewhat identical to "ES2015" transpilation. As this is one is easier to deal with it's probably the better choice over `es2015`. See also [Deploying ES2015+ Code in Production Today by Philip Walton](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/)
 
 ### ES2015 Transpilation
 
