@@ -45,7 +45,7 @@ npm i -D babel-preset-edge
 
 and this is how your `.babelrc` looks afterwards:
 
-```json
+```js
 {
   "presets": [
     [ "edge", {
