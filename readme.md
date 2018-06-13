@@ -14,27 +14,97 @@
 [jest-img]: https://facebook.github.io/jest/img/jest-badge.svg
 [jest]: https://github.com/facebook/jest
 
-Babel Preset Edge is a centralized modern Babel Configuration for React development. Part of the Edge Platform.
+Babel Preset Edge is a centralized modern Babel Configuration for React development.
+
+
+
+
 
 
 ## Key Features
 
 - Babel v7 based. Get all the new glory, plugins and performance.
-- Technically based on [Preset-Env](https://github.com/babel/babel/tree/master/packages/babel-preset-env) to deal with targetted output, but making it way smarter by automatically supporting additional transpile settings like `esm`, `es2015` or `modern`. Externalizes helpers, prefers built-ins over inlined code and adds polyfills as needed by your code. Effectively following all best-practises.
+- Builds on [Preset-Env](https://github.com/babel/babel/tree/master/packages/babel-preset-env) to deal with targetted output, but making it way smarter by automatically supporting additional transpile settings like `esm`, `es2015` or `modern`. Externalizes helpers, prefers built-ins over inlined code and adds polyfills as needed by your code. Effectively following all best-practises.
 - Automatic environment detection. In most cases you shouldn't require using `env` blocks in your `.babelrc` at all. Making things way simpler.
 - Uses more flexible environment parameters to allow further settings via `EDGE_ENV` e.g. pass over `EDGE_ENV=development-es2015` to enable ES2015 output for development.
 - Integrated React, JSX and Flowtype support. Plus support for often used features like [Class Properties](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-class-properties), [Object Rest Spread](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-object-rest-spread) and [Decorators](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-decorators)
 - Dynamic `import()` support with additional smartness: SSR handling via [Loadable Components](https://github.com/smooth-code/loadable-components), automatic chunk names via [Smart Webpack Import](https://github.com/sebastian-software/babel-plugin-smart-webpack-import) and automatic NodeJS convertion when targetting NodeJS.
-- High Performance transpilation of `async/await` using [Fast Async](https://github.com/MatAtBread/fast-async) (converts to high performance Promises) but only when required by output scenario. When using `modern` output during development, `test` env during testing, etc. you keep using the natively supported `async/await`.
-- As we focus on `async/await` we do not offer any transpilation of generators. Doing this produces relatively slow and complex code.
+- High Performance transpilation of `async/await` using [Fast Async](https://github.com/MatAtBread/fast-async) (converts to Promises) but only when required by output scenario. When using `modern` or `env` transpile or when inside a `test` you keep using the natively supported `async/await`.
+- This preset does not offer any transpilation of generators. Doing this produces relatively slow and complex code. Sorry Redux-Saga.
 - Local module support for easily referencing sources inside the `src` folder of the project using the [module resolver plugin](https://github.com/tleunen/babel-plugin-module-resolver).
 - [Lodash Plugin](https://github.com/lodash/babel-plugin-lodash) to allow cherry-picking of more tranditionally exported libraries like lodash, async, rambda and recompose.
 - [Babel Macros](https://www.npmjs.com/package/babel-plugin-macros) allows endless extensibility in user code by things like GraphQL parsing, pre-evaluation and more.
-- By relying on the awesome [Babel Minify](https://github.com/babel/minify) the preset is able to apply different levels of compression directly while transpiling. There is really no reason to publish dead code paths or keeping all super detailed comments in-tact for NPM packages. A minor compression is enabled by default. Full minification is activated in when using `minify:true` inside a `production` environment.
+- Makes use of [Babel Minify](https://github.com/babel/minify) the preset is able to apply different levels of compression directly while transpiling. There is really no reason to publish dead code paths or keeping all super detailed comments in-tact for NPM packages. A minor compression is enabled by default. Full minification is activated in when using `minify:true` inside a `production` environment.
 
 
 
-## Defaults
+
+## Targets
+
+### Universal Target
+
+This is the default target. It produces code which is compatible with both NodeJS and browsers.
+
+### Test Target
+
+The `test` target is ideally suited for any test runner usage. It is enabled by default when no other
+target is given and `NODE_ENV` is configured as `test`. It exactly targets the current environment.
+It is probably not a good idea to use this target outside of testing.
+
+### Browser Target
+
+When setting the target to `browser` your build requirements will match the `browserslist` configuration of your projects. This is ideal for all web related builds inside your application. It is not well suited for any publishing of libraries for other use cases.
+
+### Node Target
+
+This uses the `engines/node` field from `package.json` to automatically bundle your code in a way that it matches the capabilities of the specified NodeJS version.
+
+
+
+
+## Transpilation Settings
+
+### Default Transpilation
+
+The default is used when not running a test runner and when no other `transpile` was defined. Transpilation applies all features from `babel-preset-env` so that the code should be able to run on all ES5-capable engines. Ideally for publishing libs to NPM or bundling applications for the widest possible use case.
+
+### ESM Transilation
+
+This output target is meant for [making use of this idea by Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/#nomodule-for-backwards-compatibility). The idea is basically to use two different script tags. One for ESM capable browsers and another one for all legacy browsers. Transpilation output is somewhat identical to "ES2015+Async/Await" transpilation. As this is one is easier to deal with (on client-side) it's probably the better choice over `es2015` for browser modules. See also [Deploying ES2015+ Code in Production Today by Philip Walton](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/)
+
+### ES2015 Transpilation
+
+This follows the idea of https://angularjs.blogspot.de/2017/03/angular-400-now-available.html to offer
+kind of a standardized `es2015` compatible package which could be used in relatively modern engines.
+This is independent from any specific browser lists. This configuration might be useful to e.g. offer
+two different bundles of your application: one for classic browsers and one of es2015-compatible browsers.
+
+### Modern Transpilation
+
+This is our current set-up for a so-called modern development stack. It transpiles even less code than when using `es2015`.
+
+```js
+const modernTarget = {
+  node: "8.9.0",
+  electron: "1.8",
+  browsers: [
+    "Safari >= 11.1",
+    "iOS >= 11.3",
+    "Edge >= 16",
+    "Chrome >= 64",
+    "ChromeAndroid >= 64",
+    "Firefox >= 58"
+  ]
+}
+```
+
+Using this setting is ideal during development to reduce overall amount of transpilation
+to a useful minimum to test with pretty up-to-date environments and browsers. It allows you to
+directly benefit from a lot of new features directly built-into Node v8 for example.
+
+
+
+## Defaults + Options
 
 These are our default options. They can be tweaked by passing the required options to the preset.
 
@@ -113,71 +183,6 @@ compression: true,
 // Whether to apply more agressive minification. Automatically enabled when using `compression: true` and running in production env.
 minified: null
 ```
-
-
-
-
-## Targets
-
-### Universal Target
-
-This is the default target. It produces code which is compatible with both NodeJS and browsers.
-
-### Test Target
-
-The `test` target is ideally suited for any test runner usage. It is enabled by default when no other
-target is given and `NODE_ENV` is configured as `test`. It exactly targets the current environment.
-It is probably not a good idea to use this target outside of testing.
-
-### Browser Target
-
-When setting the target to `browser` your build requirements will match the `browserslist` configuration of your projects. This is ideal for all web related builds inside your application. It is not well suited for any publishing of libraries for other use cases.
-
-
-
-
-## Transpilation Settings
-
-### Default Transpilation
-
-The default is used when not running a test runner and when no other `transpile` was defined. Transpilation applies all features from `babel-preset-env` so that the code should be able to run on all ES5-capable engines. Ideally for publishing libs to NPM or bundling applications for the widest possible use case.
-
-### ESM Transilation
-
-This output target is meant for [making use of this idea by Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/#nomodule-for-backwards-compatibility). The idea is basically to use two different script tags. One for ESM capable browsers and another one for all legacy browsers. Transpilation output is somewhat identical to "ES2015+Async/Await" transpilation. As this is one is easier to deal with (on client-side) it's probably the better choice over `es2015` for browser modules. See also [Deploying ES2015+ Code in Production Today by Philip Walton](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/)
-
-### ES2015 Transpilation
-
-This follows the idea of https://angularjs.blogspot.de/2017/03/angular-400-now-available.html to offer
-kind of a standardized `es2015` compatible package which could be used in relatively modern engines.
-This is independent from any specific browser lists. This configuration might be useful to e.g. offer
-two different bundles of your application: one for classic browsers and one of es2015-compatible browsers.
-
-
-### Modern Transpilation
-
-This is our current set-up for a so-called modern development stack. It transpiles even less code than when using `es2015`.
-
-```js
-const modernTarget = {
-  node: "8.9.0",
-  electron: "1.8",
-  browsers: [
-    "Safari >= 11.1",
-    "iOS >= 11.3",
-    "Edge >= 16",
-    "Chrome >= 64",
-    "ChromeAndroid >= 64",
-    "Firefox >= 58"
-  ]
-}
-```
-
-Using this setting is ideal during development to reduce overall amount of transpilation
-to a useful minimum to test with pretty up-to-date environments and browsers. It allows you to
-directly benefit from a lot of new features directly built-into Node v8 for example.
-
-
 
 
 
