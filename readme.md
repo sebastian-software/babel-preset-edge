@@ -7,8 +7,8 @@
 [npm]: https://www.npmjs.com/package/babel-preset-edge
 [npm-downloads-img]: https://img.shields.io/npm/dm/babel-preset-edge.svg
 [npm-version-img]: https://img.shields.io/npm/v/babel-preset-edge.svg
-[travis-img]: https://img.shields.io/travis/sebastian-software/babel-preset-edge/master.svg?branch=master&label=unix%20build
-[appveyor-img]: https://img.shields.io/appveyor/ci/swernerx/babel-preset-edge/master.svg?label=windows%20build
+[travis-img]: https://travis-ci.org/sebastian-software/babel-preset-edge.svg?branch=master
+[appveyor-img]: https://ci.appveyor.com/api/projects/status/dl90w5ux27qtpaey/branch/master?svg=true
 [travis]: https://travis-ci.org/sebastian-software/babel-preset-edge
 [appveyor]: https://ci.appveyor.com/project/swernerx/babel-preset-edge/branch/master
 [jest-img]: https://facebook.github.io/jest/img/jest-badge.svg
