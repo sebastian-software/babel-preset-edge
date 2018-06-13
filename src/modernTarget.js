@@ -1,12 +1,12 @@
 export default {
   node: "8.9.0",
-  electron: "1.8",
+  electron: "2.0",
   browsers: [
     "Safari >= 11.1",
-    "iOS >= 11.3",
+    "iOS >= 11.4",
     "Edge >= 16",
-    "Chrome >= 64",
-    "ChromeAndroid >= 64",
-    "Firefox >= 58"
+    "Chrome >= 66",
+    "ChromeAndroid >= 66",
+    "Firefox >= 60"
   ]
 }
