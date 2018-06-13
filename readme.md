@@ -205,6 +205,10 @@ minified: null
 
 
 
+## Edge Platform
+
+If you like this: This preset is part of a larger whole. We use it primarily within our [Edge Platform](https://github.com/sebastian-software/edge). If you are also developing React applications, have a look around. There are not only Babel configurations, but also Jest-presets, webpack tools, libraries to improve the localization possibilities in React, helpful extensions for the Express Server and more. We design this, of course, for optimal interaction. However, most solutions can also be used individually.
+
 
 ## License
 
