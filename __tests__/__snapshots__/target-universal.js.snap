@@ -213,7 +213,7 @@ function annotation(target) {
 
 exports[`Target: Universal esnext: dynamic import 1`] = `
 "import(
-/*webpackChunkName:'lodash-vX3XN'*/
+/*webpackChunkName:'lodash-wBYk8'*/
 \\"lodash\\").then(function (lodash) {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
@@ -246,21 +246,21 @@ exports[`Target: Universal loadable 1`] = `
 "import loadable from 'loadable-components';
 export var Home = loadable(function () {
   return import(
-  /*webpackChunkName:'Home-NOPWp'*/
+  /*webpackChunkName:'Home-JfPYC'*/
   \\"./views/Home\\");
 }, {
   modules: [\\"./views/Home\\"]
 });
 export var About = loadable(function () {
   return import(
-  /*webpackChunkName:'About-kr3Tt'*/
+  /*webpackChunkName:'About-8yDxR'*/
   \\"./views/About\\");
 }, {
   modules: [\\"./views/About\\"]
 });
 export var Contact = loadable(function () {
   return import(
-  /*webpackChunkName:'Contact-Uluwi'*/
+  /*webpackChunkName:'Contact-AIf6m'*/
   \\"./views/Contact\\");
 }, {
   modules: [\\"./views/Contact\\"]
@@ -271,7 +271,7 @@ exports[`Target: Universal loadable magic-comments 1`] = `
 "import loadable from 'loadable-components';
 export var Home = loadable(function () {
   return import(
-  /*webpackChunkName:'Home-NOPWp'*/
+  /*webpackChunkName:'Home-JfPYC'*/
   \\"./views/Home\\");
 }, {
   modules: [\\"./views/Home\\"]
@@ -285,7 +285,7 @@ export var About = loadable(function () {
 });
 export var Contact = loadable(function () {
   return import(
-  /*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-Uluwi'*/
+  /*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-AIf6m'*/
   \\"./views/Contact\\");
 }, {
   modules: [\\"./views/Contact\\"]
@@ -298,21 +298,21 @@ var page = \\"About\\",
     lang = \\"de_DE\\";
 export var views = loadable(function () {
   return import(
-  /*webpackChunkName:'views-[request]-GPHJF'*/
+  /*webpackChunkName:'views-[request]-q9bqd'*/
   \\"./views/\\" + page);
 }, {
   modules: [\\"./views/\\" + page]
 });
 export var leanIntl = loadable(function () {
   return import(
-  /*webpackChunkName:'lean-intl-[request]-g30wA'*/
+  /*webpackChunkName:'lean-intl-[request]-ucOqv'*/
   \\"./lean-intl/\\" + lang + \\"/data\\");
 }, {
   modules: [\\"./lean-intl/\\" + lang + \\"/data\\"]
 });
 export var reactIntl = loadable(function () {
   return import(
-  /*webpackChunkName:'react-intl-[request]-81XPq'*/
+  /*webpackChunkName:'react-intl-[request]-owXpv'*/
   \\"./react-intl/\\" + lang + \\"/data\\");
 }, {
   modules: [\\"./react-intl/\\" + lang + \\"/data\\"]

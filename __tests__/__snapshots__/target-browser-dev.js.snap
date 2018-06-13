@@ -117,7 +117,7 @@ function annotation(target) {
 
 exports[`Target: Browser: Dev esnext: dynamic import 1`] = `
 "import(
-/*webpackChunkName:'lodash-vX3XN'*/
+/*webpackChunkName:'lodash-wBYk8'*/
 \\"lodash\\").then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
@@ -148,17 +148,17 @@ const obj = {
 exports[`Target: Browser: Dev loadable 1`] = `
 "import loadable from 'loadable-components';
 export const Home = loadable(() => import(
-/*webpackChunkName:'Home-NOPWp'*/
+/*webpackChunkName:'Home-JfPYC'*/
 \\"./views/Home\\"), {
   modules: [\\"./views/Home\\"]
 });
 export const About = loadable(() => import(
-/*webpackChunkName:'About-kr3Tt'*/
+/*webpackChunkName:'About-8yDxR'*/
 \\"./views/About\\"), {
   modules: [\\"./views/About\\"]
 });
 export const Contact = loadable(() => import(
-/*webpackChunkName:'Contact-Uluwi'*/
+/*webpackChunkName:'Contact-AIf6m'*/
 \\"./views/Contact\\"), {
   modules: [\\"./views/Contact\\"]
 });"
@@ -167,7 +167,7 @@ export const Contact = loadable(() => import(
 exports[`Target: Browser: Dev loadable magic-comments 1`] = `
 "import loadable from 'loadable-components';
 export const Home = loadable(() => import(
-/*webpackChunkName:'Home-NOPWp'*/
+/*webpackChunkName:'Home-JfPYC'*/
 \\"./views/Home\\"), {
   modules: [\\"./views/Home\\"]
 });
@@ -177,7 +177,7 @@ export const About = loadable(() => import(
   modules: [\\"./views/About\\"]
 });
 export const Contact = loadable(() => import(
-/*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-Uluwi'*/
+/*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-AIf6m'*/
 \\"./views/Contact\\"), {
   modules: [\\"./views/Contact\\"]
 });"
@@ -188,17 +188,17 @@ exports[`Target: Browser: Dev loadable wildcard 1`] = `
 const page = \\"About\\",
       lang = \\"de_DE\\";
 export const views = loadable(() => import(
-/*webpackChunkName:'views-[request]-GPHJF'*/
+/*webpackChunkName:'views-[request]-q9bqd'*/
 \`./views/\${page}\`), {
   modules: [\`./views/\${page}\`]
 });
 export const leanIntl = loadable(() => import(
-/*webpackChunkName:'lean-intl-[request]-g30wA'*/
+/*webpackChunkName:'lean-intl-[request]-ucOqv'*/
 \`./lean-intl/\${lang}/data\`), {
   modules: [\`./lean-intl/\${lang}/data\`]
 });
 export const reactIntl = loadable(() => import(
-/*webpackChunkName:'react-intl-[request]-81XPq'*/
+/*webpackChunkName:'react-intl-[request]-owXpv'*/
 \`./react-intl/\${lang}/data\`), {
   modules: [\`./react-intl/\${lang}/data\`]
 });"
