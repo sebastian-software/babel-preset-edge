@@ -16,7 +16,7 @@
 
 ## A centralized Babel Configuration for modern React development.
 
-    Babel-Preset-Edge could be described as the big brother of Babel-Preset-React-App (part of [Create React App](https://github.com/facebook/create-react-app)). Where the latter combines only a few basics, Babel-Preset-Edge is more innovative, flexible and automated.
+> Babel-Preset-Edge could be described as the big brother of Babel-Preset-React-App (part of [Create React App](https://github.com/facebook/create-react-app)). Where the latter combines only a few basics, Babel-Preset-Edge is more innovative, flexible and automated.
 
 Babel configurations start easily, but can quickly become complicated. Not to mention that everything that works has to be kept running for a while. Frequently this manual approach is very 🚨 time-consuming: combine all current Babel plugins in the correct order and update them regularly. This often involves copying and matching between different projects, teams and products. Babel-Preset-Edge offers a significant simplification here. One preset instead of your own manual configuration. Of course, this preset has settings, but it also does a lot automatically. Almost magical. 🧞 ‍
 
