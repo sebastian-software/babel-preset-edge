@@ -14,72 +14,91 @@
 [jest-img]: https://facebook.github.io/jest/img/jest-badge.svg
 [jest]: https://github.com/facebook/jest
 
-Babel Preset Edge is a centralized modern Babel Configuration for React development.
+## A centralized Babel Configuration for modern React development.
+
+Babel configurations start easily, but can quickly become complicated. Not to mention that everything that works has to be kept running for a while. Frequently this manual approach is very time-consuming: combine all current Babel plugins in the correct order and update them regularly. This often involves copying and matching between different projects, teams and products. Babel-Preset-Edge offers a significant simplification here. One preset instead of your own manual configuration. Of course, this preset has settings, but it also does a lot automatically. Almost magical.
+
+**TLDR: Babel v7 + Env Detection + React + Macros + Fast Async + Import Optimizations + Automatic Production Mode + Ready for ESM Script Tags + Smart Minification.**
+
+- The preset is already based on Babel version 7, which is in its final stages before its release, but already offers enough stability for productive use.
+- It uses Babel-Preset-Env and automatically reads your browser list configuration. The presets and plug-ins that are used run in Loose mode by default, generating more efficient code than would be the case in very strict mode. In practical use this mode has proven itself and is sufficient, as long as one does not do very wacky things, completely.
+- The preset also automatically detects the node version based on the `engines` specification in your `package.json`.
+- It provides factory support for React, JSX and Flow. Through the configuration options you can also use the preset for Preact.
+- There are a few features that are often used, but not yet quite standard. These include object-rest-spread, class properties, and decorators. The three are of course automatically supported by the preset.
+- There are always new ideas for language extensions. However, these are often not standard or are not even on their way to becoming standard. Here the solution of Kent C. Dodds with macros is much better. Instead of completely filling the namespace with new functions, its solution provides for the import of a macro. The code is therefore also directly understandable for Linter etc. This is a much rounder solution for solutions such as optimizing deep object accesses with `idx` or parsing GraphQL queries with `gql`.
+- The preset does without the translation of generators. This has always been a half-baked solution with insanely complex and slow code. Furthermore, Fast-Async is a much better solution for the translation of Async/Await. And the best thing is that this only works if the target for which the translation is being made really needs it.
+- To make output code as compact as possible and imports as efficient as possible, the preset rewrites imports from common utility libraries such as Lodash, Rambda and Async so that they are better captured and optimally bundled by the tree shaking of the webpack and rollup.
+- With the built-in "modern" mode, you can translate directly for the development of the software only for modern systems. That makes everything faster. And easier to debug often too. We recommend to use this mode during development.
+- With EcmaScript modules, there is now the option in the browser to offer two differently translated versions using different script tags. With the "esm" mode, this is also directly built into the preset.
+- Babel-Preset-Edge automatically detects from the `NODE_ENV` variable that it is currently in a unit test. This is used directly to translate only for the current engine.
+- Speaking of `NODE_ENV`. This can of course also be set to `production`. This already optimizes some things on the transpilation level. For example, the code minifier is more aggressive and some typical development constructs like PropTypes in React are expanded. In any case, even in development, the preset automatically removes dead branches of code and performs minor optimizations on the fly. There is really no reason to get the complete code when publishing to NPM. There are SourceMaps and with great solutions like the SourceMapLoader from Webpack we can even look right through the sources.
+And last but not least: We have built tests into the preset - of course - and can thus ensure to some extent that by updating the individual parts the whole thing continues to work. Who makes serious regression tests of the transpiler within their own application?
 
 
+## Installation / Usage
+
+This is how you install it using NPM:
+
+```
+npm i -D babel-preset-edge
+```
+
+and this is how your `.babelrc` looks afterwards:
+
+```json
+{
+  "presets": [
+    [ "edge", {
+      // options
+    }]
+  ]
+}
+```
 
 
+## Options
 
+### Targets
 
-## Key Features
-
-- Babel v7 based. Get all the new glory, plugins and performance.
-- Builds on [Preset-Env](https://github.com/babel/babel/tree/master/packages/babel-preset-env) to deal with targetted output, but making it way smarter by automatically supporting additional transpile settings like `esm`, `es2015` or `modern`. Externalizes helpers, prefers built-ins over inlined code and adds polyfills as needed by your code. Effectively following all best-practises.
-- Automatic environment detection. In most cases you shouldn't require using `env` blocks in your `.babelrc` at all. Making things way simpler.
-- Uses more flexible environment parameters to allow further settings via `EDGE_ENV` e.g. pass over `EDGE_ENV=development-es2015` to enable ES2015 output for development.
-- Integrated React, JSX and Flowtype support. Plus support for often used features like [Class Properties](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-class-properties), [Object Rest Spread](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-object-rest-spread) and [Decorators](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-decorators)
-- Dynamic `import()` support with additional smartness: SSR handling via [Loadable Components](https://github.com/smooth-code/loadable-components), automatic chunk names via [Smart Webpack Import](https://github.com/sebastian-software/babel-plugin-smart-webpack-import) and automatic NodeJS convertion when targetting NodeJS.
-- High Performance transpilation of `async/await` using [Fast Async](https://github.com/MatAtBread/fast-async) (converts to Promises) but only when required by output scenario. When using `modern` or `env` transpile or when inside a `test` you keep using the natively supported `async/await`.
-- This preset does not offer any transpilation of generators. Doing this produces relatively slow and complex code. Sorry Redux-Saga.
-- Local module support for easily referencing sources inside the `src` folder of the project using the [module resolver plugin](https://github.com/tleunen/babel-plugin-module-resolver).
-- [Lodash Plugin](https://github.com/lodash/babel-plugin-lodash) to allow cherry-picking of more tranditionally exported libraries like lodash, async, rambda and recompose.
-- [Babel Macros](https://www.npmjs.com/package/babel-plugin-macros) allows endless extensibility in user code by things like GraphQL parsing, pre-evaluation and more.
-- Makes use of [Babel Minify](https://github.com/babel/minify) the preset is able to apply different levels of compression directly while transpiling. There is really no reason to publish dead code paths or keeping all super detailed comments in-tact for NPM packages. A minor compression is enabled by default. Full minification is activated in when using `minify:true` inside a `production` environment.
-
-
-
-
-## Targets
-
-### Universal Target
+#### Universal Target
 
 This is the default target. It produces code which is compatible with both NodeJS and browsers.
 
-### Test Target
+#### Test Target
 
 The `test` target is ideally suited for any test runner usage. It is enabled by default when no other
 target is given and `NODE_ENV` is configured as `test`. It exactly targets the current environment.
 It is probably not a good idea to use this target outside of testing.
 
-### Browser Target
+#### Browser Target
 
 When setting the target to `browser` your build requirements will match the `browserslist` configuration of your projects. This is ideal for all web related builds inside your application. It is not well suited for any publishing of libraries for other use cases.
 
-### Node Target
+#### Node Target
 
 This uses the `engines/node` field from `package.json` to automatically bundle your code in a way that it matches the capabilities of the specified NodeJS version.
 
 
 
 
-## Transpilation Settings
+### Transpilation
 
-### Default Transpilation
+#### Default Transpilation
 
 The default is used when not running a test runner and when no other `transpile` was defined. Transpilation applies all features from `babel-preset-env` so that the code should be able to run on all ES5-capable engines. Ideally for publishing libs to NPM or bundling applications for the widest possible use case.
 
-### ESM Transilation
+#### ESM Transilation
 
 This output target is meant for [making use of this idea by Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/#nomodule-for-backwards-compatibility). The idea is basically to use two different script tags. One for ESM capable browsers and another one for all legacy browsers. Transpilation output is somewhat identical to "ES2015+Async/Await" transpilation. As this is one is easier to deal with (on client-side) it's probably the better choice over `es2015` for browser modules. See also [Deploying ES2015+ Code in Production Today by Philip Walton](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/)
 
-### ES2015 Transpilation
+#### ES2015 Transpilation
 
 This follows the idea of https://angularjs.blogspot.de/2017/03/angular-400-now-available.html to offer
 kind of a standardized `es2015` compatible package which could be used in relatively modern engines.
 This is independent from any specific browser lists. This configuration might be useful to e.g. offer
 two different bundles of your application: one for classic browsers and one of es2015-compatible browsers.
 
-### Modern Transpilation
+#### Modern Transpilation
 
 This is our current set-up for a so-called modern development stack. It transpiles even less code than when using `es2015`.
 
@@ -104,7 +123,7 @@ directly benefit from a lot of new features directly built-into Node v8 for exam
 
 
 
-## Defaults + Options
+### Defaults + Other Options
 
 These are our default options. They can be tweaked by passing the required options to the preset.
 
