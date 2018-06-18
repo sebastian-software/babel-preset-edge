@@ -106,6 +106,15 @@ export default function getOptions(input = {}) {
     console.log("- Transpile:", output.transpile)
   }
 
+  // Enforce 'cjs' for all test stuff. This is actually waiting for Jest somehow
+  // supporting ESM natively which seems to be quite another story.
+  // This overrides even a user defined `modules: false` inside config.
+  // A pragmatic solution for now.
+  // See also: https://github.com/facebook/jest/issues/4842
+  if (output.env === "test") {
+    output.modules = "cjs"
+  }
+
   // Automatic detection of "modules" mode based on target
   if (output.modules === "auto") {
     if (output.target === "node" || output.env === "test") {
