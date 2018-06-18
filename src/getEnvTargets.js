@@ -69,7 +69,7 @@ export default function getEnvTargets(options) {
       } else if (semver.satisfies("8.9.0", engines.node)) {
         envTargets.node = "8.9.0"
       } else {
-        throw new Error("Invalid transpile configuration! Unable to match required engines.")
+        throw new Error("Unable to detect NodeJS target from 'engines' configuration. NodeJS version defined: " + engines.node)
       }
     } else {
       // As Node v4 is out of support, we use the current LTS as default
