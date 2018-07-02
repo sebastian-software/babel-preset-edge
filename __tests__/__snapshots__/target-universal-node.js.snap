@@ -213,8 +213,9 @@ function annotation(target) {
 
 exports[`Target: Universal: Node Imports esnext: dynamic import 1`] = `
 "import \\"core-js/modules/es6.promise\\";
+import _interopRequireWildcard from \\"@babel/runtime/helpers/builtin/es6/interopRequireWildcard\\";
 Promise.resolve().then(function () {
-  return require(\\"lodash\\");
+  return _interopRequireWildcard(require(\\"lodash\\"));
 }).then(function (lodash) {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
@@ -245,24 +246,25 @@ exports[`Target: Universal: Node Imports esnext: optional_chaining 1`] = `
 
 exports[`Target: Universal: Node Imports loadable 1`] = `
 "import \\"core-js/modules/es6.promise\\";
+import _interopRequireWildcard from \\"@babel/runtime/helpers/builtin/es6/interopRequireWildcard\\";
 import loadable from 'loadable-components';
 export var Home = loadable(function () {
   return Promise.resolve().then(function () {
-    return require(\\"./views/Home\\");
+    return _interopRequireWildcard(require(\\"./views/Home\\"));
   });
 }, {
   modules: [\\"./views/Home\\"]
 });
 export var About = loadable(function () {
   return Promise.resolve().then(function () {
-    return require(\\"./views/About\\");
+    return _interopRequireWildcard(require(\\"./views/About\\"));
   });
 }, {
   modules: [\\"./views/About\\"]
 });
 export var Contact = loadable(function () {
   return Promise.resolve().then(function () {
-    return require(\\"./views/Contact\\");
+    return _interopRequireWildcard(require(\\"./views/Contact\\"));
   });
 }, {
   modules: [\\"./views/Contact\\"]
@@ -271,24 +273,25 @@ export var Contact = loadable(function () {
 
 exports[`Target: Universal: Node Imports loadable magic-comments 1`] = `
 "import \\"core-js/modules/es6.promise\\";
+import _interopRequireWildcard from \\"@babel/runtime/helpers/builtin/es6/interopRequireWildcard\\";
 import loadable from 'loadable-components';
 export var Home = loadable(function () {
   return Promise.resolve().then(function () {
-    return require(\\"./views/Home\\");
+    return _interopRequireWildcard(require(\\"./views/Home\\"));
   });
 }, {
   modules: [\\"./views/Home\\"]
 });
 export var About = loadable(function () {
   return Promise.resolve().then(function () {
-    return require(\\"./views/About\\");
+    return _interopRequireWildcard(require(\\"./views/About\\"));
   });
 }, {
   modules: [\\"./views/About\\"]
 });
 export var Contact = loadable(function () {
   return Promise.resolve().then(function () {
-    return require(\\"./views/Contact\\");
+    return _interopRequireWildcard(require(\\"./views/Contact\\"));
   });
 }, {
   modules: [\\"./views/Contact\\"]
@@ -297,26 +300,27 @@ export var Contact = loadable(function () {
 
 exports[`Target: Universal: Node Imports loadable wildcard 1`] = `
 "import \\"core-js/modules/es6.promise\\";
+import _interopRequireWildcard from \\"@babel/runtime/helpers/builtin/es6/interopRequireWildcard\\";
 import loadable from 'loadable-components';
 var page = \\"About\\",
     lang = \\"de_DE\\";
 export var views = loadable(function () {
   return Promise.resolve().then(function () {
-    return require(\\"./views/\\" + page);
+    return _interopRequireWildcard(require(\\"./views/\\" + page));
   });
 }, {
   modules: [\\"./views/\\" + page]
 });
 export var leanIntl = loadable(function () {
   return Promise.resolve().then(function () {
-    return require(\\"./lean-intl/\\" + lang + \\"/data\\");
+    return _interopRequireWildcard(require(\\"./lean-intl/\\" + lang + \\"/data\\"));
   });
 }, {
   modules: [\\"./lean-intl/\\" + lang + \\"/data\\"]
 });
 export var reactIntl = loadable(function () {
   return Promise.resolve().then(function () {
-    return require(\\"./react-intl/\\" + lang + \\"/data\\");
+    return _interopRequireWildcard(require(\\"./react-intl/\\" + lang + \\"/data\\"));
   });
 }, {
   modules: [\\"./react-intl/\\" + lang + \\"/data\\"]
