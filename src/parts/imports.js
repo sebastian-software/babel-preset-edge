@@ -1,17 +1,21 @@
-import dynamicImportSyntaxPlugin from "babel-plugin-syntax-dynamic-import"
-import dynamicImportRollupNode from "babel-plugin-dynamic-import-node"
-import dynamicImportServerRendering from "loadable-components/babel"
-import dynamicImportSmartWebpack from "babel-plugin-smart-webpack-import"
+import requireContext from "babel-plugin-require-context-hook"
+import syntaxPlugin from "babel-plugin-syntax-dynamic-import"
+import rollupNode from "babel-plugin-dynamic-import-node"
+import serverRendering from "loadable-components/babel"
+import smartWebpack from "babel-plugin-smart-webpack-import"
 
 export default function imports(presets, plugins, options) {
+  // Support for require.context in Non-Webpack-Environments like Jest
+  plugins.push(requireContext)
+
   // Support for new @import() syntax
-  plugins.push(dynamicImportSyntaxPlugin)
+  plugins.push(syntaxPlugin)
 
   // Support for enhanced imported components with SSR support
-  plugins.push(dynamicImportServerRendering)
+  plugins.push(serverRendering)
 
   // Automatically add chunk names to imports() (for Webpack usage)
-  plugins.push(dynamicImportSmartWebpack)
+  plugins.push(smartWebpack)
 
   // Transpile the parsed import() syntax for compatibility or extended features.
   if (options.imports === "node") {
@@ -20,7 +24,7 @@ export default function imports(presets, plugins, options) {
     }
 
     // Compiles import() to a deferred require() for NodeJS
-    plugins.push(dynamicImportRollupNode)
+    plugins.push(rollupNode)
   } else {
     if (options.debug) {
       console.log("- Keeping import() statement as is.")
