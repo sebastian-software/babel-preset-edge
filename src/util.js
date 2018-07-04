@@ -5,3 +5,7 @@ export function isProduction(options) {
 export function isDevelopment(options) {
   return (/\bdevelopment\b/).test(options.env) && (/\btest\b/).test(options.env)
 }
+
+export function isTest(options) {
+  return (/\btest\b/).test(options.env)
+}
