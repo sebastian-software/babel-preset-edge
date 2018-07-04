@@ -12,21 +12,6 @@ const engines = require(`${getAppRoot()}/package.json`).engines
 export default function getEnvTargets(options) {
   let envTargets = {}
 
-  // if (options.target === "node") {
-  //   // Widely used stable NodeJS (LTS) is v6.9.0
-  //   // See also: https://nodejs.org/en/blog/release/v6.9.0/
-  //   // Newest LTS is v8.9.0 https://nodejs.org/en/blog/release/v8.9.0/
-  //   // You can choose the modern version by setting `target` to "node8".
-  //   // We also have support for even more modern Node v10 which did not yet reached LTS.
-  //   envTargets.node =
-  //     options.target === "node8" ?
-  //       "8.9.0" :
-  //       options.target === "node10" ?
-  //         "10.0.0" :
-  //         "6.9.0"
-  //   envTargets.browsers = []
-  // }
-
   if (typeof options.transpile === "object") {
     envTargets = options.transpile
   } else if (options.transpile === "current") {
