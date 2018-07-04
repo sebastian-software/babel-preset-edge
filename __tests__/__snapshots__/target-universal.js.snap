@@ -451,3 +451,11 @@ MyComponent.propTypes = {
   userName: PropTypes.string
 };"
 `;
+
+exports[`Target: Universal require context 1`] = `
+"if (process.env.NODE_ENV === \\"test\\") {
+  require('babel-plugin-require-context-hook/register')();
+}
+
+var loader = require.context(__dirname, false, /\\\\.js/);"
+`;

@@ -391,3 +391,11 @@ MyComponent.propTypes = {
   userName: PropTypes.string
 };"
 `;
+
+exports[`Transpile: ES2015 require context 1`] = `
+"if (process.env.NODE_ENV === \\"test\\") {
+  require('babel-plugin-require-context-hook/register')();
+}
+
+const loader = require.context(__dirname, false, /\\\\.js/);"
+`;

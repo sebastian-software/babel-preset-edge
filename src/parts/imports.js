@@ -4,9 +4,13 @@ import rollupNode from "babel-plugin-dynamic-import-node"
 import serverRendering from "loadable-components/babel"
 import smartWebpack from "babel-plugin-smart-webpack-import"
 
+import { isTest } from "../util"
+
 export default function imports(presets, plugins, options) {
-  // Support for require.context in Non-Webpack-Environments like Jest
-  plugins.push(requireContext)
+  // Support for require.context in Non-Webpack-Environments like Jest or NodeJS
+  if (isTest(options) || options.target === "node") {
+    plugins.push(requireContext)
+  }
 
   // Support for new @import() syntax
   plugins.push(syntaxPlugin)

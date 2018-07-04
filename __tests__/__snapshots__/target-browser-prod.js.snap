@@ -53,3 +53,5 @@ exports[`Target: Browser: Prod react: jsx 1`] = `"import _jsx from\\"@babel/runt
 exports[`Target: Browser: Prod react: jsx spread 1`] = `"import\\"core-js/modules/es6.object.assign\\";function render(a){return React.createElement(\\"h1\\",Object.assign({className:\\"large\\"},a),\\"Hello\\")}"`;
 
 exports[`Target: Browser: Prod react: proptypes 1`] = `"import _jsx from\\"@babel/runtime/helpers/builtin/es6/jsx\\";import _inheritsLoose from\\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";import React from\\"react\\";var MyComponent=/*#__PURE__*/function(a){function b(){return a.apply(this,arguments)||this}_inheritsLoose(b,a);var c=b.prototype;return c.render=function a(){return _jsx(\\"div\\",{},void 0,this.props.userName)},b}(React.Component);"`;
+
+exports[`Target: Browser: Prod require context 1`] = `"\\"test\\"===process.env.NODE_ENV&&require(\\"babel-plugin-require-context-hook/register\\")();var loader=require.context(__dirname,!1,/\\\\.js/);"`;

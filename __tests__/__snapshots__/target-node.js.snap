@@ -485,3 +485,13 @@ MyComponent.propTypes = {
   userName: _propTypes.default.string
 };"
 `;
+
+exports[`Target: NodeJS require context 1`] = `
+"\\"use strict\\";
+
+if (process.env.NODE_ENV === \\"test\\") {
+  require('babel-plugin-require-context-hook/register')();
+}
+
+const loader = __requireContext(__dirname, __dirname, false, /\\\\.js/);"
+`;
