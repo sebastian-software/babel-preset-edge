@@ -36,6 +36,9 @@
     "*.js": "eslint"
   },
   "jest": {
+    "transform": {
+      "^.+\\.js?$": "babel-jest"
+    },
     "testPathIgnorePatterns": [
       "__fixtures__",
       "core.js"
@@ -53,6 +56,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sebastian-software/babel-preset-edge.git"
+  },
+  "peerDependencies": {
+    "@babel/runtime": ">=7.0.0-beta.51"
   },
   "dependencies": {
     "@babel/core": "7.0.0-beta.51",
@@ -73,7 +79,6 @@
     "@babel/preset-react": "7.0.0-beta.51",
     "@babel/runtime": "7.0.0-beta.51",
     "app-root-dir": "^1.0.2",
-    "babel-core": "^7.0.0-bridge.0",
     "babel-plugin-dynamic-import-node": "^2.0.0",
     "babel-plugin-emotion": "^9.2.4",
     "babel-plugin-lodash": "^3.3.4",
@@ -93,6 +98,8 @@
     "@babel/cli": "^7.0.0-beta.51",
     "@babel/node": "^7.0.0-beta.51",
     "async": "^2.6.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.2.0",
     "eslint": "^5.0.1",
     "eslint-config-readable": "^2.1.3",
     "flow-bin": "^0.75.0",
