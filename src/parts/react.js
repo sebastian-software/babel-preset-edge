@@ -1,10 +1,10 @@
-import reactPreset from "@babel/preset-react"
 import flowPreset from "@babel/preset-flow"
-
-import reactInlineElementsPlugin from "@babel/plugin-transform-react-inline-elements"
 import reactConstantElements from "@babel/plugin-transform-react-constant-elements"
 
+import reactInlineElementsPlugin from "@babel/plugin-transform-react-inline-elements"
 import reactIntlPlugin from "babel-plugin-react-intl"
+
+import reactPreset from "@babel/preset-react"
 import transformRemovePropTypes from "babel-plugin-transform-react-remove-prop-types"
 
 import { isDevelopment, isProduction } from "../util"

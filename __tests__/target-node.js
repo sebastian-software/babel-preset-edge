@@ -1,5 +1,5 @@
 import buildPreset from "../src"
-import { fixtures, titles, check } from "./core"
+import { check, fixtures, titles } from "./core"
 
 describe("Target: NodeJS", () => {
   const options = buildPreset(null, {

@@ -1,5 +1,5 @@
 import buildPreset from "../src"
-import { fixtures, titles, check } from "./core"
+import { check, fixtures, titles } from "./core"
 
 describe("Transpile: NodeJS v8", () => {
   const options = buildPreset(null, {

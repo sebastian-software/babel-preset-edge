@@ -1,7 +1,7 @@
-import fastAsyncPlugin from "fast-async"
-import { isPluginRequired } from "@babel/preset-env"
-import getTargets from "@babel/preset-env/lib/targets-parser"
 import envPlugins from "@babel/preset-env/data/plugins.json"
+import fastAsyncPlugin from "fast-async"
+import getTargets from "@babel/preset-env/lib/targets-parser"
+import { isPluginRequired } from "@babel/preset-env"
 
 import getEnvTargets from "../getEnvTargets"
 

@@ -1,10 +1,10 @@
-import { get as getAppRoot } from "app-root-dir"
-import semver from "semver"
 import browserslist from "browserslist"
 import getTargets from "@babel/preset-env/lib/targets-parser"
+import semver from "semver"
+import { get as getAppRoot } from "app-root-dir"
 
-import { isProduction } from "./util"
 import modernTarget from "./modernTarget"
+import { isProduction } from "./util"
 
 const engines = require(`${getAppRoot()}/package.json`).engines
 
@@ -54,7 +54,7 @@ export default function getEnvTargets(options) {
       } else if (semver.satisfies("8.9.0", engines.node)) {
         envTargets.node = "8.9.0"
       } else {
-        throw new Error("Unable to detect NodeJS target from 'engines' configuration. NodeJS version defined: " + engines.node)
+        throw new Error(`Unable to detect NodeJS target from 'engines' configuration. NodeJS version defined: ${  engines.node}`)
       }
     } else {
       // As Node v4 is out of support, we use the current LTS as default

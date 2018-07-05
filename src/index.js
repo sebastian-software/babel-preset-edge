@@ -1,14 +1,14 @@
 /* eslint-disable filenames/match-exported, no-console, complexity */
-import getOptions from "./getOptions"
-import shouldPrintComment from "./shouldPrintComment"
-
 import asyncPart from "./parts/async"
 import compressionPart from "./parts/compression"
+
 import conveniencePart from "./parts/convenience"
 import envPart from "./parts/env"
+import getOptions from "./getOptions"
 import importsPart from "./parts/imports"
 import proposalsPart from "./parts/proposals"
 import reactPart from "./parts/react"
+import shouldPrintComment from "./shouldPrintComment"
 
 export default function buildPreset(context, input) {
   const options = getOptions(input)

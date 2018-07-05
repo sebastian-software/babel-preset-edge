@@ -1,7 +1,7 @@
-import classPropertiesPlugin from "@babel/plugin-proposal-class-properties"
-import objectRestSpreadPlugin from "@babel/plugin-proposal-object-rest-spread"
-import decoratorsPlugin from "@babel/plugin-proposal-decorators"
 import catchBindPlugin from "@babel/plugin-proposal-optional-catch-binding"
+import classPropertiesPlugin from "@babel/plugin-proposal-class-properties"
+import decoratorsPlugin from "@babel/plugin-proposal-decorators"
+import objectRestSpreadPlugin from "@babel/plugin-proposal-object-rest-spread"
 import optionalChainingPlugin from "@babel/plugin-proposal-optional-chaining"
 
 export default function proposals(presets, plugins, options) {

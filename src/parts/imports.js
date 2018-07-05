@@ -1,8 +1,8 @@
 import requireContext from "babel-plugin-require-context-hook"
-import syntaxPlugin from "babel-plugin-syntax-dynamic-import"
 import rollupNode from "babel-plugin-dynamic-import-node"
 import serverRendering from "loadable-components/babel"
 import smartWebpack from "babel-plugin-smart-webpack-import"
+import syntaxPlugin from "babel-plugin-syntax-dynamic-import"
 
 import { isTest } from "../util"
 

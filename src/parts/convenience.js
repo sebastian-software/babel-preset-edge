@@ -1,10 +1,10 @@
-import { get as getAppRoot } from "app-root-dir"
 import { resolve as resolvePath } from "path"
+import emotionPlugin from "babel-plugin-emotion"
 
-import moduleResolver from "babel-plugin-module-resolver"
 import lodashPlugin from "babel-plugin-lodash"
 import macrosPlugin from "babel-plugin-macros"
-import emotionPlugin from "babel-plugin-emotion"
+import moduleResolver from "babel-plugin-module-resolver"
+import { get as getAppRoot } from "app-root-dir"
 
 export default function convenience(presets, plugins, options) {
   // Optimization for cheery-picking from lodash, asyncjs, ramba and recompose.
