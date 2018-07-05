@@ -68,9 +68,7 @@ This is the default target. It produces code which is compatible with both NodeJ
 
 #### Test Target
 
-The `test` target is ideally suited for any test runner usage. It is enabled by default when no other
-target is given and `NODE_ENV` is configured as `test`. It exactly targets the current environment.
-It is probably not a good idea to use this target outside of testing.
+The `test` target is ideally suited for any test runner usage. It is enabled by default when no other target is given and `NODE_ENV` is configured as `test`. It exactly targets the current environment. It is probably not a good idea to use this target outside of testing.
 
 #### Browser Target
 
