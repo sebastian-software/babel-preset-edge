@@ -20,7 +20,8 @@
             "helpers": true,
             "regenerator": false,
             "polyfill": false,
-            "useBuiltIns": true
+            "useBuiltIns": true,
+            "useESModules": false
           }
         ],
         "@babel/plugin-proposal-object-rest-spread"
