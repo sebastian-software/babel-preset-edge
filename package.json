@@ -58,7 +58,8 @@
     "url": "git+https://github.com/sebastian-software/babel-preset-edge.git"
   },
   "peerDependencies": {
-    "@babel/runtime": ">=7.0.0-beta.51"
+    "@babel/runtime": ">=7.0.0-beta.52",
+    "core-js": ">=2.5.0"
   },
   "dependencies": {
     "@babel/core": "7.0.0-beta.52",

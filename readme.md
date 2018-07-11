@@ -42,7 +42,8 @@ Babel configurations start easily, but can quickly become complicated. Not to me
 This is how you install it using NPM:
 
 ```
-npm i -D babel-preset-edge
+npm install -D babel-preset-edge
+npm install core-js babel/@runtime
 ```
 
 and this is how your `.babelrc` looks afterwards:
@@ -56,6 +57,8 @@ and this is how your `.babelrc` looks afterwards:
   ]
 }
 ```
+
+Note: As you can see you need both `core-js` (Required Polyfills) and `@babel/runtime` (Babel Helpers e.g. `inherits` for ES5 classes) for correctly supporting the generated code. These are real dependencies, not just dev-dependencies of your distribution code.
 
 
 ## Options
