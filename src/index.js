@@ -43,6 +43,7 @@ export default function buildPreset(context, input) {
   // We need to make sure that stripping flow types is executed
   // before some other specific plugins as the runtime of the code
   // otherwise sometimes does not work correctly.
+  // Looks like being related to class properties.
   plugins.unshift(flowStrip)
 
   // Assemble final config
