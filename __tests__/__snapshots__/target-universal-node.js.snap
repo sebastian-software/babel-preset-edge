@@ -244,6 +244,22 @@ exports[`Target: Universal: Node Imports esnext: optional_chaining 1`] = `
     baz = (_obj$foo = obj.foo) == null ? void 0 : (_obj$foo$bar = _obj$foo.bar) == null ? void 0 : _obj$foo$bar.baz;"
 `;
 
+exports[`Target: Universal: Node Imports flow 1`] = `
+"import _inheritsLoose from \\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";
+
+var StageView =
+/*#__PURE__*/
+function (_AbstractStageView) {
+  _inheritsLoose(StageView, _AbstractStageView);
+
+  function StageView() {
+    return _AbstractStageView.apply(this, arguments) || this;
+  }
+
+  return StageView;
+}(AbstractStageView);"
+`;
+
 exports[`Target: Universal: Node Imports loadable 1`] = `
 "import \\"core-js/modules/es6.promise\\";
 import _interopRequireWildcard from \\"@babel/runtime/helpers/builtin/es6/interopRequireWildcard\\";

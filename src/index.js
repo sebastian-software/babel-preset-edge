@@ -1,4 +1,6 @@
 /* eslint-disable filenames/match-exported, no-console, complexity */
+import flowStrip from "@babel/plugin-transform-flow-strip-types"
+
 import asyncPart from "./parts/async"
 import compressionPart from "./parts/compression"
 
@@ -37,6 +39,11 @@ export default function buildPreset(context, input) {
   compressionPart(presets, plugins, options)
   reactPart(presets, plugins, options)
   envPart(presets, plugins, options)
+
+  // We need to make sure that stripping flow types is executed
+  // before some other specific plugins as the runtime of the code
+  // otherwise sometimes does not work correctly.
+  plugins.unshift(flowStrip)
 
   // Assemble final config
   return {

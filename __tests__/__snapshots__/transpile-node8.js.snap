@@ -190,6 +190,12 @@ const obj = {
       baz = (_obj$foo = obj.foo) == null ? void 0 : (_obj$foo$bar = _obj$foo.bar) == null ? void 0 : _obj$foo$bar.baz;"
 `;
 
+exports[`Transpile: NodeJS v8 flow 1`] = `
+"\\"use strict\\";
+
+class StageView extends AbstractStageView {}"
+`;
+
 exports[`Transpile: NodeJS v8 loadable 1`] = `
 "\\"use strict\\";
 

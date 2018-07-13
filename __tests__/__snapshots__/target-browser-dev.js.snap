@@ -145,6 +145,8 @@ const obj = {
       baz = (_obj$foo = obj.foo) == null ? void 0 : (_obj$foo$bar = _obj$foo.bar) == null ? void 0 : _obj$foo$bar.baz;"
 `;
 
+exports[`Target: Browser: Dev flow 1`] = `"class StageView extends AbstractStageView {}"`;
+
 exports[`Target: Browser: Dev loadable 1`] = `
 "import loadable from 'loadable-components';
 export const Home = loadable(() => import(
