@@ -1,18 +1,17 @@
-# Babel Preset Edge<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps] [![Tested with Jest][jest-img]][jest]
+# Babel Preset Edge<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps]
 
-[sponsor-img]: https://img.shields.io/badge/Sponsored%20by-Sebastian%20Software-692446.svg
 [sponsor]: https://www.sebastian-software.de
 [deps]: https://david-dm.org/sebastian-software/babel-preset-edge
-[deps-img]: https://david-dm.org/sebastian-software/babel-preset-edge.svg
 [npm]: https://www.npmjs.com/package/babel-preset-edge
-[npm-downloads-img]: https://img.shields.io/npm/dm/babel-preset-edge.svg
-[npm-version-img]: https://img.shields.io/npm/v/babel-preset-edge.svg
-[travis-img]: https://travis-ci.org/sebastian-software/babel-preset-edge.svg?branch=master
-[appveyor-img]: https://ci.appveyor.com/api/projects/status/dl90w5ux27qtpaey/branch/master?svg=true
 [travis]: https://travis-ci.org/sebastian-software/babel-preset-edge
 [appveyor]: https://ci.appveyor.com/project/swernerx/babel-preset-edge/branch/master
-[jest-img]: https://facebook.github.io/jest/img/jest-badge.svg
-[jest]: https://github.com/facebook/jest
+
+[sponsor-img]: https://badgen.net/badge/Sponsored%20by/Sebastian%20Software/692446
+[deps-img]: https://badgen.net/david/dep/sebastian-software/babel-preset-edge
+[npm-downloads-img]: https://badgen.net/npm/dm/babel-preset-edge
+[npm-version-img]: https://badgen.net/npm/v/babel-preset-edge
+[travis-img]: https://badgen.net/travis/sebastian-software/babel-preset-edge?label=unix%20build
+[appveyor-img]: https://badgen.net/appveyor/ci/swernerx/babel-preset-edge?label=windows%20build
 
 ## A centralized Babel Configuration for modern React development.
 
