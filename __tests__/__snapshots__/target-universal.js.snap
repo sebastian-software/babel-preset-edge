@@ -28,7 +28,7 @@ function SomeComponent() {
 `;
 
 exports[`Target: Universal es2015: classes 1`] = `
-"import _inheritsLoose from \\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";
+"import _inheritsLoose from \\"@babel/runtime/helpers/esm/inheritsLoose\\";
 export var Component =
 /*#__PURE__*/
 function (_Other) {
@@ -243,7 +243,7 @@ exports[`Target: Universal esnext: optional_chaining 1`] = `
 `;
 
 exports[`Target: Universal flow 1`] = `
-"import _inheritsLoose from \\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";
+"import _inheritsLoose from \\"@babel/runtime/helpers/esm/inheritsLoose\\";
 
 var StageView =
 /*#__PURE__*/
@@ -424,6 +424,15 @@ exports[`Target: Universal macro: gql 1`] = `
 
 exports[`Target: Universal macro: preval 1`] = `"var one = 1;"`;
 
+exports[`Target: Universal promise 1`] = `
+"import \\"core-js/modules/es6.promise\\";
+export default function () {
+  return new Promise(function (resolve) {
+    return resolve(42);
+  });
+}"
+`;
+
 exports[`Target: Universal react: jsx 1`] = `
 "function render() {
   return React.createElement(\\"h1\\", null, \\"Hello\\");
@@ -441,7 +450,7 @@ function render(props) {
 `;
 
 exports[`Target: Universal react: proptypes 1`] = `
-"import _inheritsLoose from \\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";
+"import _inheritsLoose from \\"@babel/runtime/helpers/esm/inheritsLoose\\";
 import React from \\"react\\";
 import PropTypes from \\"prop-types\\";
 

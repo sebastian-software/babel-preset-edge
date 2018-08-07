@@ -295,6 +295,14 @@ exports[`Target: Browser: Dev macro: gql 1`] = `
 
 exports[`Target: Browser: Dev macro: preval 1`] = `"const one = 1;"`;
 
+exports[`Target: Browser: Dev promise 1`] = `
+"export default function () {
+  return new Promise(resolve => {
+    return resolve(42);
+  });
+}"
+`;
+
 exports[`Target: Browser: Dev react: jsx 1`] = `
 "function render() {
   return React.createElement(\\"h1\\", null, \\"Hello\\");

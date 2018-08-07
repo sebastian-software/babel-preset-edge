@@ -362,6 +362,15 @@ exports[`Transpile: ES2015 macro: gql 1`] = `
 
 exports[`Transpile: ES2015 macro: preval 1`] = `"const one = 1;"`;
 
+exports[`Transpile: ES2015 promise 1`] = `
+"import \\"core-js/modules/es6.promise\\";
+export default function () {
+  return new Promise(resolve => {
+    return resolve(42);
+  });
+}"
+`;
+
 exports[`Transpile: ES2015 react: jsx 1`] = `
 "function render() {
   return React.createElement(\\"h1\\", null, \\"Hello\\");

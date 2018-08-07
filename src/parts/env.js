@@ -72,8 +72,6 @@ export default function env(presets, plugins, options) {
     {
       helpers: true,
       regenerator: false,
-      polyfill: false,
-      useBuiltIns: true,
       useESModules: options.modules === false && (/browser|universal/).test(options.target)
     }
   ])

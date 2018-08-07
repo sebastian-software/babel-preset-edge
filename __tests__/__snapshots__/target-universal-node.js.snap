@@ -28,7 +28,7 @@ function SomeComponent() {
 `;
 
 exports[`Target: Universal: Node Imports es2015: classes 1`] = `
-"import _inheritsLoose from \\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";
+"import _inheritsLoose from \\"@babel/runtime/helpers/esm/inheritsLoose\\";
 export var Component =
 /*#__PURE__*/
 function (_Other) {
@@ -213,7 +213,7 @@ function annotation(target) {
 
 exports[`Target: Universal: Node Imports esnext: dynamic import 1`] = `
 "import \\"core-js/modules/es6.promise\\";
-import _interopRequireWildcard from \\"@babel/runtime/helpers/builtin/es6/interopRequireWildcard\\";
+import _interopRequireWildcard from \\"@babel/runtime/helpers/esm/interopRequireWildcard\\";
 Promise.resolve().then(function () {
   return _interopRequireWildcard(require(\\"lodash\\"));
 }).then(function (lodash) {
@@ -245,7 +245,7 @@ exports[`Target: Universal: Node Imports esnext: optional_chaining 1`] = `
 `;
 
 exports[`Target: Universal: Node Imports flow 1`] = `
-"import _inheritsLoose from \\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";
+"import _inheritsLoose from \\"@babel/runtime/helpers/esm/inheritsLoose\\";
 
 var StageView =
 /*#__PURE__*/
@@ -262,7 +262,7 @@ function (_AbstractStageView) {
 
 exports[`Target: Universal: Node Imports loadable 1`] = `
 "import \\"core-js/modules/es6.promise\\";
-import _interopRequireWildcard from \\"@babel/runtime/helpers/builtin/es6/interopRequireWildcard\\";
+import _interopRequireWildcard from \\"@babel/runtime/helpers/esm/interopRequireWildcard\\";
 import loadable from 'loadable-components';
 export var Home = loadable(function () {
   return Promise.resolve().then(function () {
@@ -289,7 +289,7 @@ export var Contact = loadable(function () {
 
 exports[`Target: Universal: Node Imports loadable magic-comments 1`] = `
 "import \\"core-js/modules/es6.promise\\";
-import _interopRequireWildcard from \\"@babel/runtime/helpers/builtin/es6/interopRequireWildcard\\";
+import _interopRequireWildcard from \\"@babel/runtime/helpers/esm/interopRequireWildcard\\";
 import loadable from 'loadable-components';
 export var Home = loadable(function () {
   return Promise.resolve().then(function () {
@@ -316,7 +316,7 @@ export var Contact = loadable(function () {
 
 exports[`Target: Universal: Node Imports loadable wildcard 1`] = `
 "import \\"core-js/modules/es6.promise\\";
-import _interopRequireWildcard from \\"@babel/runtime/helpers/builtin/es6/interopRequireWildcard\\";
+import _interopRequireWildcard from \\"@babel/runtime/helpers/esm/interopRequireWildcard\\";
 import loadable from 'loadable-components';
 var page = \\"About\\",
     lang = \\"de_DE\\";
@@ -432,6 +432,15 @@ exports[`Target: Universal: Node Imports macro: gql 1`] = `
 
 exports[`Target: Universal: Node Imports macro: preval 1`] = `"var one = 1;"`;
 
+exports[`Target: Universal: Node Imports promise 1`] = `
+"import \\"core-js/modules/es6.promise\\";
+export default function () {
+  return new Promise(function (resolve) {
+    return resolve(42);
+  });
+}"
+`;
+
 exports[`Target: Universal: Node Imports react: jsx 1`] = `
 "function render() {
   return React.createElement(\\"h1\\", null, \\"Hello\\");
@@ -449,7 +458,7 @@ function render(props) {
 `;
 
 exports[`Target: Universal: Node Imports react: proptypes 1`] = `
-"import _inheritsLoose from \\"@babel/runtime/helpers/builtin/es6/inheritsLoose\\";
+"import _inheritsLoose from \\"@babel/runtime/helpers/esm/inheritsLoose\\";
 import React from \\"react\\";
 import PropTypes from \\"prop-types\\";
 

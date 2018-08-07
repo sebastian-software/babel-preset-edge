@@ -3,7 +3,7 @@
 exports[`Target: NodeJS comments 1`] = `
 "\\"use strict\\";
 
-var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\"),
     _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
 
 function translate(value) {
@@ -262,7 +262,7 @@ class StageView extends AbstractStageView {}"
 exports[`Target: NodeJS loadable 1`] = `
 "\\"use strict\\";
 
-var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\");
 
 exports.__esModule = true;
 exports.Contact = exports.About = exports.Home = void 0;
@@ -292,7 +292,7 @@ exports.Contact = Contact;"
 exports[`Target: NodeJS loadable magic-comments 1`] = `
 "\\"use strict\\";
 
-var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\");
 
 exports.__esModule = true;
 exports.Contact = exports.About = exports.Home = void 0;
@@ -322,7 +322,7 @@ exports.Contact = Contact;"
 exports[`Target: NodeJS loadable wildcard 1`] = `
 "\\"use strict\\";
 
-var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\");
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\");
 
 exports.__esModule = true;
 exports.reactIntl = exports.leanIntl = exports.views = void 0;
@@ -354,7 +354,7 @@ exports.reactIntl = reactIntl;"
 exports[`Target: NodeJS lodash: async 1`] = `
 "\\"use strict\\";
 
-var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\"),
     _parallel2 = _interopRequireDefault(require(\\"async/parallel\\"));
 
 (0, _parallel2.default)([]);"
@@ -363,7 +363,7 @@ var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRe
 exports[`Target: NodeJS lodash: lodash 1`] = `
 "\\"use strict\\";
 
-var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\"),
     _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
 
 (0, _camelCase2.default)(\\"hello world\\");"
@@ -372,7 +372,7 @@ var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRe
 exports[`Target: NodeJS lodash: recompose 1`] = `
 "\\"use strict\\";
 
-var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\"),
     _compose2 = _interopRequireDefault(require(\\"recompose/compose\\"));
 
 (0, _compose2.default)([]);"
@@ -455,6 +455,19 @@ exports[`Target: NodeJS macro: preval 1`] = `
 const one = 1;"
 `;
 
+exports[`Target: NodeJS promise 1`] = `
+"\\"use strict\\";
+
+exports.__esModule = true;
+exports.default = _default;
+
+function _default() {
+  return new Promise(resolve => {
+    return resolve(42);
+  });
+}"
+`;
+
 exports[`Target: NodeJS react: jsx 1`] = `
 "\\"use strict\\";
 
@@ -476,7 +489,7 @@ function render(props) {
 exports[`Target: NodeJS react: proptypes 1`] = `
 "\\"use strict\\";
 
-var _interopRequireDefault = require(\\"@babel/runtime/helpers/builtin/interopRequireDefault\\"),
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\"),
     _react = _interopRequireDefault(require(\\"react\\")),
     _propTypes = _interopRequireDefault(require(\\"prop-types\\"));
 
