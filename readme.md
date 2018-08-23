@@ -1,29 +1,30 @@
+# Babel Preset Edge
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Babel Preset Edge<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps]](#babel-preset-edgebrsponsored-bysponsor-imgsponsor-versionnpm-version-imgnpm-downloadsnpm-downloads-imgnpm-build-status-unixtravis-imgtravis-build-status-windowsappveyor-imgappveyor-dependenciesdeps-imgdeps)
-  - [A centralized Babel Configuration for modern React development.](#a-centralized-babel-configuration-for-modern-react-development)
-  - [Installation / Usage](#installation--usage)
-  - [Options](#options)
-    - [Targets](#targets)
-      - [Universal Target](#universal-target)
-      - [Test Target](#test-target)
-      - [Browser Target](#browser-target)
-      - [Node Target](#node-target)
-    - [Transpilation](#transpilation)
-      - [Default Transpilation](#default-transpilation)
-      - [ESM Transilation](#esm-transilation)
-      - [ES2015 Transpilation](#es2015-transpilation)
-      - [Modern Transpilation](#modern-transpilation)
-    - [Defaults + Other Options](#defaults--other-options)
-  - [Edge Platform](#edge-platform)
-  - [License](#license)
-  - [Copyright](#copyright)
+- [A centralized Babel Configuration for modern React development.](#a-centralized-babel-configuration-for-modern-react-development)
+- [Installation / Usage](#installation--usage)
+- [Options](#options)
+  - [Targets](#targets)
+    - [Universal Target](#universal-target)
+    - [Test Target](#test-target)
+    - [Browser Target](#browser-target)
+    - [Node Target](#node-target)
+  - [Transpilation](#transpilation)
+    - [Default Transpilation](#default-transpilation)
+    - [ESM Transilation](#esm-transilation)
+    - [ES2015 Transpilation](#es2015-transpilation)
+    - [Modern Transpilation](#modern-transpilation)
+  - [Defaults + Other Options](#defaults--other-options)
+- [Edge Platform](#edge-platform)
+- [License](#license)
+- [Copyright](#copyright)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Babel Preset Edge<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps]
+[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps]
 
 [sponsor]: https://www.sebastian-software.de
 [deps]: https://david-dm.org/sebastian-software/babel-preset-edge
