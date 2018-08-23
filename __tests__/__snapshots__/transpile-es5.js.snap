@@ -229,19 +229,6 @@ var original = {
 }, original);"
 `;
 
-exports[`Transpile: ES5 esnext: optional_chaining 1`] = `
-"var _obj$foo,
-    _obj$foo$bar,
-    obj = {
-  foo: {
-    bar: {
-      baz: 42
-    }
-  }
-},
-    baz = (_obj$foo = obj.foo) == null ? void 0 : (_obj$foo$bar = _obj$foo.bar) == null ? void 0 : _obj$foo$bar.baz;"
-`;
-
 exports[`Transpile: ES5 flow 1`] = `
 "import _inheritsLoose from \\"@babel/runtime/helpers/esm/inheritsLoose\\";
 

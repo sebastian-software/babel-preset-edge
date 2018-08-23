@@ -2,7 +2,6 @@ import catchBindPlugin from "@babel/plugin-proposal-optional-catch-binding"
 import classPropertiesPlugin from "@babel/plugin-proposal-class-properties"
 import decoratorsPlugin from "@babel/plugin-proposal-decorators"
 import objectRestSpreadPlugin from "@babel/plugin-proposal-object-rest-spread"
-import optionalChainingPlugin from "@babel/plugin-proposal-optional-chaining"
 
 export default function proposals(presets, plugins, options) {
   // Support for @decorators to wrap other functions/classes
@@ -20,7 +19,4 @@ export default function proposals(presets, plugins, options) {
   // Enables the catch block to execute whether or not an argument
   // is passed to the catch statement
   plugins.push(catchBindPlugin)
-
-  // Support Swift inspired deep object access like `const baz = obj?.foo`
-  plugins.push([ optionalChainingPlugin, { loose: options.looseMode }])
 }

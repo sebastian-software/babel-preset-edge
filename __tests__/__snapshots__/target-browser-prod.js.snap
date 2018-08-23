@@ -30,8 +30,6 @@ exports[`Target: Browser: Prod esnext: dynamic import 1`] = `"import(/*webpackCh
 
 exports[`Target: Browser: Prod esnext: object spread 1`] = `"import\\"core-js/modules/es6.object.assign\\";var original={bar:10},variant=Object.assign({foo:1},original);"`;
 
-exports[`Target: Browser: Prod esnext: optional_chaining 1`] = `"var _obj$foo,_obj$foo$bar,obj={foo:{bar:{baz:42}}},baz=null==obj||null==(_obj$foo=obj.foo)||null==(_obj$foo$bar=_obj$foo.bar)?void 0:_obj$foo$bar.baz;"`;
-
 exports[`Target: Browser: Prod flow 1`] = `"import _inheritsLoose from\\"@babel/runtime/helpers/esm/inheritsLoose\\";var StageView=/*#__PURE__*/function(a){function b(){return a.apply(this,arguments)||this}return _inheritsLoose(b,a),b}(AbstractStageView);"`;
 
 exports[`Target: Browser: Prod loadable 1`] = `"import loadable from\\"loadable-components\\";export var Home=loadable(function(){return import(/*webpackChunkName:'Home-JfPYC'*/\\"./views/Home\\")},{modules:[\\"./views/Home\\"]});export var About=loadable(function(){return import(/*webpackChunkName:'About-8yDxR'*/\\"./views/About\\")},{modules:[\\"./views/About\\"]});export var Contact=loadable(function(){return import(/*webpackChunkName:'Contact-AIf6m'*/\\"./views/Contact\\")},{modules:[\\"./views/Contact\\"]});"`;
