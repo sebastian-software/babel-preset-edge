@@ -1,10 +1,26 @@
 # Babel Preset Edge
 
+[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps]
+
+[sponsor]: https://www.sebastian-software.de
+[deps]: https://david-dm.org/sebastian-software/babel-preset-edge
+[npm]: https://www.npmjs.com/package/babel-preset-edge
+[travis]: https://travis-ci.org/sebastian-software/babel-preset-edge
+[appveyor]: https://ci.appveyor.com/project/swernerx/babel-preset-edge/branch/master
+
+[sponsor-img]: https://badgen.net/badge/Sponsored%20by/Sebastian%20Software/692446
+[deps-img]: https://badgen.net/david/dep/sebastian-software/babel-preset-edge
+[npm-downloads-img]: https://badgen.net/npm/dm/babel-preset-edge
+[npm-version-img]: https://badgen.net/npm/v/babel-preset-edge
+[travis-img]: https://badgen.net/travis/sebastian-software/babel-preset-edge?label=unix%20build
+[appveyor-img]: https://badgen.net/appveyor/ci/swernerx/babel-preset-edge?label=windows%20build
+
+## A centralized Babel Configuration for modern React development
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
-- [A centralized Babel Configuration for modern React development.](#a-centralized-babel-configuration-for-modern-react-development)
 - [Installation / Usage](#installation--usage)
 - [Options](#options)
   - [Targets](#targets)
@@ -23,23 +39,6 @@
 - [Copyright](#copyright)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps]
-
-[sponsor]: https://www.sebastian-software.de
-[deps]: https://david-dm.org/sebastian-software/babel-preset-edge
-[npm]: https://www.npmjs.com/package/babel-preset-edge
-[travis]: https://travis-ci.org/sebastian-software/babel-preset-edge
-[appveyor]: https://ci.appveyor.com/project/swernerx/babel-preset-edge/branch/master
-
-[sponsor-img]: https://badgen.net/badge/Sponsored%20by/Sebastian%20Software/692446
-[deps-img]: https://badgen.net/david/dep/sebastian-software/babel-preset-edge
-[npm-downloads-img]: https://badgen.net/npm/dm/babel-preset-edge
-[npm-version-img]: https://badgen.net/npm/v/babel-preset-edge
-[travis-img]: https://badgen.net/travis/sebastian-software/babel-preset-edge?label=unix%20build
-[appveyor-img]: https://badgen.net/appveyor/ci/swernerx/babel-preset-edge?label=windows%20build
-
-## A centralized Babel Configuration for modern React development.
 
 > Babel-Preset-Edge could be described as the big brother of Babel-Preset-React-App (part of [Create React App](https://github.com/facebook/create-react-app)). Where the latter combines only a few basics, Babel-Preset-Edge is more innovative, flexible and automated.
 
