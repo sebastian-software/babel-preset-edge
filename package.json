@@ -92,7 +92,8 @@
     "browserslist": "^4.1.1",
     "fast-async": "^7.0.6",
     "loadable-components": "^2.2.3",
-    "semver": "^5.5.1"
+    "semver": "^5.5.1",
+    "upath": "^1.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
