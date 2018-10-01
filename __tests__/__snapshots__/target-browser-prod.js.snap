@@ -6,7 +6,7 @@ exports[`Target: Browser: Prod deadcode 1`] = `"var STATIC=!1;!1,before(),!1,aft
 
 exports[`Target: Browser: Prod emotion 1`] = `"import _jsx from\\"@babel/runtime/helpers/esm/jsx\\";import{css}from\\"emotion\\";var className=/*#__PURE__*/css(\\"color:hotpink;\\"),_ref=/*#__PURE__*/_jsx(\\"div\\",{className:className},void 0,\\"Some hotpink text.\\");function SomeComponent(){return _ref}"`;
 
-exports[`Target: Browser: Prod es2015: classes 1`] = `"import _inheritsLoose from\\"@babel/runtime/helpers/esm/inheritsLoose\\";export var Component=/*#__PURE__*/function(a){function b(){var b;return b=a.call(this)||this,b.flag=!0,b}_inheritsLoose(b,a);var c=b.prototype;return c.main=function main(){alert(this.foo)},b}(Other);"`;
+exports[`Target: Browser: Prod es2015: classes 1`] = `"import _inheritsLoose from\\"@babel/runtime/helpers/esm/inheritsLoose\\";export var Component=/*#__PURE__*/function(a){function b(){var b;return b=a.call(this)||this,b.flag=!0,b}_inheritsLoose(b,a);var c=b.prototype;return c.main=function a(){alert(this.foo)},b}(Other);"`;
 
 exports[`Target: Browser: Prod es2015: for_off 1`] = `"import\\"core-js/modules/es7.symbol.async-iterator\\";import\\"core-js/modules/es6.symbol\\";import\\"core-js/modules/web.dom.iterable\\";function test(){for(var a=tasks,b=Array.isArray(a),c=0,a=b?a:a[Symbol.iterator]();;){var d;if(b){if(c>=a.length)break;d=a[c++]}else{if(c=a.next(),c.done)break;d=c.value}try{executeCommands()}catch(a){console.error(\\"Error\\")}}}"`;
 
@@ -14,7 +14,7 @@ exports[`Target: Browser: Prod es2015: generator 1`] = `"function*idMaker(){for(
 
 exports[`Target: Browser: Prod es2015: set 1`] = `"import\\"core-js/modules/web.dom.iterable\\";import\\"core-js/modules/es6.array.iterator\\";import\\"core-js/modules/es6.string.iterator\\";import\\"core-js/modules/es6.set\\";new Set([1,2,3]);"`;
 
-exports[`Target: Browser: Prod es2016: exponentiation 1`] = `"var result=8;"`;
+exports[`Target: Browser: Prod es2016: exponentiation 1`] = `"var result=Math.pow(2,3);"`;
 
 exports[`Target: Browser: Prod esnext: async 1`] = `"function wait(){return new Promise(function(a,b){return Promise.resolve(loadData()).then(function(){try{return a()}catch(a){return b(a)}},b)})}"`;
 
@@ -54,6 +54,6 @@ exports[`Target: Browser: Prod react: jsx 1`] = `"import _jsx from\\"@babel/runt
 
 exports[`Target: Browser: Prod react: jsx spread 1`] = `"import\\"core-js/modules/es6.object.assign\\";function render(a){return React.createElement(\\"h1\\",Object.assign({className:\\"large\\"},a),\\"Hello\\")}"`;
 
-exports[`Target: Browser: Prod react: proptypes 1`] = `"import _jsx from\\"@babel/runtime/helpers/esm/jsx\\";import _inheritsLoose from\\"@babel/runtime/helpers/esm/inheritsLoose\\";import React from\\"react\\";var MyComponent=/*#__PURE__*/function(a){function b(){return a.apply(this,arguments)||this}_inheritsLoose(b,a);var c=b.prototype;return c.render=function render(){return _jsx(\\"div\\",{},void 0,this.props.userName)},b}(React.Component);"`;
+exports[`Target: Browser: Prod react: proptypes 1`] = `"import _jsx from\\"@babel/runtime/helpers/esm/jsx\\";import _inheritsLoose from\\"@babel/runtime/helpers/esm/inheritsLoose\\";import React from\\"react\\";var MyComponent=/*#__PURE__*/function(a){function b(){return a.apply(this,arguments)||this}_inheritsLoose(b,a);var c=b.prototype;return c.render=function a(){return _jsx(\\"div\\",{},void 0,this.props.userName)},b}(React.Component);"`;
 
 exports[`Target: Browser: Prod require context 1`] = `"\\"test\\"===process.env.NODE_ENV&&require(\\"babel-plugin-require-context-hook/register\\")();var loader=require.context(__dirname,!1,/\\\\.js/);"`;

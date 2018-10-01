@@ -89,7 +89,7 @@ new Set([1, 2, 3]);"
 exports[`Target: NodeJS es2016: exponentiation 1`] = `
 "\\"use strict\\";
 
-var result = 8;"
+var result = Math.pow(2, 3);"
 `;
 
 exports[`Target: NodeJS esnext: async 1`] = `

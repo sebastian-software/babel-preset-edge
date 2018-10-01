@@ -97,7 +97,7 @@ import \\"core-js/modules/es6.set\\";
 new Set([1, 2, 3]);"
 `;
 
-exports[`Transpile: ES5 es2016: exponentiation 1`] = `"var result = 8;"`;
+exports[`Transpile: ES5 es2016: exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
 
 exports[`Transpile: ES5 esnext: async 1`] = `
 "function wait() {

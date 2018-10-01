@@ -97,7 +97,7 @@ import \\"core-js/modules/es6.set\\";
 new Set([1, 2, 3]);"
 `;
 
-exports[`Target: Universal es2016: exponentiation 1`] = `"var result = 8;"`;
+exports[`Target: Universal es2016: exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
 
 exports[`Target: Universal esnext: async 1`] = `
 "function wait() {
