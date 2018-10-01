@@ -1,42 +1,25 @@
 {
-  "env": {
-    "development": {
-      "presets": [
-        [
-          "@babel/preset-env",
-          {
-            "modules": false,
-            "useBuiltIns": "usage",
-            "targets": {
-              "node": "6.10"
-            }
-          }
-        ]
-      ],
-      "plugins": [
-        [
-          "@babel/plugin-transform-runtime",
-          {
-            "helpers": true,
-            "regenerator": false,
-            "useESModules": false
-          }
-        ],
-        "@babel/plugin-proposal-object-rest-spread"
-      ]
-    },
-    "test": {
-      "presets": [
-        [
-          "@babel/preset-env",
-          {
-            "useBuiltIns": "usage",
-            "targets": {
-              "node": "6.10"
-            }
-          }
-        ]
-      ]
-    }
-  }
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "useBuiltIns": "usage",
+        "targets": {
+          "node": "6.10"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "helpers": true,
+        "regenerator": false,
+        "useESModules": false
+      }
+    ],
+    "@babel/plugin-proposal-object-rest-spread"
+  ]
 }
