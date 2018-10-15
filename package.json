@@ -111,7 +111,7 @@
     "jest-cli": "^23.6.0",
     "lint-staged": "^7.3.0",
     "lodash": "^4.17.11",
-    "preppy": "^6.3.2",
+    "preppy": "^6.4.0",
     "prettier": "^1.14.3",
     "preval.macro": "^3.0.0",
     "prop-types": "^15.6.2",
