@@ -15,10 +15,14 @@ after();"
 `;
 
 exports[`Target: Universal emotion 1`] = `
-"import { css } from \\"emotion\\";
+"import { css as _css } from \\"emotion\\";
+
 var className =
 /*#__PURE__*/
-css(\\"color:hotpink;\\");
+_css({
+  name: \\"1vdp66k-className\\",
+  styles: \\"color:hotpink;label:className;\\"
+});
 
 function SomeComponent() {
   return React.createElement(\\"div\\", {
@@ -229,69 +233,209 @@ var original = {
 }, original);"
 `;
 
-exports[`Target: Universal flow 1`] = `
-"import _inheritsLoose from \\"@babel/runtime/helpers/esm/inheritsLoose\\";
-
-var StageView =
-/*#__PURE__*/
-function (_AbstractStageView) {
-  _inheritsLoose(StageView, _AbstractStageView);
-
-  function StageView() {
-    return _AbstractStageView.apply(this, arguments) || this;
-  }
-
-  return StageView;
-}(AbstractStageView);"
-`;
-
 exports[`Target: Universal loadable 1`] = `
 "import loadable from 'loadable-components';
-export var Home = loadable(function () {
-  return import(
-  /*webpackChunkName:'Home-JfPYC'*/
-  \\"./views/Home\\");
-}, {
-  modules: [\\"./views/Home\\"]
+export var Home = loadable({
+  chunkName: function chunkName() {
+    return \\"Home-JfPYC\\";
+  },
+  isReady: function isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+  requireAsync: function requireAsync() {
+    return import(
+    /* webpackChunkName: \\"Home-JfPYC\\" */
+    \\"./views/Home\\");
+  },
+  requireSync: function requireSync(props) {
+    var id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+  resolve: function resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Home\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/Home\\");
+  }
 });
-export var About = loadable(function () {
-  return import(
-  /*webpackChunkName:'About-8yDxR'*/
-  \\"./views/About\\");
-}, {
-  modules: [\\"./views/About\\"]
+export var About = loadable({
+  chunkName: function chunkName() {
+    return \\"About-8yDxR\\";
+  },
+  isReady: function isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+  requireAsync: function requireAsync() {
+    return import(
+    /* webpackChunkName: \\"About-8yDxR\\" */
+    \\"./views/About\\");
+  },
+  requireSync: function requireSync(props) {
+    var id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+  resolve: function resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/About\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/About\\");
+  }
 });
-export var Contact = loadable(function () {
-  return import(
-  /*webpackChunkName:'Contact-AIf6m'*/
-  \\"./views/Contact\\");
-}, {
-  modules: [\\"./views/Contact\\"]
+export var Contact = loadable({
+  chunkName: function chunkName() {
+    return \\"Contact-AIf6m\\";
+  },
+  isReady: function isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+  requireAsync: function requireAsync() {
+    return import(
+    /* webpackChunkName: \\"Contact-AIf6m\\" */
+    \\"./views/Contact\\");
+  },
+  requireSync: function requireSync(props) {
+    var id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+  resolve: function resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Contact\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/Contact\\");
+  }
 });"
 `;
 
 exports[`Target: Universal loadable magic-comments 1`] = `
 "import loadable from 'loadable-components';
-export var Home = loadable(function () {
-  return import(
-  /*webpackChunkName:'Home-JfPYC'*/
-  \\"./views/Home\\");
-}, {
-  modules: [\\"./views/Home\\"]
+export var Home = loadable({
+  chunkName: function chunkName() {
+    return \\"Home-JfPYC\\";
+  },
+  isReady: function isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+  requireAsync: function requireAsync() {
+    return import(
+    /* webpackChunkName: \\"Home-JfPYC\\" */
+    \\"./views/Home\\");
+  },
+  requireSync: function requireSync(props) {
+    var id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+  resolve: function resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Home\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/Home\\");
+  }
 });
-export var About = loadable(function () {
-  return import(
-  /* webpackChunkName: \\"About\\" */
-  \\"./views/About\\");
-}, {
-  modules: [\\"./views/About\\"]
+export var About = loadable({
+  chunkName: function chunkName() {
+    return \\"About\\";
+  },
+  isReady: function isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+  requireAsync: function requireAsync() {
+    return import(
+    /* webpackChunkName: \\"About\\" */
+    \\"./views/About\\");
+  },
+  requireSync: function requireSync(props) {
+    var id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+  resolve: function resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/About\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/About\\");
+  }
 });
-export var Contact = loadable(function () {
-  return import(
-  /*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-AIf6m'*/
-  \\"./views/Contact\\");
-}, {
-  modules: [\\"./views/Contact\\"]
+export var Contact = loadable({
+  chunkName: function chunkName() {
+    return \\"Contact-AIf6m\\";
+  },
+  isReady: function isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+  requireAsync: function requireAsync() {
+    return import(
+    /* webpackMode: \\"lazy\\", webpackFoo: \\"bar\\", webpackChunkName: \\"Contact-AIf6m\\" */
+    \\"./views/Contact\\");
+  },
+  requireSync: function requireSync(props) {
+    var id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+  resolve: function resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Contact\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/Contact\\");
+  }
 });"
 `;
 
@@ -299,26 +443,104 @@ exports[`Target: Universal loadable wildcard 1`] = `
 "import loadable from 'loadable-components';
 var page = \\"About\\",
     lang = \\"de_DE\\";
-export var views = loadable(function () {
-  return import(
-  /*webpackChunkName:'views-[request]-q9bqd'*/
-  \\"./views/\\" + page);
-}, {
-  modules: [\\"./views/\\" + page]
+export var views = loadable({
+  chunkName: function chunkName() {
+    return \\"views-\\" + page;
+  },
+  isReady: function isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+  requireAsync: function requireAsync() {
+    return import(
+    /* webpackChunkName: \\"views-[request]\\" */
+    \\"./views/\\" + page);
+  },
+  requireSync: function requireSync(props) {
+    var id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+  resolve: function resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/\\" + page);
+    }
+
+    return require('path').resolve(__dirname, \\"./views/\\" + page);
+  }
 });
-export var leanIntl = loadable(function () {
-  return import(
-  /*webpackChunkName:'lean-intl-[request]-ucOqv'*/
-  \\"./lean-intl/\\" + lang + \\"/data\\");
-}, {
-  modules: [\\"./lean-intl/\\" + lang + \\"/data\\"]
+export var leanIntl = loadable({
+  chunkName: function chunkName() {
+    return \\"lean-intl-\\" + lang + \\"-data\\";
+  },
+  isReady: function isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+  requireAsync: function requireAsync() {
+    return import(
+    /* webpackChunkName: \\"lean-intl-[request]-data\\" */
+    \\"./lean-intl/\\" + lang + \\"/data\\");
+  },
+  requireSync: function requireSync(props) {
+    var id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+  resolve: function resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./lean-intl/\\" + lang + \\"/data\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./lean-intl/\\" + lang + \\"/data\\");
+  }
 });
-export var reactIntl = loadable(function () {
-  return import(
-  /*webpackChunkName:'react-intl-[request]-owXpv'*/
-  \\"./react-intl/\\" + lang + \\"/data\\");
-}, {
-  modules: [\\"./react-intl/\\" + lang + \\"/data\\"]
+export var reactIntl = loadable({
+  chunkName: function chunkName() {
+    return \\"react-intl-\\" + lang + \\"-data\\";
+  },
+  isReady: function isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+  requireAsync: function requireAsync() {
+    return import(
+    /* webpackChunkName: \\"react-intl-[request]-data\\" */
+    \\"./react-intl/\\" + lang + \\"/data\\");
+  },
+  requireSync: function requireSync(props) {
+    var id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+  resolve: function resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./react-intl/\\" + lang + \\"/data\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./react-intl/\\" + lang + \\"/data\\");
+  }
 });"
 `;
 

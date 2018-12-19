@@ -26,7 +26,10 @@ var _emotion = require(\\"emotion\\");
 
 const className =
 /*#__PURE__*/
-(0, _emotion.css)(\\"color:hotpink;\\");
+(0, _emotion.css)({
+  name: \\"1vdp66k-className\\",
+  styles: \\"color:hotpink;label:className;\\"
+});
 
 function SomeComponent() {
   return React.createElement(\\"div\\", {
@@ -238,12 +241,6 @@ let original = {
 }, original);"
 `;
 
-exports[`Target: NodeJS flow 1`] = `
-"\\"use strict\\";
-
-class StageView extends AbstractStageView {}"
-`;
-
 exports[`Target: NodeJS loadable 1`] = `
 "\\"use strict\\";
 
@@ -254,22 +251,115 @@ exports.Contact = exports.About = exports.Home = void 0;
 
 var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
 
-const Home = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'Home-JfPYC'*/
-\\"./views/Home\\"), {
-  modules: [\\"./views/Home\\"]
+const Home = (0, _loadableComponents.default)({
+  chunkName() {
+    return \\"Home-JfPYC\\";
+  },
+
+  isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"Home-JfPYC\\" */
+  \\"./views/Home\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Home\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/Home\\");
+  }
+
 });
 exports.Home = Home;
-const About = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'About-8yDxR'*/
-\\"./views/About\\"), {
-  modules: [\\"./views/About\\"]
+const About = (0, _loadableComponents.default)({
+  chunkName() {
+    return \\"About-8yDxR\\";
+  },
+
+  isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"About-8yDxR\\" */
+  \\"./views/About\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/About\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/About\\");
+  }
+
 });
 exports.About = About;
-const Contact = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'Contact-AIf6m'*/
-\\"./views/Contact\\"), {
-  modules: [\\"./views/Contact\\"]
+const Contact = (0, _loadableComponents.default)({
+  chunkName() {
+    return \\"Contact-AIf6m\\";
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"Contact-AIf6m\\" */
+  \\"./views/Contact\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Contact\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/Contact\\");
+  }
+
 });
 exports.Contact = Contact;"
 `;
@@ -284,22 +374,115 @@ exports.Contact = exports.About = exports.Home = void 0;
 
 var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
 
-const Home = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'Home-JfPYC'*/
-\\"./views/Home\\"), {
-  modules: [\\"./views/Home\\"]
+const Home = (0, _loadableComponents.default)({
+  chunkName() {
+    return \\"Home-JfPYC\\";
+  },
+
+  isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"Home-JfPYC\\" */
+  \\"./views/Home\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Home\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/Home\\");
+  }
+
 });
 exports.Home = Home;
-const About = (0, _loadableComponents.default)(() => import(
-/* webpackChunkName: \\"About\\" */
-\\"./views/About\\"), {
-  modules: [\\"./views/About\\"]
+const About = (0, _loadableComponents.default)({
+  chunkName() {
+    return \\"About\\";
+  },
+
+  isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"About\\" */
+  \\"./views/About\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/About\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/About\\");
+  }
+
 });
 exports.About = About;
-const Contact = (0, _loadableComponents.default)(() => import(
-/*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-AIf6m'*/
-\\"./views/Contact\\"), {
-  modules: [\\"./views/Contact\\"]
+const Contact = (0, _loadableComponents.default)({
+  chunkName() {
+    return \\"Contact-AIf6m\\";
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackMode: \\"lazy\\", webpackFoo: \\"bar\\", webpackChunkName: \\"Contact-AIf6m\\" */
+  \\"./views/Contact\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Contact\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/Contact\\");
+  }
+
 });
 exports.Contact = Contact;"
 `;
@@ -316,22 +499,115 @@ var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\
 
 const page = \\"About\\",
       lang = \\"de_DE\\",
-      views = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'views-[request]-q9bqd'*/
-\`./views/\${page}\`), {
-  modules: [\`./views/\${page}\`]
+      views = (0, _loadableComponents.default)({
+  chunkName() {
+    return \`views-\${page}\`;
+  },
+
+  isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"views-[request]\\" */
+  \`./views/\${page}\`),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\`./views/\${page}\`);
+    }
+
+    return require('path').resolve(__dirname, \`./views/\${page}\`);
+  }
+
 });
 exports.views = views;
-const leanIntl = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'lean-intl-[request]-ucOqv'*/
-\`./lean-intl/\${lang}/data\`), {
-  modules: [\`./lean-intl/\${lang}/data\`]
+const leanIntl = (0, _loadableComponents.default)({
+  chunkName() {
+    return \`lean-intl-\${lang}-data\`;
+  },
+
+  isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"lean-intl-[request]-data\\" */
+  \`./lean-intl/\${lang}/data\`),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\`./lean-intl/\${lang}/data\`);
+    }
+
+    return require('path').resolve(__dirname, \`./lean-intl/\${lang}/data\`);
+  }
+
 });
 exports.leanIntl = leanIntl;
-const reactIntl = (0, _loadableComponents.default)(() => import(
-/*webpackChunkName:'react-intl-[request]-owXpv'*/
-\`./react-intl/\${lang}/data\`), {
-  modules: [\`./react-intl/\${lang}/data\`]
+const reactIntl = (0, _loadableComponents.default)({
+  chunkName() {
+    return \`react-intl-\${lang}-data\`;
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"react-intl-[request]-data\\" */
+  \`./react-intl/\${lang}/data\`),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\`./react-intl/\${lang}/data\`);
+    }
+
+    return require('path').resolve(__dirname, \`./react-intl/\${lang}/data\`);
+  }
+
 });
 exports.reactIntl = reactIntl;"
 `;

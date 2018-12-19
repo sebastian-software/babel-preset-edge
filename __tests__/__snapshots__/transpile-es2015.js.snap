@@ -15,10 +15,14 @@ after();"
 `;
 
 exports[`Transpile: ES2015 emotion 1`] = `
-"import { css } from \\"emotion\\";
+"import { css as _css } from \\"emotion\\";
+
 const className =
 /*#__PURE__*/
-css(\\"color:hotpink;\\");
+_css({
+  name: \\"1vdp66k-className\\",
+  styles: \\"color:hotpink;label:className;\\"
+});
 
 function SomeComponent() {
   return React.createElement(\\"div\\", {
@@ -199,43 +203,227 @@ let original = {
 }, original);"
 `;
 
-exports[`Transpile: ES2015 flow 1`] = `"class StageView extends AbstractStageView {}"`;
-
 exports[`Transpile: ES2015 loadable 1`] = `
 "import loadable from 'loadable-components';
-export const Home = loadable(() => import(
-/*webpackChunkName:'Home-JfPYC'*/
-\\"./views/Home\\"), {
-  modules: [\\"./views/Home\\"]
+export const Home = loadable({
+  chunkName() {
+    return \\"Home-JfPYC\\";
+  },
+
+  isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"Home-JfPYC\\" */
+  \\"./views/Home\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Home\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/Home\\");
+  }
+
 });
-export const About = loadable(() => import(
-/*webpackChunkName:'About-8yDxR'*/
-\\"./views/About\\"), {
-  modules: [\\"./views/About\\"]
+export const About = loadable({
+  chunkName() {
+    return \\"About-8yDxR\\";
+  },
+
+  isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"About-8yDxR\\" */
+  \\"./views/About\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/About\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/About\\");
+  }
+
 });
-export const Contact = loadable(() => import(
-/*webpackChunkName:'Contact-AIf6m'*/
-\\"./views/Contact\\"), {
-  modules: [\\"./views/Contact\\"]
+export const Contact = loadable({
+  chunkName() {
+    return \\"Contact-AIf6m\\";
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"Contact-AIf6m\\" */
+  \\"./views/Contact\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Contact\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/Contact\\");
+  }
+
 });"
 `;
 
 exports[`Transpile: ES2015 loadable magic-comments 1`] = `
 "import loadable from 'loadable-components';
-export const Home = loadable(() => import(
-/*webpackChunkName:'Home-JfPYC'*/
-\\"./views/Home\\"), {
-  modules: [\\"./views/Home\\"]
+export const Home = loadable({
+  chunkName() {
+    return \\"Home-JfPYC\\";
+  },
+
+  isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"Home-JfPYC\\" */
+  \\"./views/Home\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Home\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/Home\\");
+  }
+
 });
-export const About = loadable(() => import(
-/* webpackChunkName: \\"About\\" */
-\\"./views/About\\"), {
-  modules: [\\"./views/About\\"]
+export const About = loadable({
+  chunkName() {
+    return \\"About\\";
+  },
+
+  isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"About\\" */
+  \\"./views/About\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/About\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/About\\");
+  }
+
 });
-export const Contact = loadable(() => import(
-/*webpackMode:'lazy',webpackFoo:'bar',webpackChunkName:'Contact-AIf6m'*/
-\\"./views/Contact\\"), {
-  modules: [\\"./views/Contact\\"]
+export const Contact = loadable({
+  chunkName() {
+    return \\"Contact-AIf6m\\";
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackMode: \\"lazy\\", webpackFoo: \\"bar\\", webpackChunkName: \\"Contact-AIf6m\\" */
+  \\"./views/Contact\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Contact\\");
+    }
+
+    return require('path').resolve(__dirname, \\"./views/Contact\\");
+  }
+
 });"
 `;
 
@@ -243,20 +431,113 @@ exports[`Transpile: ES2015 loadable wildcard 1`] = `
 "import loadable from 'loadable-components';
 const page = \\"About\\",
       lang = \\"de_DE\\";
-export const views = loadable(() => import(
-/*webpackChunkName:'views-[request]-q9bqd'*/
-\`./views/\${page}\`), {
-  modules: [\`./views/\${page}\`]
+export const views = loadable({
+  chunkName() {
+    return \`views-\${page}\`;
+  },
+
+  isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"views-[request]\\" */
+  \`./views/\${page}\`),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\`./views/\${page}\`);
+    }
+
+    return require('path').resolve(__dirname, \`./views/\${page}\`);
+  }
+
 });
-export const leanIntl = loadable(() => import(
-/*webpackChunkName:'lean-intl-[request]-ucOqv'*/
-\`./lean-intl/\${lang}/data\`), {
-  modules: [\`./lean-intl/\${lang}/data\`]
+export const leanIntl = loadable({
+  chunkName() {
+    return \`lean-intl-\${lang}-data\`;
+  },
+
+  isReady() {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"lean-intl-[request]-data\\" */
+  \`./lean-intl/\${lang}/data\`),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\`./lean-intl/\${lang}/data\`);
+    }
+
+    return require('path').resolve(__dirname, \`./lean-intl/\${lang}/data\`);
+  }
+
 });
-export const reactIntl = loadable(() => import(
-/*webpackChunkName:'react-intl-[request]-owXpv'*/
-\`./react-intl/\${lang}/data\`), {
-  modules: [\`./react-intl/\${lang}/data\`]
+export const reactIntl = loadable({
+  chunkName() {
+    return \`react-intl-\${lang}-data\`;
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"react-intl-[request]-data\\" */
+  \`./react-intl/\${lang}/data\`),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\`./react-intl/\${lang}/data\`);
+    }
+
+    return require('path').resolve(__dirname, \`./react-intl/\${lang}/data\`);
+  }
+
 });"
 `;
 

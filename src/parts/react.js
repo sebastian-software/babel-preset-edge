@@ -1,4 +1,3 @@
-import flowPreset from "@babel/preset-flow"
 import reactConstantElements from "@babel/plugin-transform-react-constant-elements"
 
 import reactInlineElementsPlugin from "@babel/plugin-transform-react-inline-elements"
@@ -10,9 +9,6 @@ import transformRemovePropTypes from "babel-plugin-transform-react-remove-prop-t
 import { isDevelopment, isProduction } from "../util"
 
 export default function react(presets, plugins, options) {
-  // Support Flow Syntax
-  presets.push(flowPreset)
-
   // Transform JSX and prefer built-in methods
   presets.push([
     reactPreset,
