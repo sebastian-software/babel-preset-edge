@@ -32,6 +32,7 @@ const mediumCompression = {
   keepClassName: true,
 
   // Disable Agressive Plugins
+  builtIns: false,
   booleans: false,
   evaluate: false,
   infinity: false,
