@@ -86,6 +86,8 @@ function* idMaker() {
 exports[`Target: NodeJS es2015: set 1`] = `
 "\\"use strict\\";
 
+require(\\"core-js/modules/es6.object.to-string\\");
+
 new Set([1, 2, 3]);"
 `;
 
@@ -256,7 +258,7 @@ const Home = (0, _loadableComponents.default)({
     return \\"Home-JfPYC\\";
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -293,7 +295,7 @@ const About = (0, _loadableComponents.default)({
     return \\"About-8yDxR\\";
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -379,7 +381,7 @@ const Home = (0, _loadableComponents.default)({
     return \\"Home-JfPYC\\";
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -416,7 +418,7 @@ const About = (0, _loadableComponents.default)({
     return \\"About\\";
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -501,10 +503,10 @@ const page = \\"About\\",
       lang = \\"de_DE\\",
       views = (0, _loadableComponents.default)({
   chunkName() {
-    return \`views-\${page}\`;
+    return \`views-\${page}\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -538,10 +540,10 @@ const page = \\"About\\",
 exports.views = views;
 const leanIntl = (0, _loadableComponents.default)({
   chunkName() {
-    return \`lean-intl-\${lang}-data\`;
+    return \`lean-intl-\${lang}-data\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -575,7 +577,7 @@ const leanIntl = (0, _loadableComponents.default)({
 exports.leanIntl = leanIntl;
 const reactIntl = (0, _loadableComponents.default)({
   chunkName() {
-    return \`react-intl-\${lang}-data\`;
+    return \`react-intl-\${lang}-data\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
@@ -721,6 +723,8 @@ exports[`Target: NodeJS promise 1`] = `
 
 exports.__esModule = true;
 exports.default = _default;
+
+require(\\"core-js/modules/es6.object.to-string\\");
 
 function _default() {
   return new Promise(resolve => {

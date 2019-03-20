@@ -73,20 +73,83 @@ new Set([1, 2, 3]);"
 exports[`Transpile: ESM es2016: exponentiation 1`] = `"var result = 2 ** 3;"`;
 
 exports[`Transpile: ESM esnext: async 1`] = `
-"async function wait() {
-  await loadData();
+"function wait() {
+  return new Promise(function ($return, $error) {
+    return Promise.resolve(loadData()).then(function () {
+      try {
+        return $return();
+      } catch ($boundEx) {
+        return $error($boundEx);
+      }
+    }, $error);
+  });
 }"
 `;
 
 exports[`Transpile: ESM esnext: async_loop 1`] = `
-"async function executeTasks(tasks) {
-  for (const taskName of tasks) {
-    try {
-      await executeCommands();
-    } catch (error) {
-      console.error(\\"Error\\");
+"function executeTasks(tasks) {
+  return new Promise(function ($return, $error) {
+    var $Loop_3_trampoline, $Loop_3_local;
+
+    function $Loop_3_step() {
+      var [taskName, $iterator_taskName_2] = $Loop_3_local();
+      return $Loop_3.bind(this, taskName, $iterator_taskName_2);
     }
-  }
+
+    function $Loop_3(taskName, $iterator_taskName_2) {
+      $Loop_3_local = function () {
+        return [taskName, $iterator_taskName_2];
+      };
+
+      if (!($iterator_taskName_2[1] = $iterator_taskName_2[0].next()).done && ((taskName = $iterator_taskName_2[1].value) || true)) {
+        var $Try_1_Post = function () {
+          try {
+            return $Loop_3_step;
+          } catch ($boundEx) {
+            return $error($boundEx);
+          }
+        },
+            $Try_1_Catch = function () {
+          try {
+            console.error(\\"Error\\");
+            return $Try_1_Post();
+          } catch ($boundEx) {
+            return $error($boundEx);
+          }
+        };
+
+        try {
+          return Promise.resolve(executeCommands()).then(function () {
+            try {
+              return $Try_1_Post();
+            } catch ($boundEx) {
+              return $Try_1_Catch($boundEx);
+            }
+          }, $Try_1_Catch);
+        } catch (error) {
+          $Try_1_Catch(error)
+        }
+      } else return [1];
+    }
+
+    return ($Loop_3_trampoline = function (q) {
+      while (q) {
+        if (q.then) return void q.then($Loop_3_trampoline, $error);
+
+        try {
+          if (q.pop) {
+            if (q.length) return q.pop() ? $Loop_3_exit.call(this) : q;else q = $Loop_3_step;
+          } else q = q.call(this);
+        } catch (_exception) {
+          return $error(_exception);
+        }
+      }
+    }.bind(this))($Loop_3.bind(this, void 0, [tasks[Symbol.iterator]()]));
+
+    function $Loop_3_exit() {
+      return $return();
+    }
+  });
 }"
 `;
 
@@ -143,7 +206,7 @@ export const Home = loadable({
     return \\"Home-JfPYC\\";
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -179,7 +242,7 @@ export const About = loadable({
     return \\"About-8yDxR\\";
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -255,7 +318,7 @@ export const Home = loadable({
     return \\"Home-JfPYC\\";
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -291,7 +354,7 @@ export const About = loadable({
     return \\"About\\";
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -361,15 +424,16 @@ export const Contact = loadable({
 `;
 
 exports[`Transpile: ESM loadable wildcard 1`] = `
-"import loadable from 'loadable-components';
+"import \\"core-js/modules/es6.regexp.replace\\";
+import loadable from 'loadable-components';
 const page = \\"About\\",
       lang = \\"de_DE\\";
 export const views = loadable({
   chunkName() {
-    return \`views-\${page}\`;
+    return (\\"views-\\" + page).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -379,7 +443,7 @@ export const views = loadable({
 
   requireAsync: () => import(
   /* webpackChunkName: \\"views-[request]\\" */
-  \`./views/\${page}\`),
+  \\"./views/\\" + page),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -393,19 +457,19 @@ export const views = loadable({
 
   resolve() {
     if (require.resolveWeak) {
-      return require.resolveWeak(\`./views/\${page}\`);
+      return require.resolveWeak(\\"./views/\\" + page);
     }
 
-    return require('path').resolve(__dirname, \`./views/\${page}\`);
+    return require('path').resolve(__dirname, \\"./views/\\" + page);
   }
 
 });
 export const leanIntl = loadable({
   chunkName() {
-    return \`lean-intl-\${lang}-data\`;
+    return (\\"lean-intl-\\" + lang + \\"-data\\").replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -415,7 +479,7 @@ export const leanIntl = loadable({
 
   requireAsync: () => import(
   /* webpackChunkName: \\"lean-intl-[request]-data\\" */
-  \`./lean-intl/\${lang}/data\`),
+  \\"./lean-intl/\\" + lang + \\"/data\\"),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -429,16 +493,16 @@ export const leanIntl = loadable({
 
   resolve() {
     if (require.resolveWeak) {
-      return require.resolveWeak(\`./lean-intl/\${lang}/data\`);
+      return require.resolveWeak(\\"./lean-intl/\\" + lang + \\"/data\\");
     }
 
-    return require('path').resolve(__dirname, \`./lean-intl/\${lang}/data\`);
+    return require('path').resolve(__dirname, \\"./lean-intl/\\" + lang + \\"/data\\");
   }
 
 });
 export const reactIntl = loadable({
   chunkName() {
-    return \`react-intl-\${lang}-data\`;
+    return (\\"react-intl-\\" + lang + \\"-data\\").replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
@@ -451,7 +515,7 @@ export const reactIntl = loadable({
 
   requireAsync: () => import(
   /* webpackChunkName: \\"react-intl-[request]-data\\" */
-  \`./react-intl/\${lang}/data\`),
+  \\"./react-intl/\\" + lang + \\"/data\\"),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -465,10 +529,10 @@ export const reactIntl = loadable({
 
   resolve() {
     if (require.resolveWeak) {
-      return require.resolveWeak(\`./react-intl/\${lang}/data\`);
+      return require.resolveWeak(\\"./react-intl/\\" + lang + \\"/data\\");
     }
 
-    return require('path').resolve(__dirname, \`./react-intl/\${lang}/data\`);
+    return require('path').resolve(__dirname, \\"./react-intl/\\" + lang + \\"/data\\");
   }
 
 });"

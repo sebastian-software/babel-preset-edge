@@ -96,6 +96,7 @@ exports[`Transpile: ES5 es2015: generator 1`] = `
 exports[`Transpile: ES5 es2015: set 1`] = `
 "import \\"core-js/modules/web.dom.iterable\\";
 import \\"core-js/modules/es6.array.iterator\\";
+import \\"core-js/modules/es6.object.to-string\\";
 import \\"core-js/modules/es6.string.iterator\\";
 import \\"core-js/modules/es6.set\\";
 new Set([1, 2, 3]);"
@@ -440,12 +441,13 @@ export var Contact = loadable({
 `;
 
 exports[`Transpile: ES5 loadable wildcard 1`] = `
-"import loadable from 'loadable-components';
+"import \\"core-js/modules/es6.regexp.replace\\";
+import loadable from 'loadable-components';
 var page = \\"About\\",
     lang = \\"de_DE\\";
 export var views = loadable({
   chunkName: function chunkName() {
-    return \\"views-\\" + page;
+    return (\\"views-\\" + page).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
   isReady: function isReady() {
     if (typeof __webpack_modules__ != 'undefined') {
@@ -478,7 +480,7 @@ export var views = loadable({
 });
 export var leanIntl = loadable({
   chunkName: function chunkName() {
-    return \\"lean-intl-\\" + lang + \\"-data\\";
+    return (\\"lean-intl-\\" + lang + \\"-data\\").replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
   isReady: function isReady() {
     if (typeof __webpack_modules__ != 'undefined') {
@@ -511,7 +513,7 @@ export var leanIntl = loadable({
 });
 export var reactIntl = loadable({
   chunkName: function chunkName() {
-    return \\"react-intl-\\" + lang + \\"-data\\";
+    return (\\"react-intl-\\" + lang + \\"-data\\").replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
   isReady: function isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
@@ -635,6 +637,7 @@ exports[`Transpile: ES5 macro: preval 1`] = `"var one = 1;"`;
 
 exports[`Transpile: ES5 promise 1`] = `
 "import \\"core-js/modules/es6.promise\\";
+import \\"core-js/modules/es6.object.to-string\\";
 export default function () {
   return new Promise(function (resolve) {
     return resolve(42);

@@ -96,6 +96,7 @@ exports[`Target: Universal: Node Imports es2015: generator 1`] = `
 exports[`Target: Universal: Node Imports es2015: set 1`] = `
 "import \\"core-js/modules/web.dom.iterable\\";
 import \\"core-js/modules/es6.array.iterator\\";
+import \\"core-js/modules/es6.object.to-string\\";
 import \\"core-js/modules/es6.string.iterator\\";
 import \\"core-js/modules/es6.set\\";
 new Set([1, 2, 3]);"
@@ -217,6 +218,7 @@ function annotation(target) {
 
 exports[`Target: Universal: Node Imports esnext: dynamic import 1`] = `
 "import \\"core-js/modules/es6.promise\\";
+import \\"core-js/modules/es6.object.to-string\\";
 import _interopRequireWildcard from \\"@babel/runtime/helpers/esm/interopRequireWildcard\\";
 Promise.resolve().then(function () {
   return _interopRequireWildcard(require(\\"lodash\\"));
@@ -237,6 +239,7 @@ var original = {
 
 exports[`Target: Universal: Node Imports loadable 1`] = `
 "import \\"core-js/modules/es6.promise\\";
+import \\"core-js/modules/es6.object.to-string\\";
 import _interopRequireWildcard from \\"@babel/runtime/helpers/esm/interopRequireWildcard\\";
 import loadable from 'loadable-components';
 export var Home = loadable({
@@ -342,6 +345,7 @@ export var Contact = loadable({
 
 exports[`Target: Universal: Node Imports loadable magic-comments 1`] = `
 "import \\"core-js/modules/es6.promise\\";
+import \\"core-js/modules/es6.object.to-string\\";
 import _interopRequireWildcard from \\"@babel/runtime/helpers/esm/interopRequireWildcard\\";
 import loadable from 'loadable-components';
 export var Home = loadable({
@@ -447,13 +451,15 @@ export var Contact = loadable({
 
 exports[`Target: Universal: Node Imports loadable wildcard 1`] = `
 "import \\"core-js/modules/es6.promise\\";
+import \\"core-js/modules/es6.object.to-string\\";
 import _interopRequireWildcard from \\"@babel/runtime/helpers/esm/interopRequireWildcard\\";
+import \\"core-js/modules/es6.regexp.replace\\";
 import loadable from 'loadable-components';
 var page = \\"About\\",
     lang = \\"de_DE\\";
 export var views = loadable({
   chunkName: function chunkName() {
-    return \\"views-\\" + page;
+    return (\\"views-\\" + page).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
   isReady: function isReady() {
     if (typeof __webpack_modules__ != 'undefined') {
@@ -486,7 +492,7 @@ export var views = loadable({
 });
 export var leanIntl = loadable({
   chunkName: function chunkName() {
-    return \\"lean-intl-\\" + lang + \\"-data\\";
+    return (\\"lean-intl-\\" + lang + \\"-data\\").replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
   isReady: function isReady() {
     if (typeof __webpack_modules__ != 'undefined') {
@@ -519,7 +525,7 @@ export var leanIntl = loadable({
 });
 export var reactIntl = loadable({
   chunkName: function chunkName() {
-    return \\"react-intl-\\" + lang + \\"-data\\";
+    return (\\"react-intl-\\" + lang + \\"-data\\").replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
   isReady: function isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
@@ -643,6 +649,7 @@ exports[`Target: Universal: Node Imports macro: preval 1`] = `"var one = 1;"`;
 
 exports[`Target: Universal: Node Imports promise 1`] = `
 "import \\"core-js/modules/es6.promise\\";
+import \\"core-js/modules/es6.object.to-string\\";
 export default function () {
   return new Promise(function (resolve) {
     return resolve(42);

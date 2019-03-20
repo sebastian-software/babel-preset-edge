@@ -68,6 +68,7 @@ exports[`Transpile: ES2015 es2015: generator 1`] = `
 exports[`Transpile: ES2015 es2015: set 1`] = `
 "import \\"core-js/modules/web.dom.iterable\\";
 import \\"core-js/modules/es6.array.iterator\\";
+import \\"core-js/modules/es6.object.to-string\\";
 import \\"core-js/modules/es6.string.iterator\\";
 import \\"core-js/modules/es6.set\\";
 new Set([1, 2, 3]);"
@@ -210,7 +211,7 @@ export const Home = loadable({
     return \\"Home-JfPYC\\";
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -246,7 +247,7 @@ export const About = loadable({
     return \\"About-8yDxR\\";
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -322,7 +323,7 @@ export const Home = loadable({
     return \\"Home-JfPYC\\";
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -358,7 +359,7 @@ export const About = loadable({
     return \\"About\\";
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -428,15 +429,16 @@ export const Contact = loadable({
 `;
 
 exports[`Transpile: ES2015 loadable wildcard 1`] = `
-"import loadable from 'loadable-components';
+"import \\"core-js/modules/es6.regexp.replace\\";
+import loadable from 'loadable-components';
 const page = \\"About\\",
       lang = \\"de_DE\\";
 export const views = loadable({
   chunkName() {
-    return \`views-\${page}\`;
+    return \`views-\${page}\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -469,10 +471,10 @@ export const views = loadable({
 });
 export const leanIntl = loadable({
   chunkName() {
-    return \`lean-intl-\${lang}-data\`;
+    return \`lean-intl-\${lang}-data\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
-  isReady() {
+  isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
       return !!__webpack_modules__[this.resolve(props)];
     }
@@ -505,7 +507,7 @@ export const leanIntl = loadable({
 });
 export const reactIntl = loadable({
   chunkName() {
-    return \`react-intl-\${lang}-data\`;
+    return \`react-intl-\${lang}-data\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
@@ -632,6 +634,7 @@ exports[`Transpile: ES2015 macro: preval 1`] = `"const one = 1;"`;
 
 exports[`Transpile: ES2015 promise 1`] = `
 "import \\"core-js/modules/es6.promise\\";
+import \\"core-js/modules/es6.object.to-string\\";
 export default function () {
   return new Promise(resolve => {
     return resolve(42);
