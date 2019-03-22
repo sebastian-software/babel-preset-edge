@@ -56,10 +56,14 @@ function (_Other) {
 `;
 
 exports[`Transpile: ES5 es2015: for_off 1`] = `
-"import \\"core-js/modules/es7.symbol.async-iterator\\";
-import \\"core-js/modules/es6.symbol\\";
-import \\"core-js/modules/web.dom.iterable\\";
-import \\"core-js/modules/es6.array.is-array\\";
+"import \\"core-js/modules/es.symbol\\";
+import \\"core-js/modules/es.symbol.description\\";
+import \\"core-js/modules/es.symbol.iterator\\";
+import \\"core-js/modules/es.array.is-array\\";
+import \\"core-js/modules/es.array.iterator\\";
+import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.string.iterator\\";
+import \\"core-js/modules/web.dom-collections.iterator\\";
 
 function test() {
   for (var _iterator = tasks, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
@@ -94,18 +98,21 @@ exports[`Transpile: ES5 es2015: generator 1`] = `
 `;
 
 exports[`Transpile: ES5 es2015: set 1`] = `
-"import \\"core-js/modules/web.dom.iterable\\";
-import \\"core-js/modules/es6.array.iterator\\";
-import \\"core-js/modules/es6.object.to-string\\";
-import \\"core-js/modules/es6.string.iterator\\";
-import \\"core-js/modules/es6.set\\";
+"import \\"core-js/modules/es.array.iterator\\";
+import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.set\\";
+import \\"core-js/modules/es.string.iterator\\";
+import \\"core-js/modules/web.dom-collections.iterator\\";
 new Set([1, 2, 3]);"
 `;
 
 exports[`Transpile: ES5 es2016: exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
 
 exports[`Transpile: ES5 esnext: async 1`] = `
-"function wait() {
+"import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
+
+function wait() {
   return new Promise(function ($return, $error) {
     return Promise.resolve(loadData()).then(function () {
       try {
@@ -119,10 +126,15 @@ exports[`Transpile: ES5 esnext: async 1`] = `
 `;
 
 exports[`Transpile: ES5 esnext: async_loop 1`] = `
-"import \\"core-js/modules/es7.symbol.async-iterator\\";
-import \\"core-js/modules/es6.symbol\\";
-import \\"core-js/modules/web.dom.iterable\\";
-import \\"core-js/modules/es6.array.is-array\\";
+"import \\"core-js/modules/es.symbol\\";
+import \\"core-js/modules/es.symbol.description\\";
+import \\"core-js/modules/es.symbol.iterator\\";
+import \\"core-js/modules/es.array.is-array\\";
+import \\"core-js/modules/es.array.iterator\\";
+import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
+import \\"core-js/modules/es.string.iterator\\";
+import \\"core-js/modules/web.dom-collections.iterator\\";
 
 function executeTasks(tasks) {
   return new Promise(function ($return, $error) {
@@ -217,7 +229,9 @@ function annotation(target) {
 `;
 
 exports[`Transpile: ES5 esnext: dynamic import 1`] = `
-"import(
+"import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
+import(
 /*webpackChunkName:'lodash-wBYk8'*/
 \\"lodash\\").then(function (lodash) {
   console.log(lodash.camelCase(\\"hello world\\"));
@@ -225,7 +239,7 @@ exports[`Transpile: ES5 esnext: dynamic import 1`] = `
 `;
 
 exports[`Transpile: ES5 esnext: object spread 1`] = `
-"import \\"core-js/modules/es6.object.assign\\";
+"import \\"core-js/modules/es.object.assign\\";
 var original = {
   bar: 10
 },
@@ -235,7 +249,9 @@ var original = {
 `;
 
 exports[`Transpile: ES5 loadable 1`] = `
-"import loadable from 'loadable-components';
+"import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
+import loadable from 'loadable-components';
 export var Home = loadable({
   chunkName: function chunkName() {
     return \\"Home-JfPYC\\";
@@ -338,7 +354,9 @@ export var Contact = loadable({
 `;
 
 exports[`Transpile: ES5 loadable magic-comments 1`] = `
-"import loadable from 'loadable-components';
+"import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
+import loadable from 'loadable-components';
 export var Home = loadable({
   chunkName: function chunkName() {
     return \\"Home-JfPYC\\";
@@ -441,7 +459,10 @@ export var Contact = loadable({
 `;
 
 exports[`Transpile: ES5 loadable wildcard 1`] = `
-"import \\"core-js/modules/es6.regexp.replace\\";
+"import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
+import \\"core-js/modules/es.regexp.exec\\";
+import \\"core-js/modules/es.string.replace\\";
 import loadable from 'loadable-components';
 var page = \\"About\\",
     lang = \\"de_DE\\";
@@ -636,8 +657,8 @@ exports[`Transpile: ES5 macro: gql 1`] = `
 exports[`Transpile: ES5 macro: preval 1`] = `"var one = 1;"`;
 
 exports[`Transpile: ES5 promise 1`] = `
-"import \\"core-js/modules/es6.promise\\";
-import \\"core-js/modules/es6.object.to-string\\";
+"import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
 export default function () {
   return new Promise(function (resolve) {
     return resolve(42);
@@ -652,7 +673,7 @@ exports[`Transpile: ES5 react: jsx 1`] = `
 `;
 
 exports[`Transpile: ES5 react: jsx spread 1`] = `
-"import \\"core-js/modules/es6.object.assign\\";
+"import \\"core-js/modules/es.object.assign\\";
 
 function render(props) {
   return React.createElement(\\"h1\\", Object.assign({

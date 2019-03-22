@@ -62,6 +62,8 @@ exports.Component = Component;"
 exports[`Transpile: NodeJS v8 es2015: for_off 1`] = `
 "\\"use strict\\";
 
+require(\\"core-js/modules/es.array.iterator\\");
+
 function test() {
   for (const taskName of tasks) {
     try {
@@ -86,6 +88,8 @@ function* idMaker() {
 exports[`Transpile: NodeJS v8 es2015: set 1`] = `
 "\\"use strict\\";
 
+require(\\"core-js/modules/es.array.iterator\\");
+
 new Set([1, 2, 3]);"
 `;
 
@@ -98,6 +102,8 @@ var result = 2 ** 3;"
 exports[`Transpile: NodeJS v8 esnext: async 1`] = `
 "\\"use strict\\";
 
+require(\\"core-js/modules/es.promise\\");
+
 async function wait() {
   await loadData();
 }"
@@ -105,6 +111,10 @@ async function wait() {
 
 exports[`Transpile: NodeJS v8 esnext: async_loop 1`] = `
 "\\"use strict\\";
+
+require(\\"core-js/modules/es.array.iterator\\");
+
+require(\\"core-js/modules/es.promise\\");
 
 async function executeTasks(tasks) {
   for (const taskName of tasks) {
@@ -160,6 +170,8 @@ function annotation(target) {
 exports[`Transpile: NodeJS v8 esnext: dynamic import 1`] = `
 "\\"use strict\\";
 
+require(\\"core-js/modules/es.promise\\");
+
 import(
 /*webpackChunkName:'lodash-wBYk8'*/
 \\"lodash\\").then(lodash => {
@@ -182,6 +194,8 @@ exports[`Transpile: NodeJS v8 loadable 1`] = `
 "\\"use strict\\";
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\");
+
+require(\\"core-js/modules/es.promise\\");
 
 exports.__esModule = true;
 exports.Contact = exports.About = exports.Home = void 0;
@@ -306,6 +320,8 @@ exports[`Transpile: NodeJS v8 loadable magic-comments 1`] = `
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\");
 
+require(\\"core-js/modules/es.promise\\");
+
 exports.__esModule = true;
 exports.Contact = exports.About = exports.Home = void 0;
 
@@ -428,6 +444,10 @@ exports[`Transpile: NodeJS v8 loadable wildcard 1`] = `
 "\\"use strict\\";
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\");
+
+require(\\"core-js/modules/es.promise\\");
+
+require(\\"core-js/modules/es.string.replace\\");
 
 exports.__esModule = true;
 exports.reactIntl = exports.leanIntl = exports.views = void 0;
@@ -655,6 +675,8 @@ const one = 1;"
 
 exports[`Transpile: NodeJS v8 promise 1`] = `
 "\\"use strict\\";
+
+require(\\"core-js/modules/es.promise\\");
 
 exports.__esModule = true;
 exports.default = _default;

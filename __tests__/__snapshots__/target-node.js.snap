@@ -62,6 +62,8 @@ exports.Component = Component;"
 exports[`Target: NodeJS es2015: for_off 1`] = `
 "\\"use strict\\";
 
+require(\\"core-js/modules/es.array.iterator\\");
+
 function test() {
   for (const taskName of tasks) {
     try {
@@ -86,7 +88,7 @@ function* idMaker() {
 exports[`Target: NodeJS es2015: set 1`] = `
 "\\"use strict\\";
 
-require(\\"core-js/modules/es6.object.to-string\\");
+require(\\"core-js/modules/es.array.iterator\\");
 
 new Set([1, 2, 3]);"
 `;
@@ -99,6 +101,8 @@ var result = Math.pow(2, 3);"
 
 exports[`Target: NodeJS esnext: async 1`] = `
 "\\"use strict\\";
+
+require(\\"core-js/modules/es.promise\\");
 
 function wait() {
   return new Promise(function ($return, $error) {
@@ -115,6 +119,10 @@ function wait() {
 
 exports[`Target: NodeJS esnext: async_loop 1`] = `
 "\\"use strict\\";
+
+require(\\"core-js/modules/es.array.iterator\\");
+
+require(\\"core-js/modules/es.promise\\");
 
 function executeTasks(tasks) {
   return new Promise(function ($return, $error) {
@@ -225,6 +233,8 @@ function annotation(target) {
 exports[`Target: NodeJS esnext: dynamic import 1`] = `
 "\\"use strict\\";
 
+require(\\"core-js/modules/es.promise\\");
+
 import(
 /*webpackChunkName:'lodash-wBYk8'*/
 \\"lodash\\").then(lodash => {
@@ -247,6 +257,8 @@ exports[`Target: NodeJS loadable 1`] = `
 "\\"use strict\\";
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\");
+
+require(\\"core-js/modules/es.promise\\");
 
 exports.__esModule = true;
 exports.Contact = exports.About = exports.Home = void 0;
@@ -371,6 +383,8 @@ exports[`Target: NodeJS loadable magic-comments 1`] = `
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\");
 
+require(\\"core-js/modules/es.promise\\");
+
 exports.__esModule = true;
 exports.Contact = exports.About = exports.Home = void 0;
 
@@ -493,6 +507,10 @@ exports[`Target: NodeJS loadable wildcard 1`] = `
 "\\"use strict\\";
 
 var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\");
+
+require(\\"core-js/modules/es.promise\\");
+
+require(\\"core-js/modules/es.string.replace\\");
 
 exports.__esModule = true;
 exports.reactIntl = exports.leanIntl = exports.views = void 0;
@@ -721,10 +739,10 @@ const one = 1;"
 exports[`Target: NodeJS promise 1`] = `
 "\\"use strict\\";
 
+require(\\"core-js/modules/es.promise\\");
+
 exports.__esModule = true;
 exports.default = _default;
-
-require(\\"core-js/modules/es6.object.to-string\\");
 
 function _default() {
   return new Promise(resolve => {

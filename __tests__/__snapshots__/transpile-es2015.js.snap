@@ -46,7 +46,11 @@ exports[`Transpile: ES2015 es2015: classes 1`] = `
 `;
 
 exports[`Transpile: ES2015 es2015: for_off 1`] = `
-"function test() {
+"import \\"core-js/modules/es.array.iterator\\";
+import \\"core-js/modules/es.string.iterator\\";
+import \\"core-js/modules/web.dom-collections.iterator\\";
+
+function test() {
   for (const taskName of tasks) {
     try {
       executeCommands();
@@ -66,18 +70,21 @@ exports[`Transpile: ES2015 es2015: generator 1`] = `
 `;
 
 exports[`Transpile: ES2015 es2015: set 1`] = `
-"import \\"core-js/modules/web.dom.iterable\\";
-import \\"core-js/modules/es6.array.iterator\\";
-import \\"core-js/modules/es6.object.to-string\\";
-import \\"core-js/modules/es6.string.iterator\\";
-import \\"core-js/modules/es6.set\\";
+"import \\"core-js/modules/es.array.iterator\\";
+import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.set\\";
+import \\"core-js/modules/es.string.iterator\\";
+import \\"core-js/modules/web.dom-collections.iterator\\";
 new Set([1, 2, 3]);"
 `;
 
 exports[`Transpile: ES2015 es2016: exponentiation 1`] = `"var result = Math.pow(2, 3);"`;
 
 exports[`Transpile: ES2015 esnext: async 1`] = `
-"function wait() {
+"import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
+
+function wait() {
   return new Promise(function ($return, $error) {
     return Promise.resolve(loadData()).then(function () {
       try {
@@ -91,7 +98,13 @@ exports[`Transpile: ES2015 esnext: async 1`] = `
 `;
 
 exports[`Transpile: ES2015 esnext: async_loop 1`] = `
-"function executeTasks(tasks) {
+"import \\"core-js/modules/es.array.iterator\\";
+import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
+import \\"core-js/modules/es.string.iterator\\";
+import \\"core-js/modules/web.dom-collections.iterator\\";
+
+function executeTasks(tasks) {
   return new Promise(function ($return, $error) {
     var $Loop_3_trampoline, $Loop_3_local;
 
@@ -187,7 +200,9 @@ function annotation(target) {
 `;
 
 exports[`Transpile: ES2015 esnext: dynamic import 1`] = `
-"import(
+"import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
+import(
 /*webpackChunkName:'lodash-wBYk8'*/
 \\"lodash\\").then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
@@ -195,7 +210,7 @@ exports[`Transpile: ES2015 esnext: dynamic import 1`] = `
 `;
 
 exports[`Transpile: ES2015 esnext: object spread 1`] = `
-"import \\"core-js/modules/es6.object.assign\\";
+"import \\"core-js/modules/es.object.assign\\";
 let original = {
   bar: 10
 },
@@ -205,7 +220,9 @@ let original = {
 `;
 
 exports[`Transpile: ES2015 loadable 1`] = `
-"import loadable from 'loadable-components';
+"import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
+import loadable from 'loadable-components';
 export const Home = loadable({
   chunkName() {
     return \\"Home-JfPYC\\";
@@ -317,7 +334,9 @@ export const Contact = loadable({
 `;
 
 exports[`Transpile: ES2015 loadable magic-comments 1`] = `
-"import loadable from 'loadable-components';
+"import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
+import loadable from 'loadable-components';
 export const Home = loadable({
   chunkName() {
     return \\"Home-JfPYC\\";
@@ -429,7 +448,10 @@ export const Contact = loadable({
 `;
 
 exports[`Transpile: ES2015 loadable wildcard 1`] = `
-"import \\"core-js/modules/es6.regexp.replace\\";
+"import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
+import \\"core-js/modules/es.regexp.exec\\";
+import \\"core-js/modules/es.string.replace\\";
 import loadable from 'loadable-components';
 const page = \\"About\\",
       lang = \\"de_DE\\";
@@ -633,8 +655,8 @@ exports[`Transpile: ES2015 macro: gql 1`] = `
 exports[`Transpile: ES2015 macro: preval 1`] = `"const one = 1;"`;
 
 exports[`Transpile: ES2015 promise 1`] = `
-"import \\"core-js/modules/es6.promise\\";
-import \\"core-js/modules/es6.object.to-string\\";
+"import \\"core-js/modules/es.object.to-string\\";
+import \\"core-js/modules/es.promise\\";
 export default function () {
   return new Promise(resolve => {
     return resolve(42);
@@ -649,7 +671,7 @@ exports[`Transpile: ES2015 react: jsx 1`] = `
 `;
 
 exports[`Transpile: ES2015 react: jsx spread 1`] = `
-"import \\"core-js/modules/es6.object.assign\\";
+"import \\"core-js/modules/es.object.assign\\";
 
 function render(props) {
   return React.createElement(\\"h1\\", Object.assign({

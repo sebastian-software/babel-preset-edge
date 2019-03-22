@@ -46,7 +46,10 @@ exports[`Target: Browser: Dev es2015: classes 1`] = `
 `;
 
 exports[`Target: Browser: Dev es2015: for_off 1`] = `
-"function test() {
+"import \\"core-js/modules/es.array.iterator\\";
+import \\"core-js/modules/web.dom-collections.iterator\\";
+
+function test() {
   for (const taskName of tasks) {
     try {
       executeCommands();
@@ -66,20 +69,27 @@ exports[`Target: Browser: Dev es2015: generator 1`] = `
 `;
 
 exports[`Target: Browser: Dev es2015: set 1`] = `
-"import \\"core-js/modules/web.dom.iterable\\";
+"import \\"core-js/modules/es.array.iterator\\";
+import \\"core-js/modules/web.dom-collections.iterator\\";
 new Set([1, 2, 3]);"
 `;
 
 exports[`Target: Browser: Dev es2016: exponentiation 1`] = `"var result = 2 ** 3;"`;
 
 exports[`Target: Browser: Dev esnext: async 1`] = `
-"async function wait() {
+"import \\"core-js/modules/es.promise\\";
+
+async function wait() {
   await loadData();
 }"
 `;
 
 exports[`Target: Browser: Dev esnext: async_loop 1`] = `
-"async function executeTasks(tasks) {
+"import \\"core-js/modules/es.array.iterator\\";
+import \\"core-js/modules/es.promise\\";
+import \\"core-js/modules/web.dom-collections.iterator\\";
+
+async function executeTasks(tasks) {
   for (const taskName of tasks) {
     try {
       await executeCommands();
@@ -120,7 +130,8 @@ function annotation(target) {
 `;
 
 exports[`Target: Browser: Dev esnext: dynamic import 1`] = `
-"import(
+"import \\"core-js/modules/es.promise\\";
+import(
 /*webpackChunkName:'lodash-wBYk8'*/
 \\"lodash\\").then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
@@ -137,7 +148,8 @@ exports[`Target: Browser: Dev esnext: object spread 1`] = `
 `;
 
 exports[`Target: Browser: Dev loadable 1`] = `
-"import loadable from 'loadable-components';
+"import \\"core-js/modules/es.promise\\";
+import loadable from 'loadable-components';
 export const Home = loadable({
   chunkName() {
     return \\"Home-JfPYC\\";
@@ -249,7 +261,8 @@ export const Contact = loadable({
 `;
 
 exports[`Target: Browser: Dev loadable magic-comments 1`] = `
-"import loadable from 'loadable-components';
+"import \\"core-js/modules/es.promise\\";
+import loadable from 'loadable-components';
 export const Home = loadable({
   chunkName() {
     return \\"Home-JfPYC\\";
@@ -361,7 +374,9 @@ export const Contact = loadable({
 `;
 
 exports[`Target: Browser: Dev loadable wildcard 1`] = `
-"import loadable from 'loadable-components';
+"import \\"core-js/modules/es.promise\\";
+import \\"core-js/modules/es.string.replace\\";
+import loadable from 'loadable-components';
 const page = \\"About\\",
       lang = \\"de_DE\\";
 export const views = loadable({
@@ -564,7 +579,8 @@ exports[`Target: Browser: Dev macro: gql 1`] = `
 exports[`Target: Browser: Dev macro: preval 1`] = `"const one = 1;"`;
 
 exports[`Target: Browser: Dev promise 1`] = `
-"export default function () {
+"import \\"core-js/modules/es.promise\\";
+export default function () {
   return new Promise(resolve => {
     return resolve(42);
   });

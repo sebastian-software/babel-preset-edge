@@ -100,7 +100,7 @@
     "async": "^2.6.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.5.0",
-    "core-js": "^2.6.3",
+    "core-js": "^3.0.0",
     "eslint": "^5.15.3",
     "eslint-config-readable": "^2.3.2",
     "graphql": "^14.1.1",

@@ -47,6 +47,9 @@ export default function env(presets, plugins, options) {
       // for most scenarios like SPAs and NodeJS environments.
       useBuiltIns: "usage",
 
+      // Using modern CoreJS Polyfills
+      corejs: 3,
+
       // Options to tweak the details of the implementation. If both are `false` the environment
       // preset is executed in default mode.
       loose: options.looseMode,
