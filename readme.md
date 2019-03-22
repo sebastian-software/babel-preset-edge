@@ -67,7 +67,7 @@ This is how you install it using NPM:
 
 ```
 npm install -D babel-preset-edge
-npm install core-js @babel/runtime
+npm install core-js@3 @babel/runtime
 ```
 
 and this is how your `.babelrc` looks afterwards:
