@@ -43,24 +43,27 @@ export default function getEnvTargets(options) {
   } else if (options.transpile === "node") {
     // Using NodeJS version from engine field
     if (engines && engines.node) {
-      // LTS Overview as of May 2018
+      // LTS Overview as of March 2019
       // 4.2.0 - out of support
-      // 6.9.0 - maintenance
-      // 8.9.0 - active
+      // 6.9.0 - maintenance lts
+      // 8.9.0 - maintenance lts
+      // 10.13.0 - active lts
       if (semver.satisfies("4.2.0", engines.node)) {
         envTargets.node = "4.2.0"
       } else if (semver.satisfies("6.9.0", engines.node)) {
         envTargets.node = "6.9.0"
       } else if (semver.satisfies("8.9.0", engines.node)) {
         envTargets.node = "8.9.0"
+      } else if (semver.satisfies("10.13.0", engines.node)) {
+        envTargets.node = "10.13.0"
       } else {
         throw new Error(`Unable to detect NodeJS target from 'engines' configuration. NodeJS version defined: ${  engines.node}`)
       }
     } else {
-      // As Node v4 is out of support, we use the current LTS as default
+      // We use the current LTS as default.
       // See also: https://github.com/nodejs/Release
       // This behavior reduces the amount a transpilations a bit when working in pure NodeJS environments
-      envTargets.node = "6.9.0"
+      envTargets.node = "10.13.0"
     }
   } else {
     throw new Error("Invalid transpile configuration!")
