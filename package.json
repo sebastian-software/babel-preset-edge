@@ -76,6 +76,7 @@
     "@babel/plugin-transform-runtime": "7.4.0",
     "@babel/preset-env": "7.4.2",
     "@babel/preset-react": "7.0.0",
+    "@babel/runtime-corejs3": "^7.4.2",
     "@loadable/babel-plugin": "^5.7.2",
     "app-root-dir": "^1.0.2",
     "babel-plugin-dynamic-import-node": "^2.2.0",

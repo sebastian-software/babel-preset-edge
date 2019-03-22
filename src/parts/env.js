@@ -69,10 +69,10 @@ export default function env(presets, plugins, options) {
   ])
 
   // Use helpers, but not polyfills, in a way that omits duplication.
-  // For polyfills better use polyfill.io or another more sophisticated solution.
   plugins.push([
     transformRuntimePlugin,
     {
+      corejs: false,
       helpers: true,
       regenerator: false,
       useESModules: options.modules === false && (/browser|universal/).test(options.target)
