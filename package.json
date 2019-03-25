@@ -114,7 +114,7 @@
     "prettier": "^1.16.4",
     "preval.macro": "^3.0.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.4",
+    "react": "^16.8.5",
     "recompose": "^0.30.0",
     "rimraf": "^2.6.3"
   },

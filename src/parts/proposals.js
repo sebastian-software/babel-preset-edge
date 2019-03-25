@@ -10,11 +10,11 @@ export default function proposals(presets, plugins, options) {
 
   // Support for ES7 Class Properties (currently stage-2)
   // class { handleClick = () => { } }
-  plugins.push([ classPropertiesPlugin, { loose: options.looseMode }])
+  plugins.push([ classPropertiesPlugin, { corejs: 3, loose: options.looseMode }])
 
   // Support for Object Rest Spread `...` operator in objects.
   // { ...todo, completed: true }
-  plugins.push([ objectRestSpreadPlugin, { useBuiltIns: true, loose: options.looseMode }])
+  plugins.push([ objectRestSpreadPlugin, { corejs: 3, useBuiltIns: true, loose: options.looseMode }])
 
   // Enables the catch block to execute whether or not an argument
   // is passed to the catch statement

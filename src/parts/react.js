@@ -13,6 +13,7 @@ export default function react(presets, plugins, options) {
   presets.push([
     reactPreset,
     {
+      corejs: 3,
       useBuiltIns: true,
       pragma: options.jsxPragma,
       pragmaFrag: options.jsxPragmaFrag,
