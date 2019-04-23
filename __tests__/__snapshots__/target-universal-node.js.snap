@@ -284,7 +284,7 @@ export var Home = loadable({
       return require.resolveWeak(\\"./views/Home\\");
     }
 
-    return require('path').resolve(__dirname, \\"./views/Home\\");
+    return eval('require.resolve')(\\"./views/Home\\");
   }
 });
 export var About = loadable({
@@ -317,7 +317,7 @@ export var About = loadable({
       return require.resolveWeak(\\"./views/About\\");
     }
 
-    return require('path').resolve(__dirname, \\"./views/About\\");
+    return eval('require.resolve')(\\"./views/About\\");
   }
 });
 export var Contact = loadable({
@@ -350,7 +350,7 @@ export var Contact = loadable({
       return require.resolveWeak(\\"./views/Contact\\");
     }
 
-    return require('path').resolve(__dirname, \\"./views/Contact\\");
+    return eval('require.resolve')(\\"./views/Contact\\");
   }
 });"
 `;
@@ -390,7 +390,7 @@ export var Home = loadable({
       return require.resolveWeak(\\"./views/Home\\");
     }
 
-    return require('path').resolve(__dirname, \\"./views/Home\\");
+    return eval('require.resolve')(\\"./views/Home\\");
   }
 });
 export var About = loadable({
@@ -423,7 +423,7 @@ export var About = loadable({
       return require.resolveWeak(\\"./views/About\\");
     }
 
-    return require('path').resolve(__dirname, \\"./views/About\\");
+    return eval('require.resolve')(\\"./views/About\\");
   }
 });
 export var Contact = loadable({
@@ -456,7 +456,7 @@ export var Contact = loadable({
       return require.resolveWeak(\\"./views/Contact\\");
     }
 
-    return require('path').resolve(__dirname, \\"./views/Contact\\");
+    return eval('require.resolve')(\\"./views/Contact\\");
   }
 });"
 `;
@@ -500,7 +500,7 @@ export var views = loadable({
       return require.resolveWeak(\\"./views/\\" + page);
     }
 
-    return require('path').resolve(__dirname, \\"./views/\\" + page);
+    return eval('require.resolve')(\\"./views/\\" + page);
   }
 });
 export var leanIntl = loadable({
@@ -533,7 +533,7 @@ export var leanIntl = loadable({
       return require.resolveWeak(\\"./lean-intl/\\" + lang + \\"/data\\");
     }
 
-    return require('path').resolve(__dirname, \\"./lean-intl/\\" + lang + \\"/data\\");
+    return eval('require.resolve')(\\"./lean-intl/\\" + lang + \\"/data\\");
   }
 });
 export var reactIntl = loadable({
@@ -566,7 +566,7 @@ export var reactIntl = loadable({
       return require.resolveWeak(\\"./react-intl/\\" + lang + \\"/data\\");
     }
 
-    return require('path').resolve(__dirname, \\"./react-intl/\\" + lang + \\"/data\\");
+    return eval('require.resolve')(\\"./react-intl/\\" + lang + \\"/data\\");
   }
 });"
 `;

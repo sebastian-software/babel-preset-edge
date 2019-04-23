@@ -234,7 +234,7 @@ const Home = (0, _loadableComponents.default)({
       return require.resolveWeak(\\"./views/Home\\");
     }
 
-    return require('path').resolve(__dirname, \\"./views/Home\\");
+    return eval('require.resolve')(\\"./views/Home\\");
   }
 
 });
@@ -271,7 +271,7 @@ const About = (0, _loadableComponents.default)({
       return require.resolveWeak(\\"./views/About\\");
     }
 
-    return require('path').resolve(__dirname, \\"./views/About\\");
+    return eval('require.resolve')(\\"./views/About\\");
   }
 
 });
@@ -308,7 +308,7 @@ const Contact = (0, _loadableComponents.default)({
       return require.resolveWeak(\\"./views/Contact\\");
     }
 
-    return require('path').resolve(__dirname, \\"./views/Contact\\");
+    return eval('require.resolve')(\\"./views/Contact\\");
   }
 
 });
@@ -359,7 +359,7 @@ const Home = (0, _loadableComponents.default)({
       return require.resolveWeak(\\"./views/Home\\");
     }
 
-    return require('path').resolve(__dirname, \\"./views/Home\\");
+    return eval('require.resolve')(\\"./views/Home\\");
   }
 
 });
@@ -396,7 +396,7 @@ const About = (0, _loadableComponents.default)({
       return require.resolveWeak(\\"./views/About\\");
     }
 
-    return require('path').resolve(__dirname, \\"./views/About\\");
+    return eval('require.resolve')(\\"./views/About\\");
   }
 
 });
@@ -433,7 +433,7 @@ const Contact = (0, _loadableComponents.default)({
       return require.resolveWeak(\\"./views/Contact\\");
     }
 
-    return require('path').resolve(__dirname, \\"./views/Contact\\");
+    return eval('require.resolve')(\\"./views/Contact\\");
   }
 
 });
@@ -488,7 +488,7 @@ const page = \\"About\\",
       return require.resolveWeak(\`./views/\${page}\`);
     }
 
-    return require('path').resolve(__dirname, \`./views/\${page}\`);
+    return eval('require.resolve')(\`./views/\${page}\`);
   }
 
 });
@@ -525,7 +525,7 @@ const leanIntl = (0, _loadableComponents.default)({
       return require.resolveWeak(\`./lean-intl/\${lang}/data\`);
     }
 
-    return require('path').resolve(__dirname, \`./lean-intl/\${lang}/data\`);
+    return eval('require.resolve')(\`./lean-intl/\${lang}/data\`);
   }
 
 });
@@ -562,7 +562,7 @@ const reactIntl = (0, _loadableComponents.default)({
       return require.resolveWeak(\`./react-intl/\${lang}/data\`);
     }
 
-    return require('path').resolve(__dirname, \`./react-intl/\${lang}/data\`);
+    return eval('require.resolve')(\`./react-intl/\${lang}/data\`);
   }
 
 });

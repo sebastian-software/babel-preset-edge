@@ -59,7 +59,7 @@
   },
   "peerDependencies": {
     "@babel/runtime": ">=7.4.3",
-    "core-js": ">=3.0.0"
+    "core-js": ">=3.0.1"
   },
   "dependencies": {
     "@babel/core": "7.4.3",
@@ -76,7 +76,7 @@
     "@babel/plugin-transform-runtime": "7.4.3",
     "@babel/preset-env": "7.4.3",
     "@babel/preset-react": "7.0.0",
-    "@loadable/babel-plugin": "^5.7.2",
+    "@loadable/babel-plugin": "^5.8.0",
     "app-root-dir": "^1.0.2",
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "babel-plugin-emotion": "^10.0.9",
@@ -88,7 +88,7 @@
     "babel-plugin-smart-webpack-import": "^1.4.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-minify": "^0.5.0",
-    "browserslist": "^4.5.4",
+    "browserslist": "^4.5.5",
     "fast-async": "^7.0.6",
     "semver": "^6.0.0",
     "upath": "^1.1.2"
@@ -109,8 +109,8 @@
     "jest-cli": "^24.7.1",
     "lint-staged": "^8.1.5",
     "lodash": "^4.17.11",
-    "preppy": "^7.10.0",
-    "prettier": "^1.16.4",
+    "preppy": "^7.12.0",
+    "prettier": "^1.17.0",
     "preval.macro": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
