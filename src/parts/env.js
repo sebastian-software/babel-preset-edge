@@ -6,7 +6,13 @@ import getEnvTargets from "../getEnvTargets"
 export default function env(presets, plugins, options) {
   const exclude = []
 
+  // We use fast-async and not the very large and slow output of the
+  // transpilation to generator functions.
   exclude.push("transform-regenerator", "transform-async-to-generator")
+
+  // Inspired by CreateReactApp, we disable this minor support as it
+  // is documented to "make all code slower".
+  exclude.push('transform-typeof-symbol')
 
   // Exclude all es2015 features which are supported by the default es2015 babel preset.
   // This targets all es2015-capable browsers and engines.
