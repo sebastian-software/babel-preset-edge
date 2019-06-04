@@ -1,9 +1,6 @@
-import { resolve as resolvePath } from "path"
-
 import lodashPlugin from "babel-plugin-lodash"
 import macrosPlugin from "babel-plugin-macros"
 import moduleResolver from "babel-plugin-module-resolver"
-import { get as getAppRoot } from "app-root-dir"
 
 export default function convenience(presets, plugins, options) {
   // Optimization for cheery-picking from lodash, asyncjs, ramba and recompose.
@@ -22,7 +19,7 @@ export default function convenience(presets, plugins, options) {
       moduleResolver,
       {
         alias: {
-          "~": resolvePath(getAppRoot(), options.sourceFolder)
+          "-": options.sourceFolder
         }
       }
     ])

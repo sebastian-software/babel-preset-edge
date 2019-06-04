@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Transpile: ES2015 alias 1`] = `
-"import { Button } from '-/components/button/Button';
-import { logx } from '-/testonly';
+"import { Button } from \\"../../src/components/button/Button\\";
+import { logx } from \\"../../src/testonly\\";
 import 'src/testonly';
 logx(Button);"
 `;
 
 exports[`Transpile: ES2015 alias.tsx 1`] = `
-"import { Button } from '-/components/button/Button';
-import { logx } from '-/testonly';
+"import { Button } from \\"../../src/components/button/Button\\";
+import { logx } from \\"../../src/testonly\\";
 import 'src/testonly';
 logx(Button);"
 `;

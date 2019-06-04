@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Target: Browser: Prod alias 1`] = `"import{Button}from\\"-/components/button/Button\\";import{logx}from\\"-/testonly\\";import\\"src/testonly\\";logx(Button);"`;
+exports[`Target: Browser: Prod alias 1`] = `"import{Button}from\\"../../src/components/button/Button\\";import{logx}from\\"../../src/testonly\\";import\\"src/testonly\\";logx(Button);"`;
 
-exports[`Target: Browser: Prod alias.tsx 1`] = `"import{Button}from\\"-/components/button/Button\\";import{logx}from\\"-/testonly\\";import\\"src/testonly\\";logx(Button);"`;
+exports[`Target: Browser: Prod alias.tsx 1`] = `"import{Button}from\\"../../src/components/button/Button\\";import{logx}from\\"../../src/testonly\\";import\\"src/testonly\\";logx(Button);"`;
 
 exports[`Target: Browser: Prod comments 1`] = `"import _camelCase from\\"lodash/camelCase\\";function translate(a){return _camelCase(a)}"`;
 

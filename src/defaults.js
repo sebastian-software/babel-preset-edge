@@ -62,7 +62,7 @@ export default {
   optimizeModules: [ "lodash", "async", "rambda", "recompose" ],
 
   // Configuration for module lookup
-  sourceFolder: "src",
+  sourceFolder: "./src",
 
   // Whether to enable source map output
   sourceMaps: true,

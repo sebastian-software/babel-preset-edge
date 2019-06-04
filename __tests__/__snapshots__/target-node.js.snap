@@ -5,8 +5,8 @@ exports[`Target: NodeJS alias 1`] = `
 
 require(\\"src/testonly\\");
 
-var _Button = require(\\"-/components/button/Button\\"),
-    _testonly = require(\\"-/testonly\\");
+var _Button = require(\\"../../src/components/button/Button\\"),
+    _testonly = require(\\"../../src/testonly\\");
 
 (0, _testonly.logx)(_Button.Button);"
 `;
@@ -16,8 +16,8 @@ exports[`Target: NodeJS alias.tsx 1`] = `
 
 require(\\"src/testonly\\");
 
-var _Button = require(\\"-/components/button/Button\\"),
-    _testonly = require(\\"-/testonly\\");
+var _Button = require(\\"../../src/components/button/Button\\"),
+    _testonly = require(\\"../../src/testonly\\");
 
 (0, _testonly.logx)(_Button.Button);"
 `;
