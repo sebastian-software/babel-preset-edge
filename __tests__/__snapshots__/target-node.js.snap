@@ -99,7 +99,7 @@ new Set([1, 2, 3]);"
 exports[`Target: NodeJS es2016: exponentiation 1`] = `
 "\\"use strict\\";
 
-var result = Math.pow(2, 3);"
+var result = 2 ** 3;"
 `;
 
 exports[`Target: NodeJS esnext: async 1`] = `
@@ -107,16 +107,8 @@ exports[`Target: NodeJS esnext: async 1`] = `
 
 require(\\"core-js/modules/es.promise\\");
 
-function wait() {
-  return new Promise(function ($return, $error) {
-    return Promise.resolve(loadData()).then(function () {
-      try {
-        return $return();
-      } catch ($boundEx) {
-        return $error($boundEx);
-      }
-    }, $error);
-  });
+async function wait() {
+  await loadData();
 }"
 `;
 
@@ -127,69 +119,14 @@ require(\\"core-js/modules/es.array.iterator\\");
 
 require(\\"core-js/modules/es.promise\\");
 
-function executeTasks(tasks) {
-  return new Promise(function ($return, $error) {
-    var $Loop_3_trampoline, $Loop_3_local;
-
-    function $Loop_3_step() {
-      var [taskName, $iterator_taskName_2] = $Loop_3_local();
-      return $Loop_3.bind(this, taskName, $iterator_taskName_2);
+async function executeTasks(tasks) {
+  for (const taskName of tasks) {
+    try {
+      await executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
     }
-
-    function $Loop_3(taskName, $iterator_taskName_2) {
-      $Loop_3_local = function () {
-        return [taskName, $iterator_taskName_2];
-      };
-
-      if (!($iterator_taskName_2[1] = $iterator_taskName_2[0].next()).done && ((taskName = $iterator_taskName_2[1].value) || true)) {
-        var $Try_1_Post = function () {
-          try {
-            return $Loop_3_step;
-          } catch ($boundEx) {
-            return $error($boundEx);
-          }
-        },
-            $Try_1_Catch = function () {
-          try {
-            console.error(\\"Error\\");
-            return $Try_1_Post();
-          } catch ($boundEx) {
-            return $error($boundEx);
-          }
-        };
-
-        try {
-          return Promise.resolve(executeCommands()).then(function () {
-            try {
-              return $Try_1_Post();
-            } catch ($boundEx) {
-              return $Try_1_Catch($boundEx);
-            }
-          }, $Try_1_Catch);
-        } catch (error) {
-          $Try_1_Catch(error)
-        }
-      } else return [1];
-    }
-
-    return ($Loop_3_trampoline = function (q) {
-      while (q) {
-        if (q.then) return void q.then($Loop_3_trampoline, $error);
-
-        try {
-          if (q.pop) {
-            if (q.length) return q.pop() ? $Loop_3_exit.call(this) : q;else q = $Loop_3_step;
-          } else q = q.call(this);
-        } catch (_exception) {
-          return $error(_exception);
-        }
-      }
-    }.bind(this))($Loop_3.bind(this, void 0, [tasks[Symbol.iterator]()]));
-
-    function $Loop_3_exit() {
-      return $return();
-    }
-  });
+  }
 }"
 `;
 
