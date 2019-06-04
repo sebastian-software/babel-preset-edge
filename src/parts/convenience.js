@@ -1,5 +1,4 @@
 import { resolve as resolvePath } from "path"
-import emotionPlugin from "babel-plugin-emotion"
 
 import lodashPlugin from "babel-plugin-lodash"
 import macrosPlugin from "babel-plugin-macros"
@@ -15,9 +14,6 @@ export default function convenience(presets, plugins, options) {
 
   // Enables zero-config, importable babel plugins
   plugins.push(macrosPlugin)
-
-  // Enables processing for Emotion CSS-in-JS library
-  plugins.push([ emotionPlugin, { sourceMap: options.sourceMaps }])
 
   // Supports loading files in source folder without relative folders
   // https://github.com/tleunen/babel-plugin-module-resolver
