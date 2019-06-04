@@ -450,7 +450,7 @@ require(\\"core-js/modules/es.promise\\");
 require(\\"core-js/modules/es.string.replace\\");
 
 exports.__esModule = true;
-exports.reactIntl = exports.leanIntl = exports.views = void 0;
+exports.reactIntlData = exports.leanIntlData = exports.views = void 0;
 
 var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
 
@@ -493,9 +493,9 @@ const page = \\"About\\",
 
 });
 exports.views = views;
-const leanIntl = (0, _loadableComponents.default)({
+const leanIntlData = (0, _loadableComponents.default)({
   chunkName() {
-    return \`lean-intl-\${lang}-data\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
+    return \`lean-intl-locale-data-\${lang}\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
@@ -507,8 +507,8 @@ const leanIntl = (0, _loadableComponents.default)({
   },
 
   requireAsync: () => import(
-  /* webpackChunkName: \\"lean-intl-[request]-data\\" */
-  \`./lean-intl/\${lang}/data\`),
+  /* webpackChunkName: \\"lean-intl-locale-data-[request]\\" */
+  \`./lean-intl/locale-data/\${lang}\`),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -522,17 +522,17 @@ const leanIntl = (0, _loadableComponents.default)({
 
   resolve() {
     if (require.resolveWeak) {
-      return require.resolveWeak(\`./lean-intl/\${lang}/data\`);
+      return require.resolveWeak(\`./lean-intl/locale-data/\${lang}\`);
     }
 
-    return eval('require.resolve')(\`./lean-intl/\${lang}/data\`);
+    return eval('require.resolve')(\`./lean-intl/locale-data/\${lang}\`);
   }
 
 });
-exports.leanIntl = leanIntl;
-const reactIntl = (0, _loadableComponents.default)({
+exports.leanIntlData = leanIntlData;
+const reactIntlData = (0, _loadableComponents.default)({
   chunkName() {
-    return \`react-intl-\${lang}-data\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
+    return \`react-intl-locale-data-\${lang}\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
@@ -544,8 +544,8 @@ const reactIntl = (0, _loadableComponents.default)({
   },
 
   requireAsync: () => import(
-  /* webpackChunkName: \\"react-intl-[request]-data\\" */
-  \`./react-intl/\${lang}/data\`),
+  /* webpackChunkName: \\"react-intl-locale-data-[request]\\" */
+  \`./react-intl/locale-data/\${lang}\`),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -559,14 +559,14 @@ const reactIntl = (0, _loadableComponents.default)({
 
   resolve() {
     if (require.resolveWeak) {
-      return require.resolveWeak(\`./react-intl/\${lang}/data\`);
+      return require.resolveWeak(\`./react-intl/locale-data/\${lang}\`);
     }
 
-    return eval('require.resolve')(\`./react-intl/\${lang}/data\`);
+    return eval('require.resolve')(\`./react-intl/locale-data/\${lang}\`);
   }
 
 });
-exports.reactIntl = reactIntl;"
+exports.reactIntlData = reactIntlData;"
 `;
 
 exports[`Transpile: NodeJS v8 lodash: async 1`] = `

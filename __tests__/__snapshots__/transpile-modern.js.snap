@@ -412,9 +412,9 @@ export const views = loadable({
   }
 
 });
-export const leanIntl = loadable({
+export const leanIntlData = loadable({
   chunkName() {
-    return (\\"lean-intl-\\" + lang + \\"-data\\").replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
+    return (\\"lean-intl-locale-data-\\" + lang).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
@@ -426,8 +426,8 @@ export const leanIntl = loadable({
   },
 
   requireAsync: () => import(
-  /* webpackChunkName: \\"lean-intl-[request]-data\\" */
-  \\"./lean-intl/\\" + lang + \\"/data\\"),
+  /* webpackChunkName: \\"lean-intl-locale-data-[request]\\" */
+  \\"./lean-intl/locale-data/\\" + lang),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -441,16 +441,16 @@ export const leanIntl = loadable({
 
   resolve() {
     if (require.resolveWeak) {
-      return require.resolveWeak(\\"./lean-intl/\\" + lang + \\"/data\\");
+      return require.resolveWeak(\\"./lean-intl/locale-data/\\" + lang);
     }
 
-    return eval('require.resolve')(\\"./lean-intl/\\" + lang + \\"/data\\");
+    return eval('require.resolve')(\\"./lean-intl/locale-data/\\" + lang);
   }
 
 });
-export const reactIntl = loadable({
+export const reactIntlData = loadable({
   chunkName() {
-    return (\\"react-intl-\\" + lang + \\"-data\\").replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
+    return (\\"react-intl-locale-data-\\" + lang).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
@@ -462,8 +462,8 @@ export const reactIntl = loadable({
   },
 
   requireAsync: () => import(
-  /* webpackChunkName: \\"react-intl-[request]-data\\" */
-  \\"./react-intl/\\" + lang + \\"/data\\"),
+  /* webpackChunkName: \\"react-intl-locale-data-[request]\\" */
+  \\"./react-intl/locale-data/\\" + lang),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -477,10 +477,10 @@ export const reactIntl = loadable({
 
   resolve() {
     if (require.resolveWeak) {
-      return require.resolveWeak(\\"./react-intl/\\" + lang + \\"/data\\");
+      return require.resolveWeak(\\"./react-intl/locale-data/\\" + lang);
     }
 
-    return eval('require.resolve')(\\"./react-intl/\\" + lang + \\"/data\\");
+    return eval('require.resolve')(\\"./react-intl/locale-data/\\" + lang);
   }
 
 });"

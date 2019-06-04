@@ -499,9 +499,9 @@ export var views = loadable({
     return eval('require.resolve')(\\"./views/\\" + page);
   }
 });
-export var leanIntl = loadable({
+export var leanIntlData = loadable({
   chunkName: function chunkName() {
-    return (\\"lean-intl-\\" + lang + \\"-data\\").replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
+    return (\\"lean-intl-locale-data-\\" + lang).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
   isReady: function isReady() {
     if (typeof __webpack_modules__ != 'undefined') {
@@ -512,8 +512,8 @@ export var leanIntl = loadable({
   },
   requireAsync: function requireAsync() {
     return import(
-    /* webpackChunkName: \\"lean-intl-[request]-data\\" */
-    \\"./lean-intl/\\" + lang + \\"/data\\");
+    /* webpackChunkName: \\"lean-intl-locale-data-[request]\\" */
+    \\"./lean-intl/locale-data/\\" + lang);
   },
   requireSync: function requireSync(props) {
     var id = this.resolve(props);
@@ -526,15 +526,15 @@ export var leanIntl = loadable({
   },
   resolve: function resolve() {
     if (require.resolveWeak) {
-      return require.resolveWeak(\\"./lean-intl/\\" + lang + \\"/data\\");
+      return require.resolveWeak(\\"./lean-intl/locale-data/\\" + lang);
     }
 
-    return eval('require.resolve')(\\"./lean-intl/\\" + lang + \\"/data\\");
+    return eval('require.resolve')(\\"./lean-intl/locale-data/\\" + lang);
   }
 });
-export var reactIntl = loadable({
+export var reactIntlData = loadable({
   chunkName: function chunkName() {
-    return (\\"react-intl-\\" + lang + \\"-data\\").replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
+    return (\\"react-intl-locale-data-\\" + lang).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
   isReady: function isReady(props) {
     if (typeof __webpack_modules__ != 'undefined') {
@@ -545,8 +545,8 @@ export var reactIntl = loadable({
   },
   requireAsync: function requireAsync() {
     return import(
-    /* webpackChunkName: \\"react-intl-[request]-data\\" */
-    \\"./react-intl/\\" + lang + \\"/data\\");
+    /* webpackChunkName: \\"react-intl-locale-data-[request]\\" */
+    \\"./react-intl/locale-data/\\" + lang);
   },
   requireSync: function requireSync(props) {
     var id = this.resolve(props);
@@ -559,10 +559,10 @@ export var reactIntl = loadable({
   },
   resolve: function resolve() {
     if (require.resolveWeak) {
-      return require.resolveWeak(\\"./react-intl/\\" + lang + \\"/data\\");
+      return require.resolveWeak(\\"./react-intl/locale-data/\\" + lang);
     }
 
-    return eval('require.resolve')(\\"./react-intl/\\" + lang + \\"/data\\");
+    return eval('require.resolve')(\\"./react-intl/locale-data/\\" + lang);
   }
 });"
 `;
