@@ -1,0 +1,715 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transpile: NodeJS v8 alias 1`] = `
+"\\"use strict\\";
+
+require(\\"src/testonly\\");
+
+var _Button = require(\\"../../src/components/button/Button\\"),
+    _testonly = require(\\"../../src/testonly\\");
+
+(0, _testonly.logx)(_Button.Button);"
+`;
+
+exports[`Transpile: NodeJS v8 alias.tsx 1`] = `
+"\\"use strict\\";
+
+require(\\"src/testonly\\");
+
+var _Button = require(\\"../../src/components/button/Button\\"),
+    _testonly = require(\\"../../src/testonly\\");
+
+(0, _testonly.logx)(_Button.Button);"
+`;
+
+exports[`Transpile: NodeJS v8 comments 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\"),
+    _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
+
+function translate(value) {
+  return (0, _camelCase2.default)(value);
+}"
+`;
+
+exports[`Transpile: NodeJS v8 deadcode 1`] = `
+"\\"use strict\\";
+
+const STATIC = false;
+before();
+after();"
+`;
+
+exports[`Transpile: NodeJS v8 es2015: classes 1`] = `
+"\\"use strict\\";
+
+exports.__esModule = true;
+exports.Component = void 0;
+
+class Component extends Other {
+  constructor() {
+    super();
+    this.flag = true;
+  }
+
+  main() {
+    alert(this.foo);
+  }
+
+}
+
+exports.Component = Component;"
+`;
+
+exports[`Transpile: NodeJS v8 es2015: for_off 1`] = `
+"\\"use strict\\";
+
+function test() {
+  for (const taskName of tasks) {
+    try {
+      executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
+`;
+
+exports[`Transpile: NodeJS v8 es2015: generator 1`] = `
+"\\"use strict\\";
+
+function* idMaker() {
+  var index = 0;
+
+  while (true) yield index++;
+}"
+`;
+
+exports[`Transpile: NodeJS v8 es2015: set 1`] = `
+"\\"use strict\\";
+
+new Set([1, 2, 3]);"
+`;
+
+exports[`Transpile: NodeJS v8 es2016: exponentiation 1`] = `
+"\\"use strict\\";
+
+var result = 2 ** 3;"
+`;
+
+exports[`Transpile: NodeJS v8 esnext: async 1`] = `
+"\\"use strict\\";
+
+async function wait() {
+  await loadData();
+}"
+`;
+
+exports[`Transpile: NodeJS v8 esnext: async_loop 1`] = `
+"\\"use strict\\";
+
+async function executeTasks(tasks) {
+  for (const taskName of tasks) {
+    try {
+      await executeCommands();
+    } catch (error) {
+      console.error(\\"Error\\");
+    }
+  }
+}"
+`;
+
+exports[`Transpile: NodeJS v8 esnext: catch_bind 1`] = `
+"\\"use strict\\";
+
+try {
+  throw 0;
+} catch (_unused) {
+  doSomethingWhichDoesntCareAboutTheValueThrown();
+} finally {
+  doSomeCleanup();
+}"
+`;
+
+exports[`Transpile: NodeJS v8 esnext: class properties 1`] = `
+"\\"use strict\\";
+
+exports.__esModule = true;
+exports.Component = void 0;
+
+class Component {
+  constructor() {
+    this.onClick = () => {};
+  }
+
+}
+
+exports.Component = Component;"
+`;
+
+exports[`Transpile: NodeJS v8 esnext: decorators 1`] = `
+"\\"use strict\\";
+
+var _class;
+
+let MyClass = annotation(_class = class MyClass {}) || _class;
+
+function annotation(target) {
+  target.annotated = true;
+}"
+`;
+
+exports[`Transpile: NodeJS v8 esnext: dynamic import 1`] = `
+"\\"use strict\\";
+
+import(
+/*webpackChunkName:'lodash-wBYk8'*/
+\\"lodash\\").then(lodash => {
+  console.log(lodash.camelCase(\\"hello world\\"));
+});"
+`;
+
+exports[`Transpile: NodeJS v8 esnext: object spread 1`] = `
+"\\"use strict\\";
+
+let original = {
+  bar: 10
+},
+    variant = Object.assign({
+  foo: 1
+}, original);"
+`;
+
+exports[`Transpile: NodeJS v8 loadable 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\");
+
+exports.__esModule = true;
+exports.Contact = exports.About = exports.Home = void 0;
+
+var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
+
+const Home = (0, _loadableComponents.default)({
+  chunkName() {
+    return \\"Home-JfPYC\\";
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"Home-JfPYC\\" */
+  \\"./views/Home\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Home\\");
+    }
+
+    return eval('require.resolve')(\\"./views/Home\\");
+  }
+
+});
+exports.Home = Home;
+const About = (0, _loadableComponents.default)({
+  chunkName() {
+    return \\"About-8yDxR\\";
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"About-8yDxR\\" */
+  \\"./views/About\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/About\\");
+    }
+
+    return eval('require.resolve')(\\"./views/About\\");
+  }
+
+});
+exports.About = About;
+const Contact = (0, _loadableComponents.default)({
+  chunkName() {
+    return \\"Contact-AIf6m\\";
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"Contact-AIf6m\\" */
+  \\"./views/Contact\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Contact\\");
+    }
+
+    return eval('require.resolve')(\\"./views/Contact\\");
+  }
+
+});
+exports.Contact = Contact;"
+`;
+
+exports[`Transpile: NodeJS v8 loadable magic-comments 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\");
+
+exports.__esModule = true;
+exports.Contact = exports.About = exports.Home = void 0;
+
+var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
+
+const Home = (0, _loadableComponents.default)({
+  chunkName() {
+    return \\"Home-JfPYC\\";
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"Home-JfPYC\\" */
+  \\"./views/Home\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Home\\");
+    }
+
+    return eval('require.resolve')(\\"./views/Home\\");
+  }
+
+});
+exports.Home = Home;
+const About = (0, _loadableComponents.default)({
+  chunkName() {
+    return \\"About\\";
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"About\\" */
+  \\"./views/About\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/About\\");
+    }
+
+    return eval('require.resolve')(\\"./views/About\\");
+  }
+
+});
+exports.About = About;
+const Contact = (0, _loadableComponents.default)({
+  chunkName() {
+    return \\"Contact-AIf6m\\";
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackMode: \\"lazy\\", webpackFoo: \\"bar\\", webpackChunkName: \\"Contact-AIf6m\\" */
+  \\"./views/Contact\\"),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\\"./views/Contact\\");
+    }
+
+    return eval('require.resolve')(\\"./views/Contact\\");
+  }
+
+});
+exports.Contact = Contact;"
+`;
+
+exports[`Transpile: NodeJS v8 loadable wildcard 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\");
+
+exports.__esModule = true;
+exports.reactIntlData = exports.leanIntlData = exports.views = void 0;
+
+var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
+
+const page = \\"About\\",
+      lang = \\"de_DE\\",
+      views = (0, _loadableComponents.default)({
+  chunkName() {
+    return \`views-\${page}\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"views-[request]\\" */
+  \`./views/\${page}\`),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\`./views/\${page}\`);
+    }
+
+    return eval('require.resolve')(\`./views/\${page}\`);
+  }
+
+});
+exports.views = views;
+const leanIntlData = (0, _loadableComponents.default)({
+  chunkName() {
+    return \`lean-intl-locale-data-\${lang}\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"lean-intl-locale-data-[request]\\" */
+  \`./lean-intl/locale-data/\${lang}\`),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\`./lean-intl/locale-data/\${lang}\`);
+    }
+
+    return eval('require.resolve')(\`./lean-intl/locale-data/\${lang}\`);
+  }
+
+});
+exports.leanIntlData = leanIntlData;
+const reactIntlData = (0, _loadableComponents.default)({
+  chunkName() {
+    return \`react-intl-locale-data-\${lang}\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
+  },
+
+  isReady(props) {
+    if (typeof __webpack_modules__ != 'undefined') {
+      return !!__webpack_modules__[this.resolve(props)];
+    }
+
+    return false;
+  },
+
+  requireAsync: () => import(
+  /* webpackChunkName: \\"react-intl-locale-data-[request]\\" */
+  \`./react-intl/locale-data/\${lang}\`),
+
+  requireSync(props) {
+    const id = this.resolve(props);
+
+    if (typeof __webpack_require__ != 'undefined') {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+
+  resolve() {
+    if (require.resolveWeak) {
+      return require.resolveWeak(\`./react-intl/locale-data/\${lang}\`);
+    }
+
+    return eval('require.resolve')(\`./react-intl/locale-data/\${lang}\`);
+  }
+
+});
+exports.reactIntlData = reactIntlData;"
+`;
+
+exports[`Transpile: NodeJS v8 lodash: async 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\"),
+    _parallel2 = _interopRequireDefault(require(\\"async/parallel\\"));
+
+(0, _parallel2.default)([]);"
+`;
+
+exports[`Transpile: NodeJS v8 lodash: lodash 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\"),
+    _camelCase2 = _interopRequireDefault(require(\\"lodash/camelCase\\"));
+
+(0, _camelCase2.default)(\\"hello world\\");"
+`;
+
+exports[`Transpile: NodeJS v8 lodash: recompose 1`] = `
+"\\"use strict\\";
+
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\"),
+    _compose2 = _interopRequireDefault(require(\\"recompose/compose\\"));
+
+(0, _compose2.default)([]);"
+`;
+
+exports[`Transpile: NodeJS v8 macro: gql 1`] = `
+"\\"use strict\\";
+
+const query = {
+  kind: \\"Document\\",
+  definitions: [{
+    kind: \\"OperationDefinition\\",
+    operation: \\"query\\",
+    name: {
+      kind: \\"Name\\",
+      value: \\"User\\"
+    },
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: {
+      kind: \\"SelectionSet\\",
+      selections: [{
+        kind: \\"Field\\",
+        name: {
+          kind: \\"Name\\",
+          value: \\"user\\"
+        },
+        arguments: [{
+          kind: \\"Argument\\",
+          name: {
+            kind: \\"Name\\",
+            value: \\"id\\"
+          },
+          value: {
+            kind: \\"IntValue\\",
+            value: \\"5\\"
+          }
+        }],
+        directives: [],
+        selectionSet: {
+          kind: \\"SelectionSet\\",
+          selections: [{
+            kind: \\"Field\\",
+            name: {
+              kind: \\"Name\\",
+              value: \\"lastName\\"
+            },
+            arguments: [],
+            directives: []
+          }, {
+            kind: \\"FragmentSpread\\",
+            name: {
+              kind: \\"Name\\",
+              value: \\"UserEntry1\\"
+            },
+            directives: []
+          }]
+        }
+      }]
+    }
+  }],
+  loc: {
+    start: 0,
+    end: 79,
+    source: {
+      body: \\"\\\\n  query User {\\\\n    user(id: 5) {\\\\n      lastName\\\\n      ...UserEntry1\\\\n    }\\\\n  }\\\\n\\",
+      name: \\"GraphQL request\\",
+      locationOffset: {
+        line: 1,
+        column: 1
+      }
+    }
+  }
+};"
+`;
+
+exports[`Transpile: NodeJS v8 macro: preval 1`] = `
+"\\"use strict\\";
+
+const one = 1;"
+`;
+
+exports[`Transpile: NodeJS v8 promise 1`] = `
+"\\"use strict\\";
+
+exports.__esModule = true;
+exports.default = _default;
+
+function _default() {
+  return new Promise(resolve => {
+    return resolve(42);
+  });
+}"
+`;
+
+exports[`Transpile: NodeJS v8 react: jsx 1`] = `
+"\\"use strict\\";
+
+function render() {
+  return React.createElement(\\"h1\\", null, \\"Hello\\");
+}"
+`;
+
+exports[`Transpile: NodeJS v8 react: jsx spread 1`] = `
+"\\"use strict\\";
+
+function render(props) {
+  return React.createElement(\\"h1\\", Object.assign({
+    className: \\"large\\"
+  }, props), \\"Hello\\");
+}"
+`;
+
+exports[`Transpile: NodeJS v8 require context 1`] = `
+"\\"use strict\\";
+
+if (process.env.NODE_ENV === \\"test\\") {
+  require('babel-plugin-require-context-hook/register')();
+}
+
+const loader = __requireContext(__dirname, __dirname, false, /\\\\.js/);"
+`;
+
+exports[`Transpile: NodeJS v8 typescript.tsx 1`] = `
+"\\"use strict\\";
+
+exports.__esModule = true;
+exports.hasPackageConfig = void 0;
+
+const hasPackageConfig = name => {
+  try {
+    return !!getPackageConfig()[name];
+  } catch (_) {
+    return false;
+  }
+};
+
+exports.hasPackageConfig = hasPackageConfig;"
+`;
