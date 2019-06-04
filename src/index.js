@@ -9,6 +9,7 @@ import importsPart from "./parts/imports"
 import proposalsPart from "./parts/proposals"
 import reactPart from "./parts/react"
 import shouldPrintComment from "./shouldPrintComment"
+import typescriptPart from "./parts/typescript"
 
 export default function buildPreset(context, input) {
   const options = getOptions(input)
@@ -37,6 +38,7 @@ export default function buildPreset(context, input) {
   compressionPart(presets, plugins, options)
   reactPart(presets, plugins, options)
   envPart(presets, plugins, options)
+  typescriptPart(presets, plugins, options)
 
   // Assemble final config
   return {
