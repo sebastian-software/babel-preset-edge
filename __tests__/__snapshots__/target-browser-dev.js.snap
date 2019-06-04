@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Target: Browser: Dev alias 1`] = `
+"import { Button } from '-/components/button/Button';
+import { logx } from '-/testonly';
+import 'src/testonly';
+logx(Button);"
+`;
+
+exports[`Target: Browser: Dev alias.tsx 1`] = `
+"import { Button } from '-/components/button/Button';
+import { logx } from '-/testonly';
+import 'src/testonly';
+logx(Button);"
+`;
+
 exports[`Target: Browser: Dev comments 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
 
@@ -590,4 +604,14 @@ exports[`Target: Browser: Dev require context 1`] = `
 }
 
 const loader = require.context(__dirname, false, /\\\\.js/);"
+`;
+
+exports[`Target: Browser: Dev typescript.tsx 1`] = `
+"export const hasPackageConfig = name => {
+  try {
+    return !!getPackageConfig()[name];
+  } catch (_) {
+    return false;
+  }
+};"
 `;

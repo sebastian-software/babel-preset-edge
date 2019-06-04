@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Transpile: Modern alias 1`] = `
+"import { Button } from '-/components/button/Button';
+import { logx } from '-/testonly';
+import 'src/testonly';
+logx(Button);"
+`;
+
+exports[`Transpile: Modern alias.tsx 1`] = `
+"import { Button } from '-/components/button/Button';
+import { logx } from '-/testonly';
+import 'src/testonly';
+logx(Button);"
+`;
+
 exports[`Transpile: Modern comments 1`] = `
 "import _camelCase from \\"lodash/camelCase\\";
 
@@ -587,4 +601,14 @@ exports[`Transpile: Modern require context 1`] = `
 }
 
 const loader = require.context(__dirname, false, /\\\\.js/);"
+`;
+
+exports[`Transpile: Modern typescript.tsx 1`] = `
+"export const hasPackageConfig = name => {
+  try {
+    return !!getPackageConfig()[name];
+  } catch (_) {
+    return false;
+  }
+};"
 `;

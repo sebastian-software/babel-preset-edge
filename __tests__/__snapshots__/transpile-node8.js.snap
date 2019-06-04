@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Transpile: NodeJS v8 alias 1`] = `
+"\\"use strict\\";
+
+require(\\"src/testonly\\");
+
+var _Button = require(\\"-/components/button/Button\\"),
+    _testonly = require(\\"-/testonly\\");
+
+(0, _testonly.logx)(_Button.Button);"
+`;
+
+exports[`Transpile: NodeJS v8 alias.tsx 1`] = `
+"\\"use strict\\";
+
+require(\\"src/testonly\\");
+
+var _Button = require(\\"-/components/button/Button\\"),
+    _testonly = require(\\"-/testonly\\");
+
+(0, _testonly.logx)(_Button.Button);"
+`;
+
 exports[`Transpile: NodeJS v8 comments 1`] = `
 "\\"use strict\\";
 
@@ -695,4 +717,21 @@ if (process.env.NODE_ENV === \\"test\\") {
 }
 
 const loader = __requireContext(__dirname, __dirname, false, /\\\\.js/);"
+`;
+
+exports[`Transpile: NodeJS v8 typescript.tsx 1`] = `
+"\\"use strict\\";
+
+exports.__esModule = true;
+exports.hasPackageConfig = void 0;
+
+const hasPackageConfig = name => {
+  try {
+    return !!getPackageConfig()[name];
+  } catch (_) {
+    return false;
+  }
+};
+
+exports.hasPackageConfig = hasPackageConfig;"
 `;

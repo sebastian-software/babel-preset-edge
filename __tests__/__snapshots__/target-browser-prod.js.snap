@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Target: Browser: Prod alias 1`] = `"import{Button}from\\"-/components/button/Button\\";import{logx}from\\"-/testonly\\";import\\"src/testonly\\";logx(Button);"`;
+
+exports[`Target: Browser: Prod alias.tsx 1`] = `"import{Button}from\\"-/components/button/Button\\";import{logx}from\\"-/testonly\\";import\\"src/testonly\\";logx(Button);"`;
+
 exports[`Target: Browser: Prod comments 1`] = `"import _camelCase from\\"lodash/camelCase\\";function translate(a){return _camelCase(a)}"`;
 
 exports[`Target: Browser: Prod deadcode 1`] = `"var STATIC=!1;!1,before(),!1,after();"`;
@@ -51,3 +55,5 @@ exports[`Target: Browser: Prod react: jsx 1`] = `"import _jsx from\\"@babel/runt
 exports[`Target: Browser: Prod react: jsx spread 1`] = `"import\\"core-js/modules/es.object.assign\\";function render(a){return React.createElement(\\"h1\\",Object.assign({className:\\"large\\"},a),\\"Hello\\")}"`;
 
 exports[`Target: Browser: Prod require context 1`] = `"\\"test\\"===process.env.NODE_ENV&&require(\\"babel-plugin-require-context-hook/register\\")();var loader=require.context(__dirname,!1,/\\\\.js/);"`;
+
+exports[`Target: Browser: Prod typescript.tsx 1`] = `"export var hasPackageConfig=function(a){try{return!!getPackageConfig()[a]}catch(a){return!1}};"`;
