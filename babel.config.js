@@ -11,7 +11,7 @@ module.exports = (api) => {
           "corejs": 3,
           "useBuiltIns": "usage",
           "targets": {
-            "node": "6.10"
+            "node": "8"
           }
         }
       ]
