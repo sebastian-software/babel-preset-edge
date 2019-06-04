@@ -14,7 +14,7 @@
     "release:major": "git push && release-it --github.release --npm.publish --non-interactive --increment major"
   },
   "engines": {
-    "node": ">=6.0.0",
+    "node": ">=8.0.0",
     "yarn": ">=1.0.0",
     "npm": ">=6.0.0"
   },
