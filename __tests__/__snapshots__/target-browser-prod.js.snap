@@ -4,8 +4,6 @@ exports[`Target: Browser: Prod comments 1`] = `"import _camelCase from\\"lodash/
 
 exports[`Target: Browser: Prod deadcode 1`] = `"var STATIC=!1;!1,before(),!1,after();"`;
 
-exports[`Target: Browser: Prod emotion 1`] = `"import _jsx from\\"@babel/runtime/helpers/esm/jsx\\";import{css as _css}from\\"emotion\\";var className=/*#__PURE__*/_css({name:\\"1vdp66k-className\\",styles:\\"color:hotpink;label:className;\\"}),_ref=/*#__PURE__*/_jsx(\\"div\\",{className:className},void 0,\\"Some hotpink text.\\");function SomeComponent(){return _ref}"`;
-
 exports[`Target: Browser: Prod es2015: classes 1`] = `"import _inheritsLoose from\\"@babel/runtime/helpers/esm/inheritsLoose\\";export var Component=/*#__PURE__*/function(a){function b(){var b;return b=a.call(this)||this,b.flag=!0,b}_inheritsLoose(b,a);var c=b.prototype;return c.main=function main(){alert(this.foo)},b}(Other);"`;
 
 exports[`Target: Browser: Prod es2015: for_off 1`] = `"import\\"core-js/modules/es.symbol\\";import\\"core-js/modules/es.symbol.description\\";import\\"core-js/modules/es.symbol.iterator\\";import\\"core-js/modules/es.array.iterator\\";import\\"core-js/modules/es.object.to-string\\";import\\"core-js/modules/es.string.iterator\\";import\\"core-js/modules/web.dom-collections.iterator\\";function test(){for(var a=tasks,b=Array.isArray(a),c=0,a=b?a:a[Symbol.iterator]();;){var d;if(b){if(c>=a.length)break;d=a[c++]}else{if(c=a.next(),c.done)break;d=c.value}try{executeCommands()}catch(a){console.error(\\"Error\\")}}}"`;
@@ -51,7 +49,5 @@ exports[`Target: Browser: Prod promise 1`] = `"import\\"core-js/modules/es.objec
 exports[`Target: Browser: Prod react: jsx 1`] = `"import _jsx from\\"@babel/runtime/helpers/esm/jsx\\";var _ref=/*#__PURE__*/_jsx(\\"h1\\",{},void 0,\\"Hello\\");function render(){return _ref}"`;
 
 exports[`Target: Browser: Prod react: jsx spread 1`] = `"import\\"core-js/modules/es.object.assign\\";function render(a){return React.createElement(\\"h1\\",Object.assign({className:\\"large\\"},a),\\"Hello\\")}"`;
-
-exports[`Target: Browser: Prod react: proptypes 1`] = `"import _jsx from\\"@babel/runtime/helpers/esm/jsx\\";import _inheritsLoose from\\"@babel/runtime/helpers/esm/inheritsLoose\\";import React from\\"react\\";var MyComponent=/*#__PURE__*/function(a){function b(){return a.apply(this,arguments)||this}_inheritsLoose(b,a);var c=b.prototype;return c.render=function render(){return _jsx(\\"div\\",{},void 0,this.props.userName)},b}(React.Component);"`;
 
 exports[`Target: Browser: Prod require context 1`] = `"\\"test\\"===process.env.NODE_ENV&&require(\\"babel-plugin-require-context-hook/register\\")();var loader=require.context(__dirname,!1,/\\\\.js/);"`;

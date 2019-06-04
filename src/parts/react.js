@@ -1,10 +1,6 @@
 import reactConstantElements from "@babel/plugin-transform-react-constant-elements"
-
 import reactInlineElementsPlugin from "@babel/plugin-transform-react-inline-elements"
-import reactIntlPlugin from "babel-plugin-react-intl"
-
 import reactPreset from "@babel/preset-react"
-import transformRemovePropTypes from "babel-plugin-transform-react-remove-prop-types"
 
 import { isDevelopment, isProduction } from "../util"
 
@@ -22,19 +18,6 @@ export default function react(presets, plugins, options) {
   ])
 
   if (isProduction(options)) {
-    // Remove unnecessary React propTypes from the production build.
-    // https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types
-    plugins.push([
-      transformRemovePropTypes,
-      {
-        mode: "remove",
-        removeImport: true
-      }
-    ])
-
-    // Cleanup descriptions for translations from compilation output
-    plugins.push(reactIntlPlugin)
-
     // Replaces the React.createElement function with one that is
     // more optimized for production.
     // NOTE: Symbol needs to be polyfilled.

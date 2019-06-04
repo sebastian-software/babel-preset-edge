@@ -14,23 +14,6 @@ before();
 after();"
 `;
 
-exports[`Transpile: ES5 emotion 1`] = `
-"import { css as _css } from \\"emotion\\";
-
-var className =
-/*#__PURE__*/
-_css({
-  name: \\"1vdp66k-className\\",
-  styles: \\"color:hotpink;label:className;\\"
-});
-
-function SomeComponent() {
-  return React.createElement(\\"div\\", {
-    className: className
-  }, \\"Some hotpink text.\\");
-}"
-`;
-
 exports[`Transpile: ES5 es2015: classes 1`] = `
 "import _inheritsLoose from \\"@babel/runtime/helpers/esm/inheritsLoose\\";
 export var Component =
@@ -680,34 +663,6 @@ function render(props) {
     className: \\"large\\"
   }, props), \\"Hello\\");
 }"
-`;
-
-exports[`Transpile: ES5 react: proptypes 1`] = `
-"import _inheritsLoose from \\"@babel/runtime/helpers/esm/inheritsLoose\\";
-import React from \\"react\\";
-import PropTypes from \\"prop-types\\";
-
-var MyComponent =
-/*#__PURE__*/
-function (_React$Component) {
-  _inheritsLoose(MyComponent, _React$Component);
-
-  function MyComponent() {
-    return _React$Component.apply(this, arguments) || this;
-  }
-
-  var _proto = MyComponent.prototype;
-
-  _proto.render = function render() {
-    return React.createElement(\\"div\\", null, this.props.userName);
-  };
-
-  return MyComponent;
-}(React.Component);
-
-MyComponent.propTypes = {
-  userName: PropTypes.string
-};"
 `;
 
 exports[`Transpile: ES5 require context 1`] = `

@@ -19,25 +19,6 @@ before();
 after();"
 `;
 
-exports[`Transpile: NodeJS v8 emotion 1`] = `
-"\\"use strict\\";
-
-var _emotion = require(\\"emotion\\");
-
-const className =
-/*#__PURE__*/
-(0, _emotion.css)({
-  name: \\"1vdp66k-className\\",
-  styles: \\"color:hotpink;label:className;\\"
-});
-
-function SomeComponent() {
-  return React.createElement(\\"div\\", {
-    className: className
-  }, \\"Some hotpink text.\\");
-}"
-`;
-
 exports[`Transpile: NodeJS v8 es2015: classes 1`] = `
 "\\"use strict\\";
 
@@ -704,25 +685,6 @@ function render(props) {
     className: \\"large\\"
   }, props), \\"Hello\\");
 }"
-`;
-
-exports[`Transpile: NodeJS v8 react: proptypes 1`] = `
-"\\"use strict\\";
-
-var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\"),
-    _react = _interopRequireDefault(require(\\"react\\")),
-    _propTypes = _interopRequireDefault(require(\\"prop-types\\"));
-
-class MyComponent extends _react.default.Component {
-  render() {
-    return _react.default.createElement(\\"div\\", null, this.props.userName);
-  }
-
-}
-
-MyComponent.propTypes = {
-  userName: _propTypes.default.string
-};"
 `;
 
 exports[`Transpile: NodeJS v8 require context 1`] = `

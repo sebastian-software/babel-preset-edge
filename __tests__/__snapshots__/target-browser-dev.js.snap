@@ -14,23 +14,6 @@ before();
 after();"
 `;
 
-exports[`Target: Browser: Dev emotion 1`] = `
-"import { css as _css } from \\"emotion\\";
-
-const className =
-/*#__PURE__*/
-_css({
-  name: \\"1vdp66k-className\\",
-  styles: \\"color:hotpink;label:className;\\"
-});
-
-function SomeComponent() {
-  return React.createElement(\\"div\\", {
-    className: className
-  }, \\"Some hotpink text.\\");
-}"
-`;
-
 exports[`Target: Browser: Dev es2015: classes 1`] = `
 "export class Component extends Other {
   constructor() {
@@ -599,22 +582,6 @@ exports[`Target: Browser: Dev react: jsx spread 1`] = `
     className: \\"large\\"
   }, props), \\"Hello\\");
 }"
-`;
-
-exports[`Target: Browser: Dev react: proptypes 1`] = `
-"import React from \\"react\\";
-import PropTypes from \\"prop-types\\";
-
-class MyComponent extends React.Component {
-  render() {
-    return React.createElement(\\"div\\", null, this.props.userName);
-  }
-
-}
-
-MyComponent.propTypes = {
-  userName: PropTypes.string
-};"
 `;
 
 exports[`Target: Browser: Dev require context 1`] = `

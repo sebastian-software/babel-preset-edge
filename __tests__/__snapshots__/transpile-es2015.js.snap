@@ -14,23 +14,6 @@ before();
 after();"
 `;
 
-exports[`Transpile: ES2015 emotion 1`] = `
-"import { css as _css } from \\"emotion\\";
-
-const className =
-/*#__PURE__*/
-_css({
-  name: \\"1vdp66k-className\\",
-  styles: \\"color:hotpink;label:className;\\"
-});
-
-function SomeComponent() {
-  return React.createElement(\\"div\\", {
-    className: className
-  }, \\"Some hotpink text.\\");
-}"
-`;
-
 exports[`Transpile: ES2015 es2015: classes 1`] = `
 "export class Component extends Other {
   constructor() {
@@ -678,22 +661,6 @@ function render(props) {
     className: \\"large\\"
   }, props), \\"Hello\\");
 }"
-`;
-
-exports[`Transpile: ES2015 react: proptypes 1`] = `
-"import React from \\"react\\";
-import PropTypes from \\"prop-types\\";
-
-class MyComponent extends React.Component {
-  render() {
-    return React.createElement(\\"div\\", null, this.props.userName);
-  }
-
-}
-
-MyComponent.propTypes = {
-  userName: PropTypes.string
-};"
 `;
 
 exports[`Transpile: ES2015 require context 1`] = `
