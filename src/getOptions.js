@@ -37,13 +37,13 @@ export default function getOptions(input = {}) {
   }
 
   if (output.target === "auto") {
-    if (/\btest\b/.test(output.env)) {
+    if ((/\btest\b/).test(output.env)) {
       output.target = "node"
     }
-    else if (/\bnode\b/.test(output.env)) {
+    else if ((/\bnode\b/).test(output.env)) {
       output.target = "node"
     }
-    else if (/\bbrowser\b/.test(output.env)) {
+    else if ((/\bbrowser\b/).test(output.env)) {
       output.target = "browser"
     }
     else {
@@ -57,7 +57,7 @@ export default function getOptions(input = {}) {
 
   // Auto select test target when running in test environment
   if (output.transpile === "auto") {
-    if (/\btest\b/.test(output.env)) {
+    if ((/\btest\b/).test(output.env)) {
       output.transpile = "current"
 
       if (output.debug) {
@@ -73,7 +73,7 @@ export default function getOptions(input = {}) {
       output.transpile = "node"
     }
 
-    else if (/\bmodern\b/.test(output.env)) {
+    else if ((/\bmodern\b/).test(output.env)) {
       output.transpile = "modern"
 
       if (output.debug) {
@@ -81,7 +81,7 @@ export default function getOptions(input = {}) {
       }
     }
 
-    else if (/\besm\b/.test(output.env)) {
+    else if ((/\besm\b/).test(output.env)) {
       output.transpile = "esm"
 
       if (output.debug) {
@@ -89,7 +89,7 @@ export default function getOptions(input = {}) {
       }
     }
 
-    else if (/\bes2015\b/.test(output.env)) {
+    else if ((/\bes2015\b/).test(output.env)) {
       output.transpile = "es2015"
 
       if (output.debug) {
