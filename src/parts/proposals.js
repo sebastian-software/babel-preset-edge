@@ -14,7 +14,10 @@ export default function proposals(presets, plugins, options) {
 
   // Support for Object Rest Spread `...` operator in objects.
   // { ...todo, completed: true }
-  plugins.push([ objectRestSpreadPlugin, { corejs: 3, useBuiltIns: true, loose: options.looseMode }])
+  plugins.push([
+    objectRestSpreadPlugin,
+    { corejs: 3, useBuiltIns: true, loose: options.looseMode }
+  ])
 
   // Enables the catch block to execute whether or not an argument
   // is passed to the catch statement

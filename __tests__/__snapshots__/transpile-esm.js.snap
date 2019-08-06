@@ -3,7 +3,7 @@
 exports[`Transpile: ESM alias 1`] = `
 "import { Button } from \\"../../src/components/button/Button\\";
 import { logx } from \\"../../src/testonly\\";
-import 'src/testonly';
+import \\"src/testonly\\";
 logx(Button);"
 `;
 
@@ -203,7 +203,7 @@ exports[`Transpile: ESM esnext: object spread 1`] = `
 
 exports[`Transpile: ESM loadable 1`] = `
 "import \\"core-js/modules/es.promise\\";
-import loadable from '@loadable/component';
+import loadable from \\"@loadable/component\\";
 export var Home = loadable({
   chunkName() {
     return \\"Home-JfPYC\\";
@@ -316,7 +316,7 @@ export var Contact = loadable({
 
 exports[`Transpile: ESM loadable magic-comments 1`] = `
 "import \\"core-js/modules/es.promise\\";
-import loadable from '@loadable/component';
+import loadable from \\"@loadable/component\\";
 export var Home = loadable({
   chunkName() {
     return \\"Home-JfPYC\\";
@@ -430,7 +430,7 @@ export var Contact = loadable({
 exports[`Transpile: ESM loadable wildcard 1`] = `
 "import \\"core-js/modules/es.promise\\";
 import \\"core-js/modules/es.string.replace\\";
-import loadable from '@loadable/component';
+import loadable from \\"@loadable/component\\";
 var page = \\"About\\",
     lang = \\"de_DE\\";
 export var views = loadable({
@@ -657,7 +657,7 @@ exports[`Transpile: ESM react: jsx spread 1`] = `
 
 exports[`Transpile: ESM require context 1`] = `
 "if (process.env.NODE_ENV === \\"test\\") {
-  require('babel-plugin-require-context-hook/register')();
+  require(\\"babel-plugin-require-context-hook/register\\")();
 }
 
 var loader = require.context(__dirname, false, /\\\\.js/);"

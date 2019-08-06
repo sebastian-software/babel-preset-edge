@@ -1,4 +1,4 @@
-import loadable from '@loadable/component'
+import loadable from "@loadable/component"
 
 const page = "About"
 const lang = "de_DE"

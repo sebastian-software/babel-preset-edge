@@ -3,7 +3,7 @@
 exports[`Target: Browser: Dev alias 1`] = `
 "import { Button } from \\"../../src/components/button/Button\\";
 import { logx } from \\"../../src/testonly\\";
-import 'src/testonly';
+import \\"src/testonly\\";
 logx(Button);"
 `;
 
@@ -146,7 +146,7 @@ exports[`Target: Browser: Dev esnext: object spread 1`] = `
 
 exports[`Target: Browser: Dev loadable 1`] = `
 "import \\"core-js/modules/es.promise\\";
-import loadable from '@loadable/component';
+import loadable from \\"@loadable/component\\";
 export const Home = loadable({
   chunkName() {
     return \\"Home-JfPYC\\";
@@ -259,7 +259,7 @@ export const Contact = loadable({
 
 exports[`Target: Browser: Dev loadable magic-comments 1`] = `
 "import \\"core-js/modules/es.promise\\";
-import loadable from '@loadable/component';
+import loadable from \\"@loadable/component\\";
 export const Home = loadable({
   chunkName() {
     return \\"Home-JfPYC\\";
@@ -373,7 +373,7 @@ export const Contact = loadable({
 exports[`Target: Browser: Dev loadable wildcard 1`] = `
 "import \\"core-js/modules/es.promise\\";
 import \\"core-js/modules/es.string.replace\\";
-import loadable from '@loadable/component';
+import loadable from \\"@loadable/component\\";
 const page = \\"About\\",
       lang = \\"de_DE\\";
 export const views = loadable({
@@ -600,7 +600,7 @@ exports[`Target: Browser: Dev react: jsx spread 1`] = `
 
 exports[`Target: Browser: Dev require context 1`] = `
 "if (process.env.NODE_ENV === \\"test\\") {
-  require('babel-plugin-require-context-hook/register')();
+  require(\\"babel-plugin-require-context-hook/register\\")();
 }
 
 const loader = require.context(__dirname, false, /\\\\.js/);"

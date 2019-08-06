@@ -3,27 +3,27 @@ module.exports = (api) => {
   const env = api.env()
 
   return {
-    "presets": [
+    presets: [
       [
         "@babel/preset-env",
         {
-          "modules": env === "test" ? "commonjs" : false,
-          "corejs": 3,
-          "useBuiltIns": "usage",
-          "targets": {
-            "node": "8"
+          modules: env === "test" ? "commonjs" : false,
+          corejs: 3,
+          useBuiltIns: "usage",
+          targets: {
+            node: "8"
           }
         }
       ]
     ],
-    "plugins": [
+    plugins: [
       [
         "@babel/plugin-transform-runtime",
         {
-          "corejs": false,
-          "helpers": true,
-          "regenerator": false,
-          "useESModules": false
+          corejs: false,
+          helpers: true,
+          regenerator: false,
+          useESModules: false
         }
       ],
       "@babel/plugin-proposal-object-rest-spread"

@@ -12,7 +12,7 @@ export default function env(presets, plugins, options) {
 
   // Inspired by CreateReactApp, we disable this minor support as it
   // is documented to "make all code slower".
-  exclude.push('transform-typeof-symbol')
+  exclude.push("transform-typeof-symbol")
 
   // Exclude all es2015 features which are supported by the default es2015 babel preset.
   // This targets all es2015-capable browsers and engines.

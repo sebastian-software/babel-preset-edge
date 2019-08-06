@@ -3,7 +3,7 @@
 exports[`Transpile: ES5 alias 1`] = `
 "import { Button } from \\"../../src/components/button/Button\\";
 import { logx } from \\"../../src/testonly\\";
-import 'src/testonly';
+import \\"src/testonly\\";
 logx(Button);"
 `;
 
@@ -248,7 +248,7 @@ var original = {
 exports[`Transpile: ES5 loadable 1`] = `
 "import \\"core-js/modules/es.object.to-string\\";
 import \\"core-js/modules/es.promise\\";
-import loadable from '@loadable/component';
+import loadable from \\"@loadable/component\\";
 export var Home = loadable({
   chunkName: function chunkName() {
     return \\"Home-JfPYC\\";
@@ -353,7 +353,7 @@ export var Contact = loadable({
 exports[`Transpile: ES5 loadable magic-comments 1`] = `
 "import \\"core-js/modules/es.object.to-string\\";
 import \\"core-js/modules/es.promise\\";
-import loadable from '@loadable/component';
+import loadable from \\"@loadable/component\\";
 export var Home = loadable({
   chunkName: function chunkName() {
     return \\"Home-JfPYC\\";
@@ -460,7 +460,7 @@ exports[`Transpile: ES5 loadable wildcard 1`] = `
 import \\"core-js/modules/es.promise\\";
 import \\"core-js/modules/es.regexp.exec\\";
 import \\"core-js/modules/es.string.replace\\";
-import loadable from '@loadable/component';
+import loadable from \\"@loadable/component\\";
 var page = \\"About\\",
     lang = \\"de_DE\\";
 export var views = loadable({
@@ -681,7 +681,7 @@ function render(props) {
 
 exports[`Transpile: ES5 require context 1`] = `
 "if (process.env.NODE_ENV === \\"test\\") {
-  require('babel-plugin-require-context-hook/register')();
+  require(\\"babel-plugin-require-context-hook/register\\")();
 }
 
 var loader = require.context(__dirname, false, /\\\\.js/);"

@@ -1,7 +1,7 @@
 import defaults from "./defaults"
 import { isProduction } from "./util"
 
-/* eslint-disable complexity, immutable/no-mutation */
+/* eslint-disable complexity */
 export default function getOptions(input = {}) {
   // These are the final options we use later on.
   const output = { ...defaults, ...input }
@@ -39,14 +39,11 @@ export default function getOptions(input = {}) {
   if (output.target === "auto") {
     if ((/\btest\b/).test(output.env)) {
       output.target = "node"
-    }
-    else if ((/\bnode\b/).test(output.env)) {
+    } else if ((/\bnode\b/).test(output.env)) {
       output.target = "node"
-    }
-    else if ((/\bbrowser\b/).test(output.env)) {
+    } else if ((/\bbrowser\b/).test(output.env)) {
       output.target = "browser"
-    }
-    else {
+    } else {
       output.target = "universal"
     }
   }
@@ -63,41 +60,29 @@ export default function getOptions(input = {}) {
       if (output.debug) {
         console.log("- Selecting `transpile: current` based on environment.")
       }
-    }
-
-    else if (output.target === "browser") {
+    } else if (output.target === "browser") {
       output.transpile = "browser"
-    }
-
-    else if (output.target === "node") {
+    } else if (output.target === "node") {
       output.transpile = "node"
-    }
-
-    else if ((/\bmodern\b/).test(output.env)) {
+    } else if ((/\bmodern\b/).test(output.env)) {
       output.transpile = "modern"
 
       if (output.debug) {
         console.log("- Selected 'modern' transpile based on ENV")
       }
-    }
-
-    else if ((/\besm\b/).test(output.env)) {
+    } else if ((/\besm\b/).test(output.env)) {
       output.transpile = "esm"
 
       if (output.debug) {
         console.log("- Selected 'esm' transpile based on ENV")
       }
-    }
-
-    else if ((/\bes2015\b/).test(output.env)) {
+    } else if ((/\bes2015\b/).test(output.env)) {
       output.transpile = "es2015"
 
       if (output.debug) {
         console.log("- Selected 'es2015' transpile based on ENV")
       }
-    }
-
-    else {
+    } else {
       output.transpile = "es5"
     }
   }

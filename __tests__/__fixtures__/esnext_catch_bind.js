@@ -1,7 +1,7 @@
 try {
-  throw 0;
+  throw 0
 } catch {
-  doSomethingWhichDoesntCareAboutTheValueThrown();
+  doSomethingWhichDoesntCareAboutTheValueThrown()
 } finally {
-  doSomeCleanup();
+  doSomeCleanup()
 }

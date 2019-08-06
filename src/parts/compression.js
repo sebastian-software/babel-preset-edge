@@ -71,10 +71,7 @@ export default function compression(presets, plugins, options) {
         console.log("- Output: Full Minification")
       }
     } else {
-      presets.push([
-        minifyPreset,
-        mediumCompression
-      ])
+      presets.push([ minifyPreset, mediumCompression ])
 
       if (options.debug) {
         console.log("- Output: Medium Compression")
@@ -85,10 +82,7 @@ export default function compression(presets, plugins, options) {
   // Even when no compression is enabled, it makes sense to remove
   // and code paths which are clearly never executed.
   else {
-    presets.push([
-      minifyPreset,
-      lowCompression
-    ])
+    presets.push([ minifyPreset, lowCompression ])
 
     if (options.debug) {
       console.log("- Output: Low Compression")

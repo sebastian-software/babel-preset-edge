@@ -8,7 +8,7 @@ import { isProduction } from "./util"
 
 const engines = require(`${getAppRoot()}/package.json`).engines
 
-/* eslint-disable immutable/no-mutation, complexity */
+/* eslint-disable complexity */
 export default function getEnvTargets(options) {
   let envTargets = {}
 
@@ -57,7 +57,9 @@ export default function getEnvTargets(options) {
       } else if (semver.satisfies("10.13.0", engines.node)) {
         envTargets.node = "10.13.0"
       } else {
-        throw new Error(`Unable to detect NodeJS target from 'engines' configuration. NodeJS version defined: ${  engines.node}`)
+        throw new Error(`
+Unable to detect NodeJS target from 'engines' configuration.
+NodeJS version defined: ${engines.node}`)
       }
     } else {
       // We use the current LTS as default.

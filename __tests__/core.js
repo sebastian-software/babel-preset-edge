@@ -16,7 +16,7 @@ export function check(fixture, options) {
       if (error) {
         reject(error)
       } else {
-        expect(result.code.replace(process.cwd(), '~')).toMatchSnapshot()
+        expect(result.code.replace(process.cwd(), "~")).toMatchSnapshot()
         resolve()
       }
     })
