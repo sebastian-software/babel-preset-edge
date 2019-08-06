@@ -23,7 +23,7 @@ function translate(value) {
 `;
 
 exports[`Transpile: ESM deadcode 1`] = `
-"const STATIC = false;
+"var STATIC = false;
 before();
 after();"
 `;
@@ -47,7 +47,7 @@ exports[`Transpile: ESM es2015: for_off 1`] = `
 import \\"core-js/modules/web.dom-collections.iterator\\";
 
 function test() {
-  for (const taskName of tasks) {
+  for (var taskName of tasks) {
     try {
       executeCommands();
     } catch (error) {
@@ -61,7 +61,9 @@ exports[`Transpile: ESM es2015: generator 1`] = `
 "function* idMaker() {
   var index = 0;
 
-  while (true) yield index++;
+  while (true) {
+    yield index++;
+  }
 }"
 `;
 
@@ -96,22 +98,15 @@ import \\"core-js/modules/web.dom-collections.iterator\\";
 
 function executeTasks(tasks) {
   return new Promise(function ($return, $error) {
-    var $Loop_3_trampoline, $Loop_3_local;
+    var taskName,
+        $iterator_taskName_2 = [tasks[Symbol.iterator]()],
+        $Loop_3_trampoline;
 
-    function $Loop_3_step() {
-      var [taskName, $iterator_taskName_2] = $Loop_3_local();
-      return $Loop_3.bind(this, taskName, $iterator_taskName_2);
-    }
-
-    function $Loop_3(taskName, $iterator_taskName_2) {
-      $Loop_3_local = function () {
-        return [taskName, $iterator_taskName_2];
-      };
-
+    function $Loop_3() {
       if (!($iterator_taskName_2[1] = $iterator_taskName_2[0].next()).done && ((taskName = $iterator_taskName_2[1].value) || true)) {
         var $Try_1_Post = function () {
           try {
-            return $Loop_3_step;
+            return $Loop_3;
           } catch ($boundEx) {
             return $error($boundEx);
           }
@@ -145,13 +140,13 @@ function executeTasks(tasks) {
 
         try {
           if (q.pop) {
-            if (q.length) return q.pop() ? $Loop_3_exit.call(this) : q;else q = $Loop_3_step;
+            if (q.length) return q.pop() ? $Loop_3_exit.call(this) : q;else q = $Loop_3;
           } else q = q.call(this);
         } catch (_exception) {
           return $error(_exception);
         }
       }
-    }.bind(this))($Loop_3.bind(this, void 0, [tasks[Symbol.iterator]()]));
+    }.bind(this))($Loop_3);
 
     function $Loop_3_exit() {
       return $return();
@@ -180,9 +175,8 @@ exports[`Transpile: ESM esnext: class properties 1`] = `
 `;
 
 exports[`Transpile: ESM esnext: decorators 1`] = `
-"var _class;
-
-let MyClass = annotation(_class = class MyClass {}) || _class;
+"var _class,
+    MyClass = annotation(_class = class MyClass {}) || _class;
 
 function annotation(target) {
   target.annotated = true;
@@ -199,7 +193,7 @@ import(
 `;
 
 exports[`Transpile: ESM esnext: object spread 1`] = `
-"let original = {
+"var original = {
   bar: 10
 },
     variant = Object.assign({
@@ -209,8 +203,8 @@ exports[`Transpile: ESM esnext: object spread 1`] = `
 
 exports[`Transpile: ESM loadable 1`] = `
 "import \\"core-js/modules/es.promise\\";
-import loadable from 'loadable-components';
-export const Home = loadable({
+import loadable from '@loadable/component';
+export var Home = loadable({
   chunkName() {
     return \\"Home-JfPYC\\";
   },
@@ -228,7 +222,7 @@ export const Home = loadable({
   \\"./views/Home\\"),
 
   requireSync(props) {
-    const id = this.resolve(props);
+    var id = this.resolve(props);
 
     if (typeof __webpack_require__ != 'undefined') {
       return __webpack_require__(id);
@@ -246,7 +240,7 @@ export const Home = loadable({
   }
 
 });
-export const About = loadable({
+export var About = loadable({
   chunkName() {
     return \\"About-8yDxR\\";
   },
@@ -264,7 +258,7 @@ export const About = loadable({
   \\"./views/About\\"),
 
   requireSync(props) {
-    const id = this.resolve(props);
+    var id = this.resolve(props);
 
     if (typeof __webpack_require__ != 'undefined') {
       return __webpack_require__(id);
@@ -282,7 +276,7 @@ export const About = loadable({
   }
 
 });
-export const Contact = loadable({
+export var Contact = loadable({
   chunkName() {
     return \\"Contact-AIf6m\\";
   },
@@ -300,7 +294,7 @@ export const Contact = loadable({
   \\"./views/Contact\\"),
 
   requireSync(props) {
-    const id = this.resolve(props);
+    var id = this.resolve(props);
 
     if (typeof __webpack_require__ != 'undefined') {
       return __webpack_require__(id);
@@ -322,8 +316,8 @@ export const Contact = loadable({
 
 exports[`Transpile: ESM loadable magic-comments 1`] = `
 "import \\"core-js/modules/es.promise\\";
-import loadable from 'loadable-components';
-export const Home = loadable({
+import loadable from '@loadable/component';
+export var Home = loadable({
   chunkName() {
     return \\"Home-JfPYC\\";
   },
@@ -341,7 +335,7 @@ export const Home = loadable({
   \\"./views/Home\\"),
 
   requireSync(props) {
-    const id = this.resolve(props);
+    var id = this.resolve(props);
 
     if (typeof __webpack_require__ != 'undefined') {
       return __webpack_require__(id);
@@ -359,7 +353,7 @@ export const Home = loadable({
   }
 
 });
-export const About = loadable({
+export var About = loadable({
   chunkName() {
     return \\"About\\";
   },
@@ -377,7 +371,7 @@ export const About = loadable({
   \\"./views/About\\"),
 
   requireSync(props) {
-    const id = this.resolve(props);
+    var id = this.resolve(props);
 
     if (typeof __webpack_require__ != 'undefined') {
       return __webpack_require__(id);
@@ -395,7 +389,7 @@ export const About = loadable({
   }
 
 });
-export const Contact = loadable({
+export var Contact = loadable({
   chunkName() {
     return \\"Contact-AIf6m\\";
   },
@@ -413,7 +407,7 @@ export const Contact = loadable({
   \\"./views/Contact\\"),
 
   requireSync(props) {
-    const id = this.resolve(props);
+    var id = this.resolve(props);
 
     if (typeof __webpack_require__ != 'undefined') {
       return __webpack_require__(id);
@@ -436,10 +430,10 @@ export const Contact = loadable({
 exports[`Transpile: ESM loadable wildcard 1`] = `
 "import \\"core-js/modules/es.promise\\";
 import \\"core-js/modules/es.string.replace\\";
-import loadable from 'loadable-components';
-const page = \\"About\\",
-      lang = \\"de_DE\\";
-export const views = loadable({
+import loadable from '@loadable/component';
+var page = \\"About\\",
+    lang = \\"de_DE\\";
+export var views = loadable({
   chunkName() {
     return (\\"views-\\" + page).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
@@ -457,7 +451,7 @@ export const views = loadable({
   \\"./views/\\" + page),
 
   requireSync(props) {
-    const id = this.resolve(props);
+    var id = this.resolve(props);
 
     if (typeof __webpack_require__ != 'undefined') {
       return __webpack_require__(id);
@@ -475,7 +469,7 @@ export const views = loadable({
   }
 
 });
-export const leanIntlData = loadable({
+export var leanIntlData = loadable({
   chunkName() {
     return (\\"lean-intl-locale-data-\\" + lang).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
@@ -493,7 +487,7 @@ export const leanIntlData = loadable({
   \\"./lean-intl/locale-data/\\" + lang),
 
   requireSync(props) {
-    const id = this.resolve(props);
+    var id = this.resolve(props);
 
     if (typeof __webpack_require__ != 'undefined') {
       return __webpack_require__(id);
@@ -511,7 +505,7 @@ export const leanIntlData = loadable({
   }
 
 });
-export const reactIntlData = loadable({
+export var reactIntlData = loadable({
   chunkName() {
     return (\\"react-intl-locale-data-\\" + lang).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
@@ -529,7 +523,7 @@ export const reactIntlData = loadable({
   \\"./react-intl/locale-data/\\" + lang),
 
   requireSync(props) {
-    const id = this.resolve(props);
+    var id = this.resolve(props);
 
     if (typeof __webpack_require__ != 'undefined') {
       return __webpack_require__(id);
@@ -568,7 +562,7 @@ _compose([]);"
 `;
 
 exports[`Transpile: ESM macro: gql 1`] = `
-"const query = {
+"var query = {
   kind: \\"Document\\",
   definitions: [{
     kind: \\"OperationDefinition\\",
@@ -636,7 +630,7 @@ exports[`Transpile: ESM macro: gql 1`] = `
 };"
 `;
 
-exports[`Transpile: ESM macro: preval 1`] = `"const one = 1;"`;
+exports[`Transpile: ESM macro: preval 1`] = `"var one = 1;"`;
 
 exports[`Transpile: ESM promise 1`] = `
 "import \\"core-js/modules/es.promise\\";
@@ -666,11 +660,11 @@ exports[`Transpile: ESM require context 1`] = `
   require('babel-plugin-require-context-hook/register')();
 }
 
-const loader = require.context(__dirname, false, /\\\\.js/);"
+var loader = require.context(__dirname, false, /\\\\.js/);"
 `;
 
 exports[`Transpile: ESM typescript.tsx 1`] = `
-"export const hasPackageConfig = name => {
+"export var hasPackageConfig = name => {
   try {
     return !!getPackageConfig()[name];
   } catch (_) {

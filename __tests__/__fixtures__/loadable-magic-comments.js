@@ -1,4 +1,4 @@
-import loadable from 'loadable-components'
+import loadable from '@loadable/component'
 
 export const Home = loadable(() => import(/* other comment */ './views/Home'))
 export const About = loadable(() => import(/* webpackChunkName: "About" */ './views/About'))

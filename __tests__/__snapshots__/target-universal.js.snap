@@ -248,7 +248,7 @@ var original = {
 exports[`Target: Universal loadable 1`] = `
 "import \\"core-js/modules/es.object.to-string\\";
 import \\"core-js/modules/es.promise\\";
-import loadable from 'loadable-components';
+import loadable from '@loadable/component';
 export var Home = loadable({
   chunkName: function chunkName() {
     return \\"Home-JfPYC\\";
@@ -353,7 +353,7 @@ export var Contact = loadable({
 exports[`Target: Universal loadable magic-comments 1`] = `
 "import \\"core-js/modules/es.object.to-string\\";
 import \\"core-js/modules/es.promise\\";
-import loadable from 'loadable-components';
+import loadable from '@loadable/component';
 export var Home = loadable({
   chunkName: function chunkName() {
     return \\"Home-JfPYC\\";
@@ -460,7 +460,7 @@ exports[`Target: Universal loadable wildcard 1`] = `
 import \\"core-js/modules/es.promise\\";
 import \\"core-js/modules/es.regexp.exec\\";
 import \\"core-js/modules/es.string.replace\\";
-import loadable from 'loadable-components';
+import loadable from '@loadable/component';
 var page = \\"About\\",
     lang = \\"de_DE\\";
 export var views = loadable({

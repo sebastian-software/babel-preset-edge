@@ -163,9 +163,10 @@ function annotation(target) {
 exports[`Transpile: NodeJS v8 esnext: dynamic import 1`] = `
 "\\"use strict\\";
 
-import(
-/*webpackChunkName:'lodash-wBYk8'*/
-\\"lodash\\").then(lodash => {
+var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDefault\\"),
+    _interopRequireWildcard2 = _interopRequireDefault(require(\\"@babel/runtime/helpers/interopRequireWildcard\\"));
+
+Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"lodash\\"))).then(lodash => {
   console.log(lodash.camelCase(\\"hello world\\"));
 });"
 `;
@@ -189,9 +190,10 @@ var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDef
 exports.__esModule = true;
 exports.Contact = exports.About = exports.Home = void 0;
 
-var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
+var _interopRequireWildcard2 = _interopRequireDefault(require(\\"@babel/runtime/helpers/interopRequireWildcard\\")),
+    _component = _interopRequireDefault(require(\\"@loadable/component\\"));
 
-const Home = (0, _loadableComponents.default)({
+const Home = (0, _component.default)({
   chunkName() {
     return \\"Home-JfPYC\\";
   },
@@ -204,9 +206,7 @@ const Home = (0, _loadableComponents.default)({
     return false;
   },
 
-  requireAsync: () => import(
-  /* webpackChunkName: \\"Home-JfPYC\\" */
-  \\"./views/Home\\"),
+  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/Home\\"))),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -228,7 +228,7 @@ const Home = (0, _loadableComponents.default)({
 
 });
 exports.Home = Home;
-const About = (0, _loadableComponents.default)({
+const About = (0, _component.default)({
   chunkName() {
     return \\"About-8yDxR\\";
   },
@@ -241,9 +241,7 @@ const About = (0, _loadableComponents.default)({
     return false;
   },
 
-  requireAsync: () => import(
-  /* webpackChunkName: \\"About-8yDxR\\" */
-  \\"./views/About\\"),
+  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/About\\"))),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -265,7 +263,7 @@ const About = (0, _loadableComponents.default)({
 
 });
 exports.About = About;
-const Contact = (0, _loadableComponents.default)({
+const Contact = (0, _component.default)({
   chunkName() {
     return \\"Contact-AIf6m\\";
   },
@@ -278,9 +276,7 @@ const Contact = (0, _loadableComponents.default)({
     return false;
   },
 
-  requireAsync: () => import(
-  /* webpackChunkName: \\"Contact-AIf6m\\" */
-  \\"./views/Contact\\"),
+  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/Contact\\"))),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -312,9 +308,10 @@ var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDef
 exports.__esModule = true;
 exports.Contact = exports.About = exports.Home = void 0;
 
-var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
+var _interopRequireWildcard2 = _interopRequireDefault(require(\\"@babel/runtime/helpers/interopRequireWildcard\\")),
+    _component = _interopRequireDefault(require(\\"@loadable/component\\"));
 
-const Home = (0, _loadableComponents.default)({
+const Home = (0, _component.default)({
   chunkName() {
     return \\"Home-JfPYC\\";
   },
@@ -327,9 +324,7 @@ const Home = (0, _loadableComponents.default)({
     return false;
   },
 
-  requireAsync: () => import(
-  /* webpackChunkName: \\"Home-JfPYC\\" */
-  \\"./views/Home\\"),
+  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/Home\\"))),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -351,7 +346,7 @@ const Home = (0, _loadableComponents.default)({
 
 });
 exports.Home = Home;
-const About = (0, _loadableComponents.default)({
+const About = (0, _component.default)({
   chunkName() {
     return \\"About\\";
   },
@@ -364,9 +359,7 @@ const About = (0, _loadableComponents.default)({
     return false;
   },
 
-  requireAsync: () => import(
-  /* webpackChunkName: \\"About\\" */
-  \\"./views/About\\"),
+  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/About\\"))),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -388,7 +381,7 @@ const About = (0, _loadableComponents.default)({
 
 });
 exports.About = About;
-const Contact = (0, _loadableComponents.default)({
+const Contact = (0, _component.default)({
   chunkName() {
     return \\"Contact-AIf6m\\";
   },
@@ -401,9 +394,7 @@ const Contact = (0, _loadableComponents.default)({
     return false;
   },
 
-  requireAsync: () => import(
-  /* webpackMode: \\"lazy\\", webpackFoo: \\"bar\\", webpackChunkName: \\"Contact-AIf6m\\" */
-  \\"./views/Contact\\"),
+  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/Contact\\"))),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -435,11 +426,12 @@ var _interopRequireDefault = require(\\"@babel/runtime/helpers/interopRequireDef
 exports.__esModule = true;
 exports.reactIntlData = exports.leanIntlData = exports.views = void 0;
 
-var _loadableComponents = _interopRequireDefault(require(\\"loadable-components\\"));
+var _interopRequireWildcard2 = _interopRequireDefault(require(\\"@babel/runtime/helpers/interopRequireWildcard\\")),
+    _component = _interopRequireDefault(require(\\"@loadable/component\\"));
 
 const page = \\"About\\",
       lang = \\"de_DE\\",
-      views = (0, _loadableComponents.default)({
+      views = (0, _component.default)({
   chunkName() {
     return \`views-\${page}\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
@@ -452,9 +444,7 @@ const page = \\"About\\",
     return false;
   },
 
-  requireAsync: () => import(
-  /* webpackChunkName: \\"views-[request]\\" */
-  \`./views/\${page}\`),
+  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\`./views/\${page}\`))),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -476,7 +466,7 @@ const page = \\"About\\",
 
 });
 exports.views = views;
-const leanIntlData = (0, _loadableComponents.default)({
+const leanIntlData = (0, _component.default)({
   chunkName() {
     return \`lean-intl-locale-data-\${lang}\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
@@ -489,9 +479,7 @@ const leanIntlData = (0, _loadableComponents.default)({
     return false;
   },
 
-  requireAsync: () => import(
-  /* webpackChunkName: \\"lean-intl-locale-data-[request]\\" */
-  \`./lean-intl/locale-data/\${lang}\`),
+  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\`./lean-intl/locale-data/\${lang}\`))),
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -513,7 +501,7 @@ const leanIntlData = (0, _loadableComponents.default)({
 
 });
 exports.leanIntlData = leanIntlData;
-const reactIntlData = (0, _loadableComponents.default)({
+const reactIntlData = (0, _component.default)({
   chunkName() {
     return \`react-intl-locale-data-\${lang}\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
@@ -526,9 +514,7 @@ const reactIntlData = (0, _loadableComponents.default)({
     return false;
   },
 
-  requireAsync: () => import(
-  /* webpackChunkName: \\"react-intl-locale-data-[request]\\" */
-  \`./react-intl/locale-data/\${lang}\`),
+  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\`./react-intl/locale-data/\${lang}\`))),
 
   requireSync(props) {
     const id = this.resolve(props);

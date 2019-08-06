@@ -143,7 +143,7 @@ exports[`Transpile: Modern esnext: object spread 1`] = `
 
 exports[`Transpile: Modern loadable 1`] = `
 "import \\"core-js/modules/es.promise\\";
-import loadable from 'loadable-components';
+import loadable from '@loadable/component';
 export const Home = loadable({
   chunkName() {
     return \\"Home-JfPYC\\";
@@ -256,7 +256,7 @@ export const Contact = loadable({
 
 exports[`Transpile: Modern loadable magic-comments 1`] = `
 "import \\"core-js/modules/es.promise\\";
-import loadable from 'loadable-components';
+import loadable from '@loadable/component';
 export const Home = loadable({
   chunkName() {
     return \\"Home-JfPYC\\";
@@ -370,7 +370,7 @@ export const Contact = loadable({
 exports[`Transpile: Modern loadable wildcard 1`] = `
 "import \\"core-js/modules/es.promise\\";
 import \\"core-js/modules/es.string.replace\\";
-import loadable from 'loadable-components';
+import loadable from '@loadable/component';
 const page = \\"About\\",
       lang = \\"de_DE\\";
 export const views = loadable({

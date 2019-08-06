@@ -1,4 +1,4 @@
-import loadable from 'loadable-components'
+import loadable from '@loadable/component'
 
 export const Home = loadable(() => import('./views/Home'))
 export const About = loadable(() => import('./views/About'))
