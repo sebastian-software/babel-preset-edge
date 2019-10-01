@@ -5,7 +5,6 @@
   "main": "lib/index.cjs.js",
   "scripts": {
     "lint": "run-s \"lint:* {@}\" --",
-    "lint:style": "prettier --check '**/*.{js,jsx,json,md}'",
     "lint:script": "eslint '**/*.{js,jsx}'",
     "format": "prettier --write '**/*.{js,jsx,json,md}' && eslint --fix '**/*.{js,jsx}'",
     "test": "jest",
