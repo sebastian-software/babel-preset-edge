@@ -6,6 +6,7 @@ import { get as getAppRoot } from "app-root-dir"
 import modernTarget from "./modernTarget"
 import { isProduction } from "./util"
 
+// eslint-disable-next-line import/no-dynamic-require
 const engines = require(`${getAppRoot()}/package.json`).engines
 
 /* eslint-disable complexity */

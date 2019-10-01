@@ -1,4 +1,5 @@
 import { readdirSync } from "fs"
+
 import { transformFile } from "@babel/core"
 
 const FIXTURE_ROOT = "./__tests__/__fixtures__/"

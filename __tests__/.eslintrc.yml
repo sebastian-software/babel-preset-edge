@@ -1,0 +1,3 @@
+rules:
+  filenames/match-regex: off
+  unicorn/filename-case: off

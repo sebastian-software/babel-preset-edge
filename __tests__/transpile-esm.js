@@ -1,4 +1,5 @@
 import buildPreset from "../src"
+
 import { check, fixtures, titles } from "./core"
 
 describe("Transpile: ESM", () => {

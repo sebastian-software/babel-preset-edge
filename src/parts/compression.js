@@ -1,4 +1,5 @@
 import minifyPreset from "babel-preset-minify"
+
 import { isProduction } from "../util"
 
 const allDisabled = {

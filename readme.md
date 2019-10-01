@@ -7,7 +7,6 @@
 [npm]: https://www.npmjs.com/package/babel-preset-edge
 [travis]: https://travis-ci.org/sebastian-software/babel-preset-edge
 [appveyor]: https://ci.appveyor.com/project/swernerx/babel-preset-edge/branch/master
-
 [sponsor-img]: https://badgen.net/badge/Sponsored%20by/Sebastian%20Software/692446
 [deps-img]: https://badgen.net/david/dep/sebastian-software/babel-preset-edge
 [npm-downloads-img]: https://badgen.net/npm/dm/babel-preset-edge
@@ -19,6 +18,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Installation / Usage](#installation--usage)
@@ -49,17 +49,16 @@ Babel configurations start easily, but can quickly become complicated. Not to me
 - The preset builds upon [Babel-Preset-Env](https://babeljs.io/docs/en/babel-preset-env/) and automatically reads your browser list configuration. The presets and plug-ins that are used run in loose mode by default, generating **more efficient code** than would be the case in very strict mode. In practical use this mode has proven itself and is sufficient, as long as one does not do very wacky things, completely.
 - The preset also **automatically detects the NodeJS version** 🤓 based on the `engines` specification in your `package.json`.
 - It provides factory support for **React and JSX**. Through the configuration options you can also use the preset for Preact.
-- Babel also offers processing TypeScript with recent releases. This is mainly interesting for parsing and bundling and does not offer any type checks. It is way faster though than processing files with the real *typescript* package.
+- Babel also offers processing TypeScript with recent releases. This is mainly interesting for parsing and bundling and does not offer any type checks. It is way faster though than processing files with the real _typescript_ package.
 - There are a few features that are often used, but not yet quite standard. These include **object-rest-spread**, **class properties**, and **decorators**. These three are of course automatically supported by the preset.
 - There are always new ideas for language extensions. However, these are often not standard or are not even on their way to becoming standard. Here the solution of [Kent C. Dodds](https://github.com/kentcdodds) with macros is much better. Instead of completely filling the namespace with new functions, its solution provides for the import of a macro. The code is therefore also directly understandable for Linter etc. This is a much rounder solution for solutions such as optimizing deep object accesses with `idx` or parsing GraphQL queries with `gql`.
 - The preset does not offer the translation of generators nor transpilation of async/await to these. This has always been a half-baked solution with insanely complex and slow code. Furthermore, [Fast-Async](https://github.com/MatAtBread/fast-async) is a much better solution for the translation of Async/Await. 🏃 Way faster output code. And the best thing is that this only works if the target for which the translation is being made really needs it.
-- To make output code as compact as possible and imports as efficient as possible, the preset **rewrites imports from common utility libraries** such as Lodash, Rambda and Async so that they are better captured and optimally bundled by the tree shaking of the *Webpack* and *Rollup*.
-- With the built-in *modern* transpile mode, you can translate directly for the development of the software only for modern systems. That makes everything faster. And easier to debug often too. We recommend to use this mode during development.
+- To make output code as compact as possible and imports as efficient as possible, the preset **rewrites imports from common utility libraries** such as Lodash, Rambda and Async so that they are better captured and optimally bundled by the tree shaking of the _Webpack_ and _Rollup_.
+- With the built-in _modern_ transpile mode, you can translate directly for the development of the software only for modern systems. That makes everything faster. And easier to debug often too. We recommend to use this mode during development.
 - With EcmaScript modules, there is now the option in the browser to offer two differently translated versions using different script tags. With the "esm" transpile mode, this is also directly built into the preset.
 - Babel-Preset-Edge automatically detects from the `NODE_ENV` variable that it is currently being executed inside a unit test. This is used directly to translate only for the current engine.
 - Speaking of `NODE_ENV`. This can of course also be set to `production`. This already optimizes some things on the transpilation level. For example, the code minifier is more aggressive and some typical development constructs like PropTypes in React are expanded. In any case, even in development, the preset **automatically removes dead branches of code and performs other optimizations** on the fly. There is really no reason to get the complete code when publishing to NPM. There are SourceMaps and with great solutions like the [SourceMapLoader from Webpack](https://github.com/webpack-contrib/source-map-loader) we can even look right through the sources.
 - And last but not least: We have built tests into the preset - of course - and can thus ensure to some extent that by updating the individual parts the whole thing continues to work. Who makes serious regression tests of the transpiler within their own application?
-
 
 ## Installation / Usage
 
@@ -84,7 +83,6 @@ and this is how your `.babelrc` looks afterwards:
 
 Note: As you can see you need both `core-js` (Required Polyfills) and `@babel/runtime` (Babel Helpers e.g. `inherits` for ES5 classes) for correctly supporting the generated code. These are real dependencies, not just dev-dependencies of your distribution code.
 
-
 ## Options
 
 ### Targets
@@ -104,9 +102,6 @@ When setting the target to `browser` your build requirements will match the `bro
 #### Node Target
 
 This uses the `engines/node` field from `package.json` to automatically bundle your code in a way that it matches the capabilities of the specified NodeJS version.
-
-
-
 
 ### Transpilation
 
@@ -146,8 +141,6 @@ const modernTarget = {
 Using this setting is ideal during development to reduce overall amount of transpilation
 to a useful minimum to test with pretty up-to-date environments and browsers. It allows you to
 directly benefit from a lot of new features directly built-into Node v8 for example.
-
-
 
 ### Defaults + Other Options
 
@@ -229,14 +222,11 @@ compression: true,
 minified: null
 ```
 
-
-
 ## Edge Platform
 
 <img src="https://cdn.rawgit.com/sebastian-software/sebastian-software-brand/8d89acc9/edge.svg" width="250"/>
 
 If you like this: This preset is part of a larger whole. We use it primarily within our [Edge Platform](https://github.com/sebastian-software/edge). If you are also developing React applications, have a look around. There are not only Babel configurations, but also Jest-presets, webpack tools, libraries to improve the localization possibilities in React, helpful extensions for the Express Server and more. We design this, of course, for optimal interaction. However, most solutions can also be used individually.
-
 
 ## License
 
