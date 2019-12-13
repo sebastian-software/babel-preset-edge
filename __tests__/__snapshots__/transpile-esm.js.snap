@@ -193,7 +193,8 @@ import(
 `;
 
 exports[`Transpile: ESM esnext: object spread 1`] = `
-"var original = {
+"import \\"core-js/modules/es.object.assign\\";
+var original = {
   bar: 10
 },
     variant = Object.assign({
@@ -205,21 +206,35 @@ exports[`Transpile: ESM loadable 1`] = `
 "import \\"core-js/modules/es.promise\\";
 import loadable from \\"@loadable/component\\";
 export var Home = loadable({
+  resolved: {},
+
   chunkName() {
     return \\"Home-JfPYC\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"Home-JfPYC\\" */
   \\"./views/Home\\"),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     var id = this.resolve(props);
@@ -241,21 +256,35 @@ export var Home = loadable({
 
 });
 export var About = loadable({
+  resolved: {},
+
   chunkName() {
     return \\"About-8yDxR\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"About-8yDxR\\" */
   \\"./views/About\\"),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     var id = this.resolve(props);
@@ -277,21 +306,35 @@ export var About = loadable({
 
 });
 export var Contact = loadable({
+  resolved: {},
+
   chunkName() {
     return \\"Contact-AIf6m\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"Contact-AIf6m\\" */
   \\"./views/Contact\\"),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     var id = this.resolve(props);
@@ -318,21 +361,35 @@ exports[`Transpile: ESM loadable magic-comments 1`] = `
 "import \\"core-js/modules/es.promise\\";
 import loadable from \\"@loadable/component\\";
 export var Home = loadable({
+  resolved: {},
+
   chunkName() {
     return \\"Home-JfPYC\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"Home-JfPYC\\" */
   \\"./views/Home\\"),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     var id = this.resolve(props);
@@ -354,21 +411,35 @@ export var Home = loadable({
 
 });
 export var About = loadable({
+  resolved: {},
+
   chunkName() {
     return \\"About\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"About\\" */
   \\"./views/About\\"),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     var id = this.resolve(props);
@@ -390,21 +461,35 @@ export var About = loadable({
 
 });
 export var Contact = loadable({
+  resolved: {},
+
   chunkName() {
     return \\"Contact-AIf6m\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackMode: \\"lazy\\", webpackFoo: \\"bar\\", webpackChunkName: \\"Contact-AIf6m\\" */
   \\"./views/Contact\\"),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     var id = this.resolve(props);
@@ -434,21 +519,35 @@ import loadable from \\"@loadable/component\\";
 var page = \\"About\\",
     lang = \\"de_DE\\";
 export var views = loadable({
+  resolved: {},
+
   chunkName() {
     return (\\"views-\\" + page).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"views-[request]\\" */
   \\"./views/\\" + page),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     var id = this.resolve(props);
@@ -470,21 +569,35 @@ export var views = loadable({
 
 });
 export var leanIntlData = loadable({
+  resolved: {},
+
   chunkName() {
     return (\\"lean-intl-locale-data-\\" + lang).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"lean-intl-locale-data-[request]\\" */
   \\"./lean-intl/locale-data/\\" + lang),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     var id = this.resolve(props);
@@ -506,21 +619,35 @@ export var leanIntlData = loadable({
 
 });
 export var reactIntlData = loadable({
+  resolved: {},
+
   chunkName() {
     return (\\"react-intl-locale-data-\\" + lang).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"react-intl-locale-data-[request]\\" */
   \\"./react-intl/locale-data/\\" + lang),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     var id = this.resolve(props);
@@ -648,7 +775,9 @@ exports[`Transpile: ESM react: jsx 1`] = `
 `;
 
 exports[`Transpile: ESM react: jsx spread 1`] = `
-"function render(props) {
+"import \\"core-js/modules/es.object.assign\\";
+
+function render(props) {
   return React.createElement(\\"h1\\", Object.assign({
     className: \\"large\\"
   }, props), \\"Hello\\");

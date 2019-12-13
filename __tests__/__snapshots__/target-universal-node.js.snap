@@ -252,19 +252,34 @@ import \\"core-js/modules/es.promise\\";
 import _interopRequireWildcard from \\"@babel/runtime/helpers/esm/interopRequireWildcard\\";
 import loadable from \\"@loadable/component\\";
 export var Home = loadable({
+  resolved: {},
   chunkName: function chunkName() {
     return \\"Home-JfPYC\\";
   },
   isReady: function isReady() {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
-  requireAsync: function requireAsync() {
+  importAsync: function importAsync() {
     return Promise.resolve().then(function () {
       return _interopRequireWildcard(require(\\"./views/Home\\"));
+    });
+  },
+  requireAsync: function requireAsync() {
+    var _this = this,
+        key = this.resolve(props);
+
+    this.resolved[key] = false;
+    return this.importAsync(props).then(function (resolved) {
+      _this.resolved[key] = true;
+      return resolved;
     });
   },
   requireSync: function requireSync(props) {
@@ -285,19 +300,34 @@ export var Home = loadable({
   }
 });
 export var About = loadable({
+  resolved: {},
   chunkName: function chunkName() {
     return \\"About-8yDxR\\";
   },
   isReady: function isReady() {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
-  requireAsync: function requireAsync() {
+  importAsync: function importAsync() {
     return Promise.resolve().then(function () {
       return _interopRequireWildcard(require(\\"./views/About\\"));
+    });
+  },
+  requireAsync: function requireAsync() {
+    var _this = this,
+        key = this.resolve(props);
+
+    this.resolved[key] = false;
+    return this.importAsync(props).then(function (resolved) {
+      _this.resolved[key] = true;
+      return resolved;
     });
   },
   requireSync: function requireSync(props) {
@@ -318,19 +348,34 @@ export var About = loadable({
   }
 });
 export var Contact = loadable({
+  resolved: {},
   chunkName: function chunkName() {
     return \\"Contact-AIf6m\\";
   },
-  isReady: function isReady(props) {
+  isReady: function isReady() {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
-  requireAsync: function requireAsync() {
+  importAsync: function importAsync() {
     return Promise.resolve().then(function () {
       return _interopRequireWildcard(require(\\"./views/Contact\\"));
+    });
+  },
+  requireAsync: function requireAsync(props) {
+    var _this = this,
+        key = this.resolve(props);
+
+    this.resolved[key] = false;
+    return this.importAsync(props).then(function (resolved) {
+      _this.resolved[key] = true;
+      return resolved;
     });
   },
   requireSync: function requireSync(props) {
@@ -358,19 +403,34 @@ import \\"core-js/modules/es.promise\\";
 import _interopRequireWildcard from \\"@babel/runtime/helpers/esm/interopRequireWildcard\\";
 import loadable from \\"@loadable/component\\";
 export var Home = loadable({
+  resolved: {},
   chunkName: function chunkName() {
     return \\"Home-JfPYC\\";
   },
   isReady: function isReady() {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
-  requireAsync: function requireAsync() {
+  importAsync: function importAsync() {
     return Promise.resolve().then(function () {
       return _interopRequireWildcard(require(\\"./views/Home\\"));
+    });
+  },
+  requireAsync: function requireAsync() {
+    var _this = this,
+        key = this.resolve(props);
+
+    this.resolved[key] = false;
+    return this.importAsync(props).then(function (resolved) {
+      _this.resolved[key] = true;
+      return resolved;
     });
   },
   requireSync: function requireSync(props) {
@@ -391,19 +451,34 @@ export var Home = loadable({
   }
 });
 export var About = loadable({
+  resolved: {},
   chunkName: function chunkName() {
     return \\"About\\";
   },
   isReady: function isReady() {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
-  requireAsync: function requireAsync() {
+  importAsync: function importAsync() {
     return Promise.resolve().then(function () {
       return _interopRequireWildcard(require(\\"./views/About\\"));
+    });
+  },
+  requireAsync: function requireAsync() {
+    var _this = this,
+        key = this.resolve(props);
+
+    this.resolved[key] = false;
+    return this.importAsync(props).then(function (resolved) {
+      _this.resolved[key] = true;
+      return resolved;
     });
   },
   requireSync: function requireSync(props) {
@@ -424,19 +499,34 @@ export var About = loadable({
   }
 });
 export var Contact = loadable({
+  resolved: {},
   chunkName: function chunkName() {
     return \\"Contact-AIf6m\\";
   },
   isReady: function isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
-  requireAsync: function requireAsync() {
+  importAsync: function importAsync() {
     return Promise.resolve().then(function () {
       return _interopRequireWildcard(require(\\"./views/Contact\\"));
+    });
+  },
+  requireAsync: function requireAsync(props) {
+    var _this = this,
+        key = this.resolve(props);
+
+    this.resolved[key] = false;
+    return this.importAsync(props).then(function (resolved) {
+      _this.resolved[key] = true;
+      return resolved;
     });
   },
   requireSync: function requireSync(props) {
@@ -468,19 +558,34 @@ import loadable from \\"@loadable/component\\";
 var page = \\"About\\",
     lang = \\"de_DE\\";
 export var views = loadable({
+  resolved: {},
   chunkName: function chunkName() {
     return (\\"views-\\" + page).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
   isReady: function isReady() {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
-  requireAsync: function requireAsync() {
+  importAsync: function importAsync() {
     return Promise.resolve().then(function () {
       return _interopRequireWildcard(require(\\"./views/\\" + page));
+    });
+  },
+  requireAsync: function requireAsync() {
+    var _this = this,
+        key = this.resolve(props);
+
+    this.resolved[key] = false;
+    return this.importAsync(props).then(function (resolved) {
+      _this.resolved[key] = true;
+      return resolved;
     });
   },
   requireSync: function requireSync(props) {
@@ -501,19 +606,34 @@ export var views = loadable({
   }
 });
 export var leanIntlData = loadable({
+  resolved: {},
   chunkName: function chunkName() {
     return (\\"lean-intl-locale-data-\\" + lang).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
   isReady: function isReady() {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
-  requireAsync: function requireAsync() {
+  importAsync: function importAsync() {
     return Promise.resolve().then(function () {
       return _interopRequireWildcard(require(\\"./lean-intl/locale-data/\\" + lang));
+    });
+  },
+  requireAsync: function requireAsync() {
+    var _this = this,
+        key = this.resolve(props);
+
+    this.resolved[key] = false;
+    return this.importAsync(props).then(function (resolved) {
+      _this.resolved[key] = true;
+      return resolved;
     });
   },
   requireSync: function requireSync(props) {
@@ -534,19 +654,34 @@ export var leanIntlData = loadable({
   }
 });
 export var reactIntlData = loadable({
+  resolved: {},
   chunkName: function chunkName() {
     return (\\"react-intl-locale-data-\\" + lang).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
-  isReady: function isReady(props) {
+  isReady: function isReady() {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
-  requireAsync: function requireAsync() {
+  importAsync: function importAsync() {
     return Promise.resolve().then(function () {
       return _interopRequireWildcard(require(\\"./react-intl/locale-data/\\" + lang));
+    });
+  },
+  requireAsync: function requireAsync(props) {
+    var _this = this,
+        key = this.resolve(props);
+
+    this.resolved[key] = false;
+    return this.importAsync(props).then(function (resolved) {
+      _this.resolved[key] = true;
+      return resolved;
     });
   },
   requireSync: function requireSync(props) {

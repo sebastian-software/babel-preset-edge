@@ -133,7 +133,8 @@ import(
 `;
 
 exports[`Transpile: Modern esnext: object spread 1`] = `
-"let original = {
+"import \\"core-js/modules/es.object.assign\\";
+let original = {
   bar: 10
 },
     variant = Object.assign({
@@ -145,21 +146,35 @@ exports[`Transpile: Modern loadable 1`] = `
 "import \\"core-js/modules/es.promise\\";
 import loadable from \\"@loadable/component\\";
 export const Home = loadable({
+  resolved: {},
+
   chunkName() {
     return \\"Home-JfPYC\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"Home-JfPYC\\" */
   \\"./views/Home\\"),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -181,21 +196,35 @@ export const Home = loadable({
 
 });
 export const About = loadable({
+  resolved: {},
+
   chunkName() {
     return \\"About-8yDxR\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"About-8yDxR\\" */
   \\"./views/About\\"),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -217,21 +246,35 @@ export const About = loadable({
 
 });
 export const Contact = loadable({
+  resolved: {},
+
   chunkName() {
     return \\"Contact-AIf6m\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"Contact-AIf6m\\" */
   \\"./views/Contact\\"),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -258,21 +301,35 @@ exports[`Transpile: Modern loadable magic-comments 1`] = `
 "import \\"core-js/modules/es.promise\\";
 import loadable from \\"@loadable/component\\";
 export const Home = loadable({
+  resolved: {},
+
   chunkName() {
     return \\"Home-JfPYC\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"Home-JfPYC\\" */
   \\"./views/Home\\"),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -294,21 +351,35 @@ export const Home = loadable({
 
 });
 export const About = loadable({
+  resolved: {},
+
   chunkName() {
     return \\"About\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"About\\" */
   \\"./views/About\\"),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -330,21 +401,35 @@ export const About = loadable({
 
 });
 export const Contact = loadable({
+  resolved: {},
+
   chunkName() {
     return \\"Contact-AIf6m\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackMode: \\"lazy\\", webpackFoo: \\"bar\\", webpackChunkName: \\"Contact-AIf6m\\" */
   \\"./views/Contact\\"),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -374,21 +459,35 @@ import loadable from \\"@loadable/component\\";
 const page = \\"About\\",
       lang = \\"de_DE\\";
 export const views = loadable({
+  resolved: {},
+
   chunkName() {
     return (\\"views-\\" + page).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"views-[request]\\" */
   \\"./views/\\" + page),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -410,21 +509,35 @@ export const views = loadable({
 
 });
 export const leanIntlData = loadable({
+  resolved: {},
+
   chunkName() {
     return (\\"lean-intl-locale-data-\\" + lang).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"lean-intl-locale-data-[request]\\" */
   \\"./lean-intl/locale-data/\\" + lang),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -446,21 +559,35 @@ export const leanIntlData = loadable({
 
 });
 export const reactIntlData = loadable({
+  resolved: {},
+
   chunkName() {
     return (\\"react-intl-locale-data-\\" + lang).replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => import(
+  importAsync: () => import(
   /* webpackChunkName: \\"react-intl-locale-data-[request]\\" */
   \\"./react-intl/locale-data/\\" + lang),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -588,7 +715,9 @@ exports[`Transpile: Modern react: jsx 1`] = `
 `;
 
 exports[`Transpile: Modern react: jsx spread 1`] = `
-"function render(props) {
+"import \\"core-js/modules/es.object.assign\\";
+
+function render(props) {
   return React.createElement(\\"h1\\", Object.assign({
     className: \\"large\\"
   }, props), \\"Hello\\");

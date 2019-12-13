@@ -66,7 +66,9 @@ export default function compression(presets, plugins, options) {
   // Use basic compression for development/bundling and full compression for production output.
   if (options.compression) {
     if (isProduction(options)) {
-      presets.push(minifyPreset)
+      // Mangling is quite error prone... got parse/processing errors for
+      // different combinations.
+      presets.push([ minifyPreset, { mangle: false }])
 
       if (options.debug) {
         console.log("- Output: Full Minification")

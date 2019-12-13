@@ -203,19 +203,33 @@ var _interopRequireWildcard2 = _interopRequireDefault(require(\\"@babel/runtime/
     _component = _interopRequireDefault(require(\\"@loadable/component\\"));
 
 const Home = (0, _component.default)({
+  resolved: {},
+
   chunkName() {
     return \\"Home-JfPYC\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/Home\\"))),
+  importAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/Home\\"))),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -238,19 +252,33 @@ const Home = (0, _component.default)({
 });
 exports.Home = Home;
 const About = (0, _component.default)({
+  resolved: {},
+
   chunkName() {
     return \\"About-8yDxR\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/About\\"))),
+  importAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/About\\"))),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -273,19 +301,33 @@ const About = (0, _component.default)({
 });
 exports.About = About;
 const Contact = (0, _component.default)({
+  resolved: {},
+
   chunkName() {
     return \\"Contact-AIf6m\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/Contact\\"))),
+  importAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/Contact\\"))),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -323,19 +365,33 @@ var _interopRequireWildcard2 = _interopRequireDefault(require(\\"@babel/runtime/
     _component = _interopRequireDefault(require(\\"@loadable/component\\"));
 
 const Home = (0, _component.default)({
+  resolved: {},
+
   chunkName() {
     return \\"Home-JfPYC\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/Home\\"))),
+  importAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/Home\\"))),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -358,19 +414,33 @@ const Home = (0, _component.default)({
 });
 exports.Home = Home;
 const About = (0, _component.default)({
+  resolved: {},
+
   chunkName() {
     return \\"About\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/About\\"))),
+  importAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/About\\"))),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -393,19 +463,33 @@ const About = (0, _component.default)({
 });
 exports.About = About;
 const Contact = (0, _component.default)({
+  resolved: {},
+
   chunkName() {
     return \\"Contact-AIf6m\\";
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/Contact\\"))),
+  importAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\\"./views/Contact\\"))),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -445,19 +529,33 @@ var _interopRequireWildcard2 = _interopRequireDefault(require(\\"@babel/runtime/
 const page = \\"About\\",
       lang = \\"de_DE\\",
       views = (0, _component.default)({
+  resolved: {},
+
   chunkName() {
     return \`views-\${page}\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\`./views/\${page}\`))),
+  importAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\`./views/\${page}\`))),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -480,19 +578,33 @@ const page = \\"About\\",
 });
 exports.views = views;
 const leanIntlData = (0, _component.default)({
+  resolved: {},
+
   chunkName() {
     return \`lean-intl-locale-data-\${lang}\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\`./lean-intl/locale-data/\${lang}\`))),
+  importAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\`./lean-intl/locale-data/\${lang}\`))),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
@@ -515,19 +627,33 @@ const leanIntlData = (0, _component.default)({
 });
 exports.leanIntlData = leanIntlData;
 const reactIntlData = (0, _component.default)({
+  resolved: {},
+
   chunkName() {
     return \`react-intl-locale-data-\${lang}\`.replace(/[^a-zA-Z0-9_!§$()=\\\\-^°]+/g, \\"-\\");
   },
 
   isReady(props) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
     if (typeof __webpack_modules__ != 'undefined') {
-      return !!__webpack_modules__[this.resolve(props)];
+      return !!__webpack_modules__[key];
     }
 
     return false;
   },
 
-  requireAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\`./react-intl/locale-data/\${lang}\`))),
+  importAsync: () => Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(\`./react-intl/locale-data/\${lang}\`))),
+
+  requireAsync(props) {
+    this.resolved[key] = false;
+    return this.importAsync(props).then(resolved => {
+      this.resolved[key] = true;
+      return resolved;
+    });
+  },
 
   requireSync(props) {
     const id = this.resolve(props);
